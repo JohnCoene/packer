@@ -6,13 +6,19 @@
 \alias{watch_widget}
 \title{Build & Develop}
 \usage{
-build_widget(mode = c("production", "development", "none"))
+build_widget(
+  mode = c("production", "development", "none"),
+  verbose = interactive()
+)
 
 watch_widget()
 }
 \arguments{
 \item{mode}{The configuration mode tells webpack to use
 its built-in optimizations accordingly.}
+
+\item{verbose}{Whether to print every output (e.g.: npm console output),
+if \code{FALSE} only print minimalistic messages.}
 }
 \description{
 Build and develop the widget.

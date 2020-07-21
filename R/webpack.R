@@ -1,5 +1,5 @@
 # create webpack config
-webpack_create_config <- function(name){
+webpack_create_config <- function(name = "index.js"){
   template_path <- system.file("webpack/_webpack.config.js", package = "packer")
   template <- readLines(template_path)
 

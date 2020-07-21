@@ -10,7 +10,7 @@ copy_js_files <- function(name){
 
   # index.js
   # source template
-  path <- system.file("index.js", package = "packer")
+  path <- system.file("widgets/index.js", package = "packer")
   template <- readLines(path)
   template <- gsub("#name#", name, template)
 
