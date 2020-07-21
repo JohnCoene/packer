@@ -4,10 +4,19 @@
 \alias{scaffold_widget}
 \title{Create Package}
 \usage{
-scaffold_widget(name)
+scaffold_widget(name, edit = interactive(), verbose = FALSE)
 }
 \arguments{
 \item{name}{Name of widget, also passed to \code{\link[htmlwidgets:scaffoldWidget]{htmlwidgets::scaffoldWidget()}}.}
+
+\item{edit}{Automatically open the widget's JavaScript source files after
+creating the scaffold.}
+
+\item{verbose}{Whether to print every output (e.g.: npm console output),
+if \code{FALSE} only print minimalistic messages.}
+}
+\value{
+\code{TRUE} (invisibly) if successfully run.
 }
 \description{
 Create a package with

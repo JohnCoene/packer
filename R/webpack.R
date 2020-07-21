@@ -10,6 +10,6 @@ webpack_create_config <- function(name){
 }
 
 # install webpack as dev dependency
-webpack_install <- function(){
-  npm_run("install --save-dev webpack webpack-cli")
+webpack_install <- function(verbose = TRUE){
+  npm_run("install --save-dev webpack webpack-cli", verbose)
 }

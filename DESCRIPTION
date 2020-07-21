@@ -17,4 +17,5 @@ Imports:
     fs,
     usethis,
     jsonlite,
-    htmlwidgets
+    htmlwidgets,
+    cli

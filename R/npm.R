@@ -27,21 +27,15 @@ npm_has <- function(){
   length(npm_find()) > 0
 }
 
-# stop if npm is not found
-stopifno_npm <- function(){
-  if(!npm_has())
-    stop("Cannot find `npm`, do you have it installed?", call. = FALSE)
-}
-
 # pass args to npm
-npm_run <- function(...){
+npm_run <- function(..., verbose = TRUE){
   npm <- npm_find()
-  system2(npm, ...)
+  system2(npm, ..., stdout = verbose)
 }
 
 # convenience: init npm
-npm_init <- function(){
-  npm_run("init -y")
+npm_init <- function(verbose = TRUE){
+  npm_run("init -y", verbose)
 }
 
 # add scripts
