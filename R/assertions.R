@@ -21,7 +21,7 @@ stopif_no_package <- function(){
     stop("You must first create a package to house the widget, see `usethis::create_package`.")
 }
 
-# check if SRC present
+# check if scafolded
 stopif_no_npm_init <- function(){
   package_json <- fs::file_exists("package.json")
   src_dir <- fs::dir_exists(SRC)
@@ -30,4 +30,15 @@ stopif_no_npm_init <- function(){
   
   if(!is_pkg)
     stop("No widget scaffold, see `scaffold_widget`", call. = FALSE)
+}
+
+# stop if not golem app
+stopif_no_golem <- function(){
+  dev <- fs::dir_exists("dev")
+  config <- fs::file_exists("inst/golem-config.yml")
+
+  is_golem <- all(dev, config)
+  
+  if(!is_golem)
+    stop("Not a golem app, see `golem::create_golem`", call. = FALSE)
 }
