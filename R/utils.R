@@ -20,7 +20,7 @@ copy_js_files <- function(name){
 
   # remove existing file to avoid confusion
   existing_js <- sprintf("inst/htmlwidgets/%s.js", name)
-  file.remove(existing_js)
+  fs::file_delete(existing_js)
 
   # modules
   modules <- system.file("modules", package = "packer")

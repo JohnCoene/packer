@@ -4,6 +4,8 @@
 #' 
 #' @param name Name of widget, also passed to [htmlwidgets::scaffoldWidget()].
 #' 
+#' @examples \dontrun{scaffold_widget()}
+#' 
 #' @export
 scaffold_widget <- function(name){
   # checks

@@ -12,3 +12,7 @@ scaffold_widget(name)
 \description{
 Create a package with
 }
+\examples{
+\dontrun{scaffold_widget()}
+
+}

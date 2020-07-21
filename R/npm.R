@@ -1,12 +1,15 @@
 #' Use npm
 #' 
-#' Use a specific npm installation.
+#' By default packer looks for the npm installation using the `which` command.
+#' This function lets you override that behaviour and force a specific npm installation.
 #' 
-#' @param npm npm command to use internally.
+#' @param path Path to npm installation to use.
+#' 
+#' @examples \dontrun{use_npm("/usr/local/bin/npm")}
 #' 
 #' @export
-use_npm <- function(npm = NULL){
-  options(JS4R_NPM = npm)
+use_npm <- function(path = NULL){
+  options(JS4R_NPM = path)
   invisible()
 }
 
@@ -44,6 +47,9 @@ npm_init <- function(){
 # add scripts
 npm_add_scripts <- function(){
   package <- jsonlite::read_json("package.json")
-  package$scripts$build <- "webpack --config webpack.config.js"
+  package$scripts$none <- "webpack --config webpack.config.js --mode=none"
+  package$scripts$development <- "webpack --config webpack.config.js --mode=development"
+  package$scripts$production <- "webpack --config webpack.config.js --mode=production"
+  package$scripts$watch <- "webpack --config webpack.config.js -d --watch"
   jsonlite::write_json(package, "package.json", pretty = TRUE, auto_unbox = TRUE)
 }

@@ -4,11 +4,16 @@
 \alias{use_npm}
 \title{Use npm}
 \usage{
-use_npm(npm = NULL)
+use_npm(path = NULL)
 }
 \arguments{
-\item{npm}{npm command to use internally.}
+\item{path}{Path to npm installation to use.}
 }
 \description{
-Use a specific npm installation.
+By default packer looks for the npm installation using the \code{which} command.
+This function lets you override that behaviour and force a specific npm installation.
+}
+\examples{
+\dontrun{use_npm("/usr/local/bin/npm")}
+
 }
