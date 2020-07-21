@@ -1,0 +1,20 @@
+Package: packer
+Title: Utility Functions to Create 'JavaScript' Heavy Projects
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Utility functions to create 'JavaScript' focused projects such as 'htmlwidgets' and bring new functionalities to 'Shiny'.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1.9000
+Imports:
+    fs,
+    usethis,
+    jsonlite,
+    htmlwidgets
