@@ -2,6 +2,7 @@
 
 export(build_packer)
 export(scaffold_golem)
+export(scaffold_shiny_ext)
 export(scaffold_widget)
 export(use_npm)
 export(watch_packer)

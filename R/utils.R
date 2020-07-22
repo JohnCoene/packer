@@ -30,3 +30,10 @@ system_we <- function(results){
     cli::cli_alert_warning(results$message)
   
 }
+
+get_pkg_name <- function(){
+  desc <- readLines("DESCRIPTION")
+  pkg <- desc[grepl("^Package:", desc)]
+  pkg <- gsub("^Package: ", "", pkg)
+  trimws(pkg)
+}
