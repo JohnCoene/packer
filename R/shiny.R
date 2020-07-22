@@ -14,12 +14,12 @@ scaffold_shiny_ext <- function(){
   npm_init()
 
   # create base npm webpack files
-  cli::cli_alert_success("Creating `srcjs` directory")
   fs::dir_create(SRC)
+  cli::cli_alert_success("Created `srcjs` directory")
 
   # creating inst packge for assets
-  cli::cli_alert_success("Creating `inst/packer` directory")
   fs::dir_create("inst/packer", recurse = TRUE)
+  cli::cli_alert_success("Created `inst/packer` directory")
 
   # install dev webpack + cli
   webpack_install()
@@ -43,5 +43,5 @@ scaffold_shiny_ext <- function(){
   usethis::use_package("shiny")
 
   cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `build_packer` to bundle the JavaScript")
+  cli::cli_alert_info("See `build` to bundle the JavaScript")
 }

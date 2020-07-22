@@ -23,17 +23,22 @@ npm_find <- function(){
 }
 
 # pass args to npm
-npm_run <- function(...){
+npm_run <- function(..., capture = TRUE){
   npm <- npm_find()
 
   # if not print only warnings and errors
-  results <- tryCatch(
-    system2(npm, ..., stdout = TRUE, stderr = TRUE),
-    error = function(e) e,
-    warning = function(w) w
-  )
+  if(capture){
+    results <- tryCatch(
+      system2(npm, ..., stdout = TRUE, stderr = TRUE),
+      error = function(e) e,
+      warning = function(w) w
+    )
 
-  system_we(results)
+    system_we(results)
+  } else {
+    system2(npm, ..., stdout = FALSE)
+  }
+
 }
 
 # convenience: init npm

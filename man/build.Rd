@@ -2,13 +2,12 @@
 % Please edit documentation in R/build.R
 \name{build}
 \alias{build}
-\alias{build_packer}
-\alias{watch_packer}
+\alias{watch}
 \title{Build & Watch}
 \usage{
-build_packer(mode = c("production", "development", "none"))
+build(mode = c("production", "development", "none"))
 
-watch_packer()
+watch()
 }
 \arguments{
 \item{mode}{The configuration mode tells webpack to use
@@ -20,8 +19,8 @@ Build and watch the JavaScript.
 \section{Functions}{
 
 \itemize{
-\item \code{\link[=build_packer]{build_packer()}} - builds the JavaScript using webpack to produce the bundle in the appropriate directory.
-\item \code{\link[=watch_packer]{watch_packer()}} - watches for changes in the \code{srcjs} and rebuilds if necessary.
+\item \code{\link[=build]{build()}} - builds the JavaScript using webpack to produce the bundle in the appropriate directory.
+\item \code{\link[=watch]{watch()}} - watches for changes in the \code{srcjs} and rebuilds if necessary.
 }
 }
 

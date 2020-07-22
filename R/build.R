@@ -7,19 +7,29 @@
 #' 
 #' @section Functions:
 #' 
-#' * [build_packer()] - builds the JavaScript using webpack to produce the bundle in the appropriate directory.
-#' * [watch_packer()] - watches for changes in the `srcjs` and rebuilds if necessary.
+#' * [build()] - builds the JavaScript using webpack to produce the bundle in the appropriate directory.
+#' * [watch()] - watches for changes in the `srcjs` and rebuilds if necessary.
 #' 
 #' @examples \dontrun{watch_widget()}
 #' 
 #' @name build
 #' @export 
-build_packer <- function(mode = c("production", "development", "none")){
-  build(mode)
+build <- function(mode = c("production", "development", "none")){
+  assert_that(has_scaffold())
+
+  cli::cli_process_start("Building bundle", "Bundle built", "Failed to build bundle")
+  
+  mode <- match.arg(mode)
+  args <- sprintf("run %s", mode)
+  npm_run(args, capture = FALSE)
+
+  cli::cli_process_done()
 }
 
 #' @rdname build
 #' @export 
-watch_packer <- function(){
-  watch()
+watch <- function(){
+  assert_that(has_scaffold())
+  cli::cli_alert_warning("Watching for changes")
+  npm_run("run watch")
 }

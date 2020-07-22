@@ -11,14 +11,20 @@ pkg_file <- function(file){
 }
 
 # ignore files
-ignore_files <- function(){
-  cli::cli_alert_warning("Adding files to .gitignore and .Rbuildignore")
+ignore_files <- function(ts = FALSE){
+  cat("\n")
+  cli::cli_h2("Adding files to .gitignore and .Rbuildignore")
   usethis::use_build_ignore(SRC)
   usethis::use_build_ignore("node_modules")
   usethis::use_build_ignore("package.json")
   usethis::use_build_ignore("package-lock.json")
   usethis::use_build_ignore(WEBPACK_CONFIG)
   usethis::use_git_ignore("node_modules")
+
+  if(ts)
+    usethis::use_build_ignore("tsconfig.json")
+
+  cat("\n")
 }
 
 # prints error and warnings from system2

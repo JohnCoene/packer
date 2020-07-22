@@ -28,8 +28,8 @@ scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   scaffold_bare_widget(name)
 
   # create base npm webpack files
-  cli::cli_alert_success("Creating `srcjs` directory")
   fs::dir_create(SRC)
+  cli::cli_alert_success("Created `srcjs` directory")
 
   # init npm
   npm_init()
@@ -41,22 +41,22 @@ scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   if(ts) typescript_install()
 
   # create config file
-  widget_config(name)
+  widget_config(name, ts)
 
   # copy original file
-  widget_files(name)
+  widget_files(name, ts)
 
   # edit package.json
   npm_add_scripts()
 
   # ignore files and directories
-  ignore_files()
+  ignore_files(ts)
 
   # open files
-  widget_edit(name, edit) 
+  widget_edit(name, edit, ts) 
 
   cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `build_packer` to bundle the JavaScript")
+  cli::cli_alert_info("See `build` to bundle the JavaScript")
 
   invisible(TRUE)
 }
