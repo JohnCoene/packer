@@ -2,32 +2,32 @@
 % Please edit documentation in R/build.R
 \name{build}
 \alias{build}
-\alias{build_widget}
-\alias{watch_widget}
-\title{Build & Develop}
+\alias{build_packer}
+\alias{watch_packer}
+\title{Build & Watch}
 \usage{
-build_widget(
+build_packer(
   mode = c("production", "development", "none"),
   verbose = interactive()
 )
 
-watch_widget()
+watch_packer()
 }
 \arguments{
 \item{mode}{The configuration mode tells webpack to use
-its built-in optimizations accordingly.}
+its built-in optimisations accordingly.}
 
 \item{verbose}{Whether to print every output (e.g.: npm console output),
 if \code{FALSE} only print minimalistic messages.}
 }
 \description{
-Build and develop the widget.
+Build and watch the JavaScript.
 }
 \section{Functions}{
 
 \itemize{
-\item \code{\link[=build_widget]{build_widget()}} - builds the widget using webpack to produce the required JavaScript file in the \code{inst/htmlwidgets} directory.
-\item \code{\link[=watch_widget]{watch_widget()}} - watches for changes in the \code{srcjs} and rebuilds if necessary.
+\item \code{\link[=build_packer]{build_packer()}} - builds the JavaScript using webpack to produce the bundle in the appropriate directory.
+\item \code{\link[=watch_packer]{watch_packer()}} - watches for changes in the \code{srcjs} and rebuilds if necessary.
 }
 }
 

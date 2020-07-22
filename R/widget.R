@@ -1,6 +1,6 @@
-#' Create Package
+#' Scaffold Widget
 #' 
-#' Create a package with 
+#' Creates basic structure for a widget.
 #' 
 #' @param name Name of widget, also passed to [htmlwidgets::scaffoldWidget()].
 #' @param edit Automatically open the widget's JavaScript source files after 
@@ -8,9 +8,11 @@
 #' @param verbose Whether to print every output (e.g.: npm console output),
 #' if `FALSE` only print minimalistic messages.
 #' 
+#' @details Internally runs [htmlwidgets::scaffoldWidget()].
+#' 
 #' @examples \dontrun{scaffold_widget()}
 #' 
-#' @return \code{TRUE} (invisibly) if successfully run.
+#' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export
 scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
@@ -51,18 +53,13 @@ scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
 
   # ignore files and directories
   cli::cli_alert_success("Ignoring files")
-  usethis::use_build_ignore(SRC)
-  usethis::use_build_ignore("node_modules")
-  usethis::use_build_ignore("package.json")
-  usethis::use_build_ignore("package-lock.json")
-  usethis::use_build_ignore(WEBPACK_CONFIG)
-  usethis::use_git_ignore("node_modules")
+  ignore_files()
 
   # open files
-  edit_files(edit, name) 
+  widget_edit(name, edit) 
 
   cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `build_widget` to bundle the JavaScript")
+  cli::cli_alert_info("See `build_packer` to bundle the JavaScript")
 
   invisible(TRUE)
 }

@@ -1,31 +1,46 @@
 #' Golem
 #' 
+#' Create basic structure for golem app with JavaScript.
+#' 
+#' @inheritParams scaffold_widget
+#' 
+#' @return `TRUE` (invisibly) if successfully run.
+#' 
 #' @export
-scaffold_golem <- function(verbose){
+scaffold_golem <- function(edit = interactive(), verbose = FALSE){
   stopif_no_golem()
 
   cli::cli_h1("Scaffolding for golem")
-
-  # create base npm webpack files
-  cli::cli_alert_success("Creating `srcjs` directory")
-  fs::dir_create(SRC)
 
   # init npm
   cli::cli_alert_success("Initialiasing npm")
   npm_init(verbose)
 
   # install dev webpack + cli
-  cli::cli_alert_success("Installing dependencies")
+  cli::cli_alert_success("Installing webpack")
   webpack_install(verbose)
-
-  # create config file
-  cli::cli_alert_success("Creating webpack config file")
-  webpack_create_config()
 
   # edit package.json
   cli::cli_alert_success("Adding npm scripts")
   npm_add_scripts()
 
-  # copy golem js
+  # set up dir for golem
+  cli::cli_alert_success("Creating `srcjs`")
+  golem_files()
+
+  # create config file
+  cli::cli_alert_success("Creating webpack config file")
+  golem_config()
+
+  # edit
+  golem_edit(edit)
+
+  # ignore files and directories
+  cli::cli_alert_success("Ignoring files")
+  ignore_files()
+
+  cli::cli_alert_success("Scaffold built")
+  cli::cli_alert_info("See `build_packer` to bundle the JavaScript")
   
+  invisible(TRUE)
 }
