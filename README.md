@@ -23,11 +23,28 @@ remotes::install_github("JohnCoene/packer")
 
 ## Usage
 
-At its core packer consists of functions to scaffold R packages powered by webpack, these take the form of scaffolds which are built on top of packages. All of the functions listed below need to be run from
+At its core packer consists of functions to scaffold R packages powered by webpack, these take the form of scaffolds which are built on top of packages. All of the functions listed below need to be run from within an R package.
 
 * `scaffold_widget` - Scaffold an [htmlwidgets](http://www.htmlwidgets.org/) with webpack.
 * `scaffold_golem` - Use webpack with [golem](http://golemverse.org/).
 * `scaffold_shiny_ext` - Scaffold a shiny extension.
+
+## Example
+
+Always start from a package and run `scaffold_*` only once.
+
+```r
+usethis::create_package("usejs")
+packer::scaffold_shiny_ext()
+```
+
+Once the scaffold laid down you can either `bundle` the JavaScript or `watch` for changes as you develop it.
+
+```r
+packer::bundle()
+```
+
+You can then document and install the package to try it out.
 
 ## Inspiration
 
