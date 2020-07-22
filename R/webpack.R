@@ -1,6 +1,6 @@
 # create webpack config
-webpack_create_config <- function(name = "index.js"){
-  template_path <- system.file("webpack/_webpack.config.js", package = "packer")
+widget_config <- function(name = "index.js"){
+  template_path <- pkg_file("widget/webpack.config.js")
   template <- readLines(template_path)
 
   file_name <- sprintf("%s.js", name)

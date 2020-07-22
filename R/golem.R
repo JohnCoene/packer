@@ -27,5 +27,5 @@ scaffold_golem <- function(verbose){
   npm_add_scripts()
 
   # copy golem js
-
+  
 }

@@ -34,12 +34,12 @@ scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
   npm_init(verbose)
 
   # install dev webpack + cli
-  cli::cli_alert_success("Installing dependencies")
+  cli::cli_alert_success("Installing webpack")
   webpack_install(verbose)
 
   # create config file
   cli::cli_alert_success("Creating webpack config file")
-  webpack_create_config(name)
+  widget_config(name)
 
   # copy original file
   cli::cli_alert_success("Moving bare widget to `srcjs`")

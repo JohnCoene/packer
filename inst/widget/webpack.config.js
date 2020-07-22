@@ -5,13 +5,5 @@ module.exports = {
   output: {
     filename: '#FILE#',
     path: path.resolve(__dirname, './inst/htmlwidgets'),
-  },
-  module: {
-    rules: [
-      {
-        loader: "babel-loader",
-        exclude: /(node_modules)/
-      }
-    ]
   }
 };

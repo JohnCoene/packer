@@ -10,7 +10,7 @@ copy_js_files <- function(name){
 
   # index.js
   # source template
-  path <- system.file("widgets/index.js", package = "packer")
+  path <- pkg_file("widget/index.js")
   template <- readLines(path)
   template <- gsub("#name#", name, template)
 
@@ -23,7 +23,7 @@ copy_js_files <- function(name){
   fs::file_delete(existing_js)
 
   # modules
-  modules <- system.file("modules", package = "packer")
+  modules <- pkg_file("widget/modules")
   modules_path <- sprintf("%s/modules", SRC)
   fs::dir_copy(modules, modules_path)
 }
@@ -45,4 +45,8 @@ scaffold_bare_widget <- function(name){
   suppressMessages(
     htmlwidgets::scaffoldWidget(name, bowerPkg = NULL, edit = FALSE)
   )
+}
+
+pkg_file <- function(file){
+  system.file(file, package = "packer")
 }
