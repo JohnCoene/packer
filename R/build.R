@@ -21,7 +21,7 @@ build <- function(mode = c("production", "development", "none")){
   
   mode <- match.arg(mode)
   args <- sprintf("run %s", mode)
-  npm_run(args, capture = FALSE)
+  npm_run(args)
 
   cli::cli_process_done()
 }
