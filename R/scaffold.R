@@ -43,7 +43,7 @@ scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
 
   # copy original file
   cli::cli_alert_success("Moving bare widget to `srcjs`")
-  copy_js_files(name)
+  widget_files(name)
 
   # edit package.json
   cli::cli_alert_success("Adding npm scripts")
@@ -55,8 +55,8 @@ scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
   usethis::use_build_ignore("node_modules")
   usethis::use_build_ignore("package.json")
   usethis::use_build_ignore("package-lock.json")
-  usethis::use_git_ignore("node_modules")
   usethis::use_build_ignore(WEBPACK_CONFIG)
+  usethis::use_git_ignore("node_modules")
 
   # open files
   edit_files(edit, name) 

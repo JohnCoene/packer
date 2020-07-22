@@ -1,12 +1,12 @@
-#' Copy Original Scaffold
+#' Copy Original Widget Scaffold
 #' 
-#' Copy original scaffold into srcjs for webpack use.
+#' Copy original scaffold into srcjs directory for webpack use.
 #' 
 #' @param name Name of widget.
 #' 
 #' @noRd 
 #' @keywords internal
-copy_js_files <- function(name){
+widget_files <- function(name){
 
   # index.js
   # source template
