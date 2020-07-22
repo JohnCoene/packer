@@ -17,5 +17,5 @@ if \code{FALSE} only print minimalistic messages.}
 \code{TRUE} (invisibly) if successfully run.
 }
 \description{
-Create basic structure for golem app with JavaScript.
+Creates the basic structure for golem app with JavaScript.
 }

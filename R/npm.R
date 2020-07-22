@@ -22,11 +22,6 @@ npm_find <- function(){
   return(npm)
 }
 
-# is npm installed and can it be found?
-npm_has <- function(){
-  length(npm_find()) > 0
-}
-
 # pass args to npm
 npm_run <- function(..., verbose = TRUE){
   npm <- npm_find()

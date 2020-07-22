@@ -14,12 +14,14 @@
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
+#' @importFrom assertthat assert_that
+#' 
 #' @export
 scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
   # checks
-  stopif_no_npm()
-  stopif_no_package()
-  stopif_no_name(name)
+  assert_that(has_npm())
+  assert_that(is_package())
+  assert_that(not_missing(name))
 
   cli::cli_h1("Scaffolding widget")
 

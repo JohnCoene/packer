@@ -1,5 +1,5 @@
 build <- function(mode =  c("production", "development", "none"), verbose = FALSE){
-  stopif_no_npm_init()
+  assert_that(has_scaffold())
   
   mode <- match.arg(mode)
   args <- sprintf("run %s", mode)
@@ -7,6 +7,6 @@ build <- function(mode =  c("production", "development", "none"), verbose = FALS
 }
 
 watch <- function(){
-  stopif_no_npm_init()
+  assert_that(has_scaffold())
   npm_run("run watch")
 }

@@ -18,4 +18,5 @@ Imports:
     usethis,
     jsonlite,
     htmlwidgets,
-    cli
+    cli,
+    assertthat

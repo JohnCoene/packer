@@ -1,44 +1,53 @@
-# stop if npm is not found
-stopif_no_npm <- function(){
-  if(!npm_has())
-    stop("Cannot find `npm`, do you have it installed?", call. = FALSE)
+# is npm installed and can it be found?
+has_npm <- function(){
+  length(npm_find()) > 0
 }
 
-# stop if npm is not found
-stopif_no_name <- function(name){
-  if(missing(name))
-    stop("Missing `name`of widget", call. = FALSE)
+assertthat::on_failure(has_npm) <- function(call, env){
+  stop("Cannot find `npm`, are you sure it is installed?", call. = FALSE)
 }
 
-# check if it is a package
-stopif_no_package <- function(){
+# check that argument is not missing
+not_missing <- function(x){
+  !missing(x)
+}
+
+assertthat::on_failure(not_missing) <- function(call, env){
+  sprintf("Missing `%s`", deparse(call$x))
+}
+
+# check that it is a package
+is_package <- function(){
   desc <- fs::file_exists("DESCRIPTION")
   ns <- fs::file_exists("NAMESPACE")
 
-  is_pkg <- all(desc, ns)
-
-  if(!is_pkg)
-    stop("You must first create a package to house the widget, see `usethis::create_package`.")
+  all(desc, ns)
 }
 
-# check if scafolded
-stopif_no_npm_init <- function(){
+assertthat::on_failure(is_package) <- function(call, env){
+  stop("This function must be called from within an R package.")
+}
+
+# check that scaffold is present
+has_scaffold <- function(){
   package_json <- fs::file_exists("package.json")
   src_dir <- fs::dir_exists(SRC)
 
-  is_pkg <- all(package_json, src_dir)
-  
-  if(!is_pkg)
-    stop("No widget scaffold, see `scaffold_widget`", call. = FALSE)
+  all(package_json, src_dir)
 }
 
-# stop if not golem app
-stopif_no_golem <- function(){
+assertthat::on_failure(has_scaffold) <- function(call, env){
+  stop("No scaffold found, see the `scaffold_*` family of functions", call. = FALSE)
+}
+
+# check that it is a golem package
+is_golem <- function(){
   dev <- fs::dir_exists("dev")
   config <- fs::file_exists("inst/golem-config.yml")
 
-  is_golem <- all(dev, config)
-  
-  if(!is_golem)
-    stop("Not a golem app, see `golem::create_golem`", call. = FALSE)
+  all(dev, config)
+}
+
+assertthat::on_failure(is_golem) <- function(call, env){
+  stop("Not a golem app, see `golem::create_golem`", call. = FALSE)
 }

@@ -1,6 +1,6 @@
 #' Golem
 #' 
-#' Create basic structure for golem app with JavaScript.
+#' Creates the basic structure for golem app with JavaScript.
 #' 
 #' @inheritParams scaffold_widget
 #' 
@@ -8,7 +8,9 @@
 #' 
 #' @export
 scaffold_golem <- function(edit = interactive(), verbose = FALSE){
-  stopif_no_golem()
+  # checks
+  assert_that(has_npm())
+  assert_that(is_golem())
 
   cli::cli_h1("Scaffolding for golem")
 
