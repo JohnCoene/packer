@@ -55,7 +55,7 @@ scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   widget_edit(name, edit, ts) 
 
   cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `build` to bundle the JavaScript")
+  cli::cli_alert_info("See `bundle` to bundle the JavaScript")
 
   invisible(TRUE)
 }

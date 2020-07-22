@@ -2,10 +2,11 @@
 % Please edit documentation in R/build.R
 \name{build}
 \alias{build}
+\alias{bundle}
 \alias{watch}
-\title{Build & Watch}
+\title{bundle & Watch}
 \usage{
-build(mode = c("production", "development", "none"))
+bundle(mode = c("production", "development", "none"))
 
 watch()
 }
@@ -14,12 +15,12 @@ watch()
 its built-in optimisations accordingly.}
 }
 \description{
-Build and watch the JavaScript.
+Bundle and watch the JavaScript.
 }
 \section{Functions}{
 
 \itemize{
-\item \code{\link[=build]{build()}} - builds the JavaScript using webpack to produce the bundle in the appropriate directory.
+\item \code{\link[=bundle]{bundle()}} - bundle the JavaScript using webpack to produce the bundle in the appropriate directory.
 \item \code{\link[=watch]{watch()}} - watches for changes in the \code{srcjs} and rebuilds if necessary.
 }
 }

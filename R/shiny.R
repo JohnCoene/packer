@@ -43,5 +43,5 @@ scaffold_shiny_ext <- function(){
   usethis::use_package("shiny")
 
   cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `build` to bundle the JavaScript")
+  cli::cli_alert_info("See `bundle` to bundle the JavaScript")
 }
