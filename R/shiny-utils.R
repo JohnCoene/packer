@@ -1,3 +1,9 @@
+#' Shiny Config
+#' 
+#' Creates `webpack.config.js` file for shiny extension.
+#' 
+#' @noRd 
+#' @keywords internal
 shiny_config <- function(){
   # copy config file
   config <- pkg_file("shiny/webpack.config.js")

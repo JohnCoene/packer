@@ -13,7 +13,13 @@ use_npm <- function(path = NULL){
   invisible()
 }
 
-# return install or use
+#' Finds NPM
+#' 
+#' Returns npm command to use, either [use_npm] or otherwise uses
+#' `which` command to find installation.
+#' 
+#' @noRd
+#' @keywords internal
 npm_find <- function(){
   npm <- getOption("JS4R_NPM", NULL)
   if(is.null(npm))
@@ -22,7 +28,14 @@ npm_find <- function(){
   return(npm)
 }
 
-# pass args to npm
+#' Npm Command
+#' 
+#' Convenience function to run `npm` commands.
+#' 
+#' @param ... Passed to [system2()].
+#' 
+#' @noRd 
+#' @keywords internal
 npm_run <- function(...){
   npm <- npm_find()
 
@@ -37,13 +50,23 @@ npm_run <- function(...){
 
 }
 
-# convenience: init npm
+#' Initialise npm
+#' 
+#' Convenience to initialsie npm
+#' 
+#' @noRd 
+#' @keywords internal
 npm_init <- function(){
   npm_run("init -y")
   cli::cli_alert_success("Initialiased npm")
 }
 
-# add scripts
+#' Package Script
+#' 
+#' Adds scripts to `package.json` file.
+#' 
+#' @noRd 
+#' @keywords internal
 npm_add_scripts <- function(){
   package <- jsonlite::read_json("package.json")
   package$scripts$none <- "webpack --config webpack.config.js --mode=none"
