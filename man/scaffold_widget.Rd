@@ -11,8 +11,7 @@ scaffold_widget(name, ts = FALSE, edit = interactive())
 
 \item{ts}{Set to \code{TRUE} to use typescript.}
 
-\item{edit}{Automatically open the widget's JavaScript source files after
-creating the scaffold.}
+\item{edit}{Automatically open pertinent files.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.

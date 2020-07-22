@@ -15,7 +15,7 @@ shiny_js_files <- function(){
   name <- get_pkg_name()
 
   # read and adapt
-  index_in <- pkg_file("shiny/srcjs/index.js")
+  index_in <- pkg_file("shiny/javascript/srcjs/index.js")
   index <- readLines(index_in)
   index <- gsub("#name#", name, index)
 
@@ -24,7 +24,7 @@ shiny_js_files <- function(){
   writeLines(index, index_out)
 
   # coypy module
-  modules_in <- pkg_file("shiny/srcjs/modules")
+  modules_in <- pkg_file("shiny/javascript/srcjs/modules")
   modules_out <- sprintf("%s/modules", SRC)
   fs::dir_copy(modules_in, SRC)
 

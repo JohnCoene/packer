@@ -3,8 +3,7 @@
 #' Creates basic structure for a widget.
 #' 
 #' @param name Name of widget, also passed to [htmlwidgets::scaffoldWidget()].
-#' @param edit Automatically open the widget's JavaScript source files after 
-#' creating the scaffold.
+#' @param edit Automatically open pertinent files.
 #' @param ts Set to `TRUE` to use typescript.
 #' 
 #' @details Internally runs [htmlwidgets::scaffoldWidget()].
@@ -37,7 +36,7 @@ scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   # install dev webpack + cli
   webpack_install()
 
-  # typescript
+  # install typescript
   if(ts) typescript_install()
 
   # create config file

@@ -18,7 +18,7 @@ golem_config <- function(){
 #' @noRd 
 #' @keywords internal
 golem_files <- function(){
-  base <- pkg_file("golem/srcjs")
+  base <- pkg_file("golem/javascript/srcjs")
   fs::dir_copy(base, SRC)
   cli::cli_alert_success("Created `srcjs` directory")
 }

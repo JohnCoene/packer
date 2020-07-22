@@ -7,8 +7,7 @@
 scaffold_golem(edit = interactive())
 }
 \arguments{
-\item{edit}{Automatically open the widget's JavaScript source files after
-creating the scaffold.}
+\item{edit}{Automatically open pertinent files.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.
