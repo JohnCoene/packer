@@ -6,19 +6,13 @@
 \alias{watch_packer}
 \title{Build & Watch}
 \usage{
-build_packer(
-  mode = c("production", "development", "none"),
-  verbose = interactive()
-)
+build_packer(mode = c("production", "development", "none"))
 
 watch_packer()
 }
 \arguments{
 \item{mode}{The configuration mode tells webpack to use
 its built-in optimisations accordingly.}
-
-\item{verbose}{Whether to print every output (e.g.: npm console output),
-if \code{FALSE} only print minimalistic messages.}
 }
 \description{
 Build and watch the JavaScript.

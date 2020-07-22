@@ -5,8 +5,6 @@
 #' @param name Name of widget, also passed to [htmlwidgets::scaffoldWidget()].
 #' @param edit Automatically open the widget's JavaScript source files after 
 #' creating the scaffold.
-#' @param verbose Whether to print every output (e.g.: npm console output),
-#' if `FALSE` only print minimalistic messages.
 #' 
 #' @details Internally runs [htmlwidgets::scaffoldWidget()].
 #' 
@@ -17,7 +15,7 @@
 #' @importFrom assertthat assert_that
 #' 
 #' @export
-scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
+scaffold_widget <- function(name, edit = interactive()){
   # checks
   assert_that(has_npm())
   assert_that(is_package())
@@ -35,11 +33,11 @@ scaffold_widget <- function(name, edit = interactive(), verbose = FALSE){
 
   # init npm
   cli::cli_alert_success("Initialiasing npm")
-  npm_init(verbose)
+  npm_init()
 
   # install dev webpack + cli
   cli::cli_alert_success("Installing webpack")
-  webpack_install(verbose)
+  webpack_install()
 
   # create config file
   cli::cli_alert_success("Creating webpack config file")

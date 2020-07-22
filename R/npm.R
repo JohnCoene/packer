@@ -23,14 +23,22 @@ npm_find <- function(){
 }
 
 # pass args to npm
-npm_run <- function(..., verbose = TRUE){
+npm_run <- function(...){
   npm <- npm_find()
-  system2(npm, ..., stdout = verbose)
+
+  # if not print only warnings and errors
+  results <- tryCatch(
+    system2(npm, ..., stdout = TRUE, stderr = TRUE),
+    error = function(e) e,
+    warning = function(w) w
+  )
+
+  system_we(results)
 }
 
 # convenience: init npm
-npm_init <- function(verbose = TRUE){
-  npm_run("init -y", verbose)
+npm_init <- function(){
+  npm_run("init -y")
 }
 
 # add scripts

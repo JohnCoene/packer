@@ -10,6 +10,6 @@ widget_config <- function(name = "index.js"){
 }
 
 # install webpack as dev dependency
-webpack_install <- function(verbose = TRUE){
-  npm_run("install --save-dev webpack webpack-cli", verbose)
+webpack_install <- function(){
+  npm_run("install --save-dev webpack webpack-cli")
 }

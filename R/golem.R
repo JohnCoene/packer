@@ -7,7 +7,7 @@
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export
-scaffold_golem <- function(edit = interactive(), verbose = FALSE){
+scaffold_golem <- function(edit = interactive()){
   # checks
   assert_that(has_npm())
   assert_that(is_golem())
@@ -16,11 +16,11 @@ scaffold_golem <- function(edit = interactive(), verbose = FALSE){
 
   # init npm
   cli::cli_alert_success("Initialiasing npm")
-  npm_init(verbose)
+  npm_init()
 
   # install dev webpack + cli
   cli::cli_alert_success("Installing webpack")
-  webpack_install(verbose)
+  webpack_install()
 
   # edit package.json
   cli::cli_alert_success("Adding npm scripts")

@@ -4,14 +4,11 @@
 \alias{scaffold_golem}
 \title{Golem}
 \usage{
-scaffold_golem(edit = interactive(), verbose = FALSE)
+scaffold_golem(edit = interactive())
 }
 \arguments{
 \item{edit}{Automatically open the widget's JavaScript source files after
 creating the scaffold.}
-
-\item{verbose}{Whether to print every output (e.g.: npm console output),
-if \code{FALSE} only print minimalistic messages.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.

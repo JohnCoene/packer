@@ -2,7 +2,6 @@
 #' 
 #' Build and watch the JavaScript.
 #' 
-#' @inheritParams scaffold_widget
 #' @param mode The configuration mode tells webpack to use 
 #' its built-in optimisations accordingly.
 #' 
@@ -15,8 +14,8 @@
 #' 
 #' @name build
 #' @export 
-build_packer <- function(mode = c("production", "development", "none"), verbose = interactive()){
-  build(mode, verbose)
+build_packer <- function(mode = c("production", "development", "none")){
+  build(mode)
 }
 
 #' @rdname build
