@@ -12,6 +12,7 @@ pkg_file <- function(file){
 
 # ignore files
 ignore_files <- function(){
+  cli::cli_alert_warning("Adding files to .gitignore and .Rbuildignore")
   usethis::use_build_ignore(SRC)
   usethis::use_build_ignore("node_modules")
   usethis::use_build_ignore("package.json")
@@ -36,4 +37,18 @@ get_pkg_name <- function(){
   pkg <- desc[grepl("^Package:", desc)]
   pkg <- gsub("^Package: ", "", pkg)
   trimws(pkg)
+}
+
+# install webpack as dev dependency
+webpack_install <- function(){
+  cli::cli_process_start("Installing webpack", "Webpack installed", "Failed to install webpack")
+  tryCatch(npm_run("install --save-dev webpack webpack-cli"), error = function(e) cli::cli_process_failed())
+  cli::cli_process_done()
+}
+
+# install webpack as dev dependency
+typescript_install <- function(){
+  cli::cli_process_start("Installing typescript loader", "Typescript loader installed", "Failed to install typescript loader")
+  tryCatch(npm_run("install --save-dev typescript ts-loader"), error = function(e) cli::cli_process_failed())
+  cli::cli_process_done()
 }

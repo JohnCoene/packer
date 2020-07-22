@@ -2,6 +2,7 @@ shiny_config <- function(){
   # copy config file
   config <- pkg_file("shiny/webpack.config.js")
   fs::file_copy(config, "webpack.config.js")
+  cli::cli_alert_success("Created webpack config file")
 }
 
 shiny_js_files <- function(){
@@ -20,6 +21,8 @@ shiny_js_files <- function(){
   modules_in <- pkg_file("shiny/srcjs/modules")
   modules_out <- sprintf("%s/modules", SRC)
   fs::dir_copy(modules_in, SRC)
+
+  cli::cli_alert_success("Created `srcjs` directory")
 }
 
 shiny_r_files <- function(){
@@ -44,4 +47,6 @@ shiny_r_files <- function(){
   alert <- readLines(alert_in)
   alert <- gsub("#name#", name, alert)
   writeLines(alert, "R/alert.R") 
+
+  cli::cli_alert_success("Created R files and functions")
 }

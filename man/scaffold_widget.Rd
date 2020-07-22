@@ -4,10 +4,12 @@
 \alias{scaffold_widget}
 \title{Scaffold Widget}
 \usage{
-scaffold_widget(name, edit = interactive())
+scaffold_widget(name, ts = FALSE, edit = interactive())
 }
 \arguments{
 \item{name}{Name of widget, also passed to \code{\link[htmlwidgets:scaffoldWidget]{htmlwidgets::scaffoldWidget()}}.}
+
+\item{ts}{Set to \code{TRUE} to use typescript.}
 
 \item{edit}{Automatically open the widget's JavaScript source files after
 creating the scaffold.}

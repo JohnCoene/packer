@@ -39,6 +39,7 @@ npm_run <- function(...){
 # convenience: init npm
 npm_init <- function(){
   npm_run("init -y")
+  cli::cli_alert_success("Initialiased npm")
 }
 
 # add scripts
@@ -49,4 +50,5 @@ npm_add_scripts <- function(){
   package$scripts$production <- "webpack --config webpack.config.js --mode=production"
   package$scripts$watch <- "webpack --config webpack.config.js -d --watch"
   jsonlite::write_json(package, "package.json", pretty = TRUE, auto_unbox = TRUE)
+  cli::cli_alert_success("Added npm scripts")
 }

@@ -5,6 +5,7 @@
 #' @param name Name of widget, also passed to [htmlwidgets::scaffoldWidget()].
 #' @param edit Automatically open the widget's JavaScript source files after 
 #' creating the scaffold.
+#' @param ts Set to `TRUE` to use typescript.
 #' 
 #' @details Internally runs [htmlwidgets::scaffoldWidget()].
 #' 
@@ -15,7 +16,7 @@
 #' @importFrom assertthat assert_that
 #' 
 #' @export
-scaffold_widget <- function(name, edit = interactive()){
+scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   # checks
   assert_that(has_npm())
   assert_that(is_package())
@@ -24,7 +25,6 @@ scaffold_widget <- function(name, edit = interactive()){
   cli::cli_h1("Scaffolding widget")
 
   # build original scaffold
-  cli::cli_alert_success("Scaffolding bare widget")
   scaffold_bare_widget(name)
 
   # create base npm webpack files
@@ -32,27 +32,24 @@ scaffold_widget <- function(name, edit = interactive()){
   fs::dir_create(SRC)
 
   # init npm
-  cli::cli_alert_success("Initialiasing npm")
   npm_init()
 
   # install dev webpack + cli
-  cli::cli_alert_success("Installing webpack")
   webpack_install()
 
+  # typescript
+  if(ts) typescript_install()
+
   # create config file
-  cli::cli_alert_success("Creating webpack config file")
   widget_config(name)
 
   # copy original file
-  cli::cli_alert_success("Moving bare widget to `srcjs`")
   widget_files(name)
 
   # edit package.json
-  cli::cli_alert_success("Adding npm scripts")
   npm_add_scripts()
 
   # ignore files and directories
-  cli::cli_alert_success("Ignoring files")
   ignore_files()
 
   # open files

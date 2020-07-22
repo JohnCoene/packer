@@ -26,12 +26,13 @@ widget_files <- function(name){
   modules <- pkg_file("widget/modules")
   modules_path <- sprintf("%s/modules", SRC)
   fs::dir_copy(modules, modules_path)
+
+  cli::cli_alert_success("Moved bare widget to `srcjs`")
 }
 
 # open file in editor
 widget_edit <- function(name, edit = FALSE){
-  if(!edit)
-    return()
+  if(!edit) return()
 
   # r file
   r_file <- sprintf("R/%s.R", name)
@@ -44,7 +45,26 @@ widget_edit <- function(name, edit = FALSE){
 
 # run bare scaffol
 scaffold_bare_widget <- function(name){
+  cli::cli_process_start("Scaffolding bare widget", "Bare widget setup", "Failed to scaffold bare widget")
+  tryCatch(widget_scaffold(name), error = function(e) cli::cli_process_failed())
+  cli::cli_process_done()
+}
+
+# wrapper to suppress messages
+widget_scaffold <- function(name){
   suppressMessages(
     htmlwidgets::scaffoldWidget(name, bowerPkg = NULL, edit = FALSE)
   )
+}
+
+# create webpack config
+widget_config <- function(name = "index.js"){
+  template_path <- pkg_file("widget/webpack.config.js")
+  template <- readLines(template_path)
+
+  file_name <- sprintf("%s.js", name)
+
+  template <- gsub("#FILE#", file_name, template)
+  writeLines(template, WEBPACK_CONFIG)
+  cli::cli_alert_success("Created webpack config file")
 }
