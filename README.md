@@ -37,7 +37,7 @@ Always start from an empty package and run `scaffold_*` to set up the required b
 
 ```r
 usethis::create_package("usejs")
-packer::scaffold_shiny_ext()
+packer::scaffold_extension()
 ```
 
 Once the scaffold laid down you can either `bundle` the JavaScript or `watch` for changes as you develop it.
