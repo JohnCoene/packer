@@ -24,8 +24,10 @@ bundle <- function(mode = c("production", "development", "none")){
 
   results <- npm_run(args)
 
-  if(length(results$warnings))
+  if(length(results$warnings) > 0)
     cli::cli_process_failed()
+  else
+    cli::cli_process_done()
 
   invisible(results)
 }
