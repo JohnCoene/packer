@@ -47,14 +47,10 @@ get_pkg_name <- function(){
 
 # install webpack as dev dependency
 webpack_install <- function(){
-  cli::cli_process_start("Installing webpack", "Webpack installed", "Failed to install webpack")
-  tryCatch(npm_run("install --save-dev webpack webpack-cli"), error = function(e) cli::cli_process_failed())
-  cli::cli_process_done()
+  npm_install("webpack", "webpack-cli", scope = "dev")
 }
 
 # install webpack as dev dependency
 typescript_install <- function(){
-  cli::cli_process_start("Installing typescript loader", "Typescript loader installed", "Failed to install typescript loader")
-  tryCatch(npm_run("install --save-dev typescript ts-loader"), error = function(e) cli::cli_process_failed())
-  cli::cli_process_done()
+  npm_install("typescript", "ts-loader", scope = "dev")
 }

@@ -13,6 +13,75 @@ use_npm <- function(path = NULL){
   invisible()
 }
 
+#' Install
+#' 
+#' Install npm packges.
+#' 
+#' @param ... Packages to install.
+#' @param scope Scope of installation, see scopes.
+#' 
+#' @section Scopes:
+#' 
+#' * `local` - Installs packages for project with `--save`
+#' * `dev` - Installs dev packages for project with `--save-dev`
+#' * `global` - Instals packages globally with `-g`
+#' 
+#' @export 
+npm_install <- function(..., scope = c("local", "dev", "global")){
+  # check
+  packages <- c(...) #capture
+  assert_that(not_empty(packages))
+
+  scope <- scope2flag(scope) # turn scopes into flags
+  args <- c("install", scope, packages) # build arguments
+  do.call(cli::cli_process_start, pkg2msg(packages))
+  tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
+  cli::cli_process_done()
+}
+
+#' Scope Argument to Flags
+#' 
+#' Turns [npm_install()] `scope` argument to npm installation flags.
+#' 
+#' @inheritParams npm_install
+#' 
+#' @return Character string, `npm install` flag
+#' 
+#' @noRd
+#' @keywords internal 
+scope2flag <- function(scope =  c("local", "dev", "global")){
+  scope <- match.arg(scope)
+  switch(
+    scope,
+    local = "--save",
+    dev = "--save-dev",
+    global = "-g"
+  )
+}
+
+#' Installation Process Messages
+#' 
+#' Makes messages for [cli::cli_process_start].
+#' 
+#' @param packages Vector of packages to install
+#' 
+#' @return Character string, arguments for 
+#' 
+#' @noRd
+#' @keywords internal 
+pkg2msg <- function(packages){
+  # collapse packages in one line
+  packages <- paste0(packages, collapse = ", ")
+
+  # messages
+  started <- sprintf("Installing %s", packages)
+  done <- sprintf("%s installed", tools::toTitleCase(packages))
+  failed <- sprintf("Failed to install %s", packages)
+
+  # arguments
+  list(started, done, failed)
+}
+
 #' Finds NPM
 #' 
 #' Returns npm command to use, either [use_npm] or otherwise uses

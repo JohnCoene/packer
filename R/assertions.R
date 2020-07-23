@@ -16,6 +16,16 @@ assertthat::on_failure(not_missing) <- function(call, env){
   sprintf("Missing `%s`", deparse(call$x))
 }
 
+# check that vector is not empty
+not_empty <- function(x){
+  length(x) > 0
+}
+
+assertthat::on_failure(not_empty) <- function(call, env){
+  "Must pass arguments to `...`"
+}
+
+
 # check that it is a package
 is_package <- function(){
   desc <- fs::file_exists("DESCRIPTION")
