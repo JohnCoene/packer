@@ -38,10 +38,8 @@ input_index_file <- function(name){
   index_exists <- fs::file_exists(index_out)
 
   if(!index_exists){
-    index_template <- pkg_file("input/javascript/srcjs/index.js")
-    index <- readLines(index_template)
-    index <- gsub("#name#", name, index)
-    cli::cli_alert_success("Created input module")
+    index <- sprintf("import './modules/%s.js';", name)
+    cli::cli_alert_success("Created input module and `index.js` file")
   } else {
     index <- readLines(index_out)
     import <- sprintf("import './modules/%s.js'", name)

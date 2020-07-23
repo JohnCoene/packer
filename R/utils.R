@@ -52,3 +52,18 @@ webpack_install <- function(){
 typescript_install <- function(){
   npm_install("typescript", "ts-loader", scope = "dev")
 }
+
+# create directory
+create_directory <- function(path, ...){
+  exists <- fs::dir_exists(path)
+
+  if(exists){
+    msg <- sprintf("Directory `%s` already exists", path)
+    cli::cli_alert_info(msg)
+    return()
+  }
+
+  fs::dir_create(path, ...)
+  msg <- sprintf("Created `%s` directory", path)
+  cli::cli_alert_success(msg)
+}

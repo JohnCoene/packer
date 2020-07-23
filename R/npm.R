@@ -163,6 +163,9 @@ system_2_quiet <- purrr::quietly(system_2)
 #' @noRd 
 #' @keywords internal
 npm_init <- function(){
+  scaffolded <- has_scaffold()
+  if(scaffolded) return()
+  
   npm_run(c("init", "-y"))
   cli::cli_alert_success("Initialiased npm")
 }

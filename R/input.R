@@ -14,9 +14,6 @@ scaffold_input <- function(name){
   assert_that(has_npm())
   assert_that(is_package())
 
-  # check if scaffolded
-  scaffolded <- has_scaffold()
-
   # check that input does not already exist
   file_path <- sprintf("%s/modules/%s.js", SRC, name)
   assert_that(not_exists(file_path))
@@ -28,12 +25,10 @@ scaffold_input <- function(name){
   npm_init()
 
   # create base npm webpack files
-  fs::dir_create(SRC)
-  cli::cli_alert_success("Created `srcjs` directory")
+  create_directory(SRC)
 
   # creating inst packge for assets
-  fs::dir_create("inst/packer", recurse = TRUE)
-  cli::cli_alert_success("Created `inst/packer` directory")
+  create_directory("inst/packer", recurse = TRUE)
 
   # install dev webpack + cli
   webpack_install()
