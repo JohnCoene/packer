@@ -7,9 +7,9 @@
 use_css()
 }
 \description{
-Installs loaders and prints required modifications to the \code{webpack.config.js} file.
+Installs loaders, creates \code{srcjs/styles} directory and prints required modifications to the \code{webpack.config.js} file.
 }
 \details{
 The modifications to the \code{webpack.config.js} must be placed in the JSON under \code{module.exports}.
-You can then place, for instance, create \code{srcjs/style.css} and import it in \code{scrjs/index.js} with \verb{import './style.css';}.
+You can then place, for instance, create \code{srcjs/styles/style.css} and import it in \code{scrjs/index.js} with \verb{import './styles/style.css';}.
 }
