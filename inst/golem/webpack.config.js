@@ -5,5 +5,8 @@ module.exports = {
   output: {
     filename: 'packer.js',
     path: path.resolve(__dirname, './inst/app/www'),
-  }
+  },
+  externals: {
+    shiny: 'Shiny'
+  },
 };

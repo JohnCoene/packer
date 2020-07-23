@@ -52,6 +52,7 @@ shiny_r_files <- function(){
   alert_in <- pkg_file("shiny/R/alert.R")
   alert <- readLines(alert_in)
   alert <- gsub("#name#", name, alert)
+  alert <- gsub("use_deps()", use_fun, alert)
   writeLines(alert, "R/alert.R") 
 
   cli::cli_alert_success("Created R files and functions")

@@ -31,7 +31,7 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 
 ## Example
 
-Always start from a package and run `scaffold_*` only once.
+Always start from an empty package and run `scaffold_*` to set up the required basic structure. This should only be run once.
 
 ```r
 usethis::create_package("usejs")
