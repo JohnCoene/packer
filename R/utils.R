@@ -12,7 +12,6 @@ pkg_file <- function(file){
 
 # ignore files
 ignore_files <- function(ts = FALSE){
-  cat("\n")
   cli::cli_h2("Adding files to .gitignore and .Rbuildignore")
   usethis::use_build_ignore(SRC)
   usethis::use_build_ignore("node_modules")
