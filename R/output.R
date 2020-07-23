@@ -1,20 +1,20 @@
-#' Scaffold a Custom Input
+#' Scaffold Shiny Output
 #' 
 #' Sets basic structure for a shiny input.
 #' 
-#' @param name Name of input, will define internal name binding and CSS class.
+#' @param name Name of output, will define internal name binding and CSS class.
 #' 
 #' @examples 
-#' \dontrun{scaffold_input("increment")}
+#' \dontrun{scaffold_output("display")}
 #' 
-#' @export
-scaffold_input <- function(name){
+#' @export 
+scaffold_shiny_output <- function(name){
   # checks
   assert_that(not_missing(name))
   assert_that(has_npm())
   assert_that(is_package())
 
-  cli::cli_h1("Scaffolding shiny input")
+  cli::cli_h1("Scaffolding shiny output")
   cat("\n")
 
   # init npm
@@ -35,13 +35,13 @@ scaffold_input <- function(name){
   npm_add_scripts()
 
   # create config file
-  input_config()
+  output_config()
 
   # create srcjs and files
-  input_js_files(name)
+  output_js_files(name)
 
   # creating R files
-  input_r_files(name)
+  output_r_files(name)
 
   # ignore files and directories
   ignore_files()

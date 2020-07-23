@@ -1,5 +1,5 @@
-import Shiny from 'shiny';
 import $ from 'jquery';
+import Shiny from 'shiny';
 import { trigger } from './modules/trigger.js';
 
 $(document).on("click", "button.#name#Binding", function(evt) {
