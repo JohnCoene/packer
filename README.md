@@ -27,7 +27,7 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 
 * `scaffold_widget` - Scaffold an [htmlwidgets](http://www.htmlwidgets.org/) with webpack.
 * `scaffold_golem` - Use webpack with [golem](http://golemverse.org/).
-* `scaffold_extension` - Scaffold a shiny extension.
+* `scaffold_extension` - Scaffold a shiny extension, e.g.: [shinyjs](https://deanattali.com/shinyjs/) or [waiter](https://waiter.john-coene.com/).
 * `scaffold_input` - Scaffold a custom shiny input.
 * `scaffold_output` - Scaffold a custom shiny output.
 
