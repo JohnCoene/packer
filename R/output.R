@@ -14,6 +14,10 @@ scaffold_output <- function(name){
   assert_that(has_npm())
   assert_that(is_package())
 
+  # check that input does not already exist
+  file_path <- sprintf("%s/modules/%s.js", SRC, name)
+  assert_that(not_exists(file_path))
+
   cli::cli_h1("Scaffolding shiny output")
   cat("\n")
 
@@ -21,12 +25,10 @@ scaffold_output <- function(name){
   npm_init()
 
   # create base npm webpack files
-  fs::dir_create(SRC)
-  cli::cli_alert_success("Created `srcjs` directory")
+  create_directory("srcjs/modules", recurse = TRUE)
 
   # creating inst packge for assets
-  fs::dir_create("inst/packer", recurse = TRUE)
-  cli::cli_alert_success("Created `inst/packer` directory")
+  create_directory("inst/packer", recurse = TRUE)
 
   # install dev webpack + cli
   webpack_install()
