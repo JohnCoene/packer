@@ -2,6 +2,8 @@
 #' 
 #' Creates the basic structure for a shiny extension.
 #' 
+#' @return `TRUE` (invisibly) if successfully run.
+#' 
 #' @export
 scaffold_shiny_ext <- function(){
   # checks
@@ -44,4 +46,6 @@ scaffold_shiny_ext <- function(){
 
   cli::cli_alert_success("Scaffold built")
   cli::cli_alert_info("See `bundle` to bundle the JavaScript")
+
+  invisible(TRUE)
 }

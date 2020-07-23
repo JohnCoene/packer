@@ -17,13 +17,17 @@
 bundle <- function(mode = c("production", "development", "none")){
   assert_that(has_scaffold())
 
-  cli::cli_process_start("Building bundle", "Bundle built", "Failed to build bundle")
+  cli::cli_process_start("Bundling files", "Bundled!", "Failed to bundle files")
   
   mode <- match.arg(mode)
   args <- c("run", mode)
-  npm_run(args)
 
-  cli::cli_process_done()
+  results <- npm_run(args)
+
+  if(length(results$warnings))
+    cli::cli_process_failed()
+
+  invisible(results)
 }
 
 #' @rdname build
@@ -31,5 +35,5 @@ bundle <- function(mode = c("production", "development", "none")){
 watch <- function(){
   assert_that(has_scaffold())
   cli::cli_alert_warning("Watching for changes")
-  npm_run(c("run", "watch"))
+  system2("npm", c("run", "watch"))
 }

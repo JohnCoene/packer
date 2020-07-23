@@ -6,6 +6,9 @@
 \usage{
 scaffold_shiny_ext()
 }
+\value{
+\code{TRUE} (invisibly) if successfully run.
+}
 \description{
 Creates the basic structure for a shiny extension.
 }

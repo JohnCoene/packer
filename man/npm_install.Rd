@@ -23,3 +23,8 @@ Install npm packges.
 }
 }
 
+\examples{
+# install browserify globally
+\dontrun{npm_install("browserify", scope = "global")}
+
+}

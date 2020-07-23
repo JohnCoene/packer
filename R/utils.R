@@ -28,13 +28,10 @@ ignore_files <- function(ts = FALSE){
 }
 
 # prints error and warnings from system2
-system_we <- function(results){
-
-  if(inherits(results, "error"))
-    cli::cli_alert_danger(results$message, call. = FALSE)
+print_results <- function(results){
   
-  if(inherits(results, "warning"))
-    cli::cli_alert_warning(results$message)
+  if(length(results$warnings))
+    npm_console()
   
 }
 

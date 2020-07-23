@@ -20,7 +20,7 @@ scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   assert_that(has_npm())
   assert_that(is_package())
   assert_that(not_missing(name))
-  
+
   cli::cli_h1("Scaffolding widget")
 
   # build original scaffold

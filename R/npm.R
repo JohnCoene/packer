@@ -26,6 +26,10 @@ use_npm <- function(path = NULL){
 #' * `dev` - Installs dev packages for project with `--save-dev`
 #' * `global` - Instals packages globally with `-g`
 #' 
+#' @examples 
+#' # install browserify globally
+#' \dontrun{npm_install("browserify", scope = "global")}
+#' 
 #' @export 
 npm_install <- function(..., scope = c("local", "dev", "global")){
   # check
@@ -37,6 +41,33 @@ npm_install <- function(..., scope = c("local", "dev", "global")){
   do.call(cli::cli_process_start, pkg2msg(packages))
   tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
   cli::cli_process_done()
+}
+
+#' Npm Output
+#' 
+#' Prints the output of the last npm command run, useful for debugging.
+#' 
+#' @examples 
+#' npm_console()
+#' 
+#' @export
+npm_console <- function(){
+  output <- tryCatch(get("npm_output", envir = storage), error = function(e) NULL)
+
+  if(is.null(output)){
+    cli::cli_alert_danger("No command previously run")
+    return(invisible())
+  }
+
+  if(length(output$warnings)){
+    cli::cli_alert_warning("Command threw the warning below")
+    cli::cli_code(output$warnings)
+  }
+  
+  if(length(output$result))
+    cli::cli_code(output$result)
+  
+  invisible()
 }
 
 #' Scope Argument to Flags
@@ -106,18 +137,24 @@ npm_find <- function(){
 #' @noRd 
 #' @keywords internal
 npm_run <- function(...){
-  npm <- npm_find()
 
-  # if not print only warnings and errors
-  results <- tryCatch(
-    system2(npm, ..., stdout = TRUE, stderr = TRUE),
-    error = function(e) e,
-    warning = function(w) w
-  )
+  results <- system_2_quiet(...)
 
-  system_we(results)
+  assign("npm_output", results, envir = storage)
 
+  # print warnings and errors
+  print_results(results)
+
+  invisible(results)
 }
+
+# wrapper for system2
+system_2 <- function(...){
+  npm <- npm_find()
+  system2(npm, ..., stdout = TRUE, stderr = TRUE)
+}
+
+system_2_quiet <- purrr::quietly(system_2)
 
 #' Initialise npm
 #' 
