@@ -6,7 +6,7 @@
 #' @param edit Automatically open pertinent files.
 #' @param ts Set to `TRUE` to use typescript.
 #' 
-#' @details Internally runs [htmlwidgets::scaffoldWidget()].
+#' @details Internally runs [htmlwidgets::scaffoldWidget()] do not run it prior to this function.
 #' 
 #' @examples \dontrun{scaffold_widget()}
 #' 
@@ -20,7 +20,7 @@ scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   assert_that(has_npm())
   assert_that(is_package())
   assert_that(not_missing(name))
-
+  
   cli::cli_h1("Scaffolding widget")
 
   # build original scaffold

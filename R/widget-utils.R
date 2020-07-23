@@ -8,69 +8,44 @@
 #' @keywords internal
 widget_files <- function(name, ts = FALSE){
 
-  if(!ts)
-    widget_js_files(name)
+  ext <- ifelse(ts, "ts", "js")
+  dir <- ifelse(ts, "typescript", "javascript")
+
+  # index.js
+  # source template
+  index <- sprintf("widget/%s/index.%s", dir, ext)
+  path <- pkg_file(index)
+  template <- readLines(path)
+  template <- gsub("#name#", name, template)
+
+  # save template
+  src_path <- sprintf("%s/index.%s", SRC, ext)
+  writeLines(template, src_path)
+
+  # remove existing file to avoid confusion
+  existing_js <- sprintf("inst/htmlwidgets/%s.js", name)
+  fs::file_delete(existing_js)
+
+  # modules
+  modules_path_in <- sprintf("widget/%s/modules", dir)
+  modules <- pkg_file(modules_path_in)
+  modules_path_out <- sprintf("%s/modules", SRC)
+  fs::dir_copy(modules, modules_path_out)
+
+  if(ts) htmlwidgets_as_module()
+
+  if(ts)
+    cli::cli_alert_success("Converted bare widget to typescript")
   else
-    widget_ts_files(name)
+    cli::cli_alert_success("Moved bare widget to `srcjs`")
 
-}
-
-# use javascript files
-widget_js_files <- function(name){
-  # index.js
-  # source template
-  path <- pkg_file("widget/javascript/index.js")
-  template <- readLines(path)
-  template <- gsub("#name#", name, template)
-
-  # save template
-  src_path <- sprintf("%s/index.js", SRC)
-  writeLines(template, src_path)
-
-  # remove existing file to avoid confusion
-  existing_js <- sprintf("inst/htmlwidgets/%s.js", name)
-  fs::file_delete(existing_js)
-
-  # modules
-  modules <- pkg_file("widget/javascript/modules")
-  modules_path <- sprintf("%s/modules", SRC)
-  fs::dir_copy(modules, modules_path)
-
-  cli::cli_alert_success("Moved bare widget to `srcjs`")
-}
-
-# use typescript files
-widget_ts_files <- function(name){
-  # index.js
-  # source template
-  path <- pkg_file("widget/typescript/index.ts")
-  template <- readLines(path)
-  template <- gsub("#name#", name, template)
-
-  # save template
-  src_path <- sprintf("%s/index.ts", SRC)
-  writeLines(template, src_path)
-
-  # remove existing file to avoid confusion
-  existing_js <- sprintf("inst/htmlwidgets/%s.js", name)
-  fs::file_delete(existing_js)
-
-  # modules
-  modules <- pkg_file("widget/typescript/modules")
-  modules_path <- sprintf("%s/modules", SRC)
-  fs::dir_copy(modules, modules_path)
-
-  # convert htmlwidgets to typescript
-  htmlwidgets_as_module() 
-
-  cli::cli_alert_success("Converted bare widget to to typescript")
 }
 
 htmlwidgets_as_module <- function(){
   path_in <- system.file("www/htmlwidgets.js", package = "htmlwidgets") 
   module <- readLines(path_in)
 
-  # remove docuemnt ready function
+  # remove docuemnt ready function
   L <- length(module) - 2
   module <- module[2:L]
 

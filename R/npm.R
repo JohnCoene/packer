@@ -75,7 +75,7 @@ pkg2msg <- function(packages){
 
   # messages
   started <- sprintf("Installing %s", packages)
-  done <- sprintf("%s installed", tools::toTitleCase(packages))
+  done <- sprintf("%s installed", packages)
   failed <- sprintf("Failed to install %s", packages)
 
   # arguments

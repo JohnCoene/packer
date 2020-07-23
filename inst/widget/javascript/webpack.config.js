@@ -5,5 +5,8 @@ module.exports = {
   output: {
     filename: '#name#',
     path: path.resolve(__dirname, './inst/htmlwidgets'),
-  }
+  },
+  externals: {
+    widgets: 'HTMLWidgets'
+  },
 };

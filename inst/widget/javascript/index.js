@@ -1,4 +1,5 @@
 import { asHeader } from './modules/header.js';
+import HTMLWidgets from 'widgets';
 
 HTMLWidgets.widget({
 
