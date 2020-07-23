@@ -43,6 +43,8 @@ get_pkg_name <- function(){
 
 # install webpack as dev dependency
 webpack_install <- function(){
+  scaffolded <- has_scaffold()
+  if(scaffolded) return()
   npm_install("webpack", "webpack-cli", scope = "dev")
 }
 

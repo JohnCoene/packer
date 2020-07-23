@@ -5,7 +5,7 @@
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export
-scaffold_shiny_ext <- function(){
+scaffold_extension <- function(){
   # checks
   assert_that(has_npm())
   assert_that(is_package())

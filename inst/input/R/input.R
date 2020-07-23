@@ -1,4 +1,4 @@
-#' Button
+#' #name#
 #' 
 #' Incremental button.
 #' 
@@ -9,7 +9,7 @@
 #' library(shiny)
 #' 
 #' ui <- fluidPage(
-#'  btn_input("theId", 0)
+#'  #name#Input("theId", 0)
 #' )
 #' 
 #' server <- function(input, output){
@@ -24,7 +24,7 @@
 #'  shinyApp(ui, server)
 #' 
 #' @export 
-btn_input <- function(inputId, value = 0){
+#name#Input <- function(inputId, value = 0){
 
   stopifnot(!missing(inputId))
   stopifnot(is.numeric(value))

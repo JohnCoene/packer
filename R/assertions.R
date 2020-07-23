@@ -42,8 +42,9 @@ assertthat::on_failure(is_package) <- function(call, env){
 has_scaffold <- function(){
   package_json <- fs::file_exists("package.json")
   src_dir <- fs::dir_exists(SRC)
+  config <- fs::file_exists("webpack.config.js")
 
-  all(package_json, src_dir)
+  all(package_json, src_dir, config)
 }
 
 assertthat::on_failure(has_scaffold) <- function(call, env){
@@ -60,4 +61,14 @@ is_golem <- function(){
 
 assertthat::on_failure(is_golem) <- function(call, env){
   stop("Not a golem app, see `golem::create_golem`", call. = FALSE)
+}
+
+# file does not exist
+not_exists <- function(path){
+  !fs::file_exists(path)
+}
+
+assertthat::on_failure(not_exists) <- function(call, env){
+  msg <- sprintf("`%s` already exists", deparse(call$path))
+  stop(msg, call. = FALSE)
 }

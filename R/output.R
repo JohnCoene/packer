@@ -8,7 +8,7 @@
 #' \dontrun{scaffold_output("display")}
 #' 
 #' @export 
-scaffold_shiny_output <- function(name){
+scaffold_output <- function(name){
   # checks
   assert_that(not_missing(name))
   assert_that(has_npm())

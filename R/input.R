@@ -14,6 +14,13 @@ scaffold_input <- function(name){
   assert_that(has_npm())
   assert_that(is_package())
 
+  # check if scaffolded
+  scaffolded <- has_scaffold()
+
+  # check that input does not already exist
+  file_path <- sprintf("%s/modules/%s.js", SRC, name)
+  assert_that(not_exists(file_path))
+
   cli::cli_h1("Scaffolding shiny input")
   cat("\n")
 
