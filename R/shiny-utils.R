@@ -6,7 +6,7 @@
 #' @keywords internal
 shiny_config <- function(){
   # copy config file
-  config <- pkg_file("shiny/webpack.config.js")
+  config <- pkg_file("shiny/javascript/webpack.config.js")
   fs::file_copy(config, "webpack.config.js")
   cli::cli_alert_success("Created webpack config file")
 }
