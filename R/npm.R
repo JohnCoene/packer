@@ -57,7 +57,7 @@ npm_run <- function(...){
 #' @noRd 
 #' @keywords internal
 npm_init <- function(){
-  npm_run("init -y")
+  npm_run(c("init", "-y"))
   cli::cli_alert_success("Initialiased npm")
 }
 

@@ -20,7 +20,7 @@ bundle <- function(mode = c("production", "development", "none")){
   cli::cli_process_start("Building bundle", "Bundle built", "Failed to build bundle")
   
   mode <- match.arg(mode)
-  args <- sprintf("run %s", mode)
+  args <- c("run", mode)
   npm_run(args)
 
   cli::cli_process_done()
@@ -31,5 +31,5 @@ bundle <- function(mode = c("production", "development", "none")){
 watch <- function(){
   assert_that(has_scaffold())
   cli::cli_alert_warning("Watching for changes")
-  npm_run("run watch")
+  npm_run(c("run", "watch"))
 }
