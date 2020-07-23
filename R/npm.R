@@ -13,7 +13,7 @@ use_npm <- function(path = NULL){
   invisible()
 }
 
-#' Install
+#' Install Npm Packges
 #' 
 #' Install npm packges.
 #' 
@@ -31,7 +31,7 @@ use_npm <- function(path = NULL){
 #' \dontrun{npm_install("browserify", scope = "global")}
 #' 
 #' @export 
-npm_install <- function(..., scope = c("local", "dev", "global")){
+npm_install <- function(..., scope = c("prod", "dev", "global")){
   # check
   packages <- c(...) #capture
   assert_that(not_empty(packages))
@@ -80,11 +80,11 @@ npm_console <- function(){
 #' 
 #' @noRd
 #' @keywords internal 
-scope2flag <- function(scope =  c("local", "dev", "global")){
+scope2flag <- function(scope =  c("prod", "dev", "global")){
   scope <- match.arg(scope)
   switch(
     scope,
-    local = "--save",
+    prod = "--save",
     dev = "--save-dev",
     global = "-g"
   )
@@ -92,11 +92,11 @@ scope2flag <- function(scope =  c("local", "dev", "global")){
 
 #' Installation Process Messages
 #' 
-#' Makes messages for [cli::cli_process_start].
+#' Makes messages for [cli::cli_process_start()].
 #' 
 #' @param packages Vector of packages to install
 #' 
-#' @return Character string, arguments for 
+#' @return List of arguments for [cli::cli_process_start()].
 #' 
 #' @noRd
 #' @keywords internal 

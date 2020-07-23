@@ -26,7 +26,7 @@ scaffold_widget <- function(name, ts = FALSE, edit = interactive()){
   # build original scaffold
   scaffold_bare_widget(name)
 
-  # create base npm webpack files
+  # create srcjs
   fs::dir_create(SRC)
   cli::cli_alert_success("Created `srcjs` directory")
 

@@ -2,9 +2,9 @@
 % Please edit documentation in R/npm.R
 \name{npm_install}
 \alias{npm_install}
-\title{Install}
+\title{Install Npm Packges}
 \usage{
-npm_install(..., scope = c("local", "dev", "global"))
+npm_install(..., scope = c("prod", "dev", "global"))
 }
 \arguments{
 \item{...}{Packages to install.}
