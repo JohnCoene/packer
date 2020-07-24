@@ -177,8 +177,7 @@ npm_init <- function(){
 #' @noRd 
 #' @keywords internal
 npm_add_scripts <- function(){
-  scaffolded <- has_scaffold()
-  if(scaffolded) return()
+  if(!fs::file_exists("webpack.config.js")) return()
 
   package <- jsonlite::read_json("package.json")
   package$scripts$none <- "webpack --config webpack.config.js --mode=none"

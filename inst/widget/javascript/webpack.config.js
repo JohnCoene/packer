@@ -1,9 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: './srcjs/index.js',
+  entry: {
+    '#name#': './srcjs/widgets/#name#.js',
+  },
   output: {
-    filename: '#name#',
+    filename: '[name].js',
     path: path.resolve(__dirname, './inst/htmlwidgets'),
   },
   externals: {

@@ -6,64 +6,56 @@
 #' 
 #' @noRd 
 #' @keywords internal
-widget_files <- function(name, ts = FALSE){
-
-  ext <- ifelse(ts, "ts", "js")
-  dir <- ifelse(ts, "typescript", "javascript")
+widget_files <- function(name){
+  # create dirs
+  create_directory("srcjs/modules")
+  create_directory("srcjs/widgets")
 
   # index.js
   # source template
-  index <- sprintf("widget/%s/index.%s", dir, ext)
-  path <- pkg_file(index)
+  path <- pkg_file("widget/javascript/widget.js")
   template <- readLines(path)
   template <- gsub("#name#", name, template)
 
   # save template
-  src_path <- sprintf("%s/index.%s", SRC, ext)
-  writeLines(template, src_path)
+  path_out <- sprintf("%s/widgets/%s.js", SRC, name)
+  writeLines(template, path_out)
 
   # remove existing file to avoid confusion
   existing_js <- sprintf("inst/htmlwidgets/%s.js", name)
   fs::file_delete(existing_js)
 
-  # modules
-  modules_path_in <- sprintf("widget/%s/modules", dir)
-  modules <- pkg_file(modules_path_in)
-  modules_path_out <- sprintf("%s/modules", SRC)
-  fs::dir_copy(modules, modules_path_out)
+  if(!fs::file_exists("srcjs/modules/header.js")){
+    module_file <- pkg_file("widget/javascript/module.js")
+    fs::file_copy(module_file, "srcjs/modules/header.js")
+  }
 
-  if(ts) htmlwidgets_as_module()
-
-  if(ts)
-    cli::cli_alert_success("Converted bare widget to typescript")
+  # index
+  if(!fs::file_exists("srcs/index.js"))
+    widget_create_index(name)
   else
-    cli::cli_alert_success("Moved bare widget to `srcjs`")
+    widget_update_index(name)
+
+  cli::cli_alert_success("Moved bare widget to `srcjs`")
 
 }
 
-htmlwidgets_as_module <- function(){
-  path_in <- system.file("www/htmlwidgets.js", package = "htmlwidgets") 
-  module <- readLines(path_in)
+widget_create_index <- function(name){
+  index <- sprintf("import './modules/%s.js'", name)
+  writeLines(index, "srcjs/index.js")
+  cli::cli_alert_success("Created `srcjs/index.js`")
+}
 
-  # remove docuemnt ready function
-  L <- length(module) - 2
-  module <- module[2:L]
-
-  # add declaration and export
-  module <- c(module, "var HTMLWidgets = window.HTMLWidgets;")
-  module <- c(module, "export { HTMLWidgets };")
-
-  # remove first tab
-  module <- gsub("^  ", "", module) 
-
-  # save
-  path_out <- sprintf("%s/modules/htmlwidgets.js", SRC)
-
-  writeLines(module, path_out)
+widget_update_index <- function(name){
+  index <- readLines("srcjs/index.js")
+  import <- sprintf("import './modules/%s.js'", name)
+  index <- c(import, index)
+  writeLines(index, "srcjs/index.js")
+  cli::cli_alert_success("Updated `srcjs/index.js`")
 }
 
 # open file in editor
-widget_edit <- function(name, edit = FALSE, ts = FALSE){
+widget_edit <- function(name, edit = FALSE){
   if(!edit) return()
 
   # r file
@@ -71,8 +63,7 @@ widget_edit <- function(name, edit = FALSE, ts = FALSE){
   fs::file_show(r_file)
 
   # js file
-  ext <- ifelse(ts, "ts", "js")
-  js_file <- sprintf("%s/index.%s", SRC, ext)
+  js_file <- sprintf("%s/index.js", SRC)
   fs::file_show(js_file)
 }
 
@@ -91,26 +82,36 @@ widget_scaffold <- function(name){
 }
 
 # create webpack config
-widget_config <- function(name = "index.js", ts = FALSE){
+widget_config <- function(name){
 
+  if(!fs::file_exists("webpack.config.js"))
+    widget_config_create(name)
+  else
+    widget_config_update(name)
+
+}
+
+# create webpack
+widget_config_create <- function(name){
   # get & read template
-  dir <- ifelse(ts, "typescript", "javascript")
-  path <- sprintf("widget/%s/webpack.config.js", dir)
-  template_path <- pkg_file(path)
+  template_path <- pkg_file("widget/javascript/webpack.config.js")
   template <- readLines(template_path)
 
   # replace
   file_name <- sprintf("%s.js", name)
-  template <- gsub("#name#", file_name, template)
+  template <- gsub("#name#", name, template)
   writeLines(template, WEBPACK_CONFIG)
   cli::cli_alert_success("Created webpack config file")
-
-  if(ts)
-    widget_config_typescript()
 }
 
-widget_config_typescript <- function(){
-  path_in <- pkg_file("widget/typescript/tsconfig.json")
-  fs::file_copy(path_in, "tsconfig.json")
-  cli::cli_alert_success("Created typescript config file")
+widget_config_update <- function(name){
+  config <- readLines("webpack.config.js")
+
+  entry_point <- sprintf("\n    '%s': './srcjs/widgets/%s.js',", name, name)
+  entry <- config[grepl("entry", config)]
+  config[grepl("entry", config)] <- sprintf("%s %s", entry, entry_point)
+
+  writeLines(config, "webpack.config.js")
+
+  cli::cli_alert_success("Updated webpack config file")
 }
