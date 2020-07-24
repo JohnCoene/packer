@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{packer}</title>
+    <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css">
+    <style>
+      /* Import desired font from Google fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap');
+    
+      /* Apply the font to body (to override the default one) */
+      body {
+        font-family: 'Raleway', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="docute"></div>
+    <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+      new Docute({
+        versions: {
+          'v0.0.1 (Latest)': {
+            link: '/'
+          },
+        },
+        detectSystemDarkTheme: true,
+        darkThemeToggler: true,
+        highlight: ['r', 'javascript'],
+        title: 'packer',
+        nav: [
+          {
+            title: 'Home',
+            link: '/'
+          },
+          {
+            title: 'GitHub',
+            link: 'https://github.com/JohnCoene/packer'
+          },
+        ],
+        sidebar: [
+          // A sidebar item, with child links
+          {
+            title: 'Guides',
+            children: [
+              {
+                title: 'Installation',
+                link: '/guide/installation'
+              },
+              {
+                title: 'Getting Started',
+                link: '/guide/getting-started'
+              },
+              {
+                title: 'Scaffolds',
+                link: '/guide/scaffolds'
+              }
+            ]
+          },
+          // An external link
+          {
+            title: 'GitHub',
+            link: 'https://github.com/JohnCoene/packer'
+          }
+        ]
+      })
+    </script>
+  </body>
+</html>

@@ -4,13 +4,11 @@
 [![R build status](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/packer/actions)
 <!-- badges: end -->
 
-JavaScript for R at scale.
+An opinionated and robust framework for using JavaScript with R.
 
 # packer
 
 </div>
-
-> {packer} aims to be to JavaScript what golem is shiny.
 
 ## Installation
 

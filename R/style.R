@@ -13,9 +13,14 @@ use_css <- function(){
   npm_install("style-loader", "css-loader")
 
   # create styles dir
-  styles_path <- sprintf("%s/styles", SRC)
-  fs::dir_create(styles_path)
-  msg <- sprintf("Created `%s` directory", styles_path)
+  create_directory("srcjs/styles")
+
+  # create file
+  file_path <- "srcjs/styles/styles.css"
+  if(!fs::file_exists())
+    fs::file_create(file_path)
+  
+  msg <- sprintf("Created `%s` file and directory", file_path)
   cli::cli_alert_success(msg)
 
   # message modifications
