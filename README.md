@@ -10,7 +10,7 @@ JavaScript for R at scale.
 
 </div>
 
-> {packer} aims to be to JavaScript what golem is shiny and what devtools is to package development.
+> {packer} aims to be to JavaScript what golem is shiny.
 
 ## Installation
 
