@@ -4,7 +4,7 @@
 [![R build status](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/packer/actions)
 <!-- badges: end -->
 
-Make R work hand-in-hand with JavaScript.
+JavaScript for R at scale.
 
 # packer
 
@@ -23,7 +23,7 @@ remotes::install_github("JohnCoene/packer")
 
 ## Usage
 
-At its core packer consists of functions to scaffold R packages powered by webpack, these take the form of scaffolds which are built on top of packages. All of the functions listed below need to be run from within an R package.
+At its core packer consists of functions to scaffold R packages powered by webpack and npm, these take the form of scaffolds which are built on top of packages. All of the functions listed below need to be run from within an R package.
 
 * `scaffold_widget` - Scaffold an [htmlwidgets](http://www.htmlwidgets.org/) with webpack.
 * `scaffold_golem` - Use webpack with [golem](http://golemverse.org/).
@@ -36,8 +36,8 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 Always start from an empty package and run `scaffold_*` to set up the required basic structure.
 
 ```r
-usethis::create_package("usejs")
-packer::scaffold_extension()
+usethis::create_package("inputPkg")
+packer::scaffold_input("increment")
 ```
 
 Once the scaffold laid down you can either `bundle` the JavaScript or `watch` for changes as you develop it.
