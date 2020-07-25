@@ -19,7 +19,7 @@ output_js_files <- function(name){
   module <- gsub("#name#", name, module)
   module <- gsub("#pkgname#", pkgname, module)
 
-  module_out <- sprintf("%s/modules/%s.js", SRC, name)
+  module_out <- sprintf("srcjs/modules/%s.js", name)
   writeLines(module, module_out)
 }
 
@@ -27,7 +27,6 @@ output_index_file <- function(name){
 
   # commons
   index <- sprintf("import './modules/%s.js';", name)
-  index_out <- sprintf("%s/index.js", SRC)
 
   index_exists <- fs::file_exists("srcjs/index.js")
   if(index_exists){
@@ -41,7 +40,7 @@ output_index_file <- function(name){
   cli::cli_alert_success("Created input module directory")
 
   # save
-  writeLines(index, index_out)
+  writeLines(index, "srcjs/index.js")
 }
 
 output_r_files <- function(name){

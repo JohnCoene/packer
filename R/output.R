@@ -15,7 +15,7 @@ scaffold_output <- function(name){
   assert_that(is_package())
 
   # check that input does not already exist
-  file_path <- sprintf("%s/modules/%s.js", SRC, name)
+  file_path <- sprintf("srcjs/modules/%s.js", name)
   assert_that(not_exists(file_path))
 
   cli::cli_h1("Scaffolding shiny output")

@@ -41,7 +41,7 @@ assertthat::on_failure(is_package) <- function(call, env){
 # check that scaffold is present
 has_scaffold <- function(){
   package_json <- fs::file_exists("package.json")
-  src_dir <- fs::dir_exists(SRC)
+  src_dir <- fs::dir_exists("srcjs")
   config <- fs::file_exists("webpack.config.js")
 
   all(package_json, src_dir, config)

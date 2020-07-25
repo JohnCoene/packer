@@ -18,7 +18,7 @@ widget_files <- function(name){
   template <- gsub("#name#", name, template)
 
   # save template
-  path_out <- sprintf("%s/widgets/%s.js", SRC, name)
+  path_out <- sprintf("srcjs/widgets/%s.js", name)
   writeLines(template, path_out)
 
   # remove existing file to avoid confusion
@@ -63,8 +63,7 @@ widget_edit <- function(name, edit = FALSE){
   fs::file_show(r_file)
 
   # js file
-  js_file <- sprintf("%s/index.js", SRC)
-  fs::file_show(js_file)
+  fs::file_show("srcjs/index.js")
 }
 
 # run bare scaffol
@@ -100,7 +99,7 @@ widget_config_create <- function(name){
   # replace
   file_name <- sprintf("%s.js", name)
   template <- gsub("#name#", name, template)
-  writeLines(template, WEBPACK_CONFIG)
+  writeLines(template, "webpack.config.js")
   cli::cli_alert_success("Created webpack config file")
 }
 

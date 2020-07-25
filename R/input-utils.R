@@ -13,15 +13,14 @@ input_js_files <- function(name){
   pkgname <- get_pkg_name()
 
   # create srcjs
-  modules_path <- sprintf("%s/modules", SRC)
-  fs::dir_create(modules_path)
+  fs::dir_create("srcjs/modules")
 
   # create input module
   input_in <- pkg_file("input/javascript/srcjs/modules/input.js")
   input <- readLines(input_in)
   input <- gsub("#name#", name, input)
   input <- gsub("#pkgname#", pkgname, input)
-  input_out <- sprintf("%s/modules/%s.js", SRC, name)
+  input_out <- sprintf("srcjs/modules/%s.js", name)
   writeLines(input, input_out)
 
   cli::cli_alert_success("Created input module")
@@ -31,10 +30,9 @@ input_js_files <- function(name){
 }
 
 input_index_file <- function(name){
-  # read
-  index_out <- sprintf("%s/index.js", SRC)
 
   # check if exists
+  index_out <- "srcjs/index.js"
   index_exists <- fs::file_exists(index_out)
 
   if(!index_exists){

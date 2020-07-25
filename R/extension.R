@@ -16,7 +16,7 @@ scaffold_extension <- function(){
   npm_init()
 
   # create base npm webpack files
-  create_directory(SRC)
+  create_directory("srcjs")
 
   # creating inst packge for assets
   create_directory("inst/packer", recurse = TRUE)

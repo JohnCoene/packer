@@ -20,13 +20,11 @@ shiny_js_files <- function(){
   index <- gsub("#name#", name, index)
 
   # write
-  index_out <- sprintf("%s/index.js", SRC)
-  writeLines(index, index_out)
+  writeLines(index, "srcjs/index.js")
 
   # coypy module
   modules_in <- pkg_file("shiny/javascript/srcjs/modules")
-  modules_out <- sprintf("%s/modules", SRC)
-  fs::dir_copy(modules_in, SRC)
+  fs::dir_copy(modules_in, "srcjs/modules")
 
   cli::cli_alert_success("Created `srcjs` directory")
 }

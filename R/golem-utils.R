@@ -14,12 +14,12 @@ golem_config <- function(){
 #' 
 #' Creates the necessary `srcjs` directory and children JavaScript files.
 #' This is a simple copy of template files: no changes required.
-#' 
+#' SRC
 #' @noRd 
 #' @keywords internal
 golem_files <- function(){
   base <- pkg_file("golem/javascript/srcjs")
-  fs::dir_copy(base, SRC)
+  fs::dir_copy(base, "srcjs")
   cli::cli_alert_success("Created `srcjs` directory")
 }
 
@@ -32,6 +32,5 @@ golem_files <- function(){
 #' @noRd 
 #' @keywords internal
 golem_edit <- function(edit = FALSE){
-  path <- sprintf("%s/index.js", SRC)
-  fs::file_show(path)
+  fs::file_show("srcjs/index.js")
 }

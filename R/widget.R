@@ -26,7 +26,7 @@ scaffold_widget <- function(name, edit = interactive()){
   scaffold_bare_widget(name)
 
   # create srcjs
-  create_directory(SRC)
+  create_directory("srcjs")
 
   # init npm
   npm_init()

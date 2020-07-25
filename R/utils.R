@@ -13,11 +13,11 @@ pkg_file <- function(file){
 # ignore files
 ignore_files <- function(){
   cli::cli_h2("Adding files to .gitignore and .Rbuildignore")
-  usethis::use_build_ignore(SRC)
+  usethis::use_build_ignore("srcjs")
   usethis::use_build_ignore("node_modules")
   usethis::use_build_ignore("package.json")
   usethis::use_build_ignore("package-lock.json")
-  usethis::use_build_ignore(WEBPACK_CONFIG)
+  usethis::use_build_ignore("webpack.config.js")
   usethis::use_git_ignore("node_modules")
 
   cat("\n")
