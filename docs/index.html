@@ -13,11 +13,51 @@
       body {
         font-family: 'Raleway', sans-serif;
       }
+
+      .tip {
+        border: 1px solid var(--border-color);
+        padding: 20px;
+        border-radius: 4px;
+      }
+
+      .tip-title{
+        color: var(--success-color);
+      }
+
+      .danger {
+        border: 1px solid var(--border-color);
+        padding: 20px;
+        border-radius: 4px;
+      }
+      .danger-title{
+        color: var(--danger-color);
+      }
     </style>
   </head>
   <body>
     <div id="docute"></div>
     <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+      Vue.component('Tip', {
+        props: ['title', 'text'],
+        template: `
+          <div class="tip">
+            <strong class='tip-title'>{{ title }}</strong><br/>
+            {{ text }}
+          </div>
+        `
+      })
+
+      Vue.component('Danger', {
+        props: ['title', 'text'],
+        template: `
+          <div class="danger">
+            <strong class='danger-title'>{{ title }}</strong><br/>
+            {{ text }}
+          </div>
+        `
+      })
+    </script>
     <script>
       new Docute({
         versions: {
@@ -47,6 +87,10 @@
               {
                 title: 'Installation',
                 link: '/guide/installation'
+              },
+              {
+                title: 'Prerequisites',
+                link: '/guide/prereq'
               },
               {
                 title: 'Getting Started',

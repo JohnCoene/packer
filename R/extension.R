@@ -11,7 +11,8 @@ scaffold_extension <- function(name){
   # checks
   assert_that(has_npm())
   assert_that(is_package())
-  assert_that(not_missing(name), msg = "Missing `name`")
+  assert_that(not_missing(name))
+  assert_that(is_name_valid(name))
 
   path <- sprintf("srcjs/exts/%s.js", name)
   assert_that(!fs::file_exists(path), msg = "Extension already exists")

@@ -13,6 +13,7 @@ scaffold_output <- function(name){
   assert_that(not_missing(name))
   assert_that(has_npm())
   assert_that(is_package())
+  assert_that(is_name_valid(name))
 
   # check that input does not already exist
   file_path <- sprintf("srcjs/outputs/%s.js", name)

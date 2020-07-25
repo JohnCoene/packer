@@ -34,13 +34,18 @@ use_npm <- function(path = NULL){
 npm_install <- function(..., scope = c("prod", "dev", "global")){
   # check
   packages <- c(...) #capture
-  assert_that(not_empty(packages))
-
-  scope <- scope2flag(scope) # turn scopes into flags
-  args <- c("install", scope, packages) # build arguments
-  do.call(cli::cli_process_start, pkg2msg(packages))
-  tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
-  cli::cli_process_done()
+  
+  if(length(packages) > 0){
+    scope <- scope2flag(scope) # turn scopes into flags
+    args <- c("install", scope, packages) # build arguments
+    do.call(cli::cli_process_start, pkg2msg(packages))
+    tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
+    cli::cli_process_done()
+  } else {
+    cli::cli_process_start("Installing dependencies", "Installed dependencies", "Failed to install dependencies")
+    tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
+    cli::cli_process_done()
+  }
 }
 
 #' Npm Output

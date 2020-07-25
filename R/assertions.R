@@ -16,16 +16,6 @@ assertthat::on_failure(not_missing) <- function(call, env){
   sprintf("Missing `%s`", deparse(call$x))
 }
 
-# check that vector is not empty
-not_empty <- function(x){
-  length(x) > 0
-}
-
-assertthat::on_failure(not_empty) <- function(call, env){
-  "Must pass arguments to `...`"
-}
-
-
 # check that it is a package
 is_package <- function(){
   desc <- fs::file_exists("DESCRIPTION")
@@ -70,5 +60,17 @@ not_exists <- function(path){
 
 assertthat::on_failure(not_exists) <- function(call, env){
   msg <- sprintf("`%s` already exists", deparse(call$path))
+  stop(msg, call. = FALSE)
+}
+
+# check that scaffold name is valid
+is_name_valid <- function(name){
+  has_spaces <- grepl("[:space:]", name)
+
+  !any(has_spaces)
+}
+
+assertthat::on_failure(is_name_valid) <- function(call, env){
+  msg <- sprintf("`%s` is not a valid name", deparse(call$name))
   stop(msg, call. = FALSE)
 }
