@@ -50,7 +50,7 @@ render#Name# <- function(expr, env = parent.frame(), quoted = FALSE) {
       name = "#name#",
       version = "1.0.0",
       src = c(file = path),
-      script = "index.js"
+      script = "#name#.js"
     )
   )
 

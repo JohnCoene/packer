@@ -15,7 +15,7 @@ scaffold_input <- function(name){
   assert_that(is_package())
 
   # check that input does not already exist
-  file_path <- sprintf("srcjs/modules/%s.js", name)
+  file_path <- sprintf("srcjs/inputs/%s.js", name)
   assert_that(not_exists(file_path))
 
   cli::cli_h1("Scaffolding shiny input")
@@ -33,17 +33,17 @@ scaffold_input <- function(name){
   # install dev webpack + cli
   webpack_install()
 
-  # edit package.json
-  npm_add_scripts()
-
   # create config file
-  input_config()
+  input_config(name)
 
   # create srcjs and files
   input_js_files(name)
 
   # creating R files
   input_r_files(name)
+
+  # edit package.json
+  npm_add_scripts()
 
   # ignore files and directories
   ignore_files()

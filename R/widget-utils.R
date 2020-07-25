@@ -41,14 +41,14 @@ widget_files <- function(name){
 }
 
 widget_create_index <- function(name){
-  index <- sprintf("import './modules/%s.js'", name)
+  index <- sprintf("import './widgets/%s.js'", name)
   writeLines(index, "srcjs/index.js")
   cli::cli_alert_success("Created `srcjs/index.js`")
 }
 
 widget_update_index <- function(name){
   index <- readLines("srcjs/index.js")
-  import <- sprintf("import './modules/%s.js'", name)
+  import <- sprintf("import './widgets/%s.js'", name)
   index <- c(import, index)
   writeLines(index, "srcjs/index.js")
   cli::cli_alert_success("Updated `srcjs/index.js`")

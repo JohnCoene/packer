@@ -33,7 +33,7 @@
     name = "#name#Binding",
     version = "1.0.0",
     src = c(file = system.file("packer", package = "#pkgname#")),
-    script = "index.js"
+    script = "#name#.js"
   )
 
   tagList(
