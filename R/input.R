@@ -34,7 +34,7 @@ scaffold_input <- function(name){
   webpack_install()
 
   # create config file
-  input_config(name)
+  config_io(name, "input/javascript", "inputs")
 
   # create srcjs and files
   input_js_files(name)

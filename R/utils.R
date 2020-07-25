@@ -59,3 +59,46 @@ create_directory <- function(path, ...){
   msg <- sprintf("Created `%s` directory", path)
   cli::cli_alert_success(msg)
 }
+
+#' Shiny Config
+#' 
+#' Creates or update `webpack.config.js` file for shiny extension.
+#' 
+#' @param name Name of extension.
+#' @param dir_in Directory where to find config file, from `inst`, e.g.: `output/javascript`.
+#' @param dir_out Output directory of modules related to that scaffold, e.g.: `outputs` or `widgets`.
+#' This is used to define the entry path in the config file.
+#' 
+#' @noRd 
+#' @keywords internal
+config_io <- function(name, dir_in, dir_out){
+  
+  if(!fs::file_exists("webpack.config.js"))
+    config_create(name, dir_in)
+  else
+    config_update(name, dir_out)
+}
+
+#' @noRd 
+#' @keywords internal
+config_create <- function(name, dir_in){
+  dir_path <- sprintf("%s/webpack.config.js", dir_in)
+  config_path <- pkg_file(dir_path)
+  config <- readLines(config_path)
+  config <- gsub("#name#", name, config)
+  writeLines(config, "webpack.config.js")
+  cli::cli_alert_success("Created webpack config file")
+}
+
+#' @noRd 
+#' @keywords internal
+config_update <- function(name, dir_out){
+  config <- readLines("webpack.config.js")
+  entry_point <- sprintf("\n    '%s': './srcjs/%s/%s.js',", name, dir_out, name)
+  entry <- config[grepl("entry", config)]
+  config[grepl("entry", config)] <- sprintf("%s %s", entry, entry_point)
+  writeLines(config, "webpack.config.js")
+
+  cli::cli_alert_success("Updated webpack config file")
+}
+

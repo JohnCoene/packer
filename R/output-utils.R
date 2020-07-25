@@ -1,32 +1,3 @@
-output_config <- function(name){
-
-  if(fs::file_exists("webpack.config.js"))
-    output_config_update(name)
-  else
-    output_config_create(name)
-
-}
-
-output_config_create <- function(name){
-  # copy config file
-  path <- pkg_file("output/javascript/webpack.config.js")
-  config <- readLines(path)
-  config <- gsub("#name#", name, config)
-  writeLines(config, "webpack.config.js") 
-  cli::cli_alert_success("Created webpack config file")
-}
-
-output_config_update <- function(name){
-  config <- readLines("webpack.config.js")
-  entry_point <- sprintf("\n    '%s': './srcjs/outputs/%s.js',", name, name)
-  entry <- config[grepl("entry", config)]
-  config[grepl("entry", config)] <- sprintf("%s %s", entry, entry_point)
-
-  writeLines(config, "webpack.config.js")
-
-  cli::cli_alert_success("Updated webpack config file")
-}
-
 output_js_files <- function(name){
   pkgname <- get_pkg_name()
 

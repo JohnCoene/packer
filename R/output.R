@@ -37,7 +37,7 @@ scaffold_output <- function(name){
   npm_add_scripts()
 
   # create config file
-  output_config(name)
+  config_io(name, "output/javascript", "outputs")
 
   # create srcjs and files
   output_js_files(name)

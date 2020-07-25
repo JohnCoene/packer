@@ -34,7 +34,7 @@ scaffold_extension <- function(name){
   npm_add_scripts()
 
   # create config file
-  ext_config(name)
+  config_io(name, "extension/javascript", "exts")
 
   # create srcjs and files
   ext_js_files(name)
