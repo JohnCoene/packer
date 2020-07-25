@@ -99,6 +99,6 @@ config_update <- function(name, dir_out){
   config[grepl("entry", config)] <- sprintf("%s %s", entry, entry_point)
   writeLines(config, "webpack.config.js")
 
-  cli::cli_alert_success("Updated webpack config file")
+  cli::cli_alert_success("Added new entry point to webpack config file")
 }
 

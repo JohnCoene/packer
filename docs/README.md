@@ -4,11 +4,11 @@
 [![R build status](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/packer/actions)
 <!-- badges: end -->
 
-An opinionated and robust framework for using JavaScript with R.
+An opinionated framework for robust use of JavaScript with R.
 
 ### About
 
-Packer enforces good practice and provides convenience functions making work with JavaScript not just easier but fun, interesting, and scalable. Packer is a solid wrapper for [npm](https://www.npmjs.com/) and [webpack](https://webpack.js.org/) that enables structuring, modularizing and leveraging npm packages to use in R packages.
+Packer enforces good practice and provides convenience functions to make work with JavaScript not just easier but also scalable. Packer is a robust wrapper for [npm](https://www.npmjs.com/) and [webpack](https://webpack.js.org/) that enables to modularise JavaScript code, leverage npm packages, and much more.
 
 ### Inspiration
 

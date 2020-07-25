@@ -1,13 +1,15 @@
 Package: packer
-Title: Utility Functions to Create 'JavaScript' Heavy Projects
+Title: An Opinionated Framework for Robust use of 'JavaScript' with R
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "John",
+           family = "Coene",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Utility functions to create 'JavaScript' focused projects such as 'htmlwidgets' and bring new functionalities to 'Shiny'.
+           email = "jcoenep@gmail.com")
+Description:
+  Enforces good practice and provides convenience functions to make work with JavaScript 
+  not just easier but also scalable. It is a robust wrapper for npm and webpack that enables 
+  to modularise JavaScript code, leverage npm packages, and much more.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -20,3 +22,5 @@ Imports:
     htmlwidgets,
     cli,
     assertthat
+URL: https://github.com/JohnCoene/packer, https://packer.john-coene.com
+BugReports: https://github.com/JohnCoene/packer/issues
