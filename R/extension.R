@@ -2,13 +2,19 @@
 #' 
 #' Creates the basic structure for a shiny extension.
 #' 
+#' @param name Name of extension used to define file names and functions.
+#' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export
-scaffold_extension <- function(){
+scaffold_extension <- function(name){
   # checks
   assert_that(has_npm())
   assert_that(is_package())
+  assert_that(not_missing(name), msg = "Missing `name`")
+
+  path <- sprintf("srcjs/exts/%s.js", name)
+  assert_that(!fs::file_exists(path), msg = "Extension already exists")
 
   cli::cli_h1("Scaffolding shiny extension")
 
@@ -16,7 +22,7 @@ scaffold_extension <- function(){
   npm_init()
 
   # create base npm webpack files
-  create_directory("srcjs")
+  create_directory("srcjs/exts")
 
   # creating inst packge for assets
   create_directory("inst/packer", recurse = TRUE)
@@ -28,13 +34,13 @@ scaffold_extension <- function(){
   npm_add_scripts()
 
   # create config file
-  shiny_config()
+  ext_config(name)
 
   # create srcjs and files
-  shiny_js_files()
+  ext_js_files(name)
 
   # creating R files
-  shiny_r_files()
+  ext_r_files(name)
 
   # ignore files and directories
   ignore_files()

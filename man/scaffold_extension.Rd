@@ -4,7 +4,10 @@
 \alias{scaffold_extension}
 \title{Shiny Extension}
 \usage{
-scaffold_extension()
+scaffold_extension(name)
+}
+\arguments{
+\item{name}{Name of extension used to define file names and functions.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.

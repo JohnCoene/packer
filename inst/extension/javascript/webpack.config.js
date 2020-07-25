@@ -1,12 +1,15 @@
 const path = require('path');
 
 module.exports = {
-  entry: './srcjs/index.js',
+  entry: {
+    '#name#': './srcjs/exts/#name#.js'
+  },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, './inst/packer'),
   },
   externals: {
-    shiny: 'Shiny'
+    shiny: 'Shiny',
+    jquery: 'jQuery',
   },
 };
