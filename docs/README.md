@@ -1,7 +1,7 @@
 # packer
 
 <!-- badges: start -->
-[![R build status](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/packer/actions)
+![R build status](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)
 <!-- badges: end -->
 
 An opinionated framework for robust use of JavaScript with R.
