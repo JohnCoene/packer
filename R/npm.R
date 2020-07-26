@@ -38,7 +38,7 @@ npm_install <- function(..., scope = c("prod", "dev", "global")){
   if(length(packages) > 0){
     scope <- scope2flag(scope) # turn scopes into flags
     args <- c("install", scope, packages) # build arguments
-    do.call(cli::cli_process_start, pkg2msg(packages))
+    do.call(cli::cli_process_start, pkg2msg(packages, scope))
     tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
     cli::cli_process_done()
   } else {
@@ -105,13 +105,13 @@ scope2flag <- function(scope =  c("prod", "dev", "global")){
 #' 
 #' @noRd
 #' @keywords internal 
-pkg2msg <- function(packages){
+pkg2msg <- function(packages, scope){
   # collapse packages in one line
   packages <- paste0(packages, collapse = ", ")
 
   # messages
-  started <- sprintf("Installing %s", packages)
-  done <- sprintf("%s installed", packages)
+  started <- sprintf("Installing %s as %s", packages, scope)
+  done <- sprintf("%s installed as %s", packages)
   failed <- sprintf("Failed to install %s", packages)
 
   # arguments
