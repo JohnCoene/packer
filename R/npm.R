@@ -115,8 +115,8 @@ pkg2msg <- function(packages, scope){
   packages <- paste0(packages, collapse = ", ")
 
   # messages
-  started <- sprintf("Installing %s as %s", packages, scope)
-  done <- sprintf("%s installed as %s", packages, scope)
+  started <- sprintf("Installing %s with scope %s", packages, scope)
+  done <- sprintf("%s installed with scope %s", packages, scope)
   failed <- sprintf("Failed to install %s", packages)
 
   # arguments
