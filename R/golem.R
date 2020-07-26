@@ -13,7 +13,7 @@ scaffold_golem <- function(edit = interactive()){
   assert_that(is_golem())
   assert_that(!has_scaffold(), msg = "Only a single golem scaffold is allowed")
 
-  cli::cli_h1("Scaffolding for golem")
+  open_msg("golem", name)
 
   # init npm
   npm_init()

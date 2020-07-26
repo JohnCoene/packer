@@ -116,14 +116,26 @@ use_pkgs <- function(...){
   invisible()
 }
 
-#' Wrap up message
+#' Messages
+#' 
+#' Simple wrappers for scaffold messages, on start and end.
+#' 
+#' @param what What is being scaffolded.
+#' @param name Name of scaffold.
 #' 
 #' @noRd 
 #' @keywords internal
 end_msg <- function(){
   cat("\n")
   cli::cli_h2("Scaffold built")
-  cli::cli_alert_info("Run `bundle` to bundle the JavaScript")
+  cli::cli_alert_info("Run `bundle` to build the JavaScript files")
+}
+
+#' @noRd 
+#' @keywords internal
+open_msg <- function(what, name = ""){
+  lefty <- sprintf("Scaffolding %s", what)
+  cat(cli::rule(left = lefty, right = name, line_col = "blue"), "\n")
 }
 
 #' Edit files

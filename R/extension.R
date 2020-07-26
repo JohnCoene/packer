@@ -18,7 +18,7 @@ scaffold_extension <- function(name, edit = interactive()){
   path <- sprintf("srcjs/exts/%s.js", name)
   assert_that(!fs::file_exists(path), msg = "Extension already exists")
 
-  cli::cli_h1("Scaffolding shiny extension")
+  open_msg("shiny extension", name)
 
   # init npm
   npm_init()
@@ -51,7 +51,7 @@ scaffold_extension <- function(name, edit = interactive()){
   use_pkgs("shiny")
 
   # edit
-  edit_files(edit, sprintf("srcs/exts/%.js", name), sprintf("R/%.R", name))
+  edit_files(edit, sprintf("srcjs/exts/%s.js", name), sprintf("R/%s.R", name))
 
   # wrap up
   end_msg()

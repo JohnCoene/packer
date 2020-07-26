@@ -20,8 +20,7 @@ scaffold_input <- function(name, edit = interactive()){
   file_path <- sprintf("srcjs/inputs/%s.js", name)
   assert_that(not_exists(file_path))
 
-  cli::cli_h1("Scaffolding shiny input")
-  cat("\n")
+  open_msg("shiny input", name)
 
   # init npm
   npm_init()
@@ -54,7 +53,7 @@ scaffold_input <- function(name, edit = interactive()){
   use_pkgs("shiny", "htmltools")
 
   # edit
-  edit_files(edit, sprintf("srcs/inputs/%.js", name), sprintf("R/%.R", name))
+  edit_files(edit, sprintf("srcjs/inputs/%s.js", name), sprintf("R/%s.R", name))
 
   # wrap up
   end_msg()

@@ -44,7 +44,7 @@ ext_r_files <- function(name){
     zzz <- readLines(zzz_in)
     zzz <- gsub("#pkgname#", pkgname, zzz)
     writeLines(zzz, "R/zzz.R")
-    cli::cli_alert_success("Added path shiny resource")
+    cli::cli_alert_success("Added path to shiny resource")
   }
 
   # dependencies

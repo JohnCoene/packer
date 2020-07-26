@@ -21,7 +21,7 @@ scaffold_widget <- function(name, edit = interactive()){
   assert_that(not_missing(name))
   assert_that(is_name_valid(name))
 
-  cli::cli_h1("Scaffolding widget")
+  open_msg("widget", name)
 
   # build original scaffold
   scaffold_bare_widget(name)
@@ -54,7 +54,7 @@ scaffold_widget <- function(name, edit = interactive()){
   use_pkgs("htmlwidgets")
 
   # edit
-  edit_files(edit, sprintf("srcs/widgets/%.js", name), sprintf("R/%.R", name))
+  edit_files(edit, sprintf("srcjs/widgets/%s.js", name), sprintf("R/%s.R", name))
 
   # wrap up
   end_msg()
