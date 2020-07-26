@@ -43,7 +43,7 @@ npm_install <- function(..., scope = c("prod", "dev", "global")){
     cli::cli_process_done()
   } else {
     cli::cli_process_start("Installing dependencies", "Installed dependencies", "Failed to install dependencies")
-    tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
+    tryCatch(npm_run("install"), error = function(e) cli::cli_process_failed())
     cli::cli_process_done()
   }
 }
