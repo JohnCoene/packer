@@ -1,9 +1,9 @@
 #' Use Styles
 #' 
-#' Installs loaders, creates `srcjs/styles` directory and prints required modifications to the `webpack.config.js` file.
+#' Installs loaders, creates `srcjs/styles` directory containing a CSS file and prints required modifications to the `webpack.config.js` file.
 #' 
 #' @details The modifications to the `webpack.config.js` must be placed in the JSON under `module.exports`.
-#' You can then place, for instance, create `srcjs/styles/style.css` and import it in `scrjs/index.js` with `import './styles/style.css';`.
+#' The created CSS file can then be imported much like any other JavaScript file.
 #' 
 #' @export
 use_css <- function(){
@@ -16,8 +16,8 @@ use_css <- function(){
   create_directory("srcjs/styles")
 
   # create file
-  file_path <- "srcjs/styles/styles.css"
-  if(!fs::file_exists())
+  file_path <- "srcjs/styles/style.css"
+  if(!fs::file_exists(file_path))
     fs::file_create(file_path)
   
   msg <- sprintf("Created `%s` file and directory", file_path)
