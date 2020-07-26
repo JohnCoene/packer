@@ -34,18 +34,23 @@ set_npm <- function(path = NULL){
 npm_install <- function(..., scope = c("prod", "dev", "global")){
   # check
   packages <- c(...) #capture
-  
+  scope <- match.arg(scope)
+
   if(length(packages) > 0){
-    scope <- scope2flag(scope) # turn scopes into flags
-    args <- c("install", scope, packages) # build arguments
-    do.call(cli::cli_process_start, pkg2msg(packages, scope))
-    tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
-    cli::cli_process_done()
+    args <- c("install", scope, packages)
+    msgs <- pkg2msg(packages, scope)
   } else {
-    cli::cli_process_start("Installing dependencies", "Installed dependencies", "Failed to install dependencies")
-    tryCatch(npm_run("install"), error = function(e) cli::cli_process_failed())
-    cli::cli_process_done()
+    args <- "install"
+    msg <- list(
+      "Installing dependencies", 
+      "Installed dependencies", 
+      "Failed to install dependencies"
+    )
   }
+  
+  do.call(cli::cli_process_start, pkg2msg(packages, scope))
+  tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
+  cli::cli_process_done()
 }
 
 #' Npm Output
@@ -111,7 +116,7 @@ pkg2msg <- function(packages, scope){
 
   # messages
   started <- sprintf("Installing %s as %s", packages, scope)
-  done <- sprintf("%s installed as %s", packages)
+  done <- sprintf("%s installed as %s", packages, scope)
   failed <- sprintf("Failed to install %s", packages)
 
   # arguments
