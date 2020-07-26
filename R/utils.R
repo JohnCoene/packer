@@ -113,6 +113,7 @@ config_update <- function(name, dir_out){
 use_pkgs <- function(...){
   cli::cli_h2("Adding packages to Imports")
   lapply(c(...), usethis::use_package)
+  cat("\n")
   invisible()
 }
 
@@ -126,7 +127,6 @@ use_pkgs <- function(...){
 #' @noRd 
 #' @keywords internal
 end_msg <- function(){
-  cat("\n")
   cli::cli_h2("Scaffold built")
   cli::cli_alert_info("Run `bundle` to build the JavaScript files")
 }
