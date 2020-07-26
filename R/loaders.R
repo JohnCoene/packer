@@ -2,6 +2,8 @@
 #' 
 #' Installs loaders, creates `srcjs/styles` directory containing a CSS file and adds module rule to the configuration.
 #' 
+#' @details This will let you import styles much like any other modules.
+#' 
 #' @export
 use_css <- function(){
   assert_that(has_scaffold())

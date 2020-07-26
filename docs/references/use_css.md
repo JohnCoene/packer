@@ -1,4 +1,4 @@
-## `use_loader_css`: Use Styles
+## `use_css`: Use Styles
 
 ### Description
 
@@ -9,7 +9,13 @@
 ### Usage
 
 ```r
-use_loader_css()
+use_css()
 ```
+
+
+### Details
+
+
+ This will let you import styles much like any other modules.
 
 
