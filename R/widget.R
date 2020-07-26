@@ -36,7 +36,12 @@ scaffold_widget <- function(name, edit = interactive()){
   webpack_install()
 
   # create config file
-  widget_config(name)
+  configure(
+    name = name, 
+    entry_dir = "widgets/", 
+    output_dir = "./inst/htmlwidgets", 
+    externals = list(widgets = "HTMLWidgets")
+  )
 
   # copy original file
   widget_files(name)

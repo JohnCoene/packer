@@ -8,7 +8,7 @@
 #' @examples \dontrun{use_npm("/usr/local/bin/npm")}
 #' 
 #' @export
-use_npm <- function(path = NULL){
+set_npm <- function(path = NULL){
   options(JS4R_NPM = path)
   invisible()
 }

@@ -79,38 +79,3 @@ widget_scaffold <- function(name){
     htmlwidgets::scaffoldWidget(name, bowerPkg = NULL, edit = FALSE)
   )
 }
-
-# create webpack config
-widget_config <- function(name){
-
-  if(!fs::file_exists("webpack.config.js"))
-    widget_config_create(name)
-  else
-    widget_config_update(name)
-
-}
-
-# create webpack
-widget_config_create <- function(name){
-  # get & read template
-  template_path <- pkg_file("widget/javascript/webpack.config.js")
-  template <- readLines(template_path)
-
-  # replace
-  file_name <- sprintf("%s.js", name)
-  template <- gsub("#name#", name, template)
-  writeLines(template, "webpack.config.js")
-  cli::cli_alert_success("Created webpack config file")
-}
-
-widget_config_update <- function(name){
-  config <- readLines("webpack.config.js")
-
-  entry_point <- sprintf("\n    '%s': './srcjs/widgets/%s.js',", name, name)
-  entry <- config[grepl("entry", config)]
-  config[grepl("entry", config)] <- sprintf("%s %s", entry, entry_point)
-
-  writeLines(config, "webpack.config.js")
-
-  cli::cli_alert_success("Updated webpack config file")
-}

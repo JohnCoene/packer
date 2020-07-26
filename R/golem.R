@@ -28,7 +28,12 @@ scaffold_golem <- function(edit = interactive()){
   golem_files()
 
   # create config file
-  golem_config()  
+  configure(
+    name = "index", 
+    entry_dir = "", 
+    output_dir = "./inst/app/www", 
+    externals = list(shiny = "Shiny", jquery = "jQuery")
+  )
 
   # edit
   golem_edit(edit)

@@ -1,9 +1,6 @@
 #' Use Styles
 #' 
-#' Installs loaders, creates `srcjs/styles` directory containing a CSS file and prints required modifications to the `webpack.config.js` file.
-#' 
-#' @details The modifications to the `webpack.config.js` must be placed in the JSON under `module.exports`.
-#' The created CSS file can then be imported much like any other JavaScript file.
+#' Installs loaders, creates `srcjs/styles` directory containing a CSS file and adds module rule to the configuration.
 #' 
 #' @export
 use_css <- function(){
@@ -24,7 +21,21 @@ use_css <- function(){
   cli::cli_alert_success(msg)
 
   # message modifications
-  cli::cli_alert_warning("Add the following to the `webpack.config.js`")
-  cli::cli_code(css_module_base)
-  cli::cli_alert_info("See `?use_css` for more details")
+  loader <- list(
+    test = "\\.css$",
+    use = list("style-loader", "css-loader")
+  )
+  loader_add(loader)
+  cli::cli_alert_info("Added bundling rule")
+}
+
+loader_add <- function(loader){
+  json_path <- "srcjs/config/loaders.json"
+
+  if(!fs::file_exists(json_path))
+    stop("Cannot find loader config file", call. = FALSE)
+
+  loaders <- jsonlite::read_json(json_path)
+  loaders <- append(loaders, list(loader))
+  save_json(loaders, json_path)
 }

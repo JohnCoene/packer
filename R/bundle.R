@@ -10,9 +10,9 @@
 #' * [bundle()] - bundle the JavaScript using webpack to produce the bundle in the appropriate directory.
 #' * [watch()] - watches for changes in the `srcjs` and rebuilds if necessary.
 #' 
-#' @examples \dontrun{watch_widget()}
+#' @examples \dontrun{watch()}
 #' 
-#' @name build
+#' @name bundle
 #' @export 
 bundle <- function(mode = c("production", "development", "none")){
   assert_that(has_scaffold())
@@ -32,7 +32,7 @@ bundle <- function(mode = c("production", "development", "none")){
   invisible(results)
 }
 
-#' @rdname build
+#' @rdname bundle
 #' @export 
 watch <- function(){
   assert_that(has_scaffold())

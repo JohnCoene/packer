@@ -1,25 +1,25 @@
-# `scaffold_golem`: Golem
+## `scaffold_golem`: Golem
 
-## Description
+### Description
 
 
  Creates the basic structure for golem app with JavaScript.
 
 
-## Usage
+### Usage
 
 ```r
 scaffold_golem(edit = interactive())
 ```
 
 
-## Arguments
+### Arguments
 
 Argument      |Description
 ------------- |----------------
 ```edit```     |     Automatically open pertinent files.
 
-## Value
+### Value
 
 
  `TRUE` (invisibly) if successfully run.

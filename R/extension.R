@@ -29,14 +29,19 @@ scaffold_extension <- function(name, edit = interactive()){
   # creating inst packge for assets
   create_directory("inst/packer", recurse = TRUE)
 
-  # install dev webpack + cli
+  # install dependencies
   webpack_install()
 
   # edit package.json
   npm_add_scripts()
 
   # create config file
-  config_io(name, "extension/javascript", "exts")
+  configure(
+    name = name, 
+    entry_dir = "exts/", 
+    output_dir = "./inst/packer", 
+    externals = list(shiny = "Shiny", jquery = "jQuery")
+  )
 
   # create srcjs and files
   ext_js_files(name)

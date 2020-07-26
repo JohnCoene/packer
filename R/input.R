@@ -35,7 +35,12 @@ scaffold_input <- function(name, edit = interactive()){
   webpack_install()
 
   # create config file
-  config_io(name, "input/javascript", "inputs")
+  configure(
+    name = name, 
+    entry_dir = "inputs/", 
+    output_dir = "./inst/packer", 
+    externals = list(shiny = "Shiny", jquery = "jQuery")
+  )
 
   # create srcjs and files
   input_js_files(name)

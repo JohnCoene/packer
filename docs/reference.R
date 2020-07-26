@@ -1,5 +1,8 @@
 library(purrr)
 
+fs::dir_delete("./docs/references")
+fs::dir_create("./docs/references")
+
 # ------------------------------------------- REFERENCE
 # functions
 get_id <- function(x){
@@ -23,6 +26,14 @@ docs <- purrr::map(files, function(x){
   nm <- gsub("\\.Rd", ".md", x)
   output <- paste0("./docs/references/", nm)
   Rd2md::Rd2markdown(input, output)
+
+  md <- readLines(output)
+  md <- gsub("^### ", "### ", md)
+  md <- gsub("^## ", "### ", md)
+  md <- gsub("^# ", "## ", md)
+
+  writeLines(md, output)
+
   list(name = nm, output = output)
 })
 
@@ -31,4 +42,6 @@ json <- purrr::map(files, function(x){
   list(title = title, link = sprintf("/references/%s", title))
 })
 
-jsonlite::toJSON(json, pretty = T, auto_unbox = T)
+json <- jsonlite::toJSON(json, pretty = T, auto_unbox = T)
+
+cat(json)

@@ -1,26 +1,26 @@
-# `npm_install`: Install Npm Packges
+## `npm_install`: Install Npm Packges
 
-## Description
+### Description
 
 
  Install npm packges.
 
 
-## Usage
+### Usage
 
 ```r
 npm_install(..., scope = c("prod", "dev", "global"))
 ```
 
 
-## Arguments
+### Arguments
 
 Argument      |Description
 ------------- |----------------
 ```...```     |     Packages to install.
 ```scope```     |     Scope of installation, see scopes.
 
-## Examples
+### Examples
 
 ```r 
  # install browserify globally

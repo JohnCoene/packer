@@ -38,7 +38,12 @@ scaffold_output <- function(name, edit = interactive()){
   npm_add_scripts()
 
   # create config file
-  config_io(name, "output/javascript", "outputs")
+  configure(
+    name = name, 
+    entry_dir = "outputs/", 
+    output_dir = "./inst/packer", 
+    externals = list(shiny = "Shiny", jquery = "jQuery")
+  )
 
   # create srcjs and files
   output_js_files(name)

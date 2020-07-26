@@ -1,38 +1,38 @@
-# `scaffold_widget`: Scaffold Widget
+## `scaffold_widget`: Scaffold Widget
 
-## Description
+### Description
 
 
  Creates basic structure for a widget.
 
 
-## Usage
+### Usage
 
 ```r
 scaffold_widget(name, edit = interactive())
 ```
 
 
-## Arguments
+### Arguments
 
 Argument      |Description
 ------------- |----------------
 ```name```     |     Name of widget, also passed to [`htmlwidgets::scaffoldWidget()`](htmlwidgets::scaffoldWidget().html) .
 ```edit```     |     Automatically open pertinent files.
 
-## Details
+### Details
 
 
  Internally runs [`htmlwidgets::scaffoldWidget()`](htmlwidgets::scaffoldWidget().html) do not run it prior to this function.
 
 
-## Value
+### Value
 
 
  `TRUE` (invisibly) if successfully run.
 
 
-## Examples
+### Examples
 
 ```r 
  scaffold_widget() 
