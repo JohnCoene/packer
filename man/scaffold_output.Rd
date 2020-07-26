@@ -4,10 +4,12 @@
 \alias{scaffold_output}
 \title{Scaffold Shiny Output}
 \usage{
-scaffold_output(name)
+scaffold_output(name, edit = interactive())
 }
 \arguments{
 \item{name}{Name of output, will define internal name binding and CSS class.}
+
+\item{edit}{Automatically open pertinent files.}
 }
 \description{
 Sets basic structure for a shiny input.

@@ -51,10 +51,13 @@ scaffold_widget <- function(name, edit = interactive()){
   widget_edit(name, edit) 
 
   # use htmlwidgets
-  usethis::use_package("htmlwidgets")
+  use_pkgs("htmlwidgets")
 
-  cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `bundle` to bundle the JavaScript")
+  # edit
+  edit_files(edit, sprintf("srcs/widgets/%.js", name), sprintf("R/%.R", name))
+
+  # wrap up
+  end_msg()
 
   invisible(TRUE)
 }

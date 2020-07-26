@@ -3,11 +3,12 @@
 #' Creates the basic structure for a shiny extension.
 #' 
 #' @param name Name of extension used to define file names and functions.
+#' @inheritParams scaffold_widget
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export
-scaffold_extension <- function(name){
+scaffold_extension <- function(name, edit = interactive()){
   # checks
   assert_that(has_npm())
   assert_that(is_package())
@@ -47,10 +48,13 @@ scaffold_extension <- function(name){
   ignore_files()
 
   # use shiny
-  usethis::use_package("shiny")
+  use_pkgs("shiny")
 
-  cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `bundle` to bundle the JavaScript")
+  # edit
+  edit_files(edit, sprintf("srcs/exts/%.js", name), sprintf("R/%.R", name))
+
+  # wrap up
+  end_msg()
 
   invisible(TRUE)
 }

@@ -36,8 +36,11 @@ scaffold_golem <- function(edit = interactive()){
   # ignore files and directories
   ignore_files()
 
-  cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `bundle` to bundle the JavaScript")
+  # edit
+  edit_files(edit, "srcjs/index.js")
+
+  # wrap up
+  end_msg()
   
   invisible(TRUE)
 }

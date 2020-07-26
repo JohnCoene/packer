@@ -4,10 +4,12 @@
 \alias{scaffold_extension}
 \title{Shiny Extension}
 \usage{
-scaffold_extension(name)
+scaffold_extension(name, edit = interactive())
 }
 \arguments{
 \item{name}{Name of extension used to define file names and functions.}
+
+\item{edit}{Automatically open pertinent files.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.

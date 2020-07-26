@@ -4,10 +4,12 @@
 \alias{scaffold_input}
 \title{Scaffold a Custom Input}
 \usage{
-scaffold_input(name)
+scaffold_input(name, edit = interactive())
 }
 \arguments{
 \item{name}{Name of input, will define internal name binding and CSS class.}
+
+\item{edit}{Automatically open pertinent files.}
 }
 \description{
 Sets basic structure for a shiny input.

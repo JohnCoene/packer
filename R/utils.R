@@ -102,3 +102,40 @@ config_update <- function(name, dir_out){
   cli::cli_alert_success("Added new entry point to webpack config file")
 }
 
+#' Use Packages
+#' 
+#' Wrapper for [usethis::use_package()] to add multiple packages.
+#' 
+#' @param ... Names of packages to add to Imports.
+#' 
+#' @noRd 
+#' @keywords internal
+use_pkgs <- function(...){
+  cli::cli_h2("Adding packages to Imports")
+  lapply(c(...), usethis::use_package)
+  invisible()
+}
+
+#' Wrap up message
+#' 
+#' @noRd 
+#' @keywords internal
+end_msg <- function(){
+  cat("\n")
+  cli::cli_h2("Scaffold built")
+  cli::cli_alert_info("Run `bundle` to bundle the JavaScript")
+}
+
+#' Edit files
+#' 
+#' Opens relevant files in browser.
+#' 
+#' @param edit Whether to open the files.
+#' 
+#' @noRd 
+#' @keywords internal
+edit_files <- function(edit = FALSE, ...){
+  if(!edit) return()
+
+  lapply(c(...), fs::file_show)
+}

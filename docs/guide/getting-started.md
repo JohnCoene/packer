@@ -9,6 +9,28 @@ Below we create a package named "alerts" via [usethis](http://usethis.r-lib.org/
 usethis::create_package('alerts')
 ```
 
+```
+▶ Rscript -e "usethis::create_package('alerts')"
+✔ Creating 'alerts/'
+✔ Setting active project to '/home/Packages/alerts'
+✔ Creating 'R/'
+✔ Writing 'DESCRIPTION'
+Package: alerts
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R (parsed):
+    * First Last <first.last@example.com> [aut, cre] (YOUR-ORCID-ID)
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1.9000
+✔ Writing 'NAMESPACE'
+✔ Setting active project to '<no active project>'
+```
+
 ## Scaffolds
 
 Then comes on of the core concepts of packer: scaffolds. Scaffolds are basic structures that enables using JavaScript with R in a more structure way, via webpack. There are currently 5 scaffolds available.
@@ -24,10 +46,13 @@ Then comes on of the core concepts of packer: scaffolds. Scaffolds are basic str
 Let's demonstrate with a scaffold for a shiny extension, the function takes a single argument `name` which will be used to define the name of R and JavaScript functions, files, modules, etc.
 
 ```r
-packer::scaffold_extension("alert")
+packer::scaffold_extension("ask")
 ```
 
-This does many things:
+```
+```
+
+As hinted at by the messages above this does many things:
 
 1. Initialises npm
 2. Installs webpack

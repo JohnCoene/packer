@@ -3,12 +3,13 @@
 #' Sets basic structure for a shiny input.
 #' 
 #' @param name Name of input, will define internal name binding and CSS class.
+#' @inheritParams scaffold_widget
 #' 
 #' @examples 
 #' \dontrun{scaffold_input("increment")}
 #' 
 #' @export
-scaffold_input <- function(name){
+scaffold_input <- function(name, edit = interactive()){
   # checks
   assert_that(not_missing(name))
   assert_that(has_npm())
@@ -50,14 +51,13 @@ scaffold_input <- function(name){
   ignore_files()
 
   # use shiny
-  cli::cli_h2("Adding Packages")
-  usethis::use_package("shiny")
-  usethis::use_package("htmltools")
+  use_pkgs("shiny", "htmltools")
 
-  cat("\n")
-  cli::cli_h2("Wrapping up")
-  cli::cli_alert_success("Scaffold built")
-  cli::cli_alert_info("See `bundle` to bundle the JavaScript")
+  # edit
+  edit_files(edit, sprintf("srcs/inputs/%.js", name), sprintf("R/%.R", name))
+
+  # wrap up
+  end_msg()
 
   invisible(TRUE)
 }
