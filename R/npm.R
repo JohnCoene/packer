@@ -188,9 +188,9 @@ npm_init <- function(){
 #' @keywords internal
 npm_add_scripts <- function(){
   package <- jsonlite::read_json("package.json")
-  package$scripts$none <- "webpack --config webpack.config.js --mode=none"
-  package$scripts$development <- "webpack --config webpack.config.js --mode=development"
-  package$scripts$production <- "webpack --config webpack.config.js --mode=production"
+  package$scripts$none <- "webpack --config webpack.dev.js --mode=none"
+  package$scripts$development <- "webpack --config webpack.dev.js"
+  package$scripts$production <- "webpack --config webpack.prod.js"
   package$scripts$watch <- "webpack --config webpack.config.js -d --watch"
   jsonlite::write_json(package, "package.json", pretty = TRUE, auto_unbox = TRUE)
   cli::cli_alert_success("Added npm scripts")

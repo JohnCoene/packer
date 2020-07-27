@@ -1,12 +1,12 @@
 #' Creates Golem
 #' 
-#' Creates `webpack.config.js` file for golem.
+#' Creates `webpack.common.js` file for golem.
 #' 
 #' @noRd 
 #' @keywords internal
 golem_config <- function(){
-  config <- pkg_file("golem/webpack.config.js")
-  fs::file_copy(config, "webpack.config.js")
+  config <- pkg_file("golem/webpack.common.js")
+  fs::file_copy(config, "webpack.common.js")
   cli::cli_alert_success("Created webpack config file")
 }
 

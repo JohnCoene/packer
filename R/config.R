@@ -11,7 +11,12 @@ configure <- function(name, entry_dir, output_dir = "./inst/packer", externals =
 
   create_directory("srcjs/config")
 
-  config_core_file(name)
+  # webpack configs
+  common <- config_common_file()
+  dev <- config_dev_file()
+  prod <- config_prod_file()
+  if(all(common, dev, prod))
+    cli::cli_alert_success("Created webpack config files")
 
   config_output_path(output_dir)
 
@@ -25,12 +30,35 @@ configure <- function(name, entry_dir, output_dir = "./inst/packer", externals =
 
 #' @noRd 
 #' @keywords internal
-config_core_file <- function(name){
-  if(fs::file_exists("webpack.config.js"))
-    return()
+config_common_file <- function(){
+  if(fs::file_exists("webpack.common.js"))
+    return(FALSE)
 
-  config <- pkg_file("common/webpack.config.js")
-  fs::file_copy(config, "webpack.config.js")
+  config <- pkg_file("common/webpack.common.js")
+  fs::file_copy(config, "webpack.common.js")
+  return(TRUE)
+}
+
+#' @noRd 
+#' @keywords internal
+config_dev_file <- function(){
+  if(fs::file_exists("webpack.dev.js"))
+    return(FALSE)
+
+  config <- pkg_file("common/webpack.dev.js")
+  fs::file_copy(config, "webpack.dev.js")
+  return(TRUE)
+}
+
+#' @noRd 
+#' @keywords internal
+config_prod_file <- function(){
+  if(fs::file_exists("webpack.prod.js"))
+    return(FALSE)
+
+  config <- pkg_file("common/webpack.prod.js")
+  fs::file_copy(config, "webpack.prod.js")
+  return(TRUE)
 }
 
 #' @noRd 
