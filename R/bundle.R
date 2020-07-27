@@ -7,8 +7,10 @@
 #' 
 #' @section Functions:
 #' 
-#' * [bundle()] - bundle the JavaScript using webpack to produce the bundle in the appropriate directory.
-#' * [watch()] - watches for changes in the `srcjs` and rebuilds if necessary.
+#' * [bundle()] - bundle the project.
+#' * [bundle_prod()] - bundle the project optimising production, equivalent to `bundle("production")` and `npm run production`.
+#' * [bundle_dev()] - bundle the project including debugging developer tools, equivalent to `bundle("development")` and `npm run development`.
+#' * [watch()] - watches for changes in the `srcjs` and rebuilds if necessary, equivalent to `npm run watch`.
 #' 
 #' @examples \dontrun{watch()}
 #' 
@@ -34,8 +36,22 @@ bundle <- function(mode = c("production", "development", "none")){
 
 #' @rdname bundle
 #' @export 
+bundle_prod <- function(){
+  bundle("production")
+}
+
+#' @rdname bundle
+#' @export 
+bundle_dev <- function(){
+  bundle("development")
+}
+
+#' @rdname bundle
+#' @export 
 watch <- function(){
   assert_that(has_scaffold())
   cli::cli_alert_warning("Watching for changes")
   system2("npm", c("run", "watch"))
 }
+
+

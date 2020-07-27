@@ -2,10 +2,16 @@
 % Please edit documentation in R/bundle.R
 \name{bundle}
 \alias{bundle}
+\alias{bundle_prod}
+\alias{bundle_dev}
 \alias{watch}
 \title{bundle & Watch}
 \usage{
 bundle(mode = c("production", "development", "none"))
+
+bundle_prod()
+
+bundle_dev()
 
 watch()
 }
@@ -19,8 +25,10 @@ Bundle and watch the JavaScript.
 \section{Functions}{
 
 \itemize{
-\item \code{\link[=bundle]{bundle()}} - bundle the JavaScript using webpack to produce the bundle in the appropriate directory.
-\item \code{\link[=watch]{watch()}} - watches for changes in the \code{srcjs} and rebuilds if necessary.
+\item \code{\link[=bundle]{bundle()}} - bundle the project.
+\item \code{\link[=bundle_prod]{bundle_prod()}} - bundle the project optimising production, equivalent to \code{bundle("production")} and \verb{npm run production}.
+\item \code{\link[=bundle_dev]{bundle_dev()}} - bundle the project including debugging developer tools, equivalent to \code{bundle("development")} and \verb{npm run development}.
+\item \code{\link[=watch]{watch()}} - watches for changes in the \code{srcjs} and rebuilds if necessary, equivalent to \verb{npm run watch}.
 }
 }
 
