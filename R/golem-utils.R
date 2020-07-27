@@ -1,15 +1,3 @@
-#' Creates Golem
-#' 
-#' Creates `webpack.common.js` file for golem.
-#' 
-#' @noRd 
-#' @keywords internal
-golem_config <- function(){
-  config <- pkg_file("golem/webpack.common.js")
-  fs::file_copy(config, "webpack.common.js")
-  cli::cli_alert_success("Created webpack config file")
-}
-
 #' Golem JavaScript Files
 #' 
 #' Creates the necessary `srcjs` directory and children JavaScript files.
@@ -18,7 +6,7 @@ golem_config <- function(){
 #' @noRd 
 #' @keywords internal
 golem_files <- function(){
-  base <- pkg_file("golem/javascript/srcjs")
+  base <- pkg_file("golem/javascript")
   fs::dir_copy(base, "srcjs")
   cli::cli_alert_success("Created `srcjs` directory")
 }
