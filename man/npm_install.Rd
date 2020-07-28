@@ -4,7 +4,7 @@
 \alias{npm_install}
 \title{Install Npm Packges}
 \usage{
-npm_install(..., scope = c("prod", "dev", "global"))
+npm_install(..., scope = c("dev", "prod", "global"))
 }
 \arguments{
 \item{...}{Packages to install.}
@@ -17,7 +17,7 @@ Install npm packges.
 \section{Scopes}{
 
 \itemize{
-\item \code{local} - Installs packages for project with \code{--save}
+\item \code{prod} - Installs packages for project with \code{--save}
 \item \code{dev} - Installs dev packages for project with \code{--save-dev}
 \item \code{global} - Instals packages globally with \code{-g}
 }

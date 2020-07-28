@@ -22,7 +22,7 @@ set_npm <- function(path = NULL){
 #' 
 #' @section Scopes:
 #' 
-#' * `local` - Installs packages for project with `--save`
+#' * `prod` - Installs packages for project with `--save`
 #' * `dev` - Installs dev packages for project with `--save-dev`
 #' * `global` - Instals packages globally with `-g`
 #' 
@@ -31,7 +31,7 @@ set_npm <- function(path = NULL){
 #' \dontrun{npm_install("browserify", scope = "global")}
 #' 
 #' @export 
-npm_install <- function(..., scope = c("prod", "dev", "global")){
+npm_install <- function(..., scope = c("dev", "prod", "global")){
   # check
   packages <- c(...) #capture
   scope <- match.arg(scope)

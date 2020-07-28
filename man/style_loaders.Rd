@@ -2,13 +2,13 @@
 % Please edit documentation in R/loaders.R
 \name{style_loaders}
 \alias{style_loaders}
-\alias{use_css}
-\alias{use_sass}
+\alias{use_loader_css}
+\alias{use_loader_sass}
 \title{Use Styles}
 \usage{
-use_css()
+use_loader_css()
 
-use_sass()
+use_loader_sass()
 }
 \description{
 Installs loaders and adds relevant configuration rules to \code{srcjs/config/loaders.json}.
@@ -19,8 +19,8 @@ This will let you import styles much like any other modules, e.g.: \verb{import 
 \section{Packages}{
 
 \itemize{
-\item \code{\link[=use_css]{use_css()}} - installs \code{style-loader} and \code{css-loader} packages as dev.
-\item \code{\link[=use_sass]{use_sass()}} - installs \code{style-loader}, \code{css-loader}, \code{sass-loader}, and \code{sass} as dev.
+\item \code{\link[=use_loader_css]{use_loader_css()}} - installs \code{style-loader} and \code{css-loader} packages as dev.
+\item \code{\link[=use_loader_sass]{use_loader_sass()}} - installs \code{style-loader}, \code{css-loader}, \code{sass-loader}, and \code{sass} as dev.
 }
 }
 

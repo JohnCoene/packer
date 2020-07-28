@@ -6,12 +6,12 @@
 #' 
 #' @section Packages:
 #' 
-#' * [use_css()] - installs `style-loader` and `css-loader` packages as dev.
-#' * [use_sass()] - installs `style-loader`, `css-loader`, `sass-loader`, and `sass` as dev.
+#' * [use_loader_css()] - installs `style-loader` and `css-loader` packages as dev.
+#' * [use_loader_sass()] - installs `style-loader`, `css-loader`, `sass-loader`, and `sass` as dev.
 #' 
 #' @name style_loaders
 #' @export
-use_css <- function(){
+use_loader_css <- function(){
   assert_that(has_scaffold())
 
   # install loaders
@@ -31,7 +31,7 @@ use_css <- function(){
 
 #' @rdname style_loaders
 #' @export
-use_sass <- function(){
+use_loader_sass <- function(){
   assert_that(has_scaffold())
 
   npm_install("style-loader", "css-loader", "sass-loader", "sass", scope = "dev")
@@ -46,6 +46,28 @@ use_sass <- function(){
   # wrap up
   loader_msg()
   cli::cli_alert_info("Create `srcjs/styles/styles.scss` and import with `import '../styles/styles.scss'`")
+}
+
+#' Use Pug Loader
+#' 
+#' Adds the loader for the pug templating engine.
+#' 
+#' @export 
+use_loader_pug <- function(){
+  assert_that(has_scaffold())
+
+  npm_install("pug", "pug-loader", scope = "dev")
+
+  # message modifications
+  loader <- list(
+    test = "\\.pug$",
+    use = list("pug-loader")
+  )
+  loader_add(loader)
+  
+  # wrap up
+  loader_msg()
+  cli::cli_alert_info("You can now use pug with the HTML plugin, see `add_plugin_html`")
 }
 
 
@@ -70,7 +92,7 @@ loader_add <- function(loader){
   tests <- unlist(tests)
 
   if(loader$test %in% tests){
-    cli::cli_alert_danger("Skipping module rule as rule for loader already exists in `config/loaders.json`")
+    cli::cli_alert_warning("Module rule for loader already exists in `config/loaders.json`")
     return(invisible(FALSE))
   }
 
