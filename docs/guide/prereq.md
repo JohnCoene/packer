@@ -4,7 +4,12 @@ Here you will find a short guide to get you up to speed on the technology used u
 
 ## R packages
 
-R packages make sharing code, datasets, and anything else R-related extremely easy, they also come with a relatively strict structure, the ability to run unit tests, and much more. These have thus become a core feature of the R ecosystem and therefore are also used as the backbone of every packer project.
+R packages make sharing code, datasets, and anything else R-related extremely easy, they also come with a relatively strict structure, the ability to run unit tests, and much more. These have thus become a core feature of the R ecosystem and therefore are also used as the backbone of every packer project, knowledge of package development is necessary to work with packer.
+
+```r
+# create a package named usesJS
+usethis::create_package("usesJS")
+```
 
 ## Npm
 
@@ -15,6 +20,13 @@ You can use `packer::npm_install` to install packages. The first difference with
 1. `dev` for packages that is only required for you to develop your project
 2. `prod` for packages that is required to run your project in production
 3. `global` to install packages globally, on your entire machine (not recommended)
+
+There are probably only a handful of libraries that should be installed globally. You should only install in `prod` what is required to run your code in the front-end, any package used to prepare the bundle (e.g.: `sass`) is not required in the front-end and therefore should be installed as `dev`.
+
+```r
+# install the pg (postgres) package for development purposes.
+packer::npm_install("pg", scope = "dev")
+```
 
 ## Webpack
 
