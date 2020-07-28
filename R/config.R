@@ -67,6 +67,10 @@ config_output_path <- function(output_dir){
   if(fs::file_exists("srcjs/config/output_path.json"))
     return()
 
+  # if the user is building a golem app override the output_dir
+  if(is_golem() && output_dir != "./inst/app/www")
+    output_dir <- "./inst/app/www"
+
   save_json(output_dir, "srcjs/config/output_path.json")  
 }
 
