@@ -33,12 +33,7 @@ add_plugin_html <- function(use_pug = FALSE){
   if(!any(grepl("require('html-webpack-plugin')", config)))
     config <- c("const HtmlWebpackPlugin = require('html-webpack-plugin');", config)
 
-  plugin <- sprintf("
-var plugins = [
-  new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: 'srcjs/index.%s'
-  }),", ext)
+  plugin <- sprintf("var plugins = [\nnew HtmlWebpackPlugin({filename: 'index.html', template: 'srcjs/index.%s'}),", ext)
 
   config[grepl("^var plugins = \\[", config)] <- plugin
 

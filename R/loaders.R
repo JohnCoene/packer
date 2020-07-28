@@ -67,7 +67,6 @@ use_loader_pug <- function(){
   
   # wrap up
   loader_msg()
-  cli::cli_alert_info("You can now use pug with the HTML plugin, see `add_plugin_html`")
 }
 
 
