@@ -4,12 +4,14 @@ Here you will find a short guide to get you up to speed on the technology used u
 
 ## R packages
 
-R packages make sharing code, datasets, and anything else R-related extremely easy, they also come with a relatively strict structure, the ability to run unit tests, and much more. These have thus become a core feature of the R ecosystem and therefore are also used as the backbone of every packer project, knowledge of package development is necessary to work with packer.
+R packages make sharing code, datasets, and anything else R-related extremely easy, they also come with a relatively strict structure, the ability to run unit tests, and much more. These have thus become a core feature of the R ecosystem and therefore are also used as the backbone of every packer project.
 
 ```r
 # create a package named usesJS
 usethis::create_package("usesJS")
 ```
+
+<Tip title="Package development" text="Knowledge of R package development is necessary to work with packer." />
 
 ## Npm
 
@@ -24,8 +26,8 @@ You can use `packer::npm_install` to install packages. The first difference with
 There are probably only a handful of libraries that should be installed globally. You should only install in `prod` what is required to run your code in the front-end, any package used to prepare the bundle (e.g.: `sass`) is not required in the front-end and therefore should be installed as `dev`.
 
 ```r
-# install the pg (postgres) package for development purposes.
-packer::npm_install("pg", scope = "dev")
+# install the sass package for development purposes.
+packer::npm_install("sass", scope = "dev")
 ```
 
 ## Webpack
@@ -34,22 +36,7 @@ Webpack is the core of packer, it's what enables modularising JavaScript code, v
 
 You can interact with webpack from R with packer using `packer::bundle` to bundle all the files or `packer::watch` to watch for changes in the JavaScript files and re bundles them when things change, ideal while developing the package.
 
-<Tip title="Remember to bundle" text="Always remember to bundle the JavaScript file in order to see changes reflected in the R package." />
-
-Packer will set up webpack to bundle each scaffold into its own JavaScript file but one can easily change that to bundle all of them into a single file.
-
-```js
-const path = require('path');
-
-module.exports = {
-  entry: './srcjs/index.js',
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, './inst/packer'),
-  },
-  externals: {
-    shiny: 'Shiny',
-    jquery: 'jQuery',
-  },
-};
+```r
+# bundle JavaScript files
+packer::bundle()
 ```

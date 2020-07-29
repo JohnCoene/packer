@@ -6,13 +6,13 @@ Below we create a package named "alerts" via [usethis](http://usethis.r-lib.org/
 
 ```r
 # creates package
-usethis::create_package('alerts')
+usethis::create_package("alerts")
 ```
 
 ```
-▶ Rscript -e "usethis::create_package('alerts')"
+❯ Rscript -e "usethis::create_package('alerts')"                               
 ✔ Creating 'alerts/'
-✔ Setting active project to '/home/Packages/alerts'
+✔ Setting active project to '/Packages/alerts'
 ✔ Creating 'R/'
 ✔ Writing 'DESCRIPTION'
 Package: alerts
@@ -33,13 +33,13 @@ RoxygenNote: 7.1.1.9000
 
 ## Scaffolds
 
-Then comes on of the core concepts of packer: scaffolds. Scaffolds are basic structures that enables using JavaScript with R in a more structure way, via webpack. There are currently 5 scaffolds available.
+Then comes on of the core concepts of packer: scaffolds. Scaffolds are basic structures that enable using JavaScript with R in a more structure way, via webpack. There are currently 5 scaffolds available.
 
 * `scaffold_widget` - Scaffold an [htmlwidgets](http://www.htmlwidgets.org/) with webpack.
 * `scaffold_golem` - Use webpack with [golem](http://golemverse.org/).
 * `scaffold_extension` - Scaffold a shiny extension, e.g.: [shinyjs](https://deanattali.com/shinyjs/) or [waiter](https://waiter.john-coene.com/).
-* `scaffold_input` - Scaffold a custom shiny input.
-* `scaffold_output` - Scaffold a custom shiny output.
+* `scaffold_input` - Scaffold a custom [shiny input](https://shiny.rstudio.com/articles/building-inputs.html).
+* `scaffold_output` - Scaffold a custom [shiny output](https://shiny.rstudio.com/articles/building-outputs.html).
 
 <Tip title="Multiple Scaffolds" text="Most scaffolds can be used more than once per package, e.g.: to create multiple inputs." />
 
@@ -50,28 +50,31 @@ packer::scaffold_extension("ask")
 ```
 
 ```
-── Scaffolding shiny extension ─────────────────────────────────────── ask ── 
+── Scaffolding shiny extension ────────────────────────────────────────────── ask ── 
 
 ✔ Initialiased npm
 ✔ Created `srcjs/exts` directory
 ✔ Created `inst/packer` directory
-✔ webpack, webpack-cli installed
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
-✔ Created webpack config file
+✔ Created `srcjs/config` directory
+✔ Created webpack config files
 ✔ Created `srcjs/index.js` file
 ✔ Created input module directory
 ✔ Created JavaScript extension file
-✔ Added path shiny resource
+✔ Added path to shiny resource
 ✔ Created R functions
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/home/jp/Projects/alerts'
+✔ Setting active project to '/Packages/alerts'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
 ✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
-✔ Adding '^webpack\\.config\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
 ✔ Adding 'node_modules' to '.gitignore'
 
 ── Adding packages to Imports ──
@@ -89,10 +92,10 @@ As hinted at by the messages above this does many things:
 1. Initialises npm
 2. Installs webpack
 3. It creates an `srcjs` directory containing the JavaScript files
-4. Creates a `webpack.config.js` file to configure webpack
-5. Creates `inst` directory to place bundles
+4. Creates webpack config files: `webpack.common.js`, `webpack.dev.js`, and `webpack.prod.js`.
+5. Creates `inst/packer` directory to place bundles
 6. Creates R files and functions
-7. Adds relevant files to the `.gitignore` and `.Rbuildignore`
+7. Adds relevant files and directories to the `.gitignore` and `.Rbuildignore`
 8. Adds relevant packages to `Imports`
 
 When run from an interactive session packer also opens the most pertinent files in your default editor or IDE. With the scaffold the package now look like this. 
@@ -107,14 +110,15 @@ When run from an interactive session packer also opens the most pertinent files 
 ├── inst
 │   └── packer
 ├── node_modules
-│   ├── ...
-├── package-lock.json
+│   └── ...
 ├── package.json
 ├── srcjs
+│   ├── config
 │   ├── exts
-│   │   └── ask.js
 │   └── index.js
-└── webpack.config.js
+├── webpack.common.js
+├── webpack.dev.js
+└── webpack.prod.js
 ```
 
 It created two R files, `ask.R` which contains exported functions relevant to the extensions, and `zzz.R` which contains the `.onLoad` function to serve the JavaScript files required to run the extension. It also created the `inst/packer` directory which is currently empty but will eventually contain the bundled JavaScript file(s).
