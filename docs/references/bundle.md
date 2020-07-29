@@ -10,6 +10,8 @@
 
 ```r
 bundle(mode = c("production", "development", "none"))
+bundle_prod()
+bundle_dev()
 watch()
 ```
 

@@ -42,6 +42,6 @@ json <- purrr::map(files, function(x){
   list(title = title, link = sprintf("/references/%s", title))
 })
 
-json <- jsonlite::toJSON(json, pretty = T, auto_unbox = T)
+json <- jsonlite::toJSON(json, pretty = FALSE, auto_unbox = TRUE)
 
 cat(json)

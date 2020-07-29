@@ -1,6 +1,6 @@
 # Prerequisites
 
-Here you will find a short guide to get you up to speed on the technology used under the hood. 
+This page includes what is necessary to understand in order to work with webpack but is not a full-blown tutorial on how to get up to speed.
 
 ## R packages
 
@@ -32,11 +32,11 @@ packer::npm_install("sass", scope = "dev")
 
 ## Webpack
 
-Webpack is the core of packer, it's what enables modularising JavaScript code, very much like modularising a shiny application: making code more manageable and reusable throughout the application. It is configured from the `webpack.config.js` file.
+Webpack is the core of packer, it's what enables modularising JavaScript code, very much like modularising a shiny application: making code more manageable and reusable throughout the application. It is configured from the `webpack.common.js`, `webpack.dev.js`, and `webpack.prod.js` files, different files for different optimisations: `dev` won't be optimal but return clearer error messages, `prod` is optimised for deployment but gives less precise error messages (no sourcemap).
 
 You can interact with webpack from R with packer using `packer::bundle` to bundle all the files or `packer::watch` to watch for changes in the JavaScript files and re bundles them when things change, ideal while developing the package.
 
 ```r
-# bundle JavaScript files
+# bundle JavaScript files for prod (default)
 packer::bundle()
 ```

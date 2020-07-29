@@ -125,7 +125,7 @@ It created two R files, `ask.R` which contains exported functions relevant to th
 
 The function also initialised npm which created the `node_modules` directory (containing numerous npm packages), as well as the `package.json` and `package-lock.json`, packer also added the necessary scripts to `package.json` so one should not need to interact with those files directly.
 
-Finally, the webpack configuration file was created, along with the `srcjs` directory containing core JavaScript files of the extension.
+Finally, the webpack configuration files were created (`webpack.*` files), along with the `srcjs` directory containing core JavaScript files of the extension.
 
 ### R files
 
@@ -219,7 +219,7 @@ import './exts/ask.js';
 
 ## Bundle
 
-You can then run `packer::bundle` to bundle the files in `srcjs`, the webpack config file includes the correct entry points and output directory. The entry points and output directories will depend on the scaffold, shiny extensions' entry points are placed in the `srcjs/exts` directory and output in `inst/packer` upon bundle. 
+You can then run `packer::bundle` to bundle the files in `srcjs`, the webpack config file includes the correct entry points and output directory. The entry points and output directories will depend on the scaffold, shiny extensions' entry points are placed in the `srcjs/exts` directory and output in `inst/packer` upon bundle, unless this was run from a golem application, in which case the output is automatically changed to golem's standard.
 
 ```r
 packer::bundle()

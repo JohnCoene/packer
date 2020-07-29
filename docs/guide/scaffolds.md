@@ -20,7 +20,7 @@ packer::scaffold_golem()
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/home/jp/Projects/stocks'
+✔ Setting active project to '/Packages/stocks'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -62,7 +62,7 @@ packer::scaffold_widget("write_h1")
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/home/jp/Projects/plotly'
+✔ Setting active project to '/Packages/plotly'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -119,7 +119,7 @@ packer::scaffold_extension("ask")
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/home/jp/Projects/alerts'
+✔ Setting active project to '/Packages/alerts'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -178,6 +178,7 @@ packer::scaffold_extension("increment")
 
 ```
 ── Scaffolding shiny input ───────────────────────────────────increment ── 
+
 ✔ Initialiased npm
 ✔ Created `srcjs` directory
 ✔ Created `inst/packer` directory
@@ -191,7 +192,7 @@ packer::scaffold_extension("increment")
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/home/jp/Projects/inputz'
+✔ Setting active project to '/Packages/inputz'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -243,4 +244,67 @@ if(interactive())
 
 ## Outputs
 
-Packer
+You can also scaffold a custom output for shiny.
+
+```r
+usethis::create_package("outputz")
+packer::scaffold_output("markup")
+```
+
+```
+── Scaffolding shiny output ─────────────────────────────────────── markup ── 
+✔ Initialiased npm
+✔ Created `srcjs/outputs` directory
+✔ Created `inst/packer` directory
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
+✔ Added npm scripts
+✔ Created `srcjs/config` directory
+✔ Created webpack config files
+✔ Created `srcjs/index.js` file
+✔ Created input module directory
+✔ Created R file and function
+
+── Adding files to .gitignore and .Rbuildignore ──
+
+✔ Setting active project to '/home/jp/Projects/outputz'
+✔ Adding '^srcjs$' to '.Rbuildignore'
+✔ Adding '^node_modules$' to '.Rbuildignore'
+✔ Adding '^package\\.json$' to '.Rbuildignore'
+✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
+✔ Adding 'node_modules' to '.gitignore'
+
+── Adding packages to Imports ──
+
+✔ Adding 'shiny' to Imports field in DESCRIPTION
+● Refer to functions with `shiny::fun()`
+✔ Adding 'htmltools' to Imports field in DESCRIPTION
+● Refer to functions with `htmltools::fun()`
+
+── Scaffold built ──
+
+ℹ Run `bundle` to build the JavaScript files
+```
+
+Like other scaffolds the R code generated contains a toy example.
+
+```r
+library(shiny)
+
+ui <- fluidPage(
+ markupOutput("id")
+)
+
+server <- function(input, output){
+ output$id <- renderMarkup({
+   markup(h2("Hello"))
+ })
+}
+
+if(interactive())
+ shinyApp(ui, server)
+```
+
+![](_media/input-toy.png)

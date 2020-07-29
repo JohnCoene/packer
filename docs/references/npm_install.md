@@ -9,7 +9,7 @@
 ### Usage
 
 ```r
-npm_install(..., scope = c("prod", "dev", "global"))
+npm_install(..., scope = c("dev", "prod", "global"))
 ```
 
 
