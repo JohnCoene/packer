@@ -7,9 +7,9 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jcoenep@gmail.com")
 Description:
-  Enforces good practice and provides convenience functions to make work with JavaScript 
-  not just easier but also scalable. It is a robust wrapper for npm and webpack that enables 
-  to modularise JavaScript code, leverage npm packages, and much more.
+  Enforces good practice and provides convenience functions to make work with 'JavaScript' 
+  not just easier but also scalable. It is a robust wrapper for 'NPM' and 'webpack' that 
+  enables to modularise JavaScript code, leverage 'NPM' packages, and much more.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
