@@ -11,10 +11,7 @@ An opinionated framework for using JavaScript with R.
 
 </div>
 
-
-## Usage
-
-At its core packer consists of functions to scaffold R packages powered by webpack and npm, these take the form of scaffolds which are built on top of packages. All of the functions listed below need to be run from within an R package.
+At its core packer consists of functions to scaffold R packages powered by webpack and npm, these take the form of scaffolds which are built on top of packages. All of the scaffolds below thus need to be run from within an R package.
 
 * `scaffold_widget` - Scaffold an [htmlwidgets](http://www.htmlwidgets.org/) with webpack.
 * `scaffold_golem` - Use webpack with [golem](http://golemverse.org/).
@@ -22,7 +19,7 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 * `scaffold_input` - Scaffold a custom shiny input, e.g.: [shinyWidgets](https://github.com/dreamRs/shinyWidgets).
 * `scaffold_output` - Scaffold a custom shiny output.
 
-## Example
+## Usage
 
 Always start from an empty package and run `scaffold_*` to set up the required basic structure.
 
