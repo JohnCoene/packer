@@ -5,7 +5,7 @@
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/packer?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/packer)
 <!-- badges: end -->
 
-[Website](http://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation)
+[Website](http://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation) | [Get Started](https://packer.john-coene.com/#/guide/getting-started)
 
 An opinionated framework for using JavaScript with R.
 
