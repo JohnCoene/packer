@@ -1,7 +1,6 @@
 <div align="center">
 
 <!-- badges: start -->
-[![R build status](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/packer/actions)
 <!-- badges: end -->
 
 [Website](http://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation)
