@@ -1,6 +1,6 @@
 Package: packer
 Title: An Opinionated Framework for Using JavaScript with R
-Version: 0.0.1
+Version: 0.0.2.9000
 Authors@R: 
     person(given = "John",
            family = "Coene",
