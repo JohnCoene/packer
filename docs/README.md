@@ -1,9 +1,8 @@
-# packer
-
 <!-- badges: start -->
-![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master)
-![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/packer?branch=master&svg=true)
+![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master) ![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/packer?branch=master&svg=true)
 <!-- badges: end -->
+
+# packer
 
 An opinionated framework for using JavaScript with R.
 
