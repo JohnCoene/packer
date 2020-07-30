@@ -7,6 +7,8 @@
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
+#' @examples \dontrun{scaffold_extension("prompt")}
+#' 
 #' @export
 scaffold_extension <- function(name, edit = interactive()){
   # checks

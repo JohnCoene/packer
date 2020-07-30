@@ -1,3 +1,11 @@
+#' Extension JavaScript Files
+#' 
+#' @param name Name of widget as passed to [scaffold_extension()].
+#' 
+#' @details Creates `srcjs/exts/name.js` file.
+#' 
+#' @noRd 
+#' @keywords internal
 ext_js_files <- function(name){
 
   # index.js
@@ -15,6 +23,14 @@ ext_js_files <- function(name){
   cli::cli_alert_success("Created JavaScript extension file")
 }
 
+#' Extension Index.js Files
+#' 
+#' @param name Name of widget as passed to [scaffold_extension()].
+#' 
+#' @details Creates or insert imports in `index.js`.
+#' 
+#' @noRd 
+#' @keywords internal
 ext_index_file <- function(name){
 
   # commons
@@ -35,6 +51,14 @@ ext_index_file <- function(name){
   writeLines(index, "srcjs/index.js")
 }
 
+#' Extension R Files
+#' 
+#' @param name Name of widget as passed to [scaffold_extension()].
+#' 
+#' @details Creates `R/name.R` file and `R/zzz.R` file if it does not already exist.
+#' 
+#' @noRd 
+#' @keywords internal
 ext_r_files <- function(name){
   pkgname <- get_pkg_name()
 

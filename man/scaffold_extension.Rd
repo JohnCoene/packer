@@ -17,3 +17,7 @@ scaffold_extension(name, edit = interactive())
 \description{
 Creates the basic structure for a shiny extension.
 }
+\examples{
+\dontrun{scaffold_extension("prompt")}
+
+}
