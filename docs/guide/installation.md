@@ -1,6 +1,6 @@
 # Installation
 
-Under the hood, many of the functionalities of {packer} are powered by [npm](https://www.npmjs.com/), Node's Package Manager, or in some sense [node.js](https://nodejs.org/)' equivalent of CRAN. The package manager comes with node.js, it therefore needs to be installed on your machine.
+Under the hood, many of the functionalities of {packer} are powered by [npm](https://www.npmjs.com/), Node's Package Manager which comes bundled with node.js.
 
 ## Node
 

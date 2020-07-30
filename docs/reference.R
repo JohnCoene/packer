@@ -38,8 +38,10 @@ docs <- purrr::map(files, function(x){
 })
 
 json <- purrr::map(files, function(x){
-  title <- gsub("\\.Rd", "", x)
-  list(title = title, link = sprintf("/references/%s", title))
+  link <- gsub("\\.Rd", "", x)
+  title <- tools::toTitleCase(link)
+  title <- gsub("_", " ", title)
+  list(title = title, link = sprintf("/references/%s", link))
 })
 
 json <- jsonlite::toJSON(json, pretty = FALSE, auto_unbox = TRUE)

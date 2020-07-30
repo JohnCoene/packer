@@ -4,7 +4,7 @@
 ![R build status](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)
 <!-- badges: end -->
 
-An opinionated framework for robust use of JavaScript with R.
+An opinionated framework for using JavaScript with R.
 
 ### About
 
@@ -12,4 +12,8 @@ Packer enforces good practice and provides convenience functions to make work wi
 
 ### Inspiration
 
-This package is heavily inspired by [golem](http://golemverse.org/), [htmlwidgets](http://www.htmlwidgets.org/), and [usethis](https://usethis.r-lib.org/).
+The scaffolds are very much inspired by the same functionality from [htmlwidgets](http://www.htmlwidgets.org/) `scaffoldWidget` function and [golem](http://golemverse.org/) `create_golem`.
+
+### Related Work
+
+If you enjoy packer you should explore [reactR](https://github.com/react-R/reactR) which does something very similar to packer to create React-powered widgets and inputs.

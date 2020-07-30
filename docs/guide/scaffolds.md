@@ -1,5 +1,7 @@
 # Scaffolds
 
+Scaffolds are basic structures that enable using webpack and npm in a consistent and robust manner. They also come with the advantage that no package which uses packer needs to rely on packer as a dependency: the package is meant to be used to develop others and should not figure in your `Imports`.
+
 ## Golem
 
 The `scaffold_golem` function will lay down the scaffolding for a golem package.
@@ -11,21 +13,24 @@ packer::scaffold_golem()
 
 ```
 ── Scaffolding golem ──────────────────────────────────────────────────── 
-
+ 
 ✔ Initialiased npm
-✔ webpack, webpack-cli installed
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
 ✔ Created `srcjs` directory
-✔ Created webpack config file
+✔ Created `srcjs/config` directory
+✔ Created webpack config files
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/Packages/stocks'
+✔ Setting active project to '/Users/jcoe/Documents/Projects/stocks'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
 ✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
-✔ Adding '^webpack\\.config\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
 ✔ Adding 'node_modules' to '.gitignore'
 
 ── Scaffold built ──
@@ -33,13 +38,13 @@ packer::scaffold_golem()
 ℹ Run `bundle` to build the JavaScript files
 ```
 
-This will let you use packer to bundle files to `inst/app/www`.
+This will let you use packer to bundle files to `inst/app/www`, by default all files are bundled into one: `index.js`.
 
-<Danger title="Unique" text="The scaffold for golem is unique in that only one can be laid down." />
+<Danger title="Unique" text="The scaffold for golem is unique in that only one can be laid down once." />
 
 ## Widgets
 
-Htmlwidgets can also be scaffolded with `scaffold_widget`. Note that is will internally run `htmlwidgets::scaffoldWidget`.
+Htmlwidgets can also be scaffolded with `scaffold_widget`. Note that is will internally run `htmlwidgets::scaffoldWidget` so you should not run it prior to packer's scaffold.
 
 ```r
 usethis::create_package("plotly")
@@ -95,7 +100,7 @@ write_h1("hello packer!")
 
 ## Extensions
 
-In packer, a shiny extension is a package that extends much the way shinyjs or waiter does. Note that multiple extensions can be scaffolded within a single R package.
+In packer, a shiny extension is a package that extends much the way [shinyjs](https://deanattali.com/shinyjs/) or [waiter](https://waiter.john-coene.com/) does. Note that multiple extensions can be scaffolded within a single R package.
 
 ```r
 usethis::create_package("alerts")
@@ -212,7 +217,7 @@ packer::scaffold_extension("increment")
 ℹ Run `bundle` to build the JavaScript files
 ```
 
-The toy example scaffolded by packer is a but that increments at every click.
+The toy example scaffolded by packer is a button that increments at every click.
 
 ```r
 packer::bundle()
@@ -288,7 +293,7 @@ packer::scaffold_output("markup")
 ℹ Run `bundle` to build the JavaScript files
 ```
 
-Like other scaffolds the R code generated contains a toy example.
+Like other scaffolds the R code generated contains a toy example: it renders shiny tags in red.
 
 ```r
 library(shiny)

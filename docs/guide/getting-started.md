@@ -41,7 +41,9 @@ Then comes on of the core concepts of packer: scaffolds. Scaffolds are basic str
 * `scaffold_input` - Scaffold a custom [shiny input](https://shiny.rstudio.com/articles/building-inputs.html).
 * `scaffold_output` - Scaffold a custom [shiny output](https://shiny.rstudio.com/articles/building-outputs.html).
 
-<Tip title="Multiple Scaffolds" text="Most scaffolds can be used more than once per package, e.g.: to create multiple inputs." />
+<Note type = "tip">
+Most scaffolds can be used more than once per package, e.g.: to create multiple inputs.
+</Note>
 
 Let's demonstrate with a scaffold for a shiny extension. In packer a shiny extension is a package that extends shiny via JavaScript; package such as [waiter](https://waiter.john-coene.com/#/) or [shinyjs](https://deanattali.com/shinyjs/). The function takes a single argument `name` which will be used to define the name of R and JavaScript functions, files, modules, etc.
 

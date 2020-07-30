@@ -13,62 +13,41 @@
       body {
         font-family: 'Raleway', sans-serif;
       }
-
-      .tip {
-        border: 1px solid var(--border-color);
-        padding: 20px;
-        border-radius: 4px;
-      }
-
-      .tip-title{
-        color: var(--success-color);
-      }
-
-      .danger {
-        border: 1px solid var(--border-color);
-        padding: 20px;
-        border-radius: 4px;
-      }
-      .danger-title{
-        color: var(--danger-color);
-      }
     </style>
   </head>
   <body>
     <div id="docute"></div>
     <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
-    <script>
-      Vue.component('Tip', {
-        props: ['title', 'text'],
-        template: `
-          <div class="tip">
-            <strong class='tip-title'>{{ title }}</strong><br/>
-            {{ text }}
-          </div>
-        `
-      })
-
-      Vue.component('Danger', {
-        props: ['title', 'text'],
-        template: `
-          <div class="danger">
-            <strong class='danger-title'>{{ title }}</strong><br/>
-            {{ text }}
-          </div>
-        `
-      })
-    </script>
+    <script src="https://unpkg.com/docute-google-analytics@1/dist/index.min.js"></script>
     <script>
       new Docute({
+        cssVariables(theme) {
+          return theme === 'dark' ? {
+            accentColor: '#5ca2db',
+            pageBackground: '#2a2c30',
+            sidebarLinkActiveColor: "var(--accent-color)"
+          } : {
+            accentColor: '#175d96',
+            pageBackground: '#f7f7f7',
+            sidebarLinkActiveColor: "var(--accent-color)"
+          }
+        },
         versions: {
           'v0.0.1 (Latest)': {
             link: '/'
           },
         },
+        plugins: [
+          docuteGoogleAnalytics('UA-74544116-1')
+        ],
         detectSystemDarkTheme: true,
         darkThemeToggler: true,
         highlight: ['r', 'javascript'],
         title: 'packer',
+        editLinkBase: 'https://github.com/JohnCoene/packer/blob/master/docs',
+        editLinkText: 'Edit this page',
+        imageZoom: true,
+        footer: '<p style="text-align:center;"><a href="https://github.com/sponsors/JohnCoene" >Sponsor<ExternalLinkIcon /></a> on Github</p>',
         nav: [
           {
             title: 'Home',
@@ -80,7 +59,10 @@
           },
         ],
         sidebar: [
-          // A sidebar item, with child links
+          {
+            title: 'Home',
+            link: '/'
+          },
           {
             title: 'Guides',
             children: [
@@ -104,7 +86,7 @@
           },
             {
             title: 'Reference',
-            children: [{"title":"add_plugin_html","link":"/references/add_plugin_html"},{"title":"bundle","link":"/references/bundle"},{"title":"npm_console","link":"/references/npm_console"},{"title":"npm_install","link":"/references/npm_install"},{"title":"scaffold_extension","link":"/references/scaffold_extension"},{"title":"scaffold_golem","link":"/references/scaffold_golem"},{"title":"scaffold_input","link":"/references/scaffold_input"},{"title":"scaffold_output","link":"/references/scaffold_output"},{"title":"scaffold_widget","link":"/references/scaffold_widget"},{"title":"set_npm","link":"/references/set_npm"},{"title":"style_loaders","link":"/references/style_loaders"},{"title":"use_loader_pug","link":"/references/use_loader_pug"}]
+            children: [{"title":"Add plugin html","link":"/references/add_plugin_html"},{"title":"Bundle","link":"/references/bundle"},{"title":"Npm console","link":"/references/npm_console"},{"title":"Npm install","link":"/references/npm_install"},{"title":"Scaffold extension","link":"/references/scaffold_extension"},{"title":"Scaffold golem","link":"/references/scaffold_golem"},{"title":"Scaffold input","link":"/references/scaffold_input"},{"title":"Scaffold output","link":"/references/scaffold_output"},{"title":"Scaffold widget","link":"/references/scaffold_widget"},{"title":"Set npm","link":"/references/set_npm"},{"title":"Style loaders","link":"/references/style_loaders"},{"title":"Use loader pug","link":"/references/use_loader_pug"}]
           },
           // An external link
           {
