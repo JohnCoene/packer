@@ -69,6 +69,29 @@ use_loader_pug <- function(){
   loader_msg()
 }
 
+#' Use babel Loader
+#' 
+#' Adds the loader for babel comiler to loader configuration file.
+#' 
+#' @details Excludes `node_modules` by default.
+#' 
+#' @export 
+use_loader_babel <- function(){
+  assert_that(has_scaffold())
+
+  npm_install("@babel/core", "@babel/preset-env", "@babel/preset-react", "babel-loader", scope = "dev")
+
+  # message modifications
+  loader <- list(
+    test = "\\.(js|jsx)$",
+    exclude = "/node_modules/",
+    use = list("babel-loader")
+  )
+  loader_add(loader)
+  
+  # wrap up
+  loader_msg()
+}
 
 #' Add loader to config file
 #' 

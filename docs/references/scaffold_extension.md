@@ -26,3 +26,10 @@ Argument      |Description
  `TRUE` (invisibly) if successfully run.
 
 
+### Examples
+
+```r 
+ scaffold_extension("prompt") 
+ 
+ ``` 
+

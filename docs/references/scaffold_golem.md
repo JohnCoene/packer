@@ -9,7 +9,7 @@
 ### Usage
 
 ```r
-scaffold_golem(edit = interactive())
+scaffold_golem(react = FALSE, edit = interactive())
 ```
 
 
@@ -17,6 +17,7 @@ scaffold_golem(edit = interactive())
 
 Argument      |Description
 ------------- |----------------
+```react```     |     Whether to include react, internally runs [`apply_react()`](apply_react().html) and adapts the `srcjs/index.js` template for React.
 ```edit```     |     Automatically open pertinent files.
 
 ### Value

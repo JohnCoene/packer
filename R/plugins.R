@@ -1,12 +1,15 @@
 #' HTML Plugin
 #' 
 #' Add the [htmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) to 
-#' the configuration to generate HTML with webpack.
+#' the configuration to generate HTML with webpack, used in packer to generate the UI of 
+#' a golem app with webpack.
 #' 
 #' @param use_pug Set to `TRUE` to use the [pug engine](https://pugjs.org/).
 #' 
 #' @export
 add_plugin_html <- function(use_pug = FALSE){
+
+  assert_that(is_golem())
 
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
@@ -33,14 +36,14 @@ add_plugin_html <- function(use_pug = FALSE){
   if(!any(grepl("require('html-webpack-plugin')", config)))
     config <- c("const HtmlWebpackPlugin = require('html-webpack-plugin');", config)
 
-  plugin <- sprintf("var plugins = [\nnew HtmlWebpackPlugin({filename: 'index.html', template: 'srcjs/index.%s'}),", ext)
+  plugin <- sprintf("var plugins = [\nnew HtmlWebpackPlugin({filename: '../index.html', template: 'srcjs/index.%s'}),", ext)
 
   config[grepl("^var plugins = \\[", config)] <- plugin
 
   writeLines(config, "webpack.common.js")
 
-  # output path
-  output_path <- jsonlite::read_json("srcjs/config/output_path.json")
+  pkg_name <- get_pkg_name()
+  cmd <- sprintf('system.file("app/index.html", package = "%s")', pkg_name)
 
-  cli::cli_alert_info(sprintf('Use `shiny::htmlTemplate("%s/index.%s")` as your UI.', output_path, ext))
+  cli::cli_alert_info(sprintf('Use `shiny::htmlTemplate(%s)` as your shiny UI.', cmd))
 }

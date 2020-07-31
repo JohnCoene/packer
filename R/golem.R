@@ -3,11 +3,12 @@
 #' Creates the basic structure for golem app with JavaScript.
 #' 
 #' @inheritParams scaffold_widget
+#' @param react Whether to include react, internally runs [apply_react()] and adapts the `srcjs/index.js` template for React.
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export
-scaffold_golem <- function(edit = interactive()){
+scaffold_golem <- function(react = FALSE, edit = interactive()){
   # checks
   assert_that(has_npm())
   assert_that(is_golem())
@@ -18,7 +19,7 @@ scaffold_golem <- function(edit = interactive()){
   # init npm
   npm_init()
 
-  # install dev webpack + cli
+  # install dependencies
   webpack_install()
 
   # edit package.json
@@ -35,11 +36,10 @@ scaffold_golem <- function(edit = interactive()){
     externals = list(shiny = "Shiny", jquery = "jQuery")
   )
 
-  # edit
-  golem_edit(edit)
-
   # ignore files and directories
   ignore_files()
+
+  if(react) apply_react()
 
   # edit
   edit_files(edit, "srcjs/index.js")

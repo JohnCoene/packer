@@ -11,5 +11,6 @@ add_plugin_html(use_pug = FALSE)
 }
 \description{
 Add the \href{https://webpack.js.org/plugins/html-webpack-plugin/}{htmlWebpackPlugin} to
-the configuration to generate HTML with webpack.
+the configuration to generate HTML with webpack, used in packer to generate the UI of
+a golem app with webpack.
 }

@@ -10,15 +10,3 @@ golem_files <- function(){
   fs::dir_copy(base, "srcjs")
   cli::cli_alert_success("Created `srcjs` directory")
 }
-
-#' Edit Files
-#' 
-#' Opens pertinent files in browser.
-#' 
-#' @inheritParams scaffold_golem
-#' 
-#' @noRd 
-#' @keywords internal
-golem_edit <- function(edit = FALSE){
-  fs::file_show("srcjs/index.js")
-}

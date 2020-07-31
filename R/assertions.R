@@ -73,3 +73,12 @@ is_name_valid <- function(name){
 assertthat::on_failure(is_name_valid) <- function(call, env){
   sprintf("%s is not a valid name", deparse(call$name))
 }
+
+# check .babelrc
+has_no_babel <- function(){
+  !file.exists(".babelrc")
+}
+
+assertthat::on_failure(has_no_babel) <- function(call, env){
+  "Already setup"
+}

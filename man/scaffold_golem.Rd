@@ -4,9 +4,11 @@
 \alias{scaffold_golem}
 \title{Golem}
 \usage{
-scaffold_golem(edit = interactive())
+scaffold_golem(react = FALSE, edit = interactive())
 }
 \arguments{
+\item{react}{Whether to include react, internally runs \code{\link[=apply_react]{apply_react()}} and adapts the \code{srcjs/index.js} template for React.}
+
 \item{edit}{Automatically open pertinent files.}
 }
 \value{
