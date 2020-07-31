@@ -15,11 +15,13 @@ An opinionated framework for using JavaScript with R.
 
 At its core packer consists of functions to scaffold R packages powered by webpack and npm, these take the form of scaffolds which are built on top of packages. All of the scaffolds below thus need to be run from within an R package.
 
-* `scaffold_widget` - Scaffold an [htmlwidgets](http://www.htmlwidgets.org/) with webpack.
-* `scaffold_golem` - Use webpack with [golem](http://golemverse.org/).
-* `scaffold_extension` - Scaffold a shiny extension, e.g.: [shinyjs](https://deanattali.com/shinyjs/) or [waiter](https://waiter.john-coene.com/).
-* `scaffold_input` - Scaffold a custom shiny input, e.g.: [shinyWidgets](https://github.com/dreamRs/shinyWidgets).
-* `scaffold_output` - Scaffold a custom shiny output.
+__Things you can do with packer__
+
+- Use npm packages with htmlwidgets
+- Create your shiny UI with the pug templating engine
+- Include React in you shiny application
+- Bundle JavaScript files for golem
+- And so much more...
 
 ## Usage
 
