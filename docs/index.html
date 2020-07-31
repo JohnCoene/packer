@@ -20,6 +20,10 @@
     <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
     <script src="https://unpkg.com/docute-google-analytics@1/dist/index.min.js"></script>
     <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+      }
+
       new Docute({
         cssVariables(theme) {
           return theme === 'dark' ? {
@@ -84,6 +88,10 @@
               {
                 title: 'Scaffolds',
                 link: '/guide/scaffolds'
+              },
+              {
+                title: 'Bundle',
+                link: '/guide/bundle'
               },
             ]
           },

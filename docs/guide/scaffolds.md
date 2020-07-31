@@ -2,6 +2,10 @@
 
 Scaffolds are basic structures that enable using webpack and npm in a consistent and robust manner. They also come with the advantage that no package which uses packer needs to rely on packer as a dependency: the package is meant to be used to develop others and should not figure in your `Imports`.
 
+<Note type = "tip">
+Most scaffolds can be used more than once per package, e.g.: to create multiple inputs.
+</Note>
+
 ## Golem
 
 The `scaffold_golem` function will lay down the scaffolding for a golem package.
@@ -57,7 +61,7 @@ packer::scaffold_widget("write_h1")
 ✔ Bare widget setup
 ✔ Created `srcjs` directory
 ✔ Initialiased npm
-✔ webpack, webpack-cli installed
+✔ webpack, webpack-cli, webpack-merge installed
 ✔ Created webpack config file
 ✔ Created `srcjs/modules` directory
 ✔ Created `srcjs/widgets` directory
@@ -113,7 +117,7 @@ packer::scaffold_extension("ask")
 ✔ Initialiased npm
 ✔ Created `srcjs/exts` directory
 ✔ Created `inst/packer` directory
-✔ webpack, webpack-cli installed
+✔ webpack, webpack-cli, webpack-merge installed
 ✔ Added npm scripts
 ✔ Created webpack config file
 ✔ Created `srcjs/index.js` file
@@ -187,7 +191,7 @@ packer::scaffold_extension("increment")
 ✔ Initialiased npm
 ✔ Created `srcjs` directory
 ✔ Created `inst/packer` directory
-✔ webpack, webpack-cli installed
+✔ webpack, webpack-cli, webpack-merge installed
 ✔ Created webpack config file
 ✔ Created `srcjs/inputs` directory
 ✔ Created input file in `srcjs/inputs`
