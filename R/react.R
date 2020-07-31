@@ -3,6 +3,12 @@
 #' Apply React to a project, adds the relevant (babel) loader, installs dependencies, 
 #' and creates, or updates, or replaces the `srcjs/index.js` file.
 #' 
+#' @examples 
+#' \dontrun{
+#' golem::create_golem()
+#' packer::scaffold_golem(react = TRUE)
+#' }
+#' 
 #' @export 
 apply_react <- function(){
   assert_that(has_no_babel())
