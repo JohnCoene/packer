@@ -37,7 +37,8 @@ npm_install <- function(..., scope = c("dev", "prod", "global")){
   scope <- match.arg(scope)
 
   if(length(packages) > 0){
-    args <- c("install", scope, packages)
+    scope_arg <- scope2flag(scope)
+    args <- c("install", scope_arg, packages)
     msgs <- pkg2msg(packages, scope)
   } else {
     args <- "install"
