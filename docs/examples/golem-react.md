@@ -1,6 +1,6 @@
 # Golem with React
 
-In this example we setup a golem application that uses react for some of the front-end. This starts by creating a new golem application then scaffolding for golem using packer, setting `react` to `TRUE`. This will set up the necessary babel configuration file, babel loader, create a template file and more to ensure react can be transpiled.
+In this example we setup a golem application that uses React for some of the front-end. This starts by creating a new golem application then scaffolding for golem using packer, setting `react` to `TRUE` in the latter. This will set up the necessary babel configuration file, babel loader, create a template file and more to ensure react can be transpiled.
 
 ```r
 golem::create_golem("reaction")
@@ -49,7 +49,7 @@ div(id = "app"), tags$script(src = "www/index.js")
 ℹ Run `bundle` to build the JavaScript files
 ```
 
-Note the message indicating something needs to be added at the bottom of the shiny UI.
+Note the message indicating something needs to be added at the bottom of the shiny UI. This is because webpack will bundle the JavaScript in an `index.js` file and the template uses the `div` where `id="app"`  as root.
 
 ```r
 # app_ui
@@ -73,7 +73,7 @@ ReactDOM.render(
 );
 ```
 
-This inserts a div in the element with `id=app`, hence the modifications to the shiny UI. You can then bundle the JavaScript, load the app and observe the React in the UI.
+This inserts a div in the element where `id="app"`, hence the modifications to the shiny UI. You can then bundle the JavaScript, load the app and observe the React in the UI.
 
 ```r
 packer::bundle()

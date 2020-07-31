@@ -1,13 +1,13 @@
-# Golem with React
+# Shiny app with Pug
 
-In this example we build a shiny app with golem where the UI is fully powered by the pug templating engine.
+In this example we build a shiny app with golem where the UI is fully powered by the [pug](https://pugjs.org/api/getting-started.html) templating engine.
 
 ```r
 golem::create_golem("puggy")
 packer::scaffold_golem()
 ```
 
-Then add the webpackHtmlPlugin with the command below; `use_pug` installs and the pug loader and makes the requirements changes to the config files. It also places a pug template in the `srcsjs` directory. 
+Then add the webpackHtmlPlugin with the command below; `use_pug` installs and the pug loader and makes the requirements changes to the config files. It also places a pug template in the `srcsjs` directory. The plugin allows generating HTML using webpack, in this case compile it.
 
 ```r
 add_plugin_html(use_pug = TRUE)
@@ -54,7 +54,7 @@ html
     button(id="fromPug" type="button" class="btn btn-default action-button") Click me!
 ```
 
-Note that the attributes necessary to create the `actionButton` can be obtained by inspecting a shiny app or creating a button from the console.
+Note that the attributes necessary to create the `actionButton` can be obtained by inspecting a shiny app or creating a button from the console. Also, the template pug file includes the dependencies required to run shiny but does not include bootstrap so styling will be different, feel free to include it.
 
 ```r
 shiny::actionButton("fromPug", "Click me")
