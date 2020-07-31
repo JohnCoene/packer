@@ -14,3 +14,10 @@ apply_react()
 ```
 
 
+### Examples
+
+```r 
+ list("\n", "golem::create_golem()\n", "packer::scaffold_golem(react = TRUE)\n") 
+ 
+ ``` 
+

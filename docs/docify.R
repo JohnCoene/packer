@@ -1,6 +1,6 @@
 library(purrr)
 
-fs::file_copy("NEWS.md", "docs/NEWS.md")
+fs::file_copy("NEWS.md", "docs/NEWS.md", overwrite = TRUE)
 
 fs::dir_delete("./docs/references")
 fs::dir_create("./docs/references")

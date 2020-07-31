@@ -3,6 +3,9 @@
 #' Apply React to a project, adds the relevant (babel) loader, installs dependencies, 
 #' and creates, or updates, or replaces the `srcjs/index.js` file.
 #' 
+#' @details After running this function and bundling the JavaScript remember to place
+#' `div(id = "app"), tags$script(src = "www/index.js")` at the bottom of your shiny UI.
+#' 
 #' @examples 
 #' \dontrun{
 #' golem::create_golem()
@@ -27,8 +30,8 @@ apply_react <- function(){
 
   # template
   path <- pkg_file("templates/react.js")
-  template <- readLines(path)
-  imports <- c("import React from 'react';", "import ReactDOM from 'react-dom';")
+  template <- c("// Added by apply_react", "", readLines(path))
+  imports <- c("// Added by apply_react", "", "import React from 'react';", "import ReactDOM from 'react-dom';")
   index_path <- "srcjs/index.js"
 
   # default index
