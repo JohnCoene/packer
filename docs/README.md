@@ -10,6 +10,14 @@ An opinionated framework for using JavaScript with R.
 
 Packer enforces good practice and provides convenience functions to make work with JavaScript not just easier but also scalable. Packer is a robust wrapper for [npm](https://www.npmjs.com/) and [webpack](https://webpack.js.org/) that enables to modularise JavaScript code, leverage npm packages, and much more.
 
+Things you can do with packer:
+
+- Use npm packages with htmlwidgets
+- Create your shiny UI with the pug templating engine
+- Include React in you shiny application
+- Bundle JavaScript files for golem
+- And so much more...
+
 ### Inspiration
 
 The scaffolds are very much inspired by the same functionality from [htmlwidgets](http://www.htmlwidgets.org/) `scaffoldWidget` function and [golem](http://golemverse.org/) `create_golem`.
