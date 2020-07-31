@@ -1,6 +1,6 @@
 # Installation
 
-Under the hood, many of the functionalities of {packer} are powered by [npm](https://www.npmjs.com/), Node's Package Manager which comes bundled with node.js.
+Under the hood, many of the functionalities of packer are powered by [npm](https://www.npmjs.com/), Node's Package Manager which comes bundled with node.js.
 
 ## Node
 
