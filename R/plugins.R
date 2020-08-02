@@ -1,6 +1,6 @@
 #' HTML Plugin
 #' 
-#' Add the [htmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) to 
+#' Add the [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/) to 
 #' the configuration to generate HTML with webpack, used in packer to generate the UI of 
 #' a golem app with webpack.
 #' 
@@ -46,4 +46,42 @@ add_plugin_html <- function(use_pug = FALSE){
   cmd <- sprintf('system.file("app/index.html", package = "%s")', pkg_name)
 
   cli::cli_alert_info(sprintf('Use `shiny::htmlTemplate(%s)` as your shiny UI.', cmd))
+}
+
+#' Clean Plugin
+#' 
+#' Add the [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) to 
+#' clean the bundled files.
+#' 
+#' @param dry Whether to simulate the removal of files.
+#' @param verbose Write Logs to the console.
+#' @param clean Whether to automatically remove all unused webpack assets on rebuild.
+#' @param protect Whether to not allow removal of current webpack assets.
+#' 
+#' @export
+add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
+  protect = TRUE){
+
+  assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
+
+  # install base
+  npm_install("clean-webpack-plugin", scope = "dev")
+
+  # options
+  options <- list(dry = FALSE, verbose = FALSE, clean = TRUE, protect = TRUE)
+  options_json <- jsonlite::toJSON(options, auto_unbox = TRUE)
+
+  # read config
+  config <- readLines("webpack.common.js")
+
+  if(!any(grepl("require('clean-webpack-plugin')", config)))
+    config <- c("const { CleanWebpackPlugin } = require('clean-webpack-plugin');", config)
+
+  plugin <- sprintf("var plugins = [\nnew CleanWebpackPlugin(%s),", options_json)
+
+  config[grepl("^var plugins = \\[", config)] <- plugin
+
+  writeLines(config, "webpack.common.js")
+
+  cli::cli_alert_success("Added clean-webpack-plugin to configuration file")
 }

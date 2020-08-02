@@ -16,7 +16,6 @@ loaders.forEach((loader) => {
 
 // placeholder for plugins
 var plugins = [
-
 ];
 
 // define options

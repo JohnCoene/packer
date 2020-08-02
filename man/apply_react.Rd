@@ -10,6 +10,10 @@ apply_react()
 Apply React to a project, adds the relevant (babel) loader, installs dependencies,
 and creates, or updates, or replaces the \code{srcjs/index.js} file.
 }
+\details{
+After running this function and bundling the JavaScript remember to place
+\verb{div(id = "app"), tags$script(src = "www/index.js")} at the bottom of your shiny UI.
+}
 \examples{
 \dontrun{
 golem::create_golem()

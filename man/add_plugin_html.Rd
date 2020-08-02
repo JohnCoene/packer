@@ -10,7 +10,7 @@ add_plugin_html(use_pug = FALSE)
 \item{use_pug}{Set to \code{TRUE} to use the \href{https://pugjs.org/}{pug engine}.}
 }
 \description{
-Add the \href{https://webpack.js.org/plugins/html-webpack-plugin/}{htmlWebpackPlugin} to
+Add the \href{https://webpack.js.org/plugins/html-webpack-plugin/}{html-webpack-plugin} to
 the configuration to generate HTML with webpack, used in packer to generate the UI of
 a golem app with webpack.
 }

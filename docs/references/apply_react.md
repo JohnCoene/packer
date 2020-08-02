@@ -14,6 +14,13 @@ apply_react()
 ```
 
 
+### Details
+
+
+ After running this function and bundling the JavaScript remember to place
+ div(id = "app"), tags$script(src = "www/index.js") at the bottom of your shiny UI.
+
+
 ### Examples
 
 ```r 

@@ -3,7 +3,7 @@
 ### Description
 
 
- Add the [htmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) to
+ Add the [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/) to
  the configuration to generate HTML with webpack, used in packer to generate the UI of
  a golem app with webpack.
 
