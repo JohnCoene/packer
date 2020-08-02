@@ -4,6 +4,8 @@
 
 # packer
 
+<img src="_media/packer.png" style="max-height:200px;float:right;"/>
+
 An opinionated framework for using JavaScript with R.
 
 ### About
