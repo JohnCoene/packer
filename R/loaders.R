@@ -25,7 +25,7 @@ use_loader_css <- function(){
   loader_add(loader)
   
   # wrap up
-  loader_msg()
+  loader_msg("css-loader & style-loader")
   cli::cli_alert_info("Create `srcjs/styles/styles.css` and import with `import '../styles/styles.css'`")
 }
 
@@ -44,7 +44,7 @@ use_loader_sass <- function(){
   loader_add(loader)
   
   # wrap up
-  loader_msg()
+  loader_msg("sass-loader")
   cli::cli_alert_info("Create `srcjs/styles/styles.scss` and import with `import '../styles/styles.scss'`")
 }
 
@@ -66,12 +66,12 @@ use_loader_pug <- function(){
   loader_add(loader)
   
   # wrap up
-  loader_msg()
+  loader_msg("pug-loader")
 }
 
 #' Use babel Loader
 #' 
-#' Adds the loader for babel comiler to loader configuration file.
+#' Adds the loader for babel comiler to the loader configuration file.
 #' 
 #' @details Excludes `node_modules` by default.
 #' 
@@ -79,7 +79,7 @@ use_loader_pug <- function(){
 use_loader_babel <- function(){
   assert_that(has_scaffold())
 
-  npm_install("@babel/core", "@babel/preset-env", "@babel/preset-react", "babel-loader", scope = "dev")
+  npm_install("@babel/core", "babel-loader", scope = "dev")
 
   # message modifications
   loader <- list(
@@ -90,7 +90,54 @@ use_loader_babel <- function(){
   loader_add(loader)
   
   # wrap up
-  loader_msg()
+  loader_msg("babel-loader")
+}
+
+#' Use Vue Loader
+#' 
+#' Adds the Vue loader to the loader configuration file.
+#' 
+#' @details Every time a new version of Vue is released, a corresponding version of `vue-template-compiler` 
+#' is released together. The compiler's version must be in sync with the base Vue package so that `vue-loader`
+#' produces code that is compatible with the runtime. This means every time you upgrade Vue in your project, 
+#' you should upgrade `vue-template-compiler` to match it as well.
+#' 
+#' @export 
+use_loader_vue <- function(){
+  assert_that(has_scaffold())
+
+  npm_install("vue", "vue-loader", "vue-template-compiler", scope = "dev")
+
+  # message modifications
+  loader <- list(
+    test = "\\.vue$",
+    use = list("vue-loader")
+  )
+  loader_add(loader)
+  
+  # wrap up
+  loader_msg("vue-loader")
+}
+
+#' Use Vue Style Loader
+#' 
+#' Similar to [use_loader_css()], dynamically inject CSS into the document as style tags.
+#' 
+#' @export 
+use_loader_vue_style <- function(){
+  assert_that(has_scaffold())
+
+  npm_install("vue-style-loader", "css-loader", scope = "dev")
+
+  # message modifications
+  loader <- list(
+    test = "\\.css$",
+    use = list("vue-style-loader", "css-loader")
+  )
+  loader_add(loader)
+  
+  # wrap up
+  loader_msg("vue-style-loader & css-loader")
 }
 
 #' Add loader to config file
@@ -122,6 +169,7 @@ loader_add <- function(loader){
   save_json(loaders, json_path)
 }
 
-loader_msg <- function(){
-  cli::cli_alert_success("Added bundling rule\n")
+loader_msg <- function(loader){
+  msg <- sprintf("Added bundling rule for %s\n", loader)
+  cli::cli_alert_success(msg)
 }

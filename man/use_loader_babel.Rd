@@ -7,7 +7,7 @@
 use_loader_babel()
 }
 \description{
-Adds the loader for babel comiler to loader configuration file.
+Adds the loader for babel comiler to the loader configuration file.
 }
 \details{
 Excludes \code{node_modules} by default.

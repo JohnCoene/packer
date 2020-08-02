@@ -85,3 +85,28 @@ add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
 
   cli::cli_alert_success("Added clean-webpack-plugin to configuration file")
 }
+
+#' Vue Loader Plugin
+#' 
+#' Add the `clean-webpack-plugin` to the config files.
+#' 
+#' @noRd
+#' @keywords internal
+add_plugin_vue <- function(){
+
+  assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
+
+  # install base
+  # npm_install("vue-loader", scope = "dev")
+
+  # read config
+  config <- readLines("webpack.common.js")
+
+  if(!any(grepl("require('vue-loader/lib/plugin')", config)))
+    config <- c("const VueLoaderPlugin = require('vue-loader/lib/plugin');", config)
+
+  config[grepl("^var plugins = \\[", config)] <- "var plugins = [\nnew VueLoaderPlugin()"
+
+  writeLines(config, "webpack.common.js")
+
+}

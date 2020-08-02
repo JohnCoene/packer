@@ -4,10 +4,12 @@
 \alias{scaffold_golem}
 \title{Golem}
 \usage{
-scaffold_golem(react = FALSE, edit = interactive())
+scaffold_golem(react = FALSE, vue = FALSE, edit = interactive())
 }
 \arguments{
-\item{react}{Whether to include react, internally runs \code{\link[=apply_react]{apply_react()}} and adapts the \code{srcjs/index.js} template for React.}
+\item{react}{Whether to include React, internally runs \code{\link[=apply_react]{apply_react()}} and adapts the \code{srcjs/index.js} template for React.}
+
+\item{vue}{Whether to include Vue, internally runs \code{\link[=apply_vue]{apply_vue()}} and adapts the \code{srcjs/index.js} template for Vue.}
 
 \item{edit}{Automatically open pertinent files.}
 }
@@ -16,4 +18,7 @@ scaffold_golem(react = FALSE, edit = interactive())
 }
 \description{
 Creates the basic structure for golem app with JavaScript.
+}
+\details{
+Only one of \code{react} or \code{vue} can be set to \code{TRUE}.
 }

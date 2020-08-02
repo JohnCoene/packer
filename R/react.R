@@ -8,7 +8,7 @@
 #' 
 #' @examples 
 #' \dontrun{
-#' golem::create_golem()
+#' golem::create_golem("reaction")
 #' packer::scaffold_golem(react = TRUE)
 #' }
 #' 
@@ -20,9 +20,10 @@ apply_react <- function(){
   cli::cli_h2("React loader")
   use_loader_babel()
   npm_install("react", "react-dom", scope = "prod")
+  npm_install("@babel/preset-env", "@babel/preset-react", scope = "dev")
 
   cli::cli_h2("Babel config file")
-  path <- pkg_file("templates/_babelrc")
+  path <- pkg_file("templates/_babelrc_react")
   fs::file_copy(path, ".babelrc")
   cli::cli_alert_success("Created `.babelrc`")
   usethis::use_build_ignore(".babelrc")

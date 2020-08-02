@@ -16,7 +16,7 @@ After running this function and bundling the JavaScript remember to place
 }
 \examples{
 \dontrun{
-golem::create_golem()
+golem::create_golem("reaction")
 packer::scaffold_golem(react = TRUE)
 }
 
