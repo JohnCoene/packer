@@ -9,13 +9,13 @@
 
 [Website](http://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation) | [Get Started](https://packer.john-coene.com/#/guide/getting-started)
 
-### An opinionated framework for using JavaScript with R.__
+## An opinionated framework for using JavaScript with R.
 
 </div>
 
 At its core packer consists of functions to scaffold R packages powered by webpack and npm, these take the form of scaffolds which are built on top of packages. All of the scaffolds below thus need to be run from within an R package.
 
-#### Things you can do with packer
+### Things you can do with packer
 
 - Use npm packages with htmlwidgets
 - Create your shiny UI with the pug templating engine
@@ -23,7 +23,7 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 - Bundle JavaScript files for golem
 - And so much more...
 
-#### Usage
+### Usage
 
 Always start from an empty package and run `scaffold_*` to set up the required basic structure.
 
