@@ -11,8 +11,6 @@
 
 An opinionated framework for using JavaScript with R.
 
-# packer
-
 </div>
 
 At its core packer consists of functions to scaffold R packages powered by webpack and npm, these take the form of scaffolds which are built on top of packages. All of the scaffolds below thus need to be run from within an R package.
