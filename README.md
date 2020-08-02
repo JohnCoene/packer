@@ -9,7 +9,7 @@
 
 [Website](http://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation) | [Get Started](https://packer.john-coene.com/#/guide/getting-started)
 
-## An opinionated framework for using JavaScript with R.
+## An opinionated framework for using JavaScript with R
 
 </div>
 
