@@ -4,12 +4,23 @@
 \alias{scaffold_golem}
 \title{Golem}
 \usage{
-scaffold_golem(react = FALSE, vue = FALSE, edit = interactive())
+scaffold_golem(
+  react = FALSE,
+  vue = FALSE,
+  use_cdn = TRUE,
+  edit = interactive()
+)
 }
 \arguments{
-\item{react}{Whether to include React, internally runs \code{\link[=apply_react]{apply_react()}} and adapts the \code{srcjs/index.js} template for React.}
+\item{react}{Whether to include React, internally runs \code{\link[=apply_react]{apply_react()}}
+and adapts the \code{srcjs/index.js} template for React.}
 
-\item{vue}{Whether to include Vue, internally runs \code{\link[=apply_vue]{apply_vue()}} and adapts the \code{srcjs/index.js} template for Vue.}
+\item{vue}{Whether to include Vue, internally runs \code{\link[=apply_vue]{apply_vue()}} and
+adapts the \code{srcjs/index.js} template for Vue.}
+
+\item{use_cdn}{Whether to use the CDN for react or vue dependencies,
+this is passed to \code{\link[=apply_react]{apply_react()}} or \code{\link[=apply_vue]{apply_vue()}} if \code{react} or
+\code{vue} arguments are set to \code{TRUE} and ignored otherwise.}
 
 \item{edit}{Automatically open pertinent files.}
 }

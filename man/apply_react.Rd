@@ -4,7 +4,13 @@
 \alias{apply_react}
 \title{Apply React}
 \usage{
-apply_react()
+apply_react(use_cdn = TRUE)
+}
+\arguments{
+\item{use_cdn}{Whether to use the CDN for \code{react} and \code{react-dom} (recommended).
+This means later importing the dependencies in the shiny UI using \code{reactCDN()},
+this function will be created in a \code{R/react_cdn.R}.
+The correct instructions are printed to the console by the application.}
 }
 \description{
 Apply React to a project, adds the relevant (babel) loader, installs dependencies,
@@ -12,7 +18,9 @@ and creates, or updates, or replaces the \code{srcjs/index.js} file.
 }
 \details{
 After running this function and bundling the JavaScript remember to place
-\verb{div(id = "app"), tags$script(src = "www/index.js")} at the bottom of your shiny UI.
+the code printed by the function in shiny UI. By default \code{\link[=apply_react]{apply_react()}} does not
+bundle \code{react} and \code{react-dom} and thus requires using \code{reactCDN()} to import the
+dependencies in the shiny application: this function is created in a \code{R/react_cdn.R}.
 }
 \examples{
 \dontrun{

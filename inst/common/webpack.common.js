@@ -5,7 +5,6 @@ const fs = require('fs');
 var outputPath = fs.readFileSync('./srcjs/config/output_path.json');
 var entryPoints = fs.readFileSync('./srcjs/config/entry_points.json');
 var externals = fs.readFileSync('./srcjs/config/externals.json');
-var misc = fs.readFileSync('./srcjs/config/misc.json');
 var loaders = fs.readFileSync('./srcjs/config/loaders.json', 'utf8');
 loaders = JSON.parse(loaders);
 
@@ -32,8 +31,6 @@ var options = {
   },
   plugins: plugins
 };
-
-options.resolve = misc.resolve;
 
 // export
 module.exports = options;
