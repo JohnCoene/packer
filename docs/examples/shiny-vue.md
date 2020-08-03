@@ -66,7 +66,7 @@ This scaffolds golem to use Vue. As hinted by the numerous messages above packer
 
 Modify the `app_ui` function as indicated.
 
-```r
+```r {highlight:['8-12']}
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources

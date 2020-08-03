@@ -29,3 +29,11 @@ packer::bundle_prod()
 `packer::bundle()` bundles for prod by default. 
 
 </Note>
+
+## Watch
+
+You can also run `watch` to automatically rebundle the files when the `src` files change.  
+
+<Note type = "danger">
+This is very CPU intensive, bundling for development is generally the better option.
+</Note>

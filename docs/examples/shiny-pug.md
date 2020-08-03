@@ -22,15 +22,15 @@ add_plugin_html(use_pug = TRUE)
 
 We then modify the `run_app` function as below, we bring the `add_resource_path` from `app_ui.R` to the `run_app` function, otherwise the bundle is not served and we use the template generated with `shiny::htmlTemplate`.
 
-```r {highlight:[4,8]}
-run_app <- function(
-  ...
-) {
+```r {highlight:[2,'6-8']}
+run_app <- function(...) {
   add_resource_path('www', app_sys('app/www'))
   
   with_golem_options(
     app = shinyApp(
-      ui = shiny::htmlTemplate(system.file("app/index.html", package = "puggy")), 
+      ui = shiny::htmlTemplate(
+        system.file("app/index.html", package = "puggy")
+      ), 
       server = app_server
     ), 
     golem_opts = list(...)
@@ -61,7 +61,7 @@ shiny::actionButton("fromPug", "Click me")
 ## <button id="fromPug" type="button" class="btn btn-default action-button">Click me</button>
 ```
 
-We then also abb an `observeEvent` to make sure the button works.
+We then also add an `observeEvent` to make sure the button works.
 
 ```r
 app_server <- function( input, output, session ) {

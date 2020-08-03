@@ -140,6 +140,30 @@ use_loader_vue_style <- function(){
   loader_msg("vue-style-loader & css-loader")
 }
 
+#' Use Mocha Loader
+#' 
+#' Adds the  [`mocha-loader`](https://webpack.js.org/loaders/mocha-loader/) for tests.
+#' 
+#' @details Excludes `node_modules` by default.
+#' 
+#' @export 
+use_loader_mocha <- function(){
+  assert_that(has_scaffold())
+
+  npm_install("mocha-loader", scope = "dev")
+
+  # message modifications
+  loader <- list(
+    test = "\\.test\\.js$",
+    exclude = "/node_modules/",
+    use = list("mocha-loader")
+  )
+  loader_add(loader)
+  
+  # wrap up
+  loader_msg("mocha-loader")
+}
+
 #' Add loader to config file
 #' 
 #' Check if module rule already exists before adding rule.
