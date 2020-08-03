@@ -19,7 +19,7 @@ packer::scaffold_golem(react = TRUE)
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/Packages/reaction'
+✔ Setting active project to '/Projects/appli'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -29,11 +29,13 @@ packer::scaffold_golem(react = TRUE)
 ✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
 ✔ Adding 'node_modules' to '.gitignore'
 
-── React loader ──
+── React loader & dependencies ──
 
-✔ @babel/core, @babel/preset-env, @babel/preset-react, babel-loader installed with scope dev
-✔ Added bundling rule
-✔ react, react-dom installed with scope prod
+✔ @babel/core, babel-loader installed with scope dev
+✔ Added bundling rule for babel-loader
+✔ react, react-dom installed with scope dev
+✔ @babel/preset-env, @babel/preset-react installed with scope dev
+✔ Created `R/react_cdn.R` containing `reactCDN()` function
 
 ── Babel config file ──
 
@@ -41,21 +43,29 @@ packer::scaffold_golem(react = TRUE)
 ✔ Adding '^\\.babelrc$' to '.Rbuildignore'
 
 ✔ Replaced `srcjs/index.js` with react template
-! Place the following at the bottom of your shiny ui:
-div(id = "app"), tags$script(src = "www/index.js")
+! Place the following at in your shiny ui:
+tagList(
+  reactCDN(),
+  div(id = "app"),
+  tags$script(src = "www/index.js")
+)
 
 ── Scaffold built ──
 
 ℹ Run `bundle` to build the JavaScript files
 ```
 
-Note the message indicating something needs to be added at the bottom of the shiny UI. This is because webpack will bundle the JavaScript in an `index.js` file and the template uses the `div` where `id="app"`  as root.
+Note the message indicating something needs to be added at the bottom of the shiny UI. This is because webpack will bundle the JavaScript in an `index.js` file and the template uses the `div` where `id="app"` as root. Also, by default packer does not setup webpack to bundle the `react` and `react-dom` dependencies, it instead makes use of the CDN by creating an R file `R/react_cdn.R` which contains a `reactCDN()` function meant to be placed in the shiny UI. This can be turned off with `use_cdn = FALSE` in `scaffold_golem`.
 
 ```r
 # app_ui
 fluidPage(
   h1("reaction"),
-  div(id = "app"), tags$script(src = "www/index.js")
+  tagList(
+    reactCDN(),
+    div(id = "app"),
+    tags$script(src = "www/index.js")
+  )
 )
 ```
 
