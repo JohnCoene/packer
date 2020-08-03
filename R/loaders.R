@@ -161,7 +161,9 @@ loader_add <- function(loader){
   tests <- unlist(tests)
 
   if(loader$test %in% tests){
-    cli::cli_alert_warning("Module rule for loader already exists in `config/loaders.json`")
+    index <- c(1:length(tests))[tests %in% loader$test]
+    loaders[[index]][[use]] <- append(loaders[[index]][[use]], loader$use)
+    cli::cli_alert_warning("Loader rule already exists in `config/loaders.json`: appending use to rule")
     return(invisible(FALSE))
   }
 
@@ -169,7 +171,9 @@ loader_add <- function(loader){
   save_json(loaders, json_path)
 }
 
+#' @noRd 
+#' @keywords internal
 loader_msg <- function(loader){
-  msg <- sprintf("Added bundling rule for %s\n", loader)
+  msg <- sprintf("Added loader rule for %s\n", loader)
   cli::cli_alert_success(msg)
 }
