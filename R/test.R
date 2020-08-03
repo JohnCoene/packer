@@ -59,5 +59,6 @@ run_tests <- function(){
   assert_that(has_scaffold())
   assert_that(fs::dir_exists("testjs"), msg = "Tests are not setup, see `include_tests`")
 
-  system2("npm", "run test:mocha") # run tests
+  npm <- npm_find()
+  system2(npm, "run test:mocha") # run tests
 }

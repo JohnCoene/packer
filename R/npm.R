@@ -54,6 +54,19 @@ npm_install <- function(..., scope = c("dev", "prod", "global")){
   cli::cli_process_done()
 }
 
+#' Audit Fix
+#' 
+#' Scan your project for vulnerabilities and automatically install 
+#' any compatible updates to vulnerable dependencies.
+#' 
+#' @details Runs `npm audit fix`
+#' 
+#' @export 
+npm_fix <- function(){
+  npm <- npm_find()
+  system2(npm, "audit fix")
+}
+
 #' Npm Output
 #' 
 #' Prints the output of the last npm command run, useful for debugging.
