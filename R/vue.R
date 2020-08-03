@@ -45,7 +45,6 @@ apply_vue <- function(use_cdn = TRUE){
 
   cli::cli_h2("Babel config file")
   babel_config("templates/vue/_babelrc")
-  cat("\n")
 
   # template
   cli::cli_h2("Template files")

@@ -18,6 +18,7 @@ Things you can do with packer:
 - Create your shiny UI with the pug templating engine
 - Include React in you shiny application
 - Bundle JavaScript files for golem
+- Use Vue in a shiny app
 - And so much more...
 
 ### Inspiration
