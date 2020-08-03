@@ -35,7 +35,7 @@ scaffold_golem <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = in
   npm_add_scripts()
 
   # set up dir for golem
-  # 
+  # only create dir if vue or react
   golem_files(react, vue)
 
   # create config file
