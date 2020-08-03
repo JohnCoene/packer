@@ -32,7 +32,7 @@ include_tests <- function(){
   usethis::use_git_ignore("testjs")
 
   package <- jsonlite::read_json("package.json")
-  package$scripts$test <- 'mocha testjs'
+  package$scripts["test:mocha"] <- 'mocha testjs'
   save_json(package, "package.json")
   cli::cli_alert_success("Added npm test script")
 }
@@ -59,5 +59,5 @@ run_tests <- function(){
   assert_that(has_scaffold())
   assert_that(fs::dir_exists("testjs"), msg = "Tests are not setup, see `include_tests`")
 
-  system2("npm", "test") # run tests
+  system2("npm", "run test:mocha") # run tests
 }
