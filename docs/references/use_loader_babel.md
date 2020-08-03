@@ -3,7 +3,7 @@
 ### Description
 
 
- Adds the loader for babel comiler to loader configuration file.
+ Adds the loader for babel comiler to the loader configuration file.
 
 
 ### Usage
