@@ -2,11 +2,18 @@
 #' 
 #' Creates the necessary `srcjs` directory and children JavaScript files.
 #' This is a simple copy of template files: no changes required.
-#' SRC
+#' 
+#' @inheritParams scaffol_golem
+#' 
 #' @noRd 
 #' @keywords internal
-golem_files <- function(){
+golem_files <- function(react = FALSE, vue = FALSE){
   base <- pkg_file("golem/javascript")
-  fs::dir_copy(base, "srcjs")
+
+  if(any(react, vue))
+    fs::dir_create("srcjs")
+  else 
+    fs::dir_copy(base, "srcjs")
+
   cli::cli_alert_success("Created `srcjs` directory")
 }

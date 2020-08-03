@@ -35,7 +35,8 @@ scaffold_golem <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = in
   npm_add_scripts()
 
   # set up dir for golem
-  golem_files()
+  # 
+  golem_files(react, vue)
 
   # create config file
   configure(
@@ -49,10 +50,7 @@ scaffold_golem <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = in
   ignore_files()
 
   if(react) apply_react(use_cdn)
-  if(vue){
-    fs::file_delete("srcjs/index.js")
-    apply_vue()
-  }
+  if(vue) apply_vue()
 
   # edit
   edit_files(edit, "srcjs/index.js")
