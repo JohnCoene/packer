@@ -193,6 +193,6 @@ npm_add_scripts <- function(){
   package$scripts$development <- "webpack --config webpack.dev.js"
   package$scripts$production <- "webpack --config webpack.prod.js"
   package$scripts$watch <- "webpack --config webpack.config.js -d --watch"
-  jsonlite::write_json(package, "package.json", pretty = TRUE, auto_unbox = TRUE)
+  save_json(package, "package.json")
   cli::cli_alert_success("Added npm scripts")
 }
