@@ -62,7 +62,7 @@ tagList(
 ℹ Run `bundle` to build the JavaScript files
 ```
 
-This scaffold golem to use Vue. As hinted by the numerous messages above packer does many things to ensure this works but more notably, by default, the resulting scaffold will require using the Vue's CDN and will not set up a configuration that bundles Vue in the output: the CDN will likely load faster. Therefore `scaffold_golem` created a `vueCDN()` function in the golem app `R/vue_cdn.R`. This is to be used as indicated by the warning~ish produced.
+This scaffolds golem to use Vue. As hinted by the numerous messages above packer does many things to ensure this works but more notably the resulting scaffold will require using the Vue's CDN and will not set up a configuration that bundles Vue in the output (default): the CDN will likely load faster. Therefore `scaffold_golem` created a `vueCDN()` function in the golem app `R/vue_cdn.R`. This is to be used as indicated by the warning~ish produced.
 
 Modify the `app_ui` function as indicated.
 
