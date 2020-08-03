@@ -185,10 +185,7 @@ loader_add <- function(loader){
   tests <- unlist(tests)
 
   if(loader$test %in% tests){
-    index <- c(1:length(tests))[tests %in% loader$test]
-    loaders[[index]][["use"]] <- append(loaders[[index]][["use"]], loader$use)
     cli::cli_alert_warning("Loader rule already exists in `config/loaders.json`: appending use to rule")
-    return(invisible(FALSE))
   }
 
   loaders <- append(loaders, list(loader))
