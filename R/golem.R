@@ -50,7 +50,7 @@ scaffold_golem <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = in
   ignore_files()
 
   if(react) apply_react(use_cdn)
-  if(vue) apply_vue()
+  if(vue) apply_vue(use_cdn)
 
   # edit
   edit_files(edit, "srcjs/index.js")

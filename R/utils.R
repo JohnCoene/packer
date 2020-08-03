@@ -112,6 +112,41 @@ edit_files <- function(edit = FALSE, ...){
   lapply(c(...), fs::file_show)
 }
 
+#' Save JSON
+#' 
+#' `jsonlite` wrapper to unbox and pretty write.
+#' 
+#' @noRd 
+#' @keywords internal
 save_json <- function(...){
   jsonlite::write_json(..., auto_unbox = TRUE, pretty = TRUE)
+}
+
+#' Handle babel config
+#' 
+#' Convenience to handle `.babelrc` files.
+#' 
+#' @param path Path to template `.babelrc` file.
+#' 
+#' @noRd 
+#' @keywords internal
+babel_config <- function(path){
+  if(fs::file_exists(".babelrc")){
+    cli::cli_alert_warning("`.babelrc` file already exists, add the following")
+    print_babel_config(path)
+    return()
+  }
+
+  path <- pkg_file(path)
+  fs::file_copy(path, ".babelrc")
+  cli::cli_alert_success("Created `.babelrc`")
+  usethis::use_build_ignore(".babelrc")
+}
+
+#' @noRd
+#' @keywords internal
+print_babel_config <- function(path){
+  path <- pkg_file(path)
+  content <- readLines(path)
+  cli::cli_code(content)
 }

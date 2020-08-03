@@ -4,10 +4,13 @@
 \alias{apply_vue}
 \title{Apply Vue}
 \usage{
-apply_vue(replace_index = FALSE)
+apply_vue(use_cdn = TRUE)
 }
 \arguments{
-\item{replace_index}{Whether to replace the \code{srcjs/index.js} file.}
+\item{use_cdn}{Whether to use the CDN for \code{vue} (recommended).
+This means later importing the dependencies in the shiny UI using \code{vueCDN()},
+this function will be created in a \code{R/vue_cdn.R}.
+The correct instructions are printed to the console by the application.}
 }
 \description{
 Apply Vue to a project, adds the relevant (babel) loader, installs dependencies,

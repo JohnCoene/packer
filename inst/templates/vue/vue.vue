@@ -1,12 +1,12 @@
 <template>
-  <p>{{ greeting }} World!</p>
+  <p>{{ greeting }} powered by Vue!</p>
 </template>
 
 <script>
 module.exports = {
   data: function() {
     return {
-      greeting: "Hello"
+      greeting: "Shiny"
     };
   }
 };

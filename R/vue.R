@@ -3,7 +3,10 @@
 #' Apply Vue to a project, adds the relevant (babel) loader, installs dependencies, 
 #' and creates, or updates, or replaces the `srcjs/index.js` file.
 #' 
-#' @param replace_index Whether to replace the `srcjs/index.js` file.
+#' @param use_cdn Whether to use the CDN for `vue` (recommended). 
+#' This means later importing the dependencies in the shiny UI using `vueCDN()`,
+#' this function will be created in a `R/vue_cdn.R`.
+#' The correct instructions are printed to the console by the application.
 #' 
 #' @details After running this function and bundling the JavaScript remember to place
 #' `div(id = "app"), tags$script(src = "www/index.js")` at the bottom of your shiny UI.
@@ -15,17 +18,22 @@
 #' }
 #' 
 #' @export 
-apply_vue <- function(replace_index = FALSE){
+apply_vue <- function(use_cdn = TRUE){
   assert_that(has_no_babel())
   assert_that(!fs::file_exists("srcjs/index.js"), msg = "`srcjs/index.js` already exists, delete or rename it")
 
   # loader
   # Vue loader comes with plugin
-  cli::cli_h2("Vue loader")
+  cli::cli_h2("Vue loader, plugin & dependency")
+  vue_scope <- ifelse(use_cdn, "dev", "prod")
   use_loader_babel()
+  npm_install("@babel/preset-env", scope = "dev")
+  npm_install("vue", scope = vue_scope)
   use_loader_vue()
   use_loader_vue_style()
   add_plugin_vue()
+  vue_cdn_function(use_cdn)
+  vue_alias()
 
   # resolve vue compiler
   # DOES NOT WORK AS STANDALONE JSON
@@ -36,21 +44,73 @@ apply_vue <- function(replace_index = FALSE){
   #}
 
   cli::cli_h2("Babel config file")
-  path <- pkg_file("templates/_babelrc_vue")
-  fs::file_copy(path, ".babelrc")
-  cli::cli_alert_success("Created `.babelrc`")
-  usethis::use_build_ignore(".babelrc")
+  babel_config("templates/vue/_babelrc")
   cat("\n")
 
   # template
   cli::cli_h2("Template files")
-  index <- pkg_file("templates/vue.js")
-  home <- pkg_file("templates/vue.vue")
+  index <- pkg_file("templates/vue/vue.js")
+  home <- pkg_file("templates/vue/vue.vue")
 
   fs::file_copy(index, "srcjs/index.js")
   fs::file_copy(home, "srcjs/Home.vue")
   cli::cli_alert_success("Added `srcjs/Home.vue` template")
 
-  cli::cli_alert_warning("Place the following at the bottom of your shiny ui:")
-  cli::cli_code('div(id = "app"), tags$script(src="www/index.js")')
+  cli::cli_alert_warning("Place the following in your shiny ui:")
+  vue_ui_code()
+}
+
+#' Dependencies for React
+#' 
+#' Includes dependencies in a shiny application.
+#' 
+#' @param version Version of React to use, if `NULL` uses the latest
+#' 
+#' @noRd
+#' @keywords internal
+vue_ui_code <- function(use_cdn = TRUE){
+  cdn <- ""
+  if(use_cdn)
+    cdn <- "vueCDN(),\n  "
+
+  code <- sprintf('tagList(\n  %sdiv(id = "app"),\n  tags$script(src = "www/index.js")\n)', cdn)
+
+  cli::cli_code(code)
+}
+
+#' Creates Dependency File and Function
+#' 
+#' Creates `R/react_cdn.R` containing `ReactCDN` function if
+#' `use_cdn` is `TRUE`.
+#' 
+#' @inheritParams apply_react
+#' 
+#' @noRd
+#' @keywords internal
+vue_cdn_function <- function(use_cdn = TRUE){
+  if(!use_cdn)
+    return()
+
+  exists <- fs::file_exists("R/vue_cdn.R")
+
+  if(exists){
+    cli::cli_alert_danger("`R/vue_cdn.R` already exists")
+    return()
+  }
+
+  cli::cli_alert_success("Created `R/vue_cdn.R` containing `vueCDN()` function")
+  template <- pkg_file("templates/vue/vue_cdn.R")
+  fs::file_copy(template, "R/vue_cdn.R")
+}
+
+#' Resolve Alias
+#' 
+#' @noRd
+#' @keywords internal
+vue_alias <- function(){
+  misc <- jsonlite::read_json("srcjs/config/misc.json")
+  vue <- list(vue = "vue/dist/vue.esm.js")
+  misc$resolve$alias <- append(misc$resolve$alias, vue)
+  save_json(misc, "srcjs/config/misc.json")
+  cli::cli_alert_success("Added alias to `srcjs/config/misc.json`")
 }

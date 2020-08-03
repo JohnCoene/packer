@@ -32,7 +32,7 @@ apply_react <- function(use_cdn = TRUE){
   react_cdn_function(use_cdn)
 
   cli::cli_h2("Babel config file")
-  react_babel_config()
+  babel_config("templates/react/_babelrc")
   cat("\n")
 
   # template
@@ -77,12 +77,12 @@ apply_react <- function(use_cdn = TRUE){
 #' 
 #' @noRd
 #' @keywords internal
-react_ui_code <- function(use_cdn){
+react_ui_code <- function(use_cdn = TRUE){
   cdn <- ""
   if(use_cdn)
-    cdn <- "reactCDN(),\n\t"
+    cdn <- "reactCDN(),\n  "
 
-  code <- sprintf('tagList(\n\t%sdiv(id = "app"),\n\ttags$script(src = "www/index.js")\n)', cdn)
+  code <- sprintf('tagList(\n  %sdiv(id = "app"),\n  tags$script(src = "www/index.js")\n)', cdn)
 
   cli::cli_code(code)
 }
@@ -110,30 +110,4 @@ react_cdn_function <- function(use_cdn = TRUE){
   cli::cli_alert_success("Created `R/react_cdn.R` containing `reactCDN()` function")
   template <- pkg_file("templates/react/react_cdn.R")
   fs::file_copy(template, "R/react_cdn.R")
-}
-
-#' Creates React babel config
-#' 
-#' @noRd
-#' @keywords internal
-react_babel_config <- function(){
-
-  if(fs::file_exists(".babelrc")){
-    cli::cli_alert_warning("`.babelrc` file already exists, add the following")
-    print_react_babel_config()
-    return()
-  }
-
-  path <- pkg_file("templates/react/_babelrc")
-  fs::file_copy(path, ".babelrc")
-  cli::cli_alert_success("Created `.babelrc`")
-  usethis::use_build_ignore(".babelrc")
-}
-
-#' @noRd
-#' @keywords internal
-print_react_babel_config <- function(){
-  path <- pkg_file("templates/react/_babelrc")
-  content <- readLines(path)
-  cli::cli_code(content)
 }

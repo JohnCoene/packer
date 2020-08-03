@@ -106,7 +106,7 @@ use_loader_babel <- function(){
 use_loader_vue <- function(){
   assert_that(has_scaffold())
 
-  npm_install("vue", "vue-loader", "vue-template-compiler", scope = "dev")
+  npm_install("vue-loader", "vue-template-compiler", scope = "dev")
 
   # message modifications
   loader <- list(

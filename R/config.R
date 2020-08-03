@@ -24,6 +24,8 @@ configure <- function(name, entry_dir, output_dir = "./inst/packer", externals =
 
   config_externals(externals)
 
+  config_misc()
+
   config_loaders()
 
 }
@@ -72,6 +74,17 @@ config_output_path <- function(output_dir){
     output_dir <- "./inst/app/www"
 
   save_json(output_dir, "srcjs/config/output_path.json")  
+}
+
+#' @noRd 
+#' @keywords internal
+config_misc <- function(){
+  if(fs::file_exists("srcjs/config/misc.json"))
+    return()
+
+  misc <- list()
+
+  save_json(misc, "srcjs/config/misc.json")  
 }
 
 #' @noRd 
