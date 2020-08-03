@@ -1,19 +1,19 @@
-## `use_loader_babel`: Use babel Loader
+# `use_loader_babel`: Use babel Loader
 
-### Description
+## Description
 
 
  Adds the loader for babel comiler to the loader configuration file.
 
 
-### Usage
+## Usage
 
 ```r
 use_loader_babel()
 ```
 
 
-### Details
+## Details
 
 
  Excludes `node_modules` by default.

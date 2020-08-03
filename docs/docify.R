@@ -29,13 +29,6 @@ docs <- purrr::map(files, function(x){
   output <- paste0("./docs/references/", nm)
   Rd2md::Rd2markdown(input, output)
 
-  md <- readLines(output)
-  md <- gsub("^### ", "### ", md)
-  md <- gsub("^## ", "### ", md)
-  md <- gsub("^# ", "## ", md)
-
-  writeLines(md, output)
-
   list(name = nm, output = output)
 })
 

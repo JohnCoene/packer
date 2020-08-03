@@ -1,12 +1,12 @@
-## `use_loader_pug`: Use Pug Loader
+# `use_loader_pug`: Use Pug Loader
 
-### Description
+## Description
 
 
  Adds the loader for the pug templating engine.
 
 
-### Usage
+## Usage
 
 ```r
 use_loader_pug()

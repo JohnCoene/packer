@@ -1,6 +1,6 @@
-## `add_plugin_html`: HTML Plugin
+# `add_plugin_html`: HTML Plugin
 
-### Description
+## Description
 
 
  Add the [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/) to
@@ -8,14 +8,14 @@
  a golem app with webpack.
 
 
-### Usage
+## Usage
 
 ```r
 add_plugin_html(use_pug = FALSE)
 ```
 
 
-### Arguments
+## Arguments
 
 Argument      |Description
 ------------- |----------------

@@ -1,12 +1,12 @@
-## `scaffold_golem`: Golem
+# `scaffold_golem`: Golem
 
-### Description
+## Description
 
 
  Creates the basic structure for golem app with JavaScript.
 
 
-### Usage
+## Usage
 
 ```r
 scaffold_golem(
@@ -18,7 +18,7 @@ scaffold_golem(
 ```
 
 
-### Arguments
+## Arguments
 
 Argument      |Description
 ------------- |----------------
@@ -27,13 +27,13 @@ Argument      |Description
 ```use_cdn```     |     Whether to use the CDN for react or vue dependencies, this is passed to [`apply_react()`](apply_react().html) or [`apply_vue()`](apply_vue().html) if `react` or `vue` arguments are set to `TRUE` and ignored otherwise.
 ```edit```     |     Automatically open pertinent files.
 
-### Details
+## Details
 
 
  Only one of `react` or `vue` can be set to `TRUE` .
 
 
-### Value
+## Value
 
 
  `TRUE` (invisibly) if successfully run.

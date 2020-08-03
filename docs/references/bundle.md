@@ -1,12 +1,12 @@
-## `bundle`: bundle & Watch
+# `bundle`: bundle & Watch
 
-### Description
+## Description
 
 
  Bundle and watch the JavaScript.
 
 
-### Usage
+## Usage
 
 ```r
 bundle(mode = c("production", "development", "none"))
@@ -16,13 +16,13 @@ watch()
 ```
 
 
-### Arguments
+## Arguments
 
 Argument      |Description
 ------------- |----------------
 ```mode```     |     The configuration mode tells webpack to use its built-in optimisations accordingly.
 
-### Examples
+## Examples
 
 ```r 
  watch() 

@@ -1,20 +1,20 @@
-## `add_plugin_clean`: Clean Plugin
+# `add_plugin_clean`: Clean Plugin
 
-### Description
+## Description
 
 
  Add the [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) to
  clean the bundled files.
 
 
-### Usage
+## Usage
 
 ```r
 add_plugin_clean(dry = FALSE, verbose = FALSE, clean = TRUE, protect = TRUE)
 ```
 
 
-### Arguments
+## Arguments
 
 Argument      |Description
 ------------- |----------------

@@ -1,26 +1,26 @@
-## `apply_react`: Apply React
+# `apply_react`: Apply React
 
-### Description
+## Description
 
 
  Apply React to a project, adds the relevant (babel) loader, installs dependencies,
  and creates, or updates, or replaces the `srcjs/index.js` file.
 
 
-### Usage
+## Usage
 
 ```r
 apply_react(use_cdn = TRUE)
 ```
 
 
-### Arguments
+## Arguments
 
 Argument      |Description
 ------------- |----------------
 ```use_cdn```     |     Whether to use the CDN for `react` and `react-dom` (recommended). This means later importing the dependencies in the shiny UI using `reactCDN()` , this function will be created in a `R/react_cdn.R` . The correct instructions are printed to the console by the application.
 
-### Details
+## Details
 
 
  After running this function and bundling the JavaScript remember to place
@@ -29,7 +29,7 @@ Argument      |Description
  dependencies in the shiny application: this function is created in a `R/react_cdn.R` .
 
 
-### Examples
+## Examples
 
 ```r 
  list("\n", "golem::create_golem(\"reaction\")\n", "packer::scaffold_golem(react = TRUE)\n") 

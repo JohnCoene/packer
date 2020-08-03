@@ -1,26 +1,26 @@
-## `scaffold_input`: Scaffold a Custom Input
+# `scaffold_input`: Scaffold a Custom Input
 
-### Description
+## Description
 
 
  Sets basic structure for a shiny input.
 
 
-### Usage
+## Usage
 
 ```r
 scaffold_input(name, edit = interactive())
 ```
 
 
-### Arguments
+## Arguments
 
 Argument      |Description
 ------------- |----------------
 ```name```     |     Name of input, will define internal name binding and CSS class.
 ```edit```     |     Automatically open pertinent files.
 
-### Examples
+## Examples
 
 ```r 
  scaffold_input("increment") 

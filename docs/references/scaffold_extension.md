@@ -1,32 +1,32 @@
-## `scaffold_extension`: Shiny Extension
+# `scaffold_extension`: Shiny Extension
 
-### Description
+## Description
 
 
  Creates the basic structure for a shiny extension.
 
 
-### Usage
+## Usage
 
 ```r
 scaffold_extension(name, edit = interactive())
 ```
 
 
-### Arguments
+## Arguments
 
 Argument      |Description
 ------------- |----------------
 ```name```     |     Name of extension used to define file names and functions.
 ```edit```     |     Automatically open pertinent files.
 
-### Value
+## Value
 
 
  `TRUE` (invisibly) if successfully run.
 
 
-### Examples
+## Examples
 
 ```r 
  scaffold_extension("prompt") 

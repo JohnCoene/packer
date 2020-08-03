@@ -1,19 +1,19 @@
-## `use_loader_vue`: Use Vue Loader
+# `use_loader_vue`: Use Vue Loader
 
-### Description
+## Description
 
 
  Adds the Vue loader to the loader configuration file.
 
 
-### Usage
+## Usage
 
 ```r
 use_loader_vue()
 ```
 
 
-### Details
+## Details
 
 
  Every time a new version of Vue is released, a corresponding version of `vue-template-compiler` 

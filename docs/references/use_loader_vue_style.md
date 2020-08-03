@@ -1,12 +1,12 @@
-## `use_loader_vue_style`: Use Vue Style Loader
+# `use_loader_vue_style`: Use Vue Style Loader
 
-### Description
+## Description
 
 
  Similar to [`use_loader_css()`](use_loader_css().html) , dynamically inject CSS into the document as style tags.
 
 
-### Usage
+## Usage
 
 ```r
 use_loader_vue_style()
