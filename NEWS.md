@@ -4,6 +4,8 @@
 - Added `react` argument to `scaffold_golem` to include react in a golem scaffold, run `apply_react` under the hood.
 - Added `add_plugin_clean` to easily clean bundled files.
 - Added unit test support via mocha.js woth `include_tests`, `run_tests`, and `add_test_file`.
+- Allow multiple loaders with same `rule`.
+- Add support for coffeescript loader.
 
 ## packer 0.0.1
 

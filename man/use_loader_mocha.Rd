@@ -7,7 +7,7 @@
 use_loader_mocha()
 }
 \description{
-Adds the  \href{https://webpack.js.org/loaders/mocha-loader/}{\code{mocha-loader}} for tests.
+Adds the \href{https://webpack.js.org/loaders/mocha-loader/}{\code{mocha-loader}} for tests.
 }
 \details{
 Excludes \code{node_modules} by default.

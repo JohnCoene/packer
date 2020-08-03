@@ -142,7 +142,7 @@ use_loader_vue_style <- function(){
 
 #' Use Mocha Loader
 #' 
-#' Adds the  [`mocha-loader`](https://webpack.js.org/loaders/mocha-loader/) for tests.
+#' Adds the [`mocha-loader`](https://webpack.js.org/loaders/mocha-loader/) for tests.
 #' 
 #' @details Excludes `node_modules` by default.
 #' 
@@ -162,6 +162,30 @@ use_loader_mocha <- function(){
   
   # wrap up
   loader_msg("mocha-loader")
+}
+
+#' Use Coffee Loader
+#' 
+#' Adds the [`coffee-loader`](https://webpack.js.org/loaders/coffee-loader/) to use
+#' cofeescript.
+#' 
+#' @details Excludes `node_modules` by default.
+#' 
+#' @export 
+use_loader_coffee <- function(){
+  assert_that(has_scaffold())
+
+  npm_install("coffee-loader", scope = "dev")
+
+  # message modifications
+  loader <- list(
+    test = "\\.coffee$",
+    use = list("coffee-loader")
+  )
+  loader_add(loader)
+  
+  # wrap up
+  loader_msg("coffee-loader")
 }
 
 #' Add loader to config file
