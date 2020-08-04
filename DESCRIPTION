@@ -8,8 +8,8 @@ Authors@R:
            email = "jcoenep@gmail.com")
 Description:
   Enforces good practice and provides convenience functions to make work with 'JavaScript' 
-  not just easier but also scalable. It is a robust wrapper for 'NPM' and 'webpack' that 
-  enables to modularise 'JavaScript' code, leverage 'NPM' packages, and much more.
+  not just easier but also scalable. It is a robust wrapper to 'NPM' and 'webpack' that 
+  enables to compartmentalize 'JavaScript' code, leverage 'NPM' packages, and much more.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
