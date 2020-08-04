@@ -28,7 +28,7 @@ apply_react <- function(use_cdn = TRUE){
   use_loader_babel()
   react_scope <- ifelse(use_cdn, "dev", "prod")
   npm_install("react", "react-dom", scope = react_scope)
-  npm_install("@babel/preset-env", "@babel/preset-react", scope = "dev")
+  npm_install("@babel/core", "@babel/preset-env", "@babel/preset-react", scope = "dev")
   react_cdn_function(use_cdn)
 
   cli::cli_h2("Babel config file")
