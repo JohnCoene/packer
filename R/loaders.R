@@ -10,44 +10,27 @@
 #' 
 #' * [use_loader_css()] - installs `style-loader` and `css-loader` packages as dev.
 #' * [use_loader_sass()] - installs `style-loader`, `css-loader`, and `sass-loader` as dev.
+#' * [use_loader_vue_style()] - installs `vue-style-loader`, and `css-loader` as dev.
 #' 
 #' @name style_loaders
 #' @export
 use_loader_css <- function(test = "\\.css$"){
   assert_that(has_scaffold())
-
-  # install loaders
-  npm_install("style-loader", "css-loader", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
-    use = list("style-loader", "css-loader")
-  )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("css-loader & style-loader")
-  cli::cli_alert_info("Create `srcjs/styles/styles.css` and import with `import '../styles/styles.css'`")
+  use_loader_rule(c("style-loader", "css-loader"), test = test)
 }
 
 #' @rdname style_loaders
 #' @export
 use_loader_sass <- function(test = "\\.s[ac]ss$/i"){
   assert_that(has_scaffold())
+  use_loader_rule(c("style-loader", "css-loader", "sass-loader"), test = test)
+}
 
-  npm_install("style-loader", "css-loader", "sass-loader", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
-    use = list("style-loader", "css-loader", "sass-loader")
-  )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("sass-loader")
-  cli::cli_alert_info("Create `srcjs/styles/styles.scss` and import with `import '../styles/styles.scss'`")
+#' @rdname style_loaders
+#' @export
+use_loader_vue_style <- function(test = "\\.css$"){
+  assert_that(has_scaffold())
+  use_loader_rule(c("vue-style-loader", "css-loader"), test = test)
 }
 
 #' Use Pug Loader
@@ -59,18 +42,7 @@ use_loader_sass <- function(test = "\\.s[ac]ss$/i"){
 #' @export 
 use_loader_pug <- function(test = "\\.pug$"){
   assert_that(has_scaffold())
-
-  npm_install("pug", "pug-loader", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
-    use = list("pug-loader")
-  )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("pug-loader")
+  use_loader_rule("pug-loader", test = test)
 }
 
 #' Use babel Loader
@@ -84,19 +56,7 @@ use_loader_pug <- function(test = "\\.pug$"){
 #' @export 
 use_loader_babel <- function(test = "\\.(js|jsx)$"){
   assert_that(has_scaffold())
-
-  npm_install("@babel/core", "babel-loader", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
-    exclude = "/node_modules/",
-    use = list("babel-loader")
-  )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("babel-loader")
+  use_loader_rule("babel-loader", test = test, exclude = "/node_modules/")
 }
 
 #' Use Vue Loader
@@ -113,41 +73,11 @@ use_loader_babel <- function(test = "\\.(js|jsx)$"){
 #' @export 
 use_loader_vue <- function(test = "\\.vue$"){
   assert_that(has_scaffold())
-
-  npm_install("vue-loader", "vue-template-compiler", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
+  use_loader_rule(
+    c("vue-loader", "vue-template-compiler"), 
+    test = test, exclude = "/node_modules/", 
     use = list("vue-loader")
   )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("vue-loader")
-}
-
-#' Use Vue Style Loader
-#' 
-#' Similar to [use_loader_css()], dynamically inject CSS into the document as style tags.
-#' 
-#' @inheritParams style_loaders
-#' 
-#' @export 
-use_loader_vue_style <- function(test = "\\.css$"){
-  assert_that(has_scaffold())
-
-  npm_install("vue-style-loader", "css-loader", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
-    use = list("vue-style-loader", "css-loader")
-  )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("vue-style-loader & css-loader")
 }
 
 #' Use Mocha Loader
@@ -161,19 +91,7 @@ use_loader_vue_style <- function(test = "\\.css$"){
 #' @export 
 use_loader_mocha <- function(test = "\\.test\\.js$"){
   assert_that(has_scaffold())
-
-  npm_install("mocha-loader", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
-    exclude = "/node_modules/",
-    use = list("mocha-loader")
-  )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("mocha-loader")
+  use_loader_rule("mocha-loader", test = test, exclude = "/node_modules/")
 }
 
 #' Use Coffee Loader
@@ -188,18 +106,20 @@ use_loader_mocha <- function(test = "\\.test\\.js$"){
 #' @export 
 use_loader_coffee <- function(test = "\\.coffee$"){
   assert_that(has_scaffold())
+  use_loader_rule("coffee-loader", test = test)
+}
 
-  npm_install("coffee-loader", scope = "dev")
-
-  # message modifications
-  loader <- list(
-    test = test,
-    use = list("coffee-loader")
-  )
-  loader_add(loader)
-  
-  # wrap up
-  loader_msg("coffee-loader")
+#' Use File Loader
+#' 
+#' Adds the [`file-loader`](https://webpack.js.org/loaders/file-loader/) 
+#' to resolve files: `png`, `jpg`, `jpeg`, and `gif`.
+#' 
+#' @inheritParams style_loaders
+#' 
+#' @export 
+use_loader_file <- function(test = "\\.(png|jpe?g|gif)$/i"){
+  assert_that(has_scaffold())
+  use_loader_rule("file-loader", test)
 }
 
 #' Add a Loader Ruée
@@ -236,7 +156,7 @@ use_loader_rule <- function(packages, test, ..., use = as.list(packages)){
   loader_add(loader)
   
   # wrap up
-  loader_msg("coffee-loader")
+  loader_msg(packages)
 }
 
 #' Add loader to config file
@@ -267,7 +187,8 @@ loader_add <- function(loader){
 
 #' @noRd 
 #' @keywords internal
-loader_msg <- function(loader){
-  msg <- sprintf("Added loader rule for %s\n", loader)
+loader_msg <- function(loaders){
+  loaders <- paste0(loaders, collapse = ", ")
+  msg <- sprintf("Added loader rule for %s\n", loaders)
   cli::cli_alert_success(msg)
 }
