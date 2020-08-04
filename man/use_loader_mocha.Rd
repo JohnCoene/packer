@@ -4,7 +4,10 @@
 \alias{use_loader_mocha}
 \title{Use Mocha Loader}
 \usage{
-use_loader_mocha()
+use_loader_mocha(test = "\\\\.test\\\\.js$")
+}
+\arguments{
+\item{test}{Test regular expression to apply loader.}
 }
 \description{
 Adds the \href{https://webpack.js.org/loaders/mocha-loader/}{\code{mocha-loader}} for tests.

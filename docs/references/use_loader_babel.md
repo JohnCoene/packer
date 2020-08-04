@@ -9,9 +9,15 @@
 ## Usage
 
 ```r
-use_loader_babel()
+use_loader_babel(test = "\\.(js|jsx)$")
 ```
 
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+```test```     |     Test regular expression to apply loader.
 
 ## Details
 

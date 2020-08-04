@@ -4,7 +4,10 @@
 \alias{use_loader_vue_style}
 \title{Use Vue Style Loader}
 \usage{
-use_loader_vue_style()
+use_loader_vue_style(test = "\\\\.css$")
+}
+\arguments{
+\item{test}{Test regular expression to apply loader.}
 }
 \description{
 Similar to \code{\link[=use_loader_css]{use_loader_css()}}, dynamically inject CSS into the document as style tags.

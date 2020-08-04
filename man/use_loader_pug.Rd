@@ -4,7 +4,10 @@
 \alias{use_loader_pug}
 \title{Use Pug Loader}
 \usage{
-use_loader_pug()
+use_loader_pug(test = "\\\\.pug$")
+}
+\arguments{
+\item{test}{Test regular expression to apply loader.}
 }
 \description{
 Adds the loader for the pug templating engine.

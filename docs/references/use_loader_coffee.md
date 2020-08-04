@@ -10,9 +10,15 @@
 ## Usage
 
 ```r
-use_loader_coffee()
+use_loader_coffee(test = "\\.coffee$")
 ```
 
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+```test```     |     Test regular expression to apply loader.
 
 ## Details
 

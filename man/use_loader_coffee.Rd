@@ -4,7 +4,10 @@
 \alias{use_loader_coffee}
 \title{Use Coffee Loader}
 \usage{
-use_loader_coffee()
+use_loader_coffee(test = "\\\\.coffee$")
+}
+\arguments{
+\item{test}{Test regular expression to apply loader.}
 }
 \description{
 Adds the \href{https://webpack.js.org/loaders/coffee-loader/}{\code{coffee-loader}} to use

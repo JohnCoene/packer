@@ -4,7 +4,10 @@
 \alias{use_loader_vue}
 \title{Use Vue Loader}
 \usage{
-use_loader_vue()
+use_loader_vue(test = "\\\\.vue$")
+}
+\arguments{
+\item{test}{Test regular expression to apply loader.}
 }
 \description{
 Adds the Vue loader to the loader configuration file.

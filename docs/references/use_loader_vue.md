@@ -9,9 +9,15 @@
 ## Usage
 
 ```r
-use_loader_vue()
+use_loader_vue(test = "\\.vue$")
 ```
 
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+```test```     |     Test regular expression to apply loader.
 
 ## Details
 

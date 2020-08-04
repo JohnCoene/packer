@@ -6,9 +6,12 @@
 \alias{use_loader_sass}
 \title{Use Styles}
 \usage{
-use_loader_css()
+use_loader_css(test = "\\\\.css$")
 
-use_loader_sass()
+use_loader_sass(test = "\\\\.s[ac]ss$/i")
+}
+\arguments{
+\item{test}{Test regular expression to apply loader.}
 }
 \description{
 Installs loaders and adds relevant configuration rules to \code{srcjs/config/loaders.json}.
@@ -20,7 +23,7 @@ This will let you import styles much like any other modules, e.g.: \verb{import 
 
 \itemize{
 \item \code{\link[=use_loader_css]{use_loader_css()}} - installs \code{style-loader} and \code{css-loader} packages as dev.
-\item \code{\link[=use_loader_sass]{use_loader_sass()}} - installs \code{style-loader}, \code{css-loader}, \code{sass-loader}, and \code{sass} as dev.
+\item \code{\link[=use_loader_sass]{use_loader_sass()}} - installs \code{style-loader}, \code{css-loader}, and \code{sass-loader} as dev.
 }
 }
 

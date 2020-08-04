@@ -9,9 +9,15 @@
 ## Usage
 
 ```r
-use_loader_mocha()
+use_loader_mocha(test = "\\.test\\.js$")
 ```
 
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+```test```     |     Test regular expression to apply loader.
 
 ## Details
 

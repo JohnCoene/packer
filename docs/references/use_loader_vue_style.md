@@ -9,7 +9,13 @@
 ## Usage
 
 ```r
-use_loader_vue_style()
+use_loader_vue_style(test = "\\.css$")
 ```
 
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+```test```     |     Test regular expression to apply loader.
 

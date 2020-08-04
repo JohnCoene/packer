@@ -9,7 +9,13 @@
 ## Usage
 
 ```r
-use_loader_pug()
+use_loader_pug(test = "\\.pug$")
 ```
 
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+```test```     |     Test regular expression to apply loader.
 

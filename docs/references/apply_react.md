@@ -4,7 +4,7 @@
 
 
  Apply React to a project, adds the relevant (babel) loader, installs dependencies,
- and creates, or updates, or replaces the `srcjs/index.js` file.
+ and creates, updates, or replaces the `srcjs/index.js` file.
 
 
 ## Usage
@@ -18,7 +18,7 @@ apply_react(use_cdn = TRUE)
 
 Argument      |Description
 ------------- |----------------
-```use_cdn```     |     Whether to use the CDN for `react` and `react-dom` (recommended). This means later importing the dependencies in the shiny UI using `reactCDN()` , this function will be created in a `R/react_cdn.R` . The correct instructions are printed to the console by the application.
+```use_cdn```     |     Whether to use the CDN for `react` and `react-dom` (recommended). This means later importing the dependencies in the shiny UI using `reactCDN()` , this function will be created in a `R/react_cdn.R` . The correct instructions to do so are printed to the console by the function.
 
 ## Details
 

@@ -4,7 +4,10 @@
 \alias{use_loader_babel}
 \title{Use babel Loader}
 \usage{
-use_loader_babel()
+use_loader_babel(test = "\\\\.(js|jsx)$")
+}
+\arguments{
+\item{test}{Test regular expression to apply loader.}
 }
 \description{
 Adds the loader for babel comiler to the loader configuration file.

@@ -1,3 +1,7 @@
+## packer 0.0.3.9000
+
+- Loaders `use_loader_*` now accept `test` argument.
+
 ## packer 0.0.2
 
 - Added `apply_react` adds the relevant (babel) loader, installs dependencies, and creates, or updates, or replaces the `srcjs/index.js` file.

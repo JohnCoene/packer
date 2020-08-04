@@ -1,4 +1,8 @@
-## packer 0.0.2.9000
+## packer 0.0.3.9000
+
+- Loaders `use_loader_*` now accept `test` argument.
+
+## packer 0.0.2
 
 - Added `apply_react` adds the relevant (babel) loader, installs dependencies, and creates, or updates, or replaces the `srcjs/index.js` file.
 - Added `react` argument to `scaffold_golem` to include react in a golem scaffold, run `apply_react` under the hood.
