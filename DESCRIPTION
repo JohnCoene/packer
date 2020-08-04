@@ -1,5 +1,6 @@
 Package: packer
 Title: An Opinionated Framework for Using 'JavaScript'
+Date: 2020-08-03
 Version: 0.0.2
 Authors@R: 
     person(given = "John",
