@@ -1,4 +1,4 @@
-import Shiny from 'shiny';
+import 'shiny';
 
 Shiny.addCustomMessageHandler('#name#-alert', function(msg){
   let response = prompt(msg);

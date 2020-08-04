@@ -10,12 +10,14 @@ packer::scaffold_golem()
 Then add the webpackHtmlPlugin with the command below; `use_pug` installs and the pug loader and makes the requirements changes to the config files. It also places a pug template in the `srcsjs` directory. The plugin allows generating HTML using webpack, in this case compile it.
 
 ```r
-add_plugin_html(use_pug = TRUE)
+packer::add_plugin_html(use_pug = TRUE)
 ```
 
 ```
-✔ pug, pug-loader installed with scope dev
-✔ Added bundling rule
+✔ html-webpack-plugin installed with scope dev
+✔ pug-loader installed with scope dev
+✔ Added loader rule for pug-loader
+✔ pug installed with scope dev
 ✔ Created template `srcjs/index.pug`
 ℹ Use `shiny::htmlTemplate(system.file("app/index.html", package = "puggy"))` as your shiny UI.
 ```

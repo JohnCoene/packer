@@ -2,6 +2,9 @@
 
 - Loaders `use_loader_*` now accept `test` argument.
 - Add `use_loader_rule` to allow adding loaders yet implemented.
+- Add `use_loader_file` to allow importing images.
+- Reworked internals of `use_loader_*` functions.
+- Fixed import of external libraries (HTMLwidgets, Shiny, and jQuery)
 
 ## packer 0.0.2
 

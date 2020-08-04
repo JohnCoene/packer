@@ -15,9 +15,9 @@ packer::npm_install("typed.js", scope = "prod")
 
 Then we can edit the `srcjs/widgets/type.js` file to use typed.js.
 
-```js
+```js {highlight:[3, 14,21]}
 // typed.js
-import HTMLWidgets from 'widgets';
+import 'widgets';
 import Typed from 'typed.js';
 
 HTMLWidgets.widget({
@@ -29,7 +29,7 @@ HTMLWidgets.widget({
   factory: function(el, width, height) {
 
     // TODO: define shared variables for this instance
-    var type;
+    var typed;
 
     return {
 
@@ -53,7 +53,7 @@ HTMLWidgets.widget({
 
 Then adapt the `type.R` file to receive the `strings` and, optionally, other parameters to pass to typed.js.
 
-```r
+```r {highlight:[2,5]}
 # type.R
 type <- function(strings, ..., width = NULL, height = NULL, elementId = NULL) {
 

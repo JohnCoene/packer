@@ -199,7 +199,7 @@ ask <- function(msg, session = shiny::getDefaultReactiveDomain()){
 The `ask.js` file contains the message handler.
 
 ```js
-import Shiny from 'shiny';
+import 'shiny';
 
 Shiny.addCustomMessageHandler('ask-alert', function(msg){
   let response = prompt(msg);

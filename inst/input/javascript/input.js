@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Shiny from 'shiny';
+import 'shiny';
 
 $(document).on("click", "button.#name#Binding", function(evt) {
   // evt.target is the button that was clicked

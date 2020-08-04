@@ -1,4 +1,4 @@
-import HTMLWidgets from 'widgets';
+import 'widgets';
 import { asHeader } from '../modules/header.js'; 
 
 HTMLWidgets.widget({

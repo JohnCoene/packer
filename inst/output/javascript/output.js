@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Shiny from 'shiny';
+import 'shiny';
 
 var #name#Binding = new Shiny.OutputBinding();
 
