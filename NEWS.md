@@ -1,6 +1,7 @@
 ## packer 0.0.3.9000
 
 - Loaders `use_loader_*` now accept `test` argument.
+- Add `use_loader_rule` to allow adding loaders yet implemented.
 
 ## packer 0.0.2
 

@@ -2,7 +2,7 @@
 #' 
 #' Installs loaders and adds relevant configuration rules to `srcjs/config/loaders.json`.
 #' 
-#' @param test Test regular expression to apply loader.
+#' @param test Test regular expression test which files should be transformed by the loader.
 #' 
 #' @details This will let you import styles much like any other modules, e.g.: `import './styles.css'`.
 #' 
@@ -202,6 +202,43 @@ use_loader_coffee <- function(test = "\\.coffee$"){
   loader_msg("coffee-loader")
 }
 
+#' Add a Loader Ruée
+#' 
+#' Adds a loader rule that is not yet implemened in packer.
+#' 
+#' @inheritParams style_loaders
+#' @param packages NPM packages (loaders) to install.
+#' @param use Name of the loaders to use for `test`.
+#' @param ... Any other options to pass to the rule.
+#' 
+#' @details Reads the `srcsjs/config/loaders.json` and appends the rule.
+#' 
+#' @examples 
+#' # add coffee script loader
+#' \dontrun{use_loader_rule("coffee-loader", test = "\\.coffee$")}
+#' 
+#' # same as
+#' \dontrun{use_loader_coffee()}
+#' 
+#' @export 
+use_loader_rule <- function(packages, test, ..., use = as.list(packages)){
+  assert_that(has_scaffold())
+  assert_that(not_missing(packages))
+
+  npm_install(packages, scope = "dev")
+
+  # message modifications
+  loader <- list(
+    test = test,
+    use = use,
+    ...
+  )
+  loader_add(loader)
+  
+  # wrap up
+  loader_msg("coffee-loader")
+}
+
 #' Add loader to config file
 #' 
 #' Check if module rule already exists before adding rule.
@@ -213,18 +250,16 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 loader_add <- function(loader){
   json_path <- "srcjs/config/loaders.json"
 
+  # check
   assert_that(fs::file_exists(json_path), msg = "Cannot find loader config file")
 
+  # read loaders
   loaders <- jsonlite::read_json(json_path)
 
-  tests <- sapply(loaders, function(x){
-    x$test
-  })
-  tests <- unlist(tests)
-
-  if(loader$test %in% tests){
-    cli::cli_alert_info("Loader rule already exists in `config/loaders.json`")
-  }
+  # check if test already set
+  tests <- sapply(loaders, function(x) x$test)
+  if(loader$test %in% tests)
+    cli::cli_alert_info(sprintf("A loader is already used for this test: `%s`", loader$test))
 
   loaders <- append(loaders, list(loader))
   save_json(loaders, json_path)

@@ -7,7 +7,7 @@
 use_loader_vue_style(test = "\\\\.css$")
 }
 \arguments{
-\item{test}{Test regular expression to apply loader.}
+\item{test}{Test regular expression test which files should be transformed by the loader.}
 }
 \description{
 Similar to \code{\link[=use_loader_css]{use_loader_css()}}, dynamically inject CSS into the document as style tags.

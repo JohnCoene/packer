@@ -11,7 +11,7 @@ use_loader_css(test = "\\\\.css$")
 use_loader_sass(test = "\\\\.s[ac]ss$/i")
 }
 \arguments{
-\item{test}{Test regular expression to apply loader.}
+\item{test}{Test regular expression test which files should be transformed by the loader.}
 }
 \description{
 Installs loaders and adds relevant configuration rules to \code{srcjs/config/loaders.json}.

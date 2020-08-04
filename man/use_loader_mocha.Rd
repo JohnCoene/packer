@@ -7,7 +7,7 @@
 use_loader_mocha(test = "\\\\.test\\\\.js$")
 }
 \arguments{
-\item{test}{Test regular expression to apply loader.}
+\item{test}{Test regular expression test which files should be transformed by the loader.}
 }
 \description{
 Adds the \href{https://webpack.js.org/loaders/mocha-loader/}{\code{mocha-loader}} for tests.
