@@ -4,7 +4,8 @@
 - Add `use_loader_rule` to allow adding loaders yet implemented.
 - Add `use_loader_file` to allow importing images.
 - Reworked internals of `use_loader_*` functions.
-- Fixed import of external libraries (HTMLwidgets, Shiny, and jQuery)
+- Fixed import of external libraries (HTMLwidgets, Shiny, and jQuery).
+- Fixed name check on scaffolds, e.g.: `scaffold_input("no space allowed")` would not fail before.
 
 ## packer 0.0.2
 

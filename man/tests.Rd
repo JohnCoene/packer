@@ -7,13 +7,15 @@
 \alias{run_tests}
 \title{Add Tests}
 \usage{
-include_tests()
+include_tests(esm = TRUE)
 
 add_test_file(name)
 
 run_tests()
 }
 \arguments{
+\item{esm}{Whether to install \code{esm} and require it for tests (recommended).}
+
 \item{name}{Name of the test file to add, without extension.}
 }
 \description{
@@ -26,6 +28,9 @@ creates a directory called \code{testjs} where tests should be placed.
 The function \code{\link[=run_tests]{run_tests()}} will then uses mocha on all the files in
 the \code{testjs} directory. All tests should end with \code{.test.js}. Internally
 \code{\link[=include_tests]{include_tests()}} also runs \code{\link[=use_loader_mocha]{use_loader_mocha()}}.
+
+Requiring \code{esm} (\code{esm = TRUE}) is recommended as it will allow using the latest
+ESM, e.g.: \code{import} in tests.
 }
 \examples{
 \dontrun{include_tests()}

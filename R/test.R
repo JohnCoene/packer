@@ -2,6 +2,7 @@
 #' 
 #' Adds tests to a project.
 #' 
+#' @param esm Whether to install `esm` and require it for tests (recommended).
 #' @param name Name of the test file to add, without extension.
 #' 
 #' @details Uses [mocha](https://mochajs.org/) and 
@@ -11,13 +12,16 @@
 #' the `testjs` directory. All tests should end with `.test.js`. Internally
 #' [include_tests()] also runs [use_loader_mocha()].
 #' 
+#' Requiring `esm` (`esm = TRUE`) is recommended as it will allow using the latest
+#' ESM, e.g.: `import` in tests.
+#' 
 #' @examples 
 #' \dontrun{include_tests()}
 #' \dontrun{add_test_file("inputs")}
 #' 
 #' @name tests
 #' @export
-include_tests <- function(){
+include_tests <- function(esm = TRUE){
   assert_that(has_scaffold())
   assert_that(!fs::dir_exists("testjs"), msg = "Unit tests already set up")
 
@@ -27,12 +31,19 @@ include_tests <- function(){
   npm_install("mocha", scope = "dev")
   use_loader_mocha()
 
+  req_esm <- ""
+  if(esm){
+    npm_install("esm", scope = "dev")
+    req_esm <- " --require esm"
+  }
+
   cli::cli_h2("Ignoring files")
   usethis::use_build_ignore("testjs") 
   usethis::use_git_ignore("testjs")
 
+  # add scripts
   package <- jsonlite::read_json("package.json")
-  package$scripts["test:mocha"] <- 'mocha testjs'
+  package$scripts["test:mocha"] <- sprintf("mocha testjs%s", req_esm)
   save_json(package, "package.json")
   cli::cli_alert_success("Added npm test script")
 }

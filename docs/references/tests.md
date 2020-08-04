@@ -9,7 +9,7 @@
 ## Usage
 
 ```r
-include_tests()
+include_tests(esm = TRUE)
 add_test_file(name)
 run_tests()
 ```
@@ -19,6 +19,7 @@ run_tests()
 
 Argument      |Description
 ------------- |----------------
+```esm```     |     Whether to install `esm` and require it for tests (recommended).
 ```name```     |     Name of the test file to add, without extension.
 
 ## Details
@@ -30,6 +31,9 @@ Argument      |Description
  The function [`run_tests()`](run_tests().html) will then uses mocha on all the files in
  the `testjs` directory. All tests should end with `.test.js` . Internally
  [`include_tests()`](include_tests().html) also runs [`use_loader_mocha()`](use_loader_mocha().html) .
+ 
+ Requiring `esm` ( `esm = TRUE` ) is recommended as it will allow using the latest
+ ESM, e.g.: `import` in tests.
 
 
 ## Examples
