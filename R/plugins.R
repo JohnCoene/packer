@@ -19,6 +19,7 @@ add_plugin_html <- function(use_pug = FALSE){
 
   # if pug install and change ext
   if(use_pug){
+    npm_install("pug", scope = "dev")
     use_loader_pug()
     ext <- "pug"
   }
