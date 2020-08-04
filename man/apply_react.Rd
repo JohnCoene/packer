@@ -10,11 +10,11 @@ apply_react(use_cdn = TRUE)
 \item{use_cdn}{Whether to use the CDN for \code{react} and \code{react-dom} (recommended).
 This means later importing the dependencies in the shiny UI using \code{reactCDN()},
 this function will be created in a \code{R/react_cdn.R}.
-The correct instructions are printed to the console by the application.}
+The correct instructions to do so are printed to the console by the function.}
 }
 \description{
 Apply React to a project, adds the relevant (babel) loader, installs dependencies,
-and creates, or updates, or replaces the \code{srcjs/index.js} file.
+and creates, updates, or replaces the \code{srcjs/index.js} file.
 }
 \details{
 After running this function and bundling the JavaScript remember to place

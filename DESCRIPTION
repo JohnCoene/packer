@@ -5,7 +5,8 @@ Authors@R:
     person(given = "John",
            family = "Coene",
            role = c("aut", "cre"),
-           email = "jcoenep@gmail.com")
+           email = "jcoenep@gmail.com",
+           comment = c(ORCID = "0000-0002-6637-4107"))
 Description:
   Enforces good practice and provides convenience functions to make work with 'JavaScript' 
   not just easier but also scalable. It is a robust wrapper to 'NPM' and 'webpack' that 
