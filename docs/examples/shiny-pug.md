@@ -42,7 +42,7 @@ run_app <- function(...) {
 
 You will find an `index.pug` file in the `srcjs` directory. Below we make a tiny modification to include a shiny `actionButton`.
 
-```pug
+```pug {highlight:[11]}
 //- layout.pug
 doctype html
 html
@@ -65,7 +65,7 @@ shiny::actionButton("fromPug", "Click me")
 
 We then also add an `observeEvent` to make sure the button works.
 
-```r
+```r {highlight:['3-5']}
 app_server <- function( input, output, session ) {
   # List the first level callModules here
   observeEvent(input$fromPug, {
