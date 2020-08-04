@@ -18,7 +18,7 @@ use_loader_coffee(test = "\\.coffee$")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression to apply loader.
+```test```     |     Test regular expression test which files should be transformed by the loader.
 
 ## Details
 

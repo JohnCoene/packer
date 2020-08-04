@@ -17,7 +17,7 @@ use_loader_vue(test = "\\.vue$")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression to apply loader.
+```test```     |     Test regular expression test which files should be transformed by the loader.
 
 ## Details
 

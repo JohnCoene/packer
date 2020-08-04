@@ -11,6 +11,7 @@
 ```r
 use_loader_css(test = "\\.css$")
 use_loader_sass(test = "\\.s[ac]ss$/i")
+use_loader_vue_style(test = "\\.css$")
 ```
 
 
@@ -18,7 +19,7 @@ use_loader_sass(test = "\\.s[ac]ss$/i")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression to apply loader.
+```test```     |     Test regular expression test which files should be transformed by the loader.
 
 ## Details
 
