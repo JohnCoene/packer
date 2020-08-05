@@ -150,3 +150,40 @@ print_babel_config <- function(path){
   content <- readLines(path)
   cli::cli_code(content)
 }
+
+#' Creates or Updates index.js File
+#' 
+#' Creates or updates the `index.js` file with import of new scaffod.
+#' 
+#' @noRd 
+#' @keywords internal
+creup_index <- function(name, dir = c("exts", "inputs", "outputs")){
+
+  dir <- match.arg(dir)
+  type <- dir2type(dir)
+
+  # commons
+  index <- sprintf("import './%s/%s.js';", dir, name)
+
+  if(fs::file_exists("srcjs/index.js")){
+    existing <- readLines("srcjs/index.js")
+    index <- c(index, existing)
+    cli::cli_alert_success(sprintf("Added %s module import to `srcjs/index.js`", type))
+  } else {
+    cli::cli_alert_success("Created `srcjs/index.js` file")
+  }
+
+  # save
+  writeLines(index, "srcjs/index.js")
+}
+
+#' @noRd 
+#' @keywords internal
+dir2type <- function(dir){
+  switch(
+    dir,
+    exts = "extension",
+    inputs = "input",
+    outputs = "output"
+  )
+}

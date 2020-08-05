@@ -182,7 +182,7 @@ You can also use packer to scaffold custom shiny inputs.
 
 ```r
 usethis::create_package("inputz")
-packer::scaffold_extension("increment")
+packer::scaffold_input("increment")
 ```
 
 ```
@@ -317,10 +317,3 @@ if(interactive())
 ```
 
 ![](_media/input-toy.png)
-
-## Rmarkdown
-
-```r
-usethis::create_package("vuemd")
-packer::scaffold_rmd("my_document")
-```

@@ -9,7 +9,7 @@
 ext_js_files <- function(name){
 
   # index.js
-  ext_index_file(name)
+  creup_index(name, "exts")
 
   # read and adapt
   ext_in <- pkg_file("extension/javascript/extension.js")
@@ -21,32 +21,6 @@ ext_js_files <- function(name){
   writeLines(ext, ext_out)
 
   cli::cli_alert_success("Created JavaScript extension file")
-}
-
-#' Extension Index.js Files
-#' 
-#' @param name Name of widget as passed to [scaffold_extension()].
-#' 
-#' @details Creates or insert imports in `index.js`.
-#' 
-#' @noRd 
-#' @keywords internal
-ext_index_file <- function(name){
-
-  # commons
-  index <- sprintf("import './exts/%s.js';", name)
-
-  index_exists <- fs::file_exists("srcjs/index.js")
-  if(index_exists){
-    existing <- readLines("srcjs/index.js")
-    index <- c(index, existing)
-    cli::cli_alert_success("Added input module import to `srcjs/index.js`")
-  } else {
-    cli::cli_alert_success("Created `srcjs/index.js` file")
-  }
-
-  # save
-  writeLines(index, "srcjs/index.js")
 }
 
 #' Extension R Files

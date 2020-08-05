@@ -1,7 +1,7 @@
 output_js_files <- function(name){
   pkgname <- get_pkg_name()
 
-  output_index_file(name)
+  creup_index(name, "outputs")
 
   module_in <- pkg_file("output/javascript/output.js")
   module <- readLines(module_in)
@@ -10,26 +10,6 @@ output_js_files <- function(name){
 
   module_out <- sprintf("srcjs/outputs/%s.js", name)
   writeLines(module, module_out)
-}
-
-output_index_file <- function(name){
-
-  # commons
-  index <- sprintf("import './outputs/%s.js';", name)
-
-  index_exists <- fs::file_exists("srcjs/index.js")
-  if(index_exists){
-    existing <- readLines("srcjs/index.js")
-    index <- c(index, existing)
-    cli::cli_alert_success("Added input module import to `srcjs/index.js`")
-  } else {
-    cli::cli_alert_success("Created `srcjs/index.js` file")
-  }
-
-  cli::cli_alert_success("Created input module directory")
-
-  # save
-  writeLines(index, "srcjs/index.js")
 }
 
 output_r_files <- function(name){
