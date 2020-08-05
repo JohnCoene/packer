@@ -5,7 +5,7 @@
 #' @importFrom shiny singleton tags
 #' 
 #' @export
-use_name <- function(){
+use#Name# <- function(){
   singleton(
     tags$head(
       tags$script(src = "#pkgname#-assets/#name#.js")

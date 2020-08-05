@@ -26,7 +26,7 @@ scaffold_input <- function(name, edit = interactive()){
   npm_init()
 
   # create base npm webpack files
-  create_directory("srcjs")
+  create_directory("srcjs/inputs")
 
   # creating inst packge for assets
   create_directory("inst/packer", recurse = TRUE)
@@ -43,10 +43,11 @@ scaffold_input <- function(name, edit = interactive()){
   )
 
   # create srcjs and files
-  input_js_files(name)
+  template_js_module(name, "inputs")
+  creup_index(name, "inputs")
 
   # creating R files
-  input_r_files(name)
+  template_r_function(name, "input/R/input.R")
 
   # edit package.json
   npm_add_scripts()

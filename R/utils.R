@@ -155,6 +155,9 @@ print_babel_config <- function(path){
 #' 
 #' Creates or updates the `index.js` file with import of new scaffod.
 #' 
+#' @param name Name of scaffold.
+#' @param dir Directory where to place files in `srcjs`.
+#' 
 #' @noRd 
 #' @keywords internal
 creup_index <- function(name, dir = c("exts", "inputs", "outputs")){
@@ -186,4 +189,60 @@ dir2type <- function(dir){
     inputs = "input",
     outputs = "output"
   )
+}
+
+#' Generates Template R file
+#' 
+#' @param name Name of scaffold.
+#' @param template_path Path to template R file.
+#' 
+#' @noRd
+#' @keywords internal
+template_r_function <- function(name, template_path){
+  # get package name
+  pkgname <- get_pkg_name()
+
+  # read and replace
+  output_in <- pkg_file(template_path)
+  output <- readLines(output_in)
+  output <- gsub("#name#", name, output)
+  output <- gsub("#Name#", tools::toTitleCase(name), output)
+  output <- gsub("#pkgname#", pkgname, output)
+
+  # save
+  output_out <- sprintf("R/%s.R", name)
+  writeLines(output, output_out) 
+
+  cli::cli_alert_success("Created R file and function")
+}
+
+#' Generates Template R file
+#' 
+#' @param name Name of scaffold.
+#' @param template_path Path to template R file.
+#' 
+#' @noRd
+#' @keywords internal
+template_js_module <- function(name, output_dir = c("exts", "inputs", "outputs")){
+  pkgname <- get_pkg_name()
+  output_dir <- match.arg(output_dir)
+  type <- dir2type(output_dir)
+
+  # create input module
+  # read
+  path <- sprintf("%s/javascript/%s.js", type, type)
+  template_in <- pkg_file(path)
+
+  # replace
+  template <- readLines(template_in)
+  template <- gsub("#name#", name, template)
+  template <- gsub("#pkgname#", pkgname, template)
+  template <- gsub("#Name#", tools::toTitleCase(name), template)
+
+  # save
+  template_out <- sprintf("srcjs/%s/%s.js", output_dir, name)
+  writeLines(template, template_out)
+
+  msg <- sprintf("Created %s module", type)
+  cli::cli_alert_success(msg)
 }

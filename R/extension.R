@@ -46,10 +46,12 @@ scaffold_extension <- function(name, edit = interactive()){
   )
 
   # create srcjs and files
-  ext_js_files(name)
+  template_js_module(name, "exts")
+  creup_index(name, "exts")
 
   # creating R files
-  ext_r_files(name)
+  ext_zzz_file(name)
+  template_r_function(name, "extension/R/extension.R")
 
   # ignore files and directories
   ignore_files()

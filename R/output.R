@@ -46,10 +46,11 @@ scaffold_output <- function(name, edit = interactive()){
   )
 
   # create srcjs and files
-  output_js_files(name)
+  template_js_module(name, "outputs")
+  creup_index(name, "outputs")
 
   # creating R files
-  output_r_files(name)
+  template_r_function(name, "output/R/output.R")
 
   # ignore files and directories
   ignore_files()
