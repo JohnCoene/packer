@@ -45,8 +45,6 @@ ext_index_file <- function(name){
     cli::cli_alert_success("Created `srcjs/index.js` file")
   }
 
-  cli::cli_alert_success("Created input module directory")
-
   # save
   writeLines(index, "srcjs/index.js")
 }

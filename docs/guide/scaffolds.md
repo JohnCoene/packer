@@ -317,3 +317,10 @@ if(interactive())
 ```
 
 ![](_media/input-toy.png)
+
+## Rmarkdown
+
+```r
+usethis::create_package("vuemd")
+packer::scaffold_rmd("my_document")
+```

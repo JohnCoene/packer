@@ -5,11 +5,12 @@
 #' a golem app with webpack.
 #' 
 #' @param use_pug Set to `TRUE` to use the [pug engine](https://pugjs.org/).
+#' @param output_path Path to the generated html file, defaults to `../index.html` as
+#' is ideal for golem. Note that this path is relative to your output directory specified
+#' in your `webpack.common.js` file.
 #' 
 #' @export
-add_plugin_html <- function(use_pug = FALSE){
-
-  assert_that(is_golem())
+add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
 
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
@@ -37,7 +38,7 @@ add_plugin_html <- function(use_pug = FALSE){
   if(!any(grepl("require('html-webpack-plugin')", config)))
     config <- c("const HtmlWebpackPlugin = require('html-webpack-plugin');", config)
 
-  plugin <- sprintf("var plugins = [\nnew HtmlWebpackPlugin({filename: '../index.html', template: 'srcjs/index.%s'}),", ext)
+  plugin <- sprintf("var plugins = [\n  new HtmlWebpackPlugin({filename: '%s', template: 'srcjs/index.%s'}),", output_path, ext)
 
   config[grepl("^var plugins = \\[", config)] <- plugin
 
@@ -46,7 +47,8 @@ add_plugin_html <- function(use_pug = FALSE){
   pkg_name <- get_pkg_name()
   cmd <- sprintf('system.file("app/index.html", package = "%s")', pkg_name)
 
-  cli::cli_alert_info(sprintf('Use `shiny::htmlTemplate(%s)` as your shiny UI.', cmd))
+  if(is_golem())
+    cli::cli_alert_info(sprintf('Use `shiny::htmlTemplate(%s)` as your shiny UI.', cmd))
 }
 
 #' Clean Plugin
@@ -78,7 +80,7 @@ add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
   if(!any(grepl("require('clean-webpack-plugin')", config)))
     config <- c("const { CleanWebpackPlugin } = require('clean-webpack-plugin');", config)
 
-  plugin <- sprintf("var plugins = [\nnew CleanWebpackPlugin(%s),", options_json)
+  plugin <- sprintf("var plugins = [\n  new CleanWebpackPlugin(%s),", options_json)
 
   config[grepl("^var plugins = \\[", config)] <- plugin
 

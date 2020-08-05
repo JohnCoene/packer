@@ -11,7 +11,7 @@
 ## Usage
 
 ```r
-add_plugin_html(use_pug = FALSE)
+add_plugin_html(use_pug = FALSE, output_path = "../index.html")
 ```
 
 
@@ -20,4 +20,5 @@ add_plugin_html(use_pug = FALSE)
 Argument      |Description
 ------------- |----------------
 ```use_pug```     |     Set to `TRUE` to use the [pug engine](https://pugjs.org/) .
+```output_path```     |     Path to the generated html file, defaults to `../index.html` as is ideal for golem. Note that this path is relative to your output directory specified in your `webpack.common.js` file.
 

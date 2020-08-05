@@ -64,12 +64,12 @@ assertthat::on_failure(not_exists) <- function(call, env){
 }
 
 # check that scaffold name is valid
-is_name_valid <- function(name){
-  !grepl("[[:space:]]", name)
+is_name_valid <- function(nm){
+  !grepl("[[:space:]]", nm)
 }
 
 assertthat::on_failure(is_name_valid) <- function(call, env){
-  sprintf("%s is not a valid name", deparse(call$name))
+  sprintf("'%s' is not a valid name, includes space", deparse(call$nm))
 }
 
 # check .babelrc

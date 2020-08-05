@@ -7,6 +7,7 @@
 - Fixed import of external libraries (HTMLwidgets, Shiny, and jQuery).
 - Fixed name check on scaffolds, e.g.: `scaffold_input("no space allowed")` would not fail before.
 - Removed broke `use_loader_vue_style`, `apply_vue` now uses `use_loader_css` which works.
+- Added `output_path` argument to `add_plugin_html`.
 
 ## packer 0.0.2
 

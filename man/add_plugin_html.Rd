@@ -4,10 +4,14 @@
 \alias{add_plugin_html}
 \title{HTML Plugin}
 \usage{
-add_plugin_html(use_pug = FALSE)
+add_plugin_html(use_pug = FALSE, output_path = "../index.html")
 }
 \arguments{
 \item{use_pug}{Set to \code{TRUE} to use the \href{https://pugjs.org/}{pug engine}.}
+
+\item{output_path}{Path to the generated html file, defaults to \code{../index.html} as
+is ideal for golem. Note that this path is relative to your output directory specified
+in your \code{webpack.common.js} file.}
 }
 \description{
 Add the \href{https://webpack.js.org/plugins/html-webpack-plugin/}{html-webpack-plugin} to
