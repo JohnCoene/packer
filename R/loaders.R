@@ -30,7 +30,7 @@ use_loader_sass <- function(test = "\\.s[ac]ss$/i"){
 #' @export
 use_loader_vue_style <- function(test = "\\.css$"){
   assert_that(has_scaffold())
-  use_loader_rule(c("vue-style-loader", "css-loader"), test = test)
+  use_loader_rule(c("css-loader", "vue-style-loader"), test = test)
 }
 
 #' Use Pug Loader

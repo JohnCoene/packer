@@ -149,4 +149,12 @@ module.exports = {
 </script>
 ```
 
+Then bundle the JavaScript and load the functions to run the app.
+
+```r
+packer::bundle()
+devtools::load_all()
+run_app()
+```
+
 ![](_media/vue-bs4.gif)
