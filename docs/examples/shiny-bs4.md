@@ -67,10 +67,10 @@ tagList(
 Then again we notice the warning~ish message indicating changes need to be made to the `app_ui.R` file.
 
 <Note>
-We also suppress the bootstrap 3 dependencies to avoid clashes
+We also suppress the Bootstrap 3 dependencies as it would otherwise clash with Bootstrap 4
 </Note>
 
-```r {highlight:['7-12']}
+```r {highlight:['8-13']}
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
