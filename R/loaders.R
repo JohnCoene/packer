@@ -8,9 +8,8 @@
 #' 
 #' @section Packages:
 #' 
-#' * [use_loader_css()] - installs `style-loader` and `css-loader` packages as dev.
-#' * [use_loader_sass()] - installs `style-loader`, `css-loader`, and `sass-loader` as dev.
-#' * [use_loader_vue_style()] - installs `vue-style-loader`, and `css-loader` as dev.
+#' * [use_loader_css()] - installs and imports `style-loader` and `css-loader` packages as dev.
+#' * [use_loader_sass()] - installs and imports `style-loader`, `css-loader`, and `sass-loader` as dev.
 #' 
 #' @name style_loaders
 #' @export
@@ -24,13 +23,6 @@ use_loader_css <- function(test = "\\.css$"){
 use_loader_sass <- function(test = "\\.s[ac]ss$/i"){
   assert_that(has_scaffold())
   use_loader_rule(c("style-loader", "css-loader", "sass-loader"), test = test)
-}
-
-#' @rdname style_loaders
-#' @export
-use_loader_vue_style <- function(test = "\\.css$"){
-  assert_that(has_scaffold())
-  use_loader_rule(c("css-loader", "vue-style-loader"), test = test)
 }
 
 #' Use Pug Loader

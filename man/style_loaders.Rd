@@ -4,14 +4,11 @@
 \alias{style_loaders}
 \alias{use_loader_css}
 \alias{use_loader_sass}
-\alias{use_loader_vue_style}
 \title{Use Styles}
 \usage{
 use_loader_css(test = "\\\\.css$")
 
 use_loader_sass(test = "\\\\.s[ac]ss$/i")
-
-use_loader_vue_style(test = "\\\\.css$")
 }
 \arguments{
 \item{test}{Test regular expression test which files should be transformed by the loader.}
@@ -25,9 +22,8 @@ This will let you import styles much like any other modules, e.g.: \verb{import 
 \section{Packages}{
 
 \itemize{
-\item \code{\link[=use_loader_css]{use_loader_css()}} - installs \code{style-loader} and \code{css-loader} packages as dev.
-\item \code{\link[=use_loader_sass]{use_loader_sass()}} - installs \code{style-loader}, \code{css-loader}, and \code{sass-loader} as dev.
-\item \code{\link[=use_loader_vue_style]{use_loader_vue_style()}} - installs \code{vue-style-loader}, and \code{css-loader} as dev.
+\item \code{\link[=use_loader_css]{use_loader_css()}} - installs and imports \code{style-loader} and \code{css-loader} packages as dev.
+\item \code{\link[=use_loader_sass]{use_loader_sass()}} - installs and imports \code{style-loader}, \code{css-loader}, and \code{sass-loader} as dev.
 }
 }
 

@@ -30,7 +30,7 @@ apply_vue <- function(use_cdn = TRUE){
   npm_install("@babel/core", "@babel/preset-env", scope = "dev")
   npm_install("vue", scope = vue_scope)
   use_loader_vue()
-  use_loader_vue_style()
+  use_loader_css()
   add_plugin_vue()
   vue_cdn_function(use_cdn)
   vue_alias()
