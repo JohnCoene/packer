@@ -128,7 +128,7 @@ Finally, we can use bootstrap in Vue, below we modify the `srcjs/Home.vue` file 
   <div>
     <b-form-input v-model="inputText" placeholder="Enter your name" @keyup.enter="processText"></b-form-input>
     <b-button @click="processText" variant="outline-primary">Button</b-button>
-    <h2>Your name is <span>{{ text }}</span></h2>
+    <h2>Your name is {{ text }}</h2>
   </div>
 </template>
 
