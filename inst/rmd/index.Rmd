@@ -1,0 +1,10 @@
+---
+title: "Packer"
+output:
+  html_document:
+    includes:
+      in_header: assets/header.html
+      after_body: assets/app.html
+---
+
+# Packer

@@ -55,8 +55,12 @@ apply_vue <- function(use_cdn = TRUE){
   fs::file_copy(home, "srcjs/Home.vue")
   cli::cli_alert_success("Added `srcjs/Home.vue` template")
 
-  cli::cli_alert_warning("Place the following in your shiny ui:")
-  vue_ui_code()
+  # only print if project is golem app
+  # otherwise Rmarkdown = no need
+  if(is_golem()){
+    cli::cli_alert_warning("Place the following in your shiny ui:")
+    vue_ui_code()
+  }
 }
 
 #' Dependencies for React

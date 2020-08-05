@@ -11,8 +11,8 @@ R packages make sharing code, datasets, and anything else R-related extremely ea
 usethis::create_package("usesJS")
 ```
 
-<Note type = "warning">
-Knowledge of R package development is necessary to work with packer.
+<Note>
+Only the <code>scaffold_rmd</code> is not rooted in a package and instead from a project.
 </Note>
 
 ## Npm

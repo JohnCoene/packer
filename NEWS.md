@@ -1,4 +1,10 @@
-## packer 0.0.3.9000
+## packer 0.0.4
+
+## Changes
+
+- Added `scaffold_rmd` to scaffold R markdown projects.
+
+## packer 0.0.3
 
 ### Changes
 
