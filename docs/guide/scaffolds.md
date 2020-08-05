@@ -297,9 +297,18 @@ packer::scaffold_output("markup")
 ℹ Run `bundle` to build the JavaScript files
 ```
 
+Then again, bundle the files and install the package to test it.
+
+```r
+packer::bundle()
+devtools::document()
+devtools::install()
+```
+
 Like other scaffolds the R code generated contains a toy example: it renders shiny tags in red.
 
 ```r
+library(outputz)
 library(shiny)
 
 ui <- fluidPage(
