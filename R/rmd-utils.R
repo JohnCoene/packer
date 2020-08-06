@@ -8,6 +8,9 @@
 #' @noRd 
 #' @keywords internal
 rmd_files <- function(react = FALSE, vue = FALSE){
+  # use fn to get messages
+  create_directory("assets")
+
   # define template to copy
   template_dir <- "javascript"
   if(react) template_dir <- "react"
@@ -29,5 +32,6 @@ rmd_files <- function(react = FALSE, vue = FALSE){
   fs::dir_copy(assets_base, "assets")
   fs::file_copy(index_path, "index.Rmd")
 
+  cli::cli_alert_success("Created `index.Rmd`")
   cli::cli_alert_success("Created `srcjs` directory")
 }

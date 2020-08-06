@@ -326,3 +326,60 @@ if(interactive())
 ```
 
 ![](_media/input-toy.png)
+
+## R markdown
+
+You can also scaffold for R markdown documents. This differs slightly from other scaffolds in that 1) only a single such scaffold can be set, 2) it is rooted in a project rather than a package. This is because structuring R markdown projects as packages is rather unwieldy; please open an issue if you know a better way.
+
+Note that you can set either `react` or `vue` to `TRUE` when scaffolding.
+
+```r
+usethis::create_project("rmd")
+packer::scaffold_rmd()
+```
+
+```
+── Scaffolding rmd ─────────────────────────────────────────────
+
+✔ Initialiased npm
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
+✔ Added npm scripts
+✔ Created `assets` directory
+✔ Created `index.Rmd`
+✔ Created `srcjs` directory
+✔ Created `srcjs/config` directory
+✔ Created webpack config files
+
+── Adding files to .gitignore and .Rbuildignore ──
+
+✔ Setting active project to '/Projects/rmd'
+✔ Adding '^srcjs$' to '.Rbuildignore'
+✔ Adding '^node_modules$' to '.Rbuildignore'
+✔ Adding '^package\\.json$' to '.Rbuildignore'
+✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
+✔ Adding 'node_modules' to '.gitignore'
+
+── Scaffold built ──
+
+ℹ Run `bundle` to build the JavaScript files
+```
+
+This generated, amongst other things, an `index.Rmd` file which looks as below.
+
+```yaml
+---
+title: "Packer"
+output:
+  html_document:
+    includes:
+      in_header: assets/header.html
+      after_body: assets/app.html
+---
+
+# Packer
+```
+
+The `includes` contain what is necessary to include and run the JavaScript bundle in the HTML output, this will vary depending on the scaffold (Vanilla, React, or Vue).

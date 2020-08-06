@@ -23,6 +23,7 @@ Imports:
     jsonlite,
     htmlwidgets,
     cli,
-    assertthat
+    assertthat,
+    rprojroot
 URL: https://github.com/JohnCoene/packer, https://packer.john-coene.com
 BugReports: https://github.com/JohnCoene/packer/issues

@@ -80,3 +80,18 @@ has_no_babel <- function(){
 assertthat::on_failure(has_no_babel) <- function(call, env){
   "Already setup"
 }
+
+# https://github.com/r-lib/usethis/blob/79ed2e96ea9ccb14251178f037afccd991405383/R/proj.R
+# use same project definition as usethis or use_build_ignore will fail
+proj_crit <- function() {
+  rprojroot::has_file(".here") |
+    rprojroot::is_rstudio_project |
+    rprojroot::is_r_package |
+    rprojroot::is_git_root |
+    rprojroot::is_remake_project |
+    rprojroot::is_projectile_project
+}
+
+is_project <- function(){
+  rprojroot::find_root(proj_crit())
+}
