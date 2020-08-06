@@ -92,7 +92,8 @@ end_msg <- function(){
 #' @noRd 
 #' @keywords internal
 open_msg <- function(what, name = ""){
-  cat(cli::rule(left = "Scaffolding { what }", right = name, line_col = "blue"), "\n")
+  lefty <- sprintf("Scaffolding %s", what)
+  cat(cli::rule(left = lefty, right = name, line_col = "blue"), "\n")
 }
 
 #' Edit files
