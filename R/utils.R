@@ -28,12 +28,11 @@ ignore_files <- function(){
 
 # prints error and warnings from system2
 print_results <- function(results){
-  
   if(length(results$warnings))
     npm_console()
-  
 }
 
+# get name of package
 get_pkg_name <- function(){
   desc <- readLines("DESCRIPTION")
   pkg <- desc[grepl("^Package:", desc)]
@@ -53,14 +52,12 @@ create_directory <- function(path, ...){
   exists <- fs::dir_exists(path)
 
   if(exists){
-    msg <- sprintf("Directory `%s` already exists", path)
-    cli::cli_alert_info(msg)
+    cli::cli_alert_info("Directory `{ path }` already exists")
     return()
   }
 
   fs::dir_create(path, ...)
-  msg <- sprintf("Created `%s` directory", path)
-  cli::cli_alert_success(msg)
+  cli::cli_alert_success("Created `{ path }` directory")
 }
 
 #' Use Packages
@@ -95,8 +92,7 @@ end_msg <- function(){
 #' @noRd 
 #' @keywords internal
 open_msg <- function(what, name = ""){
-  lefty <- sprintf("Scaffolding %s", what)
-  cat(cli::rule(left = lefty, right = name, line_col = "blue"), "\n")
+  cat(cli::rule(left = "Scaffolding { what }", right = name, line_col = "blue"), "\n")
 }
 
 #' Edit files
@@ -172,7 +168,7 @@ creup_index <- function(name, dir = c("exts", "inputs", "outputs")){
   if(fs::file_exists("srcjs/index.js")){
     existing <- readLines("srcjs/index.js")
     index <- c(index, existing)
-    cli::cli_alert_success(sprintf("Added %s module import to `srcjs/index.js`", type))
+    cli::cli_alert_success("Added { type } module import to `srcjs/index.js`")
   } else {
     cli::cli_alert_success("Created `srcjs/index.js` file")
   }
@@ -244,6 +240,5 @@ template_js_module <- function(name, output_dir = c("exts", "inputs", "outputs")
   template_out <- sprintf("srcjs/%s/%s.js", output_dir, name)
   writeLines(template, template_out)
 
-  msg <- sprintf("Created %s module", type)
-  cli::cli_alert_success(msg)
+  cli::cli_alert_success("Created { type } module")
 }
