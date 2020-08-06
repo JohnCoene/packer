@@ -19,7 +19,7 @@ rmd_files <- function(react = FALSE, vue = FALSE){
   srcjs_base <- pkg_file(srcjs_path)
 
   # get full path to assets
-  assets_path <- sprintf("rmd/%s/assets", template_dir)
+  assets_path <- sprintf("rmd/%s/assets/", template_dir)
   assets_base <- pkg_file(assets_path)
 
   # Rmd file
