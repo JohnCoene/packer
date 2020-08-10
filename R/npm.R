@@ -33,7 +33,7 @@ set_npm <- function(path = NULL){
 #' @export 
 npm_install <- function(..., scope = c("dev", "prod", "global")){
   # check
-  packages <- c(...) #capture
+  packages <- c(...) # capture
   scope <- match.arg(scope)
 
   if(length(packages) > 0){
@@ -42,14 +42,14 @@ npm_install <- function(..., scope = c("dev", "prod", "global")){
     msgs <- pkg2msg(packages, scope)
   } else {
     args <- "install"
-    msg <- list(
+    msgs <- list(
       "Installing dependencies", 
       "Installed dependencies", 
       "Failed to install dependencies"
     )
   }
   
-  do.call(cli::cli_process_start, pkg2msg(packages, scope))
+  do.call(cli::cli_process_start, msgs)
   tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
   cli::cli_process_done()
 }
