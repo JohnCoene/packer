@@ -23,6 +23,8 @@
 #' if(interactive())
 #'  shinyApp(ui, server)
 #' 
+#' @importFrom shiny tags tagList
+#' 
 #' @export 
 #name#Input <- function(inputId, value = 0){
 

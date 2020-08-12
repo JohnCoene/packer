@@ -1,4 +1,4 @@
-# typed.js
+# Widget with Npm
 
 In this example we use packer to scaffold an htmlwidget and use the npm package [typed.js](https://github.com/mattboldt/typed.js).
 
