@@ -27,4 +27,4 @@ The scaffolds are very much inspired by the same functionality from [htmlwidgets
 
 ### Related Work
 
-If you enjoy packer you should explore [reactR](https://github.com/react-R/reactR) which does something very similar to packer to create React-powered widgets and inputs.
+If you enjoy packer you should explore [reactR](https://github.com/react-R/reactR) which does something very similar to packer to create React-powered widgets and inputs, as well as [vueR](https://github.com/vue-r/vueR) which brings Vue to R.
