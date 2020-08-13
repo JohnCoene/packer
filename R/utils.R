@@ -52,12 +52,12 @@ create_directory <- function(path, ...){
   exists <- fs::dir_exists(path)
 
   if(exists){
-    cli::cli_alert_info("Directory {.file path} already exists")
+    cli::cli_alert_info("Directory {.file {path}} already exists")
     return()
   }
 
   fs::dir_create(path, ...)
-  cli::cli_alert_success("Created {.file path} directory")
+  cli::cli_alert_success("Created {.file {path}} directory")
 }
 
 #' Use Packages

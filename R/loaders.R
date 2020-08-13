@@ -171,7 +171,7 @@ loader_add <- function(loader){
   # check if test already set
   tests <- sapply(loaders, function(x) x$test)
   if(loader$test %in% tests)
-    cli::cli_alert_info("A loader is already used for this test: {.val { loader$test }}")
+    cli::cli_alert_info("A loader is already used for this test: {.val {loader$test}}")
 
   loaders <- append(loaders, list(loader))
   save_json(loaders, json_path)
@@ -180,5 +180,5 @@ loader_add <- function(loader){
 #' @noRd 
 #' @keywords internal
 loader_msg <- function(loaders){
-  cli::cli_alert_success("Added loader rule for {.val { loaders }}\n")
+  cli::cli_alert_success("Added loader rule for {.val {loaders}}\n")
 }
