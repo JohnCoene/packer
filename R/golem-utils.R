@@ -15,5 +15,5 @@ golem_files <- function(react = FALSE, vue = FALSE){
   else 
     fs::dir_copy(base, "srcjs")
 
-  cli::cli_alert_success("Created `srcjs` directory")
+  cli::cli_alert_success("Created {.file srcjs} directory")
 }

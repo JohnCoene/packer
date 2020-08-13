@@ -8,18 +8,18 @@ packer::scaffold_golem(react = TRUE)
 ```
 
 ```
-── Scaffolding golem ───────────────────────────────────────────────────────────────────────
+── Scaffolding golem ─────────────────────────────────────────────────────────── 
 
 ✔ Initialiased npm
 ✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
-✔ Created `srcjs` directory
-✔ Created `srcjs/config` directory
+✔ Created srcjs directory
+✔ Created path directory
 ✔ Created webpack config files
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/Projects/appli'
+✔ Setting active project to '/Projects/reaction'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -31,18 +31,18 @@ packer::scaffold_golem(react = TRUE)
 
 ── React loader & dependencies ──
 
-✔ @babel/core, babel-loader installed with scope dev
-✔ Added bundling rule for babel-loader
+✔ babel-loader installed with scope dev
+✔ Added loader rule for 'babel-loader'
 ✔ react, react-dom installed with scope dev
-✔ @babel/preset-env, @babel/preset-react installed with scope dev
-✔ Created `R/react_cdn.R` containing `reactCDN()` function
+✔ @babel/core, @babel/preset-env, @babel/preset-react installed with scope dev
+✔ Created R/react_cdn.R containing `reactCDN()` function
 
 ── Babel config file ──
 
-✔ Created `.babelrc`
+✔ Created .babelrc
 ✔ Adding '^\\.babelrc$' to '.Rbuildignore'
 
-✔ Replaced `srcjs/index.js` with react template
+✔ Created template srcjs/index.js
 ! Place the following at in your shiny ui:
 tagList(
   reactCDN(),

@@ -30,7 +30,7 @@ rmd_files <- function(react = FALSE, vue = FALSE){
   fs::dir_copy(assets_base, "assets")
   fs::file_copy(index_path, "index.Rmd")
 
-  cli::cli_alert_success("Created `assets` directory")
-  cli::cli_alert_success("Created `index.Rmd`")
-  cli::cli_alert_success("Created `srcjs` directory")
+  cli::cli_alert_success("Created {.file assets} directory")
+  cli::cli_alert_success("Created {.file index.Rmd}")
+  cli::cli_alert_success("Created {.file srcjs} directory")
 }

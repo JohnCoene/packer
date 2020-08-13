@@ -84,7 +84,7 @@ npm_console <- function(){
   }
 
   if(length(output$warnings)){
-    cli::cli_alert_warning("Command threw the warning below")
+    cli::cli_alert_warning("Command raised the warning below")
     cli::cli_code(output$warnings)
   }
   
@@ -129,9 +129,9 @@ pkg2msg <- function(packages, scope){
   packages <- paste0(packages, collapse = ", ")
 
   # messages
-  started <- sprintf("Installing %s with scope %s", packages, scope)
-  done <- sprintf("%s installed with scope %s", packages, scope)
-  failed <- sprintf("Failed to install %s", packages)
+  started <- sprintf("Installing {.pkg %s} with scope {.val %s}", packages, scope)
+  done <- sprintf("{.pkg %s} installed with scope {.val %s}", packages, scope)
+  failed <- sprintf("Failed to install {.pkg %s}", packages)
 
   # arguments
   list(started, done, failed)

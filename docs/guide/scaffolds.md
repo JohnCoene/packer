@@ -16,18 +16,18 @@ packer::scaffold_golem()
 ```
 
 ```
-── Scaffolding golem ──────────────────────────────────────────────────── 
- 
+── Scaffolding golem ──────────────────────────────────────────────────────
+
 ✔ Initialiased npm
 ✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
-✔ Created `srcjs` directory
-✔ Created `srcjs/config` directory
+✔ Created srcjs directory
+✔ Created path directory
 ✔ Created webpack config files
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/Users/jcoe/Documents/Projects/stocks'
+✔ Setting active project to '/Projects/stocks'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -56,27 +56,30 @@ packer::scaffold_widget("write_h1")
 ```
 
 ```
-── Scaffolding widget ───────────────────────────────────────── write_h1 ── 
+── Scaffolding widget ────────────────────────────────────────────── write_h1 ── 
 
 ✔ Bare widget setup
-✔ Created `srcjs` directory
+✔ Created path directory
 ✔ Initialiased npm
-✔ webpack, webpack-cli, webpack-merge installed
-✔ Created webpack config file
-✔ Created `srcjs/modules` directory
-✔ Created `srcjs/widgets` directory
-✔ Created `srcjs/index.js`
-✔ Moved bare widget to `srcjs`
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
+✔ Created path directory
+✔ Created webpack config files
+✔ Created path directory
+✔ Created path directory
+✔ Created srcjs/index.js
+✔ Moved bare widget to srcjs
 ✔ Added npm scripts
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/Packages/plotly'
+✔ Setting active project to '/Projects/plotly'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
 ✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
-✔ Adding '^webpack\\.config\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
 ✔ Adding 'node_modules' to '.gitignore'
 
 ── Adding packages to Imports ──
@@ -112,28 +115,30 @@ packer::scaffold_extension("ask")
 ```
 
 ```
-── Scaffolding shiny extension ─────────────────────────────────────── ask ── 
+── Scaffolding shiny extension ────────────────────────────────────────── ask ── 
 
 ✔ Initialiased npm
-✔ Created `srcjs/exts` directory
-✔ Created `inst/packer` directory
-✔ webpack, webpack-cli, webpack-merge installed
+✔ Created path directory
+✔ Created path directory
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
-✔ Created webpack config file
-✔ Created `srcjs/index.js` file
-✔ Created input module directory
-✔ Created JavaScript extension file
-✔ Added path shiny resource
-✔ Created R functions
+✔ Created path directory
+✔ Created webpack config files
+✔ Created 'extension' module
+✔ Created srcjs/index.js
+✔ Added path to shiny resource
+✔ Created R file and function
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/Packages/alerts'
+✔ Setting active project to '/Projects/alerts'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
 ✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
-✔ Adding '^webpack\\.config\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
 ✔ Adding 'node_modules' to '.gitignore'
 
 ── Adding packages to Imports ──
@@ -186,27 +191,29 @@ packer::scaffold_input("increment")
 ```
 
 ```
-── Scaffolding shiny input ───────────────────────────────────increment ── 
+── Scaffolding shiny input ──────────────────────────────────────── increment ── 
 
 ✔ Initialiased npm
-✔ Created `srcjs` directory
-✔ Created `inst/packer` directory
-✔ webpack, webpack-cli, webpack-merge installed
-✔ Created webpack config file
-✔ Created `srcjs/inputs` directory
-✔ Created input file in `srcjs/inputs`
-✔ Created input module and `index.js` file
+✔ Created path directory
+✔ Created path directory
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
+✔ Created path directory
+✔ Created webpack config files
+✔ Created 'input' module
+✔ Created srcjs/index.js
 ✔ Created R file and function
 ✔ Added npm scripts
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/Packages/inputz'
+✔ Setting active project to '/Projects/inputz'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
 ✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
-✔ Adding '^webpack\\.config\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
 ✔ Adding 'node_modules' to '.gitignore'
 
 ── Adding packages to Imports ──
@@ -261,21 +268,22 @@ packer::scaffold_output("markup")
 ```
 
 ```
-── Scaffolding shiny output ─────────────────────────────────────── markup ── 
+── Scaffolding shiny output ────────────────────────────────────────── markup ── 
+
 ✔ Initialiased npm
-✔ Created `srcjs/outputs` directory
-✔ Created `inst/packer` directory
+✔ Created path directory
+✔ Created path directory
 ✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
-✔ Created `srcjs/config` directory
+✔ Created path directory
 ✔ Created webpack config files
-✔ Created `srcjs/index.js` file
-✔ Created input module directory
+✔ Created 'output' module
+✔ Created srcjs/index.js
 ✔ Created R file and function
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/home/jp/Projects/outputz'
+✔ Setting active project to '/Projects/outputz'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -339,15 +347,15 @@ packer::scaffold_rmd()
 ```
 
 ```
-── Scaffolding rmd ─────────────────────────────────────────────
+── Scaffolding rmd ───────────────────────────────────────────────────────────── 
 
 ✔ Initialiased npm
 ✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
-✔ Created `assets` directory
-✔ Created `index.Rmd`
-✔ Created `srcjs` directory
-✔ Created `srcjs/config` directory
+✔ Created assets directory
+✔ Created index.Rmd
+✔ Created srcjs directory
+✔ Created path directory
 ✔ Created webpack config files
 
 ── Adding files to .gitignore and .Rbuildignore ──

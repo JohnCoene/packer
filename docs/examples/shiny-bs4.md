@@ -8,18 +8,18 @@ packer::scaffold_golem(vue = TRUE)
 ```
 
 ```
-── Scaffolding golem ──────────────────────────────────────────────────
+── Scaffolding golem ─────────────────────────────────────────────────────────── 
 
 ✔ Initialiased npm
 ✔ webpack, webpack-cli, webpack-merge installed with scope dev
 ✔ Added npm scripts
-✔ Created `srcjs` directory
-✔ Created `srcjs/config` directory
+✔ Created srcjs directory
+✔ Created path directory
 ✔ Created webpack config files
 
 ── Adding files to .gitignore and .Rbuildignore ──
 
-✔ Setting active project to '/home/jp/Projects/bs4'
+✔ Setting active project to '/Projects/bs4'
 ✔ Adding '^srcjs$' to '.Rbuildignore'
 ✔ Adding '^node_modules$' to '.Rbuildignore'
 ✔ Adding '^package\\.json$' to '.Rbuildignore'
@@ -32,24 +32,24 @@ packer::scaffold_golem(vue = TRUE)
 ── Vue loader, plugin & dependency ──
 
 ✔ babel-loader installed with scope dev
-✔ Added loader rule for babel-loader
+✔ Added loader rule for 'babel-loader'
 ✔ @babel/core, @babel/preset-env installed with scope dev
 ✔ vue installed with scope dev
 ✔ vue-loader, vue-template-compiler installed with scope dev
-✔ Added loader rule for vue-loader, vue-template-compiler
-✔ vue-style-loader, css-loader installed with scope dev
-✔ Added loader rule for vue-style-loader, css-loader
-✔ Created `R/vue_cdn.R` containing `vueCDN()` function
-✔ Added alias to `srcjs/config/misc.json`
+✔ Added loader rule for 'vue-loader' and 'vue-template-compiler'
+✔ style-loader, css-loader installed with scope dev
+✔ Added loader rule for 'style-loader' and 'css-loader'
+✔ Created R/vue_cdn.R containing `vueCDN()` function
+✔ Added alias to srcjs/config/misc.json
 
 ── Babel config file ──
 
-✔ Created `.babelrc`
+✔ Created .babelrc
 ✔ Adding '^\\.babelrc$' to '.Rbuildignore'
 
 ── Template files ──
 
-✔ Added `srcjs/Home.vue` template
+✔ Added srcjs/Home.vue template
 ! Place the following in your shiny ui:
 tagList(
   vueCDN(),

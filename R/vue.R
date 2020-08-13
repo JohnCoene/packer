@@ -53,7 +53,7 @@ apply_vue <- function(use_cdn = TRUE){
 
   fs::file_copy(index, "srcjs/index.js")
   fs::file_copy(home, "srcjs/Home.vue")
-  cli::cli_alert_success("Added `srcjs/Home.vue` template")
+  cli::cli_alert_success("Added {.file srcjs/Home.vue} template")
 
   # only print if project is golem app
   # otherwise Rmarkdown = no need
@@ -97,11 +97,11 @@ vue_cdn_function <- function(use_cdn = TRUE){
   exists <- fs::file_exists("R/vue_cdn.R")
 
   if(exists){
-    cli::cli_alert_danger("`R/vue_cdn.R` already exists")
+    cli::cli_alert_danger("{.file R/vue_cdn.R} already exists")
     return()
   }
 
-  cli::cli_alert_success("Created `R/vue_cdn.R` containing `vueCDN()` function")
+  cli::cli_alert_success("Created {.file R/vue_cdn.R} containing {.fn vueCDN} function")
   template <- pkg_file("templates/vue/vue_cdn.R")
   fs::file_copy(template, "R/vue_cdn.R")
 }
@@ -115,5 +115,5 @@ vue_alias <- function(){
   vue <- list(vue = "vue/dist/vue.esm.js")
   misc$resolve$alias <- append(misc$resolve$alias, vue)
   save_json(misc, "srcjs/config/misc.json")
-  cli::cli_alert_success("Added alias to `srcjs/config/misc.json`")
+  cli::cli_alert_success("Added alias to {.file srcjs/config/misc.json}")
 }

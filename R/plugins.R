@@ -30,7 +30,7 @@ add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
   template_in <- pkg_file(template_in)
   template_out <- sprintf("srcjs/index.%s", ext)
   fs::file_copy(template_in, template_out)
-  cli::cli_alert_success("Created template `{ template_out }`")
+  cli::cli_alert_success("Created template {.file { template_out }}")
 
   # read config
   config <- readLines("webpack.common.js")
@@ -48,7 +48,7 @@ add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
   cmd <- sprintf('system.file("app/index.html", package = "%s")', pkg_name)
 
   if(is_golem())
-    cli::cli_alert_info("Use `shiny::htmlTemplate({ cmd })` as your shiny UI")
+    cli::cli_alert_info("Use {.code shiny::htmlTemplate({ cmd })} as your shiny UI")
 }
 
 #' Clean Plugin
@@ -86,7 +86,7 @@ add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
 
   writeLines(config, "webpack.common.js")
 
-  cli::cli_alert_success("Added clean-webpack-plugin to configuration file")
+  cli::cli_alert_success("Added {.val clean-webpack-plugin} to configuration file")
 }
 
 #' Vue Loader Plugin

@@ -36,14 +36,14 @@ widget_files <- function(name){
   else
     widget_update_index(name)
 
-  cli::cli_alert_success("Moved bare widget to `srcjs`")
+  cli::cli_alert_success("Moved bare widget to {.file srcjs}")
 
 }
 
 widget_create_index <- function(name){
   index <- sprintf("import './widgets/%s.js'", name)
   writeLines(index, "srcjs/index.js")
-  cli::cli_alert_success("Created `srcjs/index.js`")
+  cli::cli_alert_success("Created {.file srcjs/index.js}")
 }
 
 widget_update_index <- function(name){
@@ -51,7 +51,7 @@ widget_update_index <- function(name){
   import <- sprintf("import './widgets/%s.js'", name)
   index <- c(import, index)
   writeLines(index, "srcjs/index.js")
-  cli::cli_alert_success("Updated `srcjs/index.js`")
+  cli::cli_alert_success("Updated {.file srcjs/index.js}")
 }
 
 # open file in editor

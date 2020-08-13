@@ -12,7 +12,7 @@ pkg_file <- function(file){
 
 # ignore files
 ignore_files <- function(){
-  cli::cli_h2("Adding files to .gitignore and .Rbuildignore")
+  cli::cli_h2("Adding files to {.file .gitignore} and {.file .Rbuildignore}")
   
   usethis::use_build_ignore("srcjs")
   usethis::use_build_ignore("node_modules")
@@ -52,12 +52,12 @@ create_directory <- function(path, ...){
   exists <- fs::dir_exists(path)
 
   if(exists){
-    cli::cli_alert_info("Directory `{ path }` already exists")
+    cli::cli_alert_info("Directory {.file path} already exists")
     return()
   }
 
   fs::dir_create(path, ...)
-  cli::cli_alert_success("Created `{ path }` directory")
+  cli::cli_alert_success("Created {.file path} directory")
 }
 
 #' Use Packages
@@ -130,14 +130,14 @@ save_json <- function(...){
 #' @keywords internal
 babel_config <- function(path){
   if(fs::file_exists(".babelrc")){
-    cli::cli_alert_warning("`.babelrc` file already exists, add the following")
+    cli::cli_alert_warning("{.file .babelrc} file already exists, add the following")
     print_babel_config(path)
     return()
   }
 
   path <- pkg_file(path)
   fs::file_copy(path, ".babelrc")
-  cli::cli_alert_success("Created `.babelrc`")
+  cli::cli_alert_success("Created {.file .babelrc}")
   usethis::use_build_ignore(".babelrc")
 }
 
@@ -169,9 +169,9 @@ creup_index <- function(name, dir = c("exts", "inputs", "outputs")){
   if(fs::file_exists("srcjs/index.js")){
     existing <- readLines("srcjs/index.js")
     index <- c(index, existing)
-    cli::cli_alert_success("Added { type } module import to `srcjs/index.js`")
+    cli::cli_alert_success("Added {.val {type}} module import to {.file srcjs/index.js}")
   } else {
-    cli::cli_alert_success("Created `srcjs/index.js` file")
+    cli::cli_alert_success("Created {.file srcjs/index.js}")
   }
 
   # save
@@ -241,5 +241,5 @@ template_js_module <- function(name, output_dir = c("exts", "inputs", "outputs")
   template_out <- sprintf("srcjs/%s/%s.js", output_dir, name)
   writeLines(template, template_out)
 
-  cli::cli_alert_success("Created { type } module")
+  cli::cli_alert_success("Created {.val {type}} module")
 }

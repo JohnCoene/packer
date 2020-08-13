@@ -54,13 +54,13 @@ apply_react <- function(use_cdn = TRUE){
     # otherwise update
     if(!identical(current, golem_index)){
       index <- c(imports, current, template)
-      cli::cli_alert_success("Updated `srcjs/index.js` with react template")
+      cli::cli_alert_success("Updated {.file srcjs/index.js} with react template")
     } else {
-      cli::cli_alert_success("Replaced `srcjs/index.js` with react template")
+      cli::cli_alert_success("Replaced {.file srcjs/index.js} with react template")
     }
 
   } else {
-    cli::cli_alert_success("Created template `srcjs/index.js`")
+    cli::cli_alert_success("Created template {.file srcjs/index.js}")
   }
 
   writeLines(index, "srcjs/index.js")
@@ -103,11 +103,11 @@ react_cdn_function <- function(use_cdn = TRUE){
   exists <- fs::file_exists("R/react_cdn.R")
 
   if(exists){
-    cli::cli_alert_danger("`R/react_cdn.R` already exists")
+    cli::cli_alert_danger("{.file R/react_cdn.R} already exists")
     return()
   }
 
-  cli::cli_alert_success("Created `R/react_cdn.R` containing `reactCDN()` function")
+  cli::cli_alert_success("Created {.file R/react_cdn.R} containing {.fn reactCDN} function")
   template <- pkg_file("templates/react/react_cdn.R")
   fs::file_copy(template, "R/react_cdn.R")
 }

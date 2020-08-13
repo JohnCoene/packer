@@ -10,7 +10,7 @@ ext_zzz_file <- function(name){
   pkgname <- get_pkg_name()
 
   if(fs::file_exists("R/zzz.R")){
-    cli::cli_alert_info("`R/zzz.R` already exists: assumes path to shiny resource already exists")
+    cli::cli_alert_info("{.file R/zzz.R} already exists: assumes path to shiny resource already exists")
     return()
   }
 
