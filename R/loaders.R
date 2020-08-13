@@ -125,13 +125,6 @@ use_loader_file <- function(test = "\\.(png|jpe?g|gif)$/i"){
 #' 
 #' @details Reads the `srcsjs/config/loaders.json` and appends the rule.
 #' 
-#' @examples 
-#' # add coffee script loader
-#' \dontrun{use_loader_rule("coffee-loader", test = "\\.coffee$")}
-#' 
-#' # same as
-#' \dontrun{use_loader_coffee()}
-#' 
 #' @export 
 use_loader_rule <- function(packages, test, ..., use = as.list(packages)){
   assert_that(has_scaffold())

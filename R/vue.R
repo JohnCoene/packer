@@ -11,12 +11,6 @@
 #' @details After running this function and bundling the JavaScript remember to place
 #' `div(id = "app"), tags$script(src = "www/index.js")` at the bottom of your shiny UI.
 #' 
-#' @examples 
-#' \dontrun{
-#' golem::create_golem("useVue")
-#' packer::scaffold_golem(vue = TRUE)
-#' }
-#' 
 #' @export 
 apply_vue <- function(use_cdn = TRUE){
   assert_that(has_no_babel())

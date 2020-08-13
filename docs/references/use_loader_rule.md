@@ -28,14 +28,3 @@ Argument      |Description
  Reads the `srcsjs/config/loaders.json` and appends the rule.
 
 
-## Examples
-
-```r 
- # add coffee script loader
- use_loader_rule("coffee-loader", test = "\\.coffee$") 
- 
- # same as
- use_loader_coffee() 
- 
- ``` 
-

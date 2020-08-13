@@ -12,8 +12,6 @@
 #' * [bundle_dev()] - bundle the project including debugging developer tools, equivalent to `bundle("development")` and `npm run development`.
 #' * [watch()] - watches for changes in the `srcjs` and rebuilds if necessary, equivalent to `npm run watch`.
 #' 
-#' @examples \dontrun{watch()}
-#' 
 #' @name bundle
 #' @export 
 bundle <- function(mode = c("production", "development", "none")){

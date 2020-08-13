@@ -20,10 +20,9 @@ Argument      |Description
 ```name```     |     Name of input, will define internal name binding and CSS class.
 ```edit```     |     Automatically open pertinent files.
 
-## Examples
+## Value
 
-```r 
- scaffold_input("increment") 
- 
- ``` 
+
+ `TRUE` (invisibly) if successfully run.
+
 

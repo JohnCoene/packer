@@ -11,10 +11,9 @@ scaffold_output(name, edit = interactive())
 
 \item{edit}{Automatically open pertinent files.}
 }
+\value{
+\code{TRUE} (invisibly) if successfully run.
+}
 \description{
 Sets basic structure for a shiny input.
-}
-\examples{
-\dontrun{scaffold_output("display")}
-
 }

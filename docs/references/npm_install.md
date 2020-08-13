@@ -20,11 +20,3 @@ Argument      |Description
 ```...```     |     Packages to install.
 ```scope```     |     Scope of installation, see scopes.
 
-## Examples
-
-```r 
- # install browserify globally
- npm_install("browserify", scope = "global") 
- 
- ``` 
-

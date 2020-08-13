@@ -32,7 +32,3 @@ Bundle and watch the JavaScript.
 }
 }
 
-\examples{
-\dontrun{watch()}
-
-}

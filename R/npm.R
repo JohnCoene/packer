@@ -5,8 +5,6 @@
 #' 
 #' @param path Path to npm installation to use.
 #' 
-#' @examples \dontrun{use_npm("/usr/local/bin/npm")}
-#' 
 #' @export
 set_npm <- function(path = NULL){
   options(JS4R_NPM = path)
@@ -25,10 +23,6 @@ set_npm <- function(path = NULL){
 #' * `prod` - Installs packages for project with `--save`
 #' * `dev` - Installs dev packages for project with `--save-dev`
 #' * `global` - Instals packages globally with `-g`
-#' 
-#' @examples 
-#' # install browserify globally
-#' \dontrun{npm_install("browserify", scope = "global")}
 #' 
 #' @export 
 npm_install <- function(..., scope = c("dev", "prod", "global")){
@@ -70,9 +64,6 @@ npm_fix <- function(){
 #' Npm Output
 #' 
 #' Prints the output of the last npm command run, useful for debugging.
-#' 
-#' @examples 
-#' npm_console()
 #' 
 #' @export
 npm_console <- function(){

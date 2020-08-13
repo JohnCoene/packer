@@ -21,11 +21,3 @@ Adds a loader rule that is not yet implemened in packer.
 \details{
 Reads the \code{srcsjs/config/loaders.json} and appends the rule.
 }
-\examples{
-# add coffee script loader
-\dontrun{use_loader_rule("coffee-loader", test = "\\\\.coffee$")}
-
-# same as
-\dontrun{use_loader_coffee()}
-
-}

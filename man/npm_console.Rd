@@ -9,7 +9,3 @@ npm_console()
 \description{
 Prints the output of the last npm command run, useful for debugging.
 }
-\examples{
-npm_console()
-
-}

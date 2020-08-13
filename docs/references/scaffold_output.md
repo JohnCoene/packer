@@ -20,10 +20,9 @@ Argument      |Description
 ```name```     |     Name of output, will define internal name binding and CSS class.
 ```edit```     |     Automatically open pertinent files.
 
-## Examples
+## Value
 
-```r 
- scaffold_output("display") 
- 
- ``` 
+
+ `TRUE` (invisibly) if successfully run.
+
 

@@ -29,10 +29,3 @@ Argument      |Description
  dependencies in the shiny application: this function is created in a `R/react_cdn.R` .
 
 
-## Examples
-
-```r 
- list("\n", "golem::create_golem(\"reaction\")\n", "packer::scaffold_golem(react = TRUE)\n") 
- 
- ``` 
-

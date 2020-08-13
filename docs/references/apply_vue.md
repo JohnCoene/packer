@@ -27,10 +27,3 @@ Argument      |Description
  div(id = "app"), tags$script(src = "www/index.js") at the bottom of your shiny UI.
 
 
-## Examples
-
-```r 
- list("\n", "golem::create_golem(\"useVue\")\n", "packer::scaffold_golem(vue = TRUE)\n") 
- 
- ``` 
-

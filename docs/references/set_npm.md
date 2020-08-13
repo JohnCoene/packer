@@ -20,10 +20,3 @@ Argument      |Description
 ------------- |----------------
 ```path```     |     Path to npm installation to use.
 
-## Examples
-
-```r 
- use_npm("/usr/local/bin/npm") 
- 
- ``` 
-

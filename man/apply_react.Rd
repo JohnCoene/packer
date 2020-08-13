@@ -22,10 +22,3 @@ the code printed by the function in shiny UI. By default \code{\link[=apply_reac
 bundle \code{react} and \code{react-dom} and thus requires using \code{reactCDN()} to import the
 dependencies in the shiny application: this function is created in a \code{R/react_cdn.R}.
 }
-\examples{
-\dontrun{
-golem::create_golem("reaction")
-packer::scaffold_golem(react = TRUE)
-}
-
-}

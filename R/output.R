@@ -5,8 +5,7 @@
 #' @param name Name of output, will define internal name binding and CSS class.
 #' @inheritParams scaffold_widget
 #' 
-#' @examples 
-#' \dontrun{scaffold_output("display")}
+#' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export 
 scaffold_output <- function(name, edit = interactive()){

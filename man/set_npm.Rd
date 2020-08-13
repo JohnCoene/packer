@@ -13,7 +13,3 @@ set_npm(path = NULL)
 By default packer looks for the npm installation using the \code{which} command.
 This function lets you override that behaviour and force a specific npm installation.
 }
-\examples{
-\dontrun{use_npm("/usr/local/bin/npm")}
-
-}

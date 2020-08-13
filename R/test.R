@@ -15,10 +15,6 @@
 #' Requiring `esm` (`esm = TRUE`) is recommended as it will allow using the latest
 #' ESM, e.g.: `import` in tests.
 #' 
-#' @examples 
-#' \dontrun{include_tests()}
-#' \dontrun{add_test_file("inputs")}
-#' 
 #' @name tests
 #' @export
 include_tests <- function(esm = TRUE){

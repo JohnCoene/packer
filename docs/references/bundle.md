@@ -22,10 +22,3 @@ Argument      |Description
 ------------- |----------------
 ```mode```     |     The configuration mode tells webpack to use its built-in optimisations accordingly.
 
-## Examples
-
-```r 
- watch() 
- 
- ``` 
-

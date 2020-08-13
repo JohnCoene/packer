@@ -13,12 +13,6 @@
 #' bundle `react` and `react-dom` and thus requires using `reactCDN()` to import the
 #' dependencies in the shiny application: this function is created in a `R/react_cdn.R`.
 #' 
-#' @examples 
-#' \dontrun{
-#' golem::create_golem("reaction")
-#' packer::scaffold_golem(react = TRUE)
-#' }
-#' 
 #' @export 
 apply_react <- function(use_cdn = TRUE){
   assert_that(has_no_babel())

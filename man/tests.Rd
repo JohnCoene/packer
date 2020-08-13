@@ -32,8 +32,3 @@ the \code{testjs} directory. All tests should end with \code{.test.js}. Internal
 Requiring \code{esm} (\code{esm = TRUE}) is recommended as it will allow using the latest
 ESM, e.g.: \code{import} in tests.
 }
-\examples{
-\dontrun{include_tests()}
-\dontrun{add_test_file("inputs")}
-
-}

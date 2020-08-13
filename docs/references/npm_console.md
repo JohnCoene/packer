@@ -13,10 +13,3 @@ npm_console()
 ```
 
 
-## Examples
-
-```r 
- npm_console()
- 
- ``` 
-

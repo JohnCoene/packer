@@ -20,7 +20,3 @@ Creates basic structure for a widget.
 \details{
 Internally runs \code{\link[htmlwidgets:scaffoldWidget]{htmlwidgets::scaffoldWidget()}} do not run it prior to this function.
 }
-\examples{
-\dontrun{scaffold_widget()}
-
-}

@@ -36,11 +36,3 @@ Argument      |Description
  ESM, e.g.: `import` in tests.
 
 
-## Examples
-
-```r 
- include_tests() 
- add_test_file("inputs") 
- 
- ``` 
-

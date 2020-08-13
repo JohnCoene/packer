@@ -20,10 +20,3 @@ and creates, or updates, or replaces the \code{srcjs/index.js} file.
 After running this function and bundling the JavaScript remember to place
 \verb{div(id = "app"), tags$script(src = "www/index.js")} at the bottom of your shiny UI.
 }
-\examples{
-\dontrun{
-golem::create_golem("useVue")
-packer::scaffold_golem(vue = TRUE)
-}
-
-}

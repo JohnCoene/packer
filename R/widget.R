@@ -7,8 +7,6 @@
 #' 
 #' @details Internally runs [htmlwidgets::scaffoldWidget()] do not run it prior to this function.
 #' 
-#' @examples \dontrun{scaffold_widget()}
-#' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @importFrom assertthat assert_that

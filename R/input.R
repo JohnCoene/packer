@@ -5,8 +5,7 @@
 #' @param name Name of input, will define internal name binding and CSS class.
 #' @inheritParams scaffold_widget
 #' 
-#' @examples 
-#' \dontrun{scaffold_input("increment")}
+#' @return `TRUE` (invisibly) if successfully run.
 #' 
 #' @export
 scaffold_input <- function(name, edit = interactive()){
