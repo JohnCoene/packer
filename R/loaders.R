@@ -42,13 +42,21 @@ use_loader_pug <- function(test = "\\.pug$"){
 #' Adds the loader for babel comiler to the loader configuration file.
 #' 
 #' @inheritParams style_loaders
+#' @param use_eslint Whether to also add the ESlint loader.
+#' 
+#' @details The `use_elsint` argument is useful here as loaders have
+#' to be defined in the correct order or files might be checked after 
+#' being processed by babel.
 #' 
 #' @details Excludes `node_modules` by default.
 #' 
 #' @export 
-use_loader_babel <- function(test = "\\.(js|jsx)$"){
+use_loader_babel <- function(test = "\\.(js|jsx)$", use_eslint = FALSE){
   assert_that(has_scaffold())
-  use_loader_rule("babel-loader", test = test, exclude = "/node_modules/")
+
+  pkgs <- "babel-loader"
+  if(use_eslint) pkgs <- c(pkgs, "eslint-loader")
+  use_loader_rule(pkgs, test = test, exclude = "/node_modules/")
 }
 
 #' Use Vue Loader
@@ -112,6 +120,19 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 use_loader_file <- function(test = "\\.(png|jpe?g|gif)$/i"){
   assert_that(has_scaffold())
   use_loader_rule("file-loader", test)
+}
+
+#' Use ESlint
+#' 
+#' Adds the [`eslint-loader`](https://webpack.js.org/loaders/eslint-loader/) 
+#' to resolve files: `png`, `jpg`, `jpeg`, and `gif`.
+#' 
+#' @inheritParams style_loaders
+#' 
+#' @export 
+use_loader_eslint <- function(test = "\\.(js|jsx)$"){
+  assert_that(has_scaffold())
+  use_loader_rule("eslint-loader", test)
 }
 
 #' Add a Loader Ruée
