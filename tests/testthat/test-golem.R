@@ -48,7 +48,7 @@ test_that("Golem no CDN", {
   pkg <- create_tmp_golem()
   setwd(pkg)
   expect_output(scaffold_golem(react = TRUE, use_cdn = FALSE, edit = FALSE))
-  expect_message(packer::bundle())
+  expect_message(bundle())
   setwd(wd)
   delete_tmp_package(pkg)
 
