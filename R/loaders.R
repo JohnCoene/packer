@@ -184,10 +184,14 @@ loader_add <- function(loader){
 
   # check if test already set
   tests <- sapply(loaders, function(x) x$test)
-  if(loader$test %in% tests)
-    cli::cli_alert_info("A loader is already used for this test: {.val {loader$test}}")
+  if(loader$test %in% tests){
+    cli::cli_alert_info("A loader is already used for test {.val {loader$test}}: appending loader to existing entry.")
+    index <- c(1:length(loader$test))[loader$test == tests]
+    loaders[[index]]$use <- c(loaders[[index]]$use, loader$use) 
+  } else {
+    loaders <- append(loaders, list(loader))
+  }
 
-  loaders <- append(loaders, list(loader))
   save_json(loaders, json_path)
 }
 
