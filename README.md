@@ -4,7 +4,6 @@
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master)](https://travis-ci.com/JohnCoene/packer)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/packer?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/packer)
 [![Coveralls test coverage](https://coveralls.io/repos/github/JohnCoene/packer/badge.svg)](https://coveralls.io/r/JohnCoene/packer?branch=master)
 <!-- badges: end -->
 

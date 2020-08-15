@@ -1,5 +1,5 @@
 <!-- badges: start -->
-![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master) ![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/packer?branch=master&svg=true)
+![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master) [![Coveralls test coverage](https://coveralls.io/repos/github/JohnCoene/packer/badge.svg)](https://coveralls.io/r/JohnCoene/packer?branch=master)
 <!-- badges: end -->
 
 # packer
