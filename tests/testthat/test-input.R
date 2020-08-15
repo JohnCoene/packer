@@ -15,6 +15,8 @@ test_that("Input", {
   expect_error(scaffold_input("increment", edit = FALSE))
   expect_message(bundle_prod())
   expect_message(npm_install())
+  expect_output(scaffold_input("increment_again", edit = FALSE))
+  expect_message(bundle_dev())
   setwd(wd)
   delete_tmp_package(pkg)
 })
