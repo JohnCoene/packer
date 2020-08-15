@@ -3,8 +3,8 @@
 <img src="docs/_media/packer.png" height = "200px"/>
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master)](https://travis-ci.com/JohnCoene/packer)
-[![Coveralls test coverage](https://coveralls.io/repos/github/JohnCoene/packer/badge.svg)](https://coveralls.io/r/JohnCoene/packer?branch=master)
+[![Travis build status](https://img.shields.io/travis/com/JohnCoene/packer?style=flat-square)](https://travis-ci.com/JohnCoene/packer)
+[![Coveralls test coverage](https://img.shields.io/coveralls/JohnCoene/packer?style=flat-square)](https://coveralls.io/r/JohnCoene/packer?branch=master)
 <!-- badges: end -->
 
 [Website](http://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation) | [Get Started](https://packer.john-coene.com/#/guide/getting-started)

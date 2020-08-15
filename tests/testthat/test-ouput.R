@@ -13,6 +13,7 @@ test_that("Output", {
   expect_error(scaffold_output("out", edit = FALSE))
   expect_message(bundle())
   expect_message(include_tests())
+  expect_error(add_test_file()) # missing name
   setwd(wd)
   delete_tmp_package(pkg)
 })
