@@ -1,5 +1,5 @@
 <!-- badges: start -->
-![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master) [![Coveralls test coverage](https://coveralls.io/repos/github/JohnCoene/packer/badge.svg)](https://coveralls.io/r/JohnCoene/packer?branch=master)
+![Travis build status](https://travis-ci.com/JohnCoene/packer.svg?branch=master) ![Coveralls test coverage](https://coveralls.io/repos/github/JohnCoene/packer/badge.svg)
 <!-- badges: end -->
 
 # packer
