@@ -13,7 +13,6 @@ test_that("Output", {
   expect_error(scaffold_output("out", edit = FALSE))
   expect_message(bundle())
   expect_message(include_tests())
-  expect_message(run_tests())
   setwd(wd)
   delete_tmp_package(pkg)
 })
