@@ -6,6 +6,7 @@
 - When a test for a specific loader exist the `use` is now appended to existing entry.
 - Added `use_loader_eslint`.
 - Added `use_eslint` argument to `use_babel`.
+- Added tests
 
 ## packer 0.0.3
 
