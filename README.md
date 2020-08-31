@@ -4,7 +4,7 @@
 
 <!-- badges: start -->
 [![Travis build status](https://img.shields.io/travis/com/JohnCoene/packer?style=flat-square)](https://travis-ci.com/JohnCoene/packer)
-[![Coveralls test coverage](https://img.shields.io/coveralls/JohnCoene/packer?style=flat-square)](https://coveralls.io/r/JohnCoene/packer?branch=master)
+[![Coveralls test coverage](https://img.shields.io/coveralls/JohnCoene/packer?style=flat-square)](https://coveralls.io/github/JohnCoene/packer)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/JohnCoene/packer?label=latest&style=flat-square)
 <!-- badges: end -->
