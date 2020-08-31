@@ -2,6 +2,8 @@ source("../fns.R")
 
 test_that("Widget", {
 
+  skip_on_cran()
+
   # keep working directory
   wd <- getwd()
 

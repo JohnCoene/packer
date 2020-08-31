@@ -2,6 +2,8 @@ source("../fns.R")
 
 test_that("Extension", {
 
+  skip_on_cran()
+
   # keep working directory
   wd <- getwd()
 
