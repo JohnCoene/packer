@@ -1,8 +1,8 @@
 source("../fns.R")
 
-test_that("Input", {
+skip_on_cran()
 
-  skip_on_cran()
+test_that("Input", {
 
   # keep working directory
   wd <- getwd()

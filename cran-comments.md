@@ -27,6 +27,7 @@ these genuinely cannot be run.
 > package directory and getwd()). This is not allowed by CRAN policies.
 > In your examples/vignettes/tests you can write to tempdir().
 
-I'm afraid I cannot this is precisely the aim of the package; it does something
+I'm afraid I cannot, this is precisely the aim of the package; it does something
 similar to roxygen2 and htmlwidgets. In that sense it does not write in any 
-root directory, it checks that the root is an R package.
+root directory, it checks that the root is an R package. Every function creates
+a file or interacts with one.

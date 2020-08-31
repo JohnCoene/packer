@@ -1,8 +1,8 @@
 source("../fns.R")
 
-test_that("Golem Bare", {
+skip_on_cran()
 
-  skip_on_cran()
+test_that("Golem Bare", {
 
   # keep working directory
   wd <- getwd()
