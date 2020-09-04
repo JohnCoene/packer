@@ -1,4 +1,8 @@
-## packer 0.0.4
+## packer 0.0.6.9000
+
+- Use `rstudio` to open files, if available.
+
+## packer 0.0.5
 
 ## Changes
 

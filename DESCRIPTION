@@ -1,7 +1,7 @@
 Package: packer
 Title: An Opinionated Framework for Using 'JavaScript'
 Date: 2020-08-30
-Version: 0.0.5
+Version: 0.0.6.9000
 Authors@R: 
     person(given = "John",
            family = "Coene",
@@ -24,7 +24,8 @@ Imports:
     htmlwidgets,
     cli,
     assertthat,
-    rprojroot
+    rprojroot,
+    rstudioapi
 URL: https://github.com/JohnCoene/packer, https://packer.john-coene.com
 BugReports: https://github.com/JohnCoene/packer/issues
 Suggests: 

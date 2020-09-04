@@ -98,7 +98,7 @@ open_msg <- function(what, name = ""){
 
 #' Edit files
 #' 
-#' Opens relevant files in browser.
+#' Opens relevant files in browser or RStudio if available.
 #' 
 #' @param edit Whether to open the files.
 #' 
@@ -107,7 +107,12 @@ open_msg <- function(what, name = ""){
 edit_files <- function(edit = FALSE, ...){
   if(!edit) return()
 
-  lapply(c(...), fs::file_show)
+  if(rstudioapi::isAvailable())
+    lapply(c(...), rstudioapi::navigateToFile)
+  else
+    lapply(c(...), utils::file.edit)
+
+  invisible()
 }
 
 #' Save JSON
