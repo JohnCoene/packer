@@ -2,19 +2,11 @@
 % Please edit documentation in R/ambiorix.R
 \name{scaffold_ambiorix}
 \alias{scaffold_ambiorix}
-\title{Golem}
+\title{Ambiorix}
 \usage{
-scaffold_ambiorix(
-  react = FALSE,
-  vue = FALSE,
-  use_cdn = TRUE,
-  edit = interactive()
-)
+scaffold_ambiorix(vue = FALSE, use_cdn = TRUE, edit = interactive())
 }
 \arguments{
-\item{react}{Whether to include React, internally runs \code{\link[=apply_react]{apply_react()}}
-and adapts the \code{srcjs/index.js} template for React.}
-
 \item{vue}{Whether to include Vue, internally runs \code{\link[=apply_vue]{apply_vue()}} and
 adapts the \code{srcjs/index.js} template for Vue.}
 

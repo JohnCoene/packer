@@ -1,4 +1,4 @@
-#' Golem
+#' Ambiorix
 #' 
 #' Creates the basic structure for an ambiorix application.
 #' 
