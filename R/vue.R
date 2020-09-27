@@ -53,19 +53,30 @@ apply_vue <- function(use_cdn = TRUE){
   # otherwise Rmarkdown = no need
   if(is_golem()){
     cli::cli_alert_warning("Place the following in your shiny ui:")
-    vue_ui_code()
+    vue_ui_code_golem()
+  }
+
+  if(is_ambiorix()){
+    cli::cli_alert_warning("Remember the following")
+    cli::cli_ol()
+    cli::cli_li("Import vue")
+    vue_ui_code_ambiorix()
+    cli::cli_li("Source the bundle in the template")
+    cli::cli_code('<script src="static/index.js"></script>')
+    cli::cli_li("Create app root in the template")
+    cli::cli_code('<div id="app"></div>')
   }
 }
 
-#' Dependencies for React
+#' Dependencies for Vue in Golem
 #' 
 #' Includes dependencies in a shiny application.
 #' 
-#' @param version Version of React to use, if `NULL` uses the latest
+#' @param use_cdn Whether it uses the CDN.
 #' 
 #' @noRd
 #' @keywords internal
-vue_ui_code <- function(use_cdn = TRUE){
+vue_ui_code_golem <- function(use_cdn = TRUE){
   cdn <- ""
   if(use_cdn)
     cdn <- "vueCDN(),\n  "
@@ -73,6 +84,26 @@ vue_ui_code <- function(use_cdn = TRUE){
   code <- sprintf('tagList(\n  %sdiv(id = "app"),\n  tags$script(src = "www/index.js")\n)', cdn)
 
   cli::cli_code(code)
+}
+
+#' Dependencies for Vue in Ambiorix
+#' 
+#' Includes dependencies in a shiny application.
+#' 
+#' @param use_cdn Whether it uses the CDN.
+#' 
+#' @noRd
+#' @keywords internal
+vue_ui_code_ambiorix <- function(use_cdn = TRUE){
+  
+  if(use_cdn){
+    cli::cli_code('<script src="https://cdn.jsdelivr.net/npm/vue"></script>')
+  } else {
+    cli::cli_code("import Vue from 'vue'")
+  }
+
+  invisible()
+  
 }
 
 #' Creates Dependency File and Function
@@ -86,6 +117,9 @@ vue_ui_code <- function(use_cdn = TRUE){
 #' @keywords internal
 vue_cdn_function <- function(use_cdn = TRUE){
   if(!use_cdn)
+    return()
+
+  if(is_ambiorix())
     return()
 
   exists <- fs::file_exists("R/vue_cdn.R")

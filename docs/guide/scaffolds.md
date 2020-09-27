@@ -391,3 +391,40 @@ output:
 ```
 
 The `includes` contain what is necessary to include and run the JavaScript bundle in the HTML output, this will vary depending on the scaffold (Vanilla, React, or Vue).
+
+## Ambiorix
+
+You can also scaffold for an [ambiorix](https://ambiorix.john-coene.com) app, these must be run from the root of ambiorix projects created with the [ambiorix.generator](https://github.com/JohnCoene/ambiorix.generator).
+
+```r
+ambiorix.generator::create_basic("myapp")
+packer::scaffold_ambiorix()
+```
+
+```
+── Scaffolding ambiorix ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+✔ Initialiased npm
+✔ webpack, webpack-cli, webpack-merge installed with scope dev
+✔ Added npm scripts
+✔ Created srcjs directory
+✔ Created srcjs/config directory
+✔ Created webpack config files
+
+── Adding files to .gitignore and .Rbuildignore ──
+
+✔ Setting active project to '/myapp'
+✔ Adding '^srcjs$' to '.Rbuildignore'
+✔ Adding '^node_modules$' to '.Rbuildignore'
+✔ Adding '^package\\.json$' to '.Rbuildignore'
+✔ Adding '^package-lock\\.json$' to '.Rbuildignore'
+✔ Adding '^webpack\\.dev\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.prod\\.js$' to '.Rbuildignore'
+✔ Adding '^webpack\\.common\\.js$' to '.Rbuildignore'
+✔ Adding 'node_modules' to '.gitignore'
+
+── Scaffold built ──
+
+ℹ Run `bundle` to build the JavaScript files
+```
+
+This can also be set for ambiorix to use Vue.

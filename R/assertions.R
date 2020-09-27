@@ -95,3 +95,15 @@ proj_crit <- function() {
 is_project <- function(){
   rprojroot::find_root(proj_crit())
 }
+
+# check that it is an ambiorix app
+is_ambiorix <- function(){
+  dev <- fs::dir_exists("templates")
+  app <- fs::file_exists("app.R")
+
+  all(dev, app)
+}
+
+assertthat::on_failure(is_ambiorix) <- function(call, env){
+  stop("Not an ambiorix app, see `ambiorix.generator` package", call. = FALSE)
+}
