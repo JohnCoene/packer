@@ -7,6 +7,25 @@
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
+#' @examples 
+#' if(interactive()){
+#' # current directory
+#' wd <- getwd()
+#' 
+#' # create a mock up ambiorix project
+#' tmp <- tmp_package()
+#' 
+#' # move to package
+#' setwd(tmp)
+#' 
+#' # scaffold ambiorix
+#' scaffold_output()
+#' 
+#' # clean up
+#' setwd(wd)
+#' tmp_delete(tmp)
+#' }
+#' 
 #' @export 
 scaffold_output <- function(name, edit = interactive()){
   # checks

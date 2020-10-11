@@ -1,4 +1,5 @@
 ## Test environments
+
 * local R installation, R 4.0.1
 * ubuntu 16.04 (on travis-ci), R 4.0.1
 * win-builder (devel)
@@ -11,15 +12,7 @@
 
 * This is a new release.
 
-> Found the following (possibly) invalid URLs:
->      URL: http://packer.john-coene.com/ (moved to
-> https://packer.john-coene.com/)
->        From: README.md
->        Status: 200
->        Message: OK
-> 
-> Pls change http --> https.
+> Please add small executable examples in your Rd-files to illustrate the
+> use of the exported function but also enable automatic testing.
 
-> Please fix and resubmit.
-
-This has been fixed.
+I have added examples to exported functions

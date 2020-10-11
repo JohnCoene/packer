@@ -24,3 +24,23 @@ Creates the basic structure for golem app with JavaScript.
 \details{
 Only one of \code{react} or \code{vue} can be set to \code{TRUE}.
 }
+\examples{
+if(interactive()){
+# current directory
+wd <- getwd()
+
+# create a mock up ambiorix project
+tmp <- tmp_project()
+
+# move to package
+setwd(tmp)
+
+# scaffold ambiorix
+scaffold_rmd()
+
+# clean up
+setwd(wd)
+tmp_delete(tmp)
+}
+
+}

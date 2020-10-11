@@ -17,3 +17,23 @@ scaffold_extension(name, edit = interactive())
 \description{
 Creates the basic structure for a shiny extension.
 }
+\examples{
+if(interactive()){
+# current directory
+wd <- getwd()
+
+# create a mock up ambiorix project
+tmp <- tmp_package()
+
+# move to package
+setwd(tmp)
+
+# scaffold ambiorix
+scaffold_extension()
+
+# clean up
+setwd(wd)
+tmp_delete(tmp)
+}
+
+}

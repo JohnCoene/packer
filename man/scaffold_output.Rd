@@ -17,3 +17,23 @@ scaffold_output(name, edit = interactive())
 \description{
 Sets basic structure for a shiny input.
 }
+\examples{
+if(interactive()){
+# current directory
+wd <- getwd()
+
+# create a mock up ambiorix project
+tmp <- tmp_package()
+
+# move to package
+setwd(tmp)
+
+# scaffold ambiorix
+scaffold_output()
+
+# clean up
+setwd(wd)
+tmp_delete(tmp)
+}
+
+}

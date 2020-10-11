@@ -13,6 +13,25 @@
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
+#' @examples 
+#' if(interactive()){
+#' # current directory
+#' wd <- getwd()
+#' 
+#' # create a mock up ambiorix project
+#' tmp <- tmp_ambiorix()
+#' 
+#' # move to package
+#' setwd(tmp)
+#' 
+#' # scaffold ambiorix
+#' scaffold_ambiorix()
+#' 
+#' # clean up
+#' setwd(wd)
+#' tmp_delete(tmp)
+#' }
+#' 
 #' @export
 scaffold_ambiorix <- function(vue = FALSE, use_cdn = TRUE, edit = interactive()){
   # checks

@@ -11,6 +11,25 @@
 #' 
 #' @importFrom assertthat assert_that
 #' 
+#' @examples 
+#' if(interactive()){
+#' # current directory
+#' wd <- getwd()
+#' 
+#' # create a mock up ambiorix project
+#' tmp <- tmp_package()
+#' 
+#' # move to package
+#' setwd(tmp)
+#' 
+#' # scaffold ambiorix
+#' scaffold_widget()
+#' 
+#' # clean up
+#' setwd(wd)
+#' tmp_delete(tmp)
+#' }
+#' 
 #' @export
 scaffold_widget <- function(name, edit = interactive()){
   # checks

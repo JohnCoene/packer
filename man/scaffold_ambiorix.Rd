@@ -25,3 +25,23 @@ Creates the basic structure for an ambiorix application.
 \details{
 Only one of \code{react} or \code{vue} can be set to \code{TRUE}.
 }
+\examples{
+if(interactive()){
+# current directory
+wd <- getwd()
+
+# create a mock up ambiorix project
+tmp <- tmp_ambiorix()
+
+# move to package
+setwd(tmp)
+
+# scaffold ambiorix
+scaffold_ambiorix()
+
+# clean up
+setwd(wd)
+tmp_delete(tmp)
+}
+
+}
