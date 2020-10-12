@@ -12,7 +12,10 @@
 
 * This is a new release.
 
-> Please add small executable examples in your Rd-files to illustrate the
-> use of the exported function but also enable automatic testing.
+> Found the following (possibly) invalid URLs:
+>     URL: https://webpack.js.org/loaders/eslint-loader/
+>       From: man/use_loader_eslint.Rd
+>       Status: 404
+>       Message: Not Found
 
 I have added examples to exported functions

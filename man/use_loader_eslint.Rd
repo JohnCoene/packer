@@ -10,6 +10,6 @@ use_loader_eslint(test = "\\\\.(js|jsx)$")
 \item{test}{Test regular expression test which files should be transformed by the loader.}
 }
 \description{
-Adds the \href{https://webpack.js.org/loaders/eslint-loader/}{\code{eslint-loader}}
+Adds the \href{https://github.com/webpack-contrib/eslint-loader}{\code{eslint-loader}}
 to resolve files: \code{png}, \code{jpg}, \code{jpeg}, and \code{gif}.
 }

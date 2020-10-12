@@ -3,7 +3,7 @@
 ## Description
 
 
- Adds the [list("eslint-loader")](https://webpack.js.org/loaders/eslint-loader/) 
+ Adds the [list("eslint-loader")](https://github.com/webpack-contrib/eslint-loader) 
  to resolve files: `png` , `jpg` , `jpeg` , and `gif` .
 
 
