@@ -41,3 +41,12 @@ packer::bundle()
 ```
 
 You can then document and install the package to try it out.
+
+## Install
+
+Get it from Github with `remotes`.
+
+```r
+# install.packages("remotes")
+remotes::install_github("JohnCoene/packer")
+```
