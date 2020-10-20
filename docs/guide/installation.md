@@ -43,7 +43,13 @@ If you are on another OS or Linux distro check the official, very concise [guide
 
 ## R Package
 
-Once you have the dependency you can install packer from Github. It's not yet on CRAN but eventually will be.
+Once you have the dependency you can install the stable version of packer from CRAN.
+
+```r
+install.packages("packer")
+```
+
+Or get the development version from Github
 
 ```r
 # install.packages("remotes")

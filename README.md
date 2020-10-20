@@ -44,7 +44,13 @@ You can then document and install the package to try it out.
 
 ## Install
 
-Get it from Github with `remotes`.
+Get the stable version from CRAN:
+
+```r
+install.packages("packer")
+```
+
+Get the development version from Github with `remotes`.
 
 ```r
 # install.packages("remotes")
