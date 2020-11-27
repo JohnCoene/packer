@@ -21,6 +21,10 @@ Things you can do with packer:
 - Use Vue in a shiny app
 - And so much more...
 
+<Note>
+You can read more about the advantages of using webpack with R in the book [JavaScript for R](https://javascript-for-r.com/)
+</Note>
+
 ### Inspiration
 
 The scaffolds are very much inspired by the same functionality from [htmlwidgets](http://www.htmlwidgets.org/) `scaffoldWidget` function and [golem](http://golemverse.org/) `create_golem`.
