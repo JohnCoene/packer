@@ -138,12 +138,14 @@ pkg2msg <- function(packages, scope){
 npm_find <- function(){
   npm <- getOption("JS4R_NPM", NULL)
 
+  # which on UNIX and where on Windows
   cmd <- which_or_where() 
 
   if(is.null(npm))
     npm <- suppressWarnings(system2(cmd, "npm", stdout = TRUE))
   
-  return(npm)
+  # where may return multiple paths
+  npm[1]
 }
 
 #' Npm Command
