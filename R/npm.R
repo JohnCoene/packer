@@ -137,8 +137,11 @@ pkg2msg <- function(packages, scope){
 #' @keywords internal
 npm_find <- function(){
   npm <- getOption("JS4R_NPM", NULL)
+
+  cmd <- which_or_where() 
+
   if(is.null(npm))
-    npm <- suppressWarnings(system2("which", "npm", stdout = TRUE))
+    npm <- suppressWarnings(system2(cmd, "npm", stdout = TRUE))
   
   return(npm)
 }

@@ -248,3 +248,28 @@ template_js_module <- function(name, output_dir = c("exts", "inputs", "outputs")
 
   cli::cli_alert_success("Created {.val {type}} module")
 }
+
+#' OS Helpers
+#' 
+#' OS helpers for commands that differ based on the system.
+#' 
+#' @noRd 
+#' @keywords internal
+get_os <- function(){
+  unname(Sys.info()["sysname"])
+}
+
+#' @noRd 
+#' @keywords internal
+is_windows <- function(){
+  get_os() == "Windows"
+}
+
+#' @noRd 
+#' @keywords internal
+which_or_where <- function(){
+  if(is_windows())
+    return("where")
+
+  return("which")
+}
