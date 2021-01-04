@@ -5,7 +5,7 @@ cache: packages
 
 before_install:
   - sudo apt-get -y install nodejs
-  - sudo add-apt-repository ppa:cran/libgit2
+  - sudo add-apt-repository ppa:cran/libgit2 -y
   - sudo apt-get update
   - sudo apt-get install libgit2-dev
 
