@@ -11,19 +11,20 @@ set_npm <- function(path = NULL){
   invisible()
 }
 
-#' Install Npm Packges
+#' Install and Uninstall Npm Packges
 #' 
-#' Install npm packges.
+#' Install and uninstall npm packges.
 #' 
-#' @param ... Packages to install.
-#' @param scope Scope of installation, see scopes.
+#' @param ... Packages to install or uninstall.
+#' @param scope Scope of installation or uninstallation, see scopes.
 #' 
 #' @section Scopes:
 #' 
-#' * `prod` - Installs packages for project with `--save`
-#' * `dev` - Installs dev packages for project with `--save-dev`
-#' * `global` - Instals packages globally with `-g`
+#' * `prod` - Installs/Uninstalls packages for project with `--save`
+#' * `dev` - Installs/Uninstalls dev packages for project with `--save-dev`
+#' * `global` - Installs/Uninstalls packages globally with `-g`
 #' 
+#' @name npm_install
 #' @export 
 npm_install <- function(..., scope = c("dev", "prod", "global")){
   # check
@@ -42,6 +43,25 @@ npm_install <- function(..., scope = c("dev", "prod", "global")){
       "Failed to install dependencies"
     )
   }
+  
+  do.call(cli::cli_process_start, msgs)
+  tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
+  cli::cli_process_done()
+}
+
+#' @rdname npm_install
+#' @export 
+npm_uninstall <- function(..., scope = c("dev", "prod", "global")){
+  # check
+  packages <- c(...) # capture
+  scope <- match.arg(scope)
+
+  if(length(packages) == 0)
+    stop("Must pass packages names to `...`", call. = FALSE)
+
+  scope_arg <- scope2flag(scope)
+  args <- c("uninstall", scope_arg, packages)
+  msgs <- pkg2msg(packages, scope, method = "uninstall")
   
   do.call(cli::cli_process_start, msgs)
   tryCatch(npm_run(args), error = function(e) cli::cli_process_failed())
@@ -115,14 +135,17 @@ scope2flag <- function(scope =  c("prod", "dev", "global")){
 #' 
 #' @noRd
 #' @keywords internal 
-pkg2msg <- function(packages, scope){
+pkg2msg <- function(packages, scope, method = c("install", "uninstall")){
+
+  method <- match.arg(method)
+
   # collapse packages in one line
   packages <- paste0(packages, collapse = ", ")
 
   # messages
-  started <- sprintf("Installing {.pkg %s} with scope {.val %s}", packages, scope)
-  done <- sprintf("{.pkg %s} installed with scope {.val %s}", packages, scope)
-  failed <- sprintf("Failed to install {.pkg %s}", packages)
+  started <- sprintf("%sing {.pkg %s} with scope {.val %s}", tools::toTitleCase(method), packages, scope)
+  done <- sprintf("{.pkg %s} %sed with scope {.val %s}", packages, method, scope)
+  failed <- sprintf("Failed to %s {.pkg %s}", method, packages)
 
   # arguments
   list(started, done, failed)

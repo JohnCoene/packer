@@ -2,7 +2,8 @@
 
 - Use `rstudio` to open files, if available.
 - Added `scaffold_ambiorix` function.
-- Added function to mock up package creation so examples can run for CRAN submission.
+- Added function to mock-up package creation so examples can run for CRAN submission.
+- Added `npm_uninstall` to uninstall NPM packages.
 
 ## packer 0.0.5
 

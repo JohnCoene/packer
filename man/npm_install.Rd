@@ -2,24 +2,27 @@
 % Please edit documentation in R/npm.R
 \name{npm_install}
 \alias{npm_install}
-\title{Install Npm Packges}
+\alias{npm_uninstall}
+\title{Install and Uninstall Npm Packges}
 \usage{
 npm_install(..., scope = c("dev", "prod", "global"))
+
+npm_uninstall(..., scope = c("dev", "prod", "global"))
 }
 \arguments{
-\item{...}{Packages to install.}
+\item{...}{Packages to install or uninstall.}
 
-\item{scope}{Scope of installation, see scopes.}
+\item{scope}{Scope of installation or uninstallation, see scopes.}
 }
 \description{
-Install npm packges.
+Install and uninstall npm packges.
 }
 \section{Scopes}{
 
 \itemize{
-\item \code{prod} - Installs packages for project with \code{--save}
-\item \code{dev} - Installs dev packages for project with \code{--save-dev}
-\item \code{global} - Instals packages globally with \code{-g}
+\item \code{prod} - Installs/Uninstalls packages for project with \code{--save}
+\item \code{dev} - Installs/Uninstalls dev packages for project with \code{--save-dev}
+\item \code{global} - Installs/Uninstalls packages globally with \code{-g}
 }
 }
 
