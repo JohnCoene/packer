@@ -17,7 +17,7 @@
 bundle <- function(mode = c("production", "development", "none")){
   assert_that(has_scaffold())
 
-  cli::cli_process_start("Bundling files", "Bundled!", "Failed to bundle files")
+  cli::cli_process_start("Bundling files", "Bundled", "Failed to bundle files")
   
   mode <- match.arg(mode)
   args <- c("run", mode)
