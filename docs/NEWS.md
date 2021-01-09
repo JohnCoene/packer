@@ -4,6 +4,7 @@
 - Added `scaffold_ambiorix` function.
 - Added function to mock up package creation so examples can run for CRAN submission.
 - Added `npm_uninstall` to uninstall NPM packages.
+- Deprecate `bundle` in favour of `bund_dev` and `bundle_prod` as `bundle` is confusing and error prone.
 
 ## packer 0.0.5
 

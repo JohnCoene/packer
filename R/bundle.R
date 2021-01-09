@@ -17,6 +17,8 @@
 bundle <- function(mode = c("production", "development", "none")){
   assert_that(has_scaffold())
 
+  .Deprecated("bundle_prod or bundle_dev", package = "g2r")
+
   cli::cli_process_start("Bundling files", "Bundled!", "Failed to bundle files")
   
   mode <- match.arg(mode)
