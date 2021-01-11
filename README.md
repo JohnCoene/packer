@@ -9,7 +9,7 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/JohnCoene/packer?label=latest&style=flat-square)
 <!-- badges: end -->
 
-[Website](https://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation) | [Get Started](https://packer.john-coene.com/#/guide/getting-started)
+[Website](https://packer.john-coene.com/) | [Installation](https://packer.john-coene.com/#/guide/installation) | [Get Started](https://packer.john-coene.com/#/guide/getting-started) | [Book](https://book.javascript-for-r.com/webpack-intro.html)
 
 ## An opinionated framework for using JavaScript with R
 

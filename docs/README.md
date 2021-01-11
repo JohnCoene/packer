@@ -22,7 +22,7 @@ Things you can do with packer:
 - And so much more...
 
 <Note>
-You can read more about the advantages of using webpack with R in the book [JavaScript for R](https://javascript-for-r.com/)
+You can read more about the advantages of using webpack with R in the book <a href="https://book.javascript-for-r.com/webpack-intro.html" target="_blank">JavaScript for R</a>.
 </Note>
 
 ### Inspiration
