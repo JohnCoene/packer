@@ -31,7 +31,7 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 Always start from an empty package and run `scaffold_*` to set up the required basic structure.
 
 ```r
-packer::scaffold_input("increment")
+packer::scaffold_input("<name_of_input>")
 ```
 
 Once the scaffold laid down you can either `bundle` the JavaScript or `watch` for changes as you develop it.
