@@ -228,3 +228,33 @@ npm_add_scripts <- function(){
   save_json(package, "package.json")
   cli::cli_alert_success("Added npm scripts")
 }
+
+#' Npm Update
+#' 
+#' Update npm dependencies.
+#' 
+#' @export
+npm_update <- function(){
+
+  cli::cli_process_start(
+    "Updating",
+    "Updated",
+    "Failed to update"
+  )
+
+  results <- npm_run("update")
+
+  cli_process_done()
+
+  invisible(results)
+}
+
+#' Npm Outdated
+#' 
+#' Find outdated dependencies
+#' 
+#' @export
+npm_outdated <- function(){
+  npm <- npm_find()
+  system2(npm, "outdated")
+}
