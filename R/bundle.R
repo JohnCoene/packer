@@ -37,13 +37,13 @@ bundle <- function(mode = c("production", "development", "none")){
 #' @rdname bundle
 #' @export 
 bundle_prod <- function(){
-  bundle("production")
+  bundle_("production")
 }
 
 #' @rdname bundle
 #' @export 
 bundle_dev <- function(){
-  bundle("development")
+  bundle_("development")
 }
 
 #' @rdname bundle
@@ -54,4 +54,20 @@ watch <- function(){
   system2("npm", c("run", "watch"))
 }
 
+bundle_ <- function(mode = c("production", "development", "none")){
+  assert_that(has_scaffold())
+  
+  cli::cli_process_start("Bundling files", "Bundled", "Failed to bundle files")
+  
+  mode <- match.arg(mode)
+  args <- c("run", mode)
 
+  results <- npm_run(args)
+
+  if(length(results$warnings) > 0)
+    cli::cli_process_failed()
+  else
+    cli::cli_process_done()
+
+  invisible(results)
+}
