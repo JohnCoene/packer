@@ -244,7 +244,7 @@ npm_update <- function(){
 
   results <- npm_run("update")
 
-  cli_process_done()
+  cli::cli_process_done()
 
   invisible(results)
 }

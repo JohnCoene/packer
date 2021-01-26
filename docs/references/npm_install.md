@@ -1,15 +1,16 @@
-# `npm_install`: Install Npm Packges
+# `npm_install`: Install and Uninstall Npm Packges
 
 ## Description
 
 
- Install npm packges.
+ Install and uninstall npm packges.
 
 
 ## Usage
 
 ```r
 npm_install(..., scope = c("dev", "prod", "global"))
+npm_uninstall(..., scope = c("dev", "prod", "global"))
 ```
 
 
@@ -17,6 +18,6 @@ npm_install(..., scope = c("dev", "prod", "global"))
 
 Argument      |Description
 ------------- |----------------
-```...```     |     Packages to install.
-```scope```     |     Scope of installation, see scopes.
+```...```     |     Packages to install or uninstall.
+```scope```     |     Scope of installation or uninstallation, see scopes.
 

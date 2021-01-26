@@ -78,7 +78,7 @@ add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
   config <- readLines("webpack.common.js")
 
   if(!any(grepl("require('clean-webpack-plugin')", config)))
-    config <- c("const { CleanWebpackPlugin } = require('clean-webpack-plugin');", config)
+    config <- c("const CleanWebpackPlugin = require('clean-webpack-plugin');", config)
 
   plugin <- sprintf("var plugins = [\n  new CleanWebpackPlugin(%s),", options_json)
 
@@ -99,9 +99,6 @@ add_plugin_vue <- function(){
 
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
-  # install base
-  # npm_install("vue-loader", scope = "dev")
-
   # read config
   config <- readLines("webpack.common.js")
 
@@ -112,4 +109,32 @@ add_plugin_vue <- function(){
 
   writeLines(config, "webpack.common.js")
 
+}
+
+#' Prettier Plugin
+#' 
+#' Add the [prettier-webpack-plugin](https://www.npmjs.com/package/prettier-webpack-plugin) to 
+#' prettify the pre-bundled files.
+#' 
+#' @export
+add_plugin_prettier <- function(){
+
+  assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
+
+  # install base
+  npm_install("prettier", "prettier-webpack-plugin", scope = "dev")
+
+  # read config
+  config <- readLines("webpack.common.js")
+
+  if(!any(grepl("require('prettier-webpack-plugin')", config)))
+    config <- c("const PrettierPlugin = require('prettier-webpack-plugin');", config)
+
+  plugin <- "var plugins = [\n  new PrettierPlugin(),"
+
+  config[grepl("^var plugins = \\[", config)] <- plugin
+
+  writeLines(config, "webpack.common.js")
+
+  cli::cli_alert_success("Added {.val prettier-webpack-plugin} to configuration file")
 }

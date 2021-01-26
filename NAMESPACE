@@ -2,6 +2,7 @@
 
 export(add_plugin_clean)
 export(add_plugin_html)
+export(add_plugin_prettier)
 export(add_test_file)
 export(apply_react)
 export(apply_vue)

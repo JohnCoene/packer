@@ -26,3 +26,26 @@ Argument      |Description
  `TRUE` (invisibly) if successfully run.
 
 
+## Examples
+
+```r 
+ if(interactive()){
+ # current directory
+ wd <- getwd()
+ 
+ # create a mock up ambiorix project
+ tmp <- tmp_package()
+ 
+ # move to package
+ setwd(tmp)
+ 
+ # scaffold ambiorix
+ scaffold_input()
+ 
+ # clean up
+ setwd(wd)
+ tmp_delete(tmp)
+ }
+ 
+ ``` 
+
