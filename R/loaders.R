@@ -132,6 +132,11 @@ use_loader_file <- function(test = "\\.(png|jpe?g|gif)$/i"){
 #' @export 
 use_loader_eslint <- function(test = "\\.(js|jsx)$"){
   assert_that(has_scaffold())
+  .Deprecated(
+    "add_plugin_eslint",
+    package = "packer",
+    "The loader will soon be deprecated, it is advised to use the plugin instead."
+  )
   use_loader_rule("eslint-loader", test)
 }
 

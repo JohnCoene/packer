@@ -7,6 +7,8 @@
 - Deprecate `bundle` in favour of `bund_dev` and `bundle_prod` as `bundle` is confusing and error prone.
 - Added `npm_update` and `npm_outdated`.
 - Added `add_plugin_prettier`
+- Added `add_plugin_eslint`
+- Deprecated `use_loader_eslint`, as it will apparently be deprecated in favour of the plugin; hence the addition of `add_plugin_eslint`
 
 ## packer 0.0.5
 

@@ -138,3 +138,46 @@ add_plugin_prettier <- function(){
 
   cli::cli_alert_success("Added {.val prettier-webpack-plugin} to configuration file")
 }
+
+#' ESLint Plugin
+#' 
+#' Add the [eslint-webpack-plugin](https://www.npmjs.com/package/eslint-webpack-plugin)
+#' run ESLint on files.
+#' 
+#' @export
+add_plugin_eslint <- function(){
+
+  assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
+
+  # install base
+  npm_install("eslint", "eslint-webpack-plugin", scope = "dev")
+
+  # read config
+  config <- readLines("webpack.common.js")
+
+  if(!any(grepl("require('eslint-webpack-plugin')", config)))
+    config <- c("const ESLintPlugin = require('eslint-webpack-plugin');", config)
+
+  plugin <- "var plugins = [\n  new ESLintPlugin(),"
+
+  config[grepl("^var plugins = \\[", config)] <- plugin
+
+  writeLines(config, "webpack.common.js")
+
+  if(!fs::file_exists(".eslintrc")){
+    opts <- list(
+      parserOptions = list(
+        sourceType = "module"
+      ),
+      env = list(
+        es6 = TRUE
+      )
+    )
+    jsonlite::write_json(opts, ".eslintrc", auto_unbox = TRUE, pretty = TRUE)
+    cli::cli_alert_success("Added {.val .eslintrc} to root")
+    usethis::use_build_ignore(".eslintrc")
+    usethis::use_git_ignore(".eslintrc")
+  }
+
+  cli::cli_alert_success("Added {.val eslint-webpack-plugin} to configuration file")
+}
