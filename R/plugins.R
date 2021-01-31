@@ -122,7 +122,7 @@ add_plugin_prettier <- function(){
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
-  npm_install("prettie", "prettier-webpack-plugin", scope = "dev")
+  npm_install("prettier", "prettier-webpack-plugin", scope = "dev")
 
   # read config
   config <- readLines("webpack.common.js")
