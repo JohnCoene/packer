@@ -1,12 +1,43 @@
 const path = require('path');
 const fs = require('fs');
 
+// defaults
+var outputPath = [],
+    entryPoints = [],
+    externals = [],
+    misc = [],
+    loaders = [];
+
+var outputPathFile = './srcjs/config/output_path.json',
+    entryPointsFile = './srcjs/config/entry_points.json',
+    externalsFile = './srcjs/config/externals.json',
+    miscFile = './srcjs/config/misc.json',
+    loadersFile = './srcjs/config/loaders.json';
+
 // Read config files
-var outputPath = fs.readFileSync('./srcjs/config/output_path.json');
-var entryPoints = fs.readFileSync('./srcjs/config/entry_points.json');
-var externals = fs.readFileSync('./srcjs/config/externals.json');
-var misc = fs.readFileSync('./srcjs/config/misc.json');
-var loaders = fs.readFileSync('./srcjs/config/loaders.json', 'utf8');
+if(fs.existsSync(outputPathFile)){
+  outputPath = fs.readFileSync(outputPathFile, 'utf8');
+}
+
+if(fs.existsSync(entryPointsFile)){
+  entryPoints = fs.readFileSync(entryPointsFile, 'utf8');
+}
+
+if(fs.existsSync(externalsFile)){
+  externals = fs.readFileSync(externalsFile, 'utf8');
+}
+
+if(fs.existsSync(miscFile)){
+  misc = fs.readFileSync(miscFile, 'utf8');
+}
+
+if(fs.existsSync(loadersFile)){
+  loaders = fs.readFileSync(loadersFile, 'utf8');
+}
+
+if(fs.existsSync(loadersFile)){
+  loaders = fs.readFileSync(loadersFile, 'utf8');
+}
 
 // parse
 loaders = JSON.parse(loaders);

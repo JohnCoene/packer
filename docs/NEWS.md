@@ -6,6 +6,7 @@
 - Added `npm_uninstall` to uninstall NPM packages.
 - Deprecate `bundle` in favour of `bund_dev` and `bundle_prod` as `bundle` is confusing and error prone.
 - Added `npm_update` and `npm_outdated`.
+- Added `add_plugin_prettier`
 
 ## packer 0.0.5
 
