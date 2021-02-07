@@ -1,4 +1,4 @@
-## packer 0.0.6.9000
+## packer 0.0.6
 
 - Use `rstudio` to open files, if available.
 - Added `scaffold_ambiorix` function.
