@@ -214,6 +214,15 @@ template_r_function <- function(name, template_path){
 
   # save
   output_out <- sprintf("R/%s.R", name)
+  if(file.exists(output_out)){
+    cli::cli_alert_warning(
+      sprintf(
+        "Could not create `%s`, already exists.",
+        output_out
+      )
+    )
+    output_out <- sprintf("R/%s-packer.R", name)
+  }
   writeLines(output, output_out) 
 
   cli::cli_alert_success("Created R file and function")

@@ -1,3 +1,7 @@
+## packer 0.0.7.9000
+
+- Ensure existing R files are not overwritten is already existing.
+
 ## packer 0.0.6
 
 - Use `rstudio` to open files, if available.
