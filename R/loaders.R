@@ -54,7 +54,7 @@ use_loader_pug <- function(test = "\\.pug$"){
 use_loader_babel <- function(test = "\\.(js|jsx)$", use_eslint = FALSE){
   assert_that(has_scaffold())
 
-  pkgs <- "babel-loader"
+  pkgs <- c("babel-loader", "@babel/core")
   if(use_eslint) pkgs <- c(pkgs, "eslint-loader")
   use_loader_rule(pkgs, test = test, exclude = "/node_modules/")
 }
