@@ -29,6 +29,15 @@ You can read more about the advantages of using webpack with R in the book <a hr
 
 The scaffolds are very much inspired by the same functionality from [htmlwidgets](http://www.htmlwidgets.org/) `scaffoldWidget` function and [golem](http://golemverse.org/) `create_golem`.
 
+## In the wild
+
+There are a few public repositories that make use of packer
+see [Github](https://github.com/search?q=path%3Ainst%2Fpacker).
+
+The [waiter](https://github.com/JohnCoene/waiter) package and
+[g2r](https://github.com/devOpifex/g2r) are also built on top
+ of packer.
+
 ### Related Work
 
 If you enjoy packer you should explore [reactR](https://github.com/react-R/reactR) which does something very similar to packer to create React-powered widgets and inputs, as well as [vueR](https://github.com/vue-r/vueR) which brings Vue to R.
