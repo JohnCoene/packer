@@ -1,9 +1,11 @@
-# `use_loader_eslint`: Use ESlint
+# `use_loader_eslint`
+
+Use ESlint
+
 
 ## Description
 
-
- Adds the [list("eslint-loader")](https://github.com/webpack-contrib/eslint-loader) 
+Adds the [list("eslint-loader")](https://github.com/webpack-contrib/eslint-loader) 
  to resolve files: `png` , `jpg` , `jpeg` , and `gif` .
 
 
@@ -18,5 +20,6 @@ use_loader_eslint(test = "\\.(js|jsx)$")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression test which files should be transformed by the loader.
+`test`     |     Test regular expression test which files should be transformed by the loader.
+
 

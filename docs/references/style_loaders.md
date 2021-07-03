@@ -1,9 +1,11 @@
-# `style_loaders`: Use Styles
+# `style_loaders`
+
+Use Styles
+
 
 ## Description
 
-
- Installs loaders and adds relevant configuration rules to `srcjs/config/loaders.json` .
+Installs loaders and adds relevant configuration rules to `srcjs/config/loaders.json` .
 
 
 ## Usage
@@ -18,11 +20,11 @@ use_loader_sass(test = "\\.s[ac]ss$/i")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression test which files should be transformed by the loader.
+`test`     |     Test regular expression test which files should be transformed by the loader.
+
 
 ## Details
 
-
- This will let you import styles much like any other modules, e.g.: import './styles.css' .
+This will let you import styles much like any other modules, e.g.: import './styles.css' .
 
 

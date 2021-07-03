@@ -1,9 +1,11 @@
-# `use_loader_mocha`: Use Mocha Loader
+# `use_loader_mocha`
+
+Use Mocha Loader
+
 
 ## Description
 
-
- Adds the [list("mocha-loader")](https://webpack.js.org/loaders/mocha-loader/) for tests.
+Adds the [list("mocha-loader")](https://webpack.js.org/loaders/mocha-loader/) for tests.
 
 
 ## Usage
@@ -17,11 +19,11 @@ use_loader_mocha(test = "\\.test\\.js$")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression test which files should be transformed by the loader.
+`test`     |     Test regular expression test which files should be transformed by the loader.
+
 
 ## Details
 
-
- Excludes `node_modules` by default.
+Excludes `node_modules` by default.
 
 

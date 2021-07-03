@@ -4,13 +4,12 @@
 - Added `make_library` to turn the project into a library 
 callable from outside the bundle.
 
-## packer 0.0.6.9000
+## packer 0.0.6
 
 - Use `rstudio` to open files, if available.
 - Added `scaffold_ambiorix` function.
 - Added function to mock-up package creation so examples can run for CRAN submission.
 - Added `npm_uninstall` to uninstall NPM packages.
-- Deprecate `bundle` in favour of `bund_dev` and `bundle_prod` as `bundle` is confusing and error prone.
 - Added `npm_update` and `npm_outdated`.
 - Added `add_plugin_prettier`
 - Added `add_plugin_eslint`

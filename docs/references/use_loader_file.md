@@ -1,9 +1,11 @@
-# `use_loader_file`: Use File Loader
+# `use_loader_file`
+
+Use File Loader
+
 
 ## Description
 
-
- Adds the [list("file-loader")](https://webpack.js.org/loaders/file-loader/) 
+Adds the [list("file-loader")](https://webpack.js.org/loaders/file-loader/) 
  to resolve files: `png` , `jpg` , `jpeg` , and `gif` .
 
 
@@ -18,5 +20,6 @@ use_loader_file(test = "\\.(png|jpe?g|gif)$/i")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression test which files should be transformed by the loader.
+`test`     |     Test regular expression test which files should be transformed by the loader.
+
 

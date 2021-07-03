@@ -1,9 +1,11 @@
-# `use_loader_pug`: Use Pug Loader
+# `use_loader_pug`
+
+Use Pug Loader
+
 
 ## Description
 
-
- Adds the loader for the pug templating engine.
+Adds the loader for the pug templating engine.
 
 
 ## Usage
@@ -17,5 +19,6 @@ use_loader_pug(test = "\\.pug$")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression test which files should be transformed by the loader.
+`test`     |     Test regular expression test which files should be transformed by the loader.
+
 

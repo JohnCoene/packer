@@ -1,9 +1,11 @@
-# `npm_outdated`: Npm Outdated
+# `npm_outdated`
+
+Npm Outdated
+
 
 ## Description
 
-
- Find outdated dependencies
+Find outdated dependencies
 
 
 ## Usage

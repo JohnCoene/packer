@@ -1,9 +1,11 @@
-# `npm_console`: Npm Output
+# `npm_console`
+
+Npm Output
+
 
 ## Description
 
-
- Prints the output of the last npm command run, useful for debugging.
+Prints the output of the last npm command run, useful for debugging.
 
 
 ## Usage

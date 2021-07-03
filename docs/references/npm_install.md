@@ -1,9 +1,11 @@
-# `npm_install`: Install and Uninstall Npm Packges
+# `npm_install`
+
+Install and Uninstall Npm Packges
+
 
 ## Description
 
-
- Install and uninstall npm packges.
+Install and uninstall npm packges.
 
 
 ## Usage
@@ -18,6 +20,7 @@ npm_uninstall(..., scope = c("dev", "prod", "global"))
 
 Argument      |Description
 ------------- |----------------
-```...```     |     Packages to install or uninstall.
-```scope```     |     Scope of installation or uninstallation, see scopes.
+`...`     |     Packages to install or uninstall.
+`scope`     |     Scope of installation or uninstallation, see scopes.
+
 

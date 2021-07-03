@@ -1,9 +1,11 @@
-# `apply_react`: Apply React
+# `apply_react`
+
+Apply React
+
 
 ## Description
 
-
- Apply React to a project, adds the relevant (babel) loader, installs dependencies,
+Apply React to a project, adds the relevant (babel) loader, installs dependencies,
  and creates, updates, or replaces the `srcjs/index.js` file.
 
 
@@ -18,13 +20,13 @@ apply_react(use_cdn = TRUE)
 
 Argument      |Description
 ------------- |----------------
-```use_cdn```     |     Whether to use the CDN for `react` and `react-dom` (recommended). This means later importing the dependencies in the shiny UI using `reactCDN()` , this function will be created in a `R/react_cdn.R` . The correct instructions to do so are printed to the console by the function.
+`use_cdn`     |     Whether to use the CDN for `react` and `react-dom` (recommended). This means later importing the dependencies in the shiny UI using `reactCDN()` , this function will be created in a `R/react_cdn.R` . The correct instructions to do so are printed to the console by the function.
+
 
 ## Details
 
-
- After running this function and bundling the JavaScript remember to place
- the code printed by the function in shiny UI. By default [`apply_react()`](apply_react().html) does not
+After running this function and bundling the JavaScript remember to place
+ the code printed by the function in shiny UI. By default [`apply_react()`](#applyreact()) does not
  bundle `react` and `react-dom` and thus requires using `reactCDN()` to import the
  dependencies in the shiny application: this function is created in a `R/react_cdn.R` .
 

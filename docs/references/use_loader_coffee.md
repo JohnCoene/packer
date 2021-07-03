@@ -1,9 +1,11 @@
-# `use_loader_coffee`: Use Coffee Loader
+# `use_loader_coffee`
+
+Use Coffee Loader
+
 
 ## Description
 
-
- Adds the [list("coffee-loader")](https://webpack.js.org/loaders/coffee-loader/) to use
+Adds the [list("coffee-loader")](https://webpack.js.org/loaders/coffee-loader/) to use
  cofeescript.
 
 
@@ -18,11 +20,11 @@ use_loader_coffee(test = "\\.coffee$")
 
 Argument      |Description
 ------------- |----------------
-```test```     |     Test regular expression test which files should be transformed by the loader.
+`test`     |     Test regular expression test which files should be transformed by the loader.
+
 
 ## Details
 
-
- Excludes `node_modules` by default.
+Excludes `node_modules` by default.
 
 

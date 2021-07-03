@@ -1,9 +1,11 @@
-# `set_npm`: Use npm
+# `set_npm`
+
+Use npm
+
 
 ## Description
 
-
- By default packer looks for the npm installation using the `which` command.
+By default packer looks for the npm installation using the `which` command.
  This function lets you override that behaviour and force a specific npm installation.
 
 
@@ -18,5 +20,6 @@ set_npm(path = NULL)
 
 Argument      |Description
 ------------- |----------------
-```path```     |     Path to npm installation to use.
+`path`     |     Path to npm installation to use.
+
 

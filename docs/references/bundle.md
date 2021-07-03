@@ -1,9 +1,11 @@
-# `bundle`: bundle & Watch
+# `bundle`
+
+bundle & Watch
+
 
 ## Description
 
-
- Bundle and watch the JavaScript.
+Bundle and watch the JavaScript.
 
 
 ## Usage
@@ -20,5 +22,6 @@ watch()
 
 Argument      |Description
 ------------- |----------------
-```mode```     |     The configuration mode tells webpack to use its built-in optimisations accordingly.
+`mode`     |     The configuration mode tells webpack to use its built-in optimisations accordingly.
+
 

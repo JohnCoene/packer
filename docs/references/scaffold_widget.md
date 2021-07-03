@@ -1,9 +1,11 @@
-# `scaffold_widget`: Scaffold Widget
+# `scaffold_widget`
+
+Scaffold Widget
+
 
 ## Description
 
-
- Creates basic structure for a widget.
+Creates basic structure for a widget.
 
 
 ## Usage
@@ -17,41 +19,40 @@ scaffold_widget(name, edit = interactive())
 
 Argument      |Description
 ------------- |----------------
-```name```     |     Name of widget, also passed to [`htmlwidgets::scaffoldWidget()`](htmlwidgets::scaffoldWidget().html) .
-```edit```     |     Automatically open pertinent files.
+`name`     |     Name of widget, also passed to [`htmlwidgets::scaffoldWidget()`](#htmlwidgets::scaffoldwidget()) .
+`edit`     |     Automatically open pertinent files.
+
 
 ## Details
 
-
- Internally runs [`htmlwidgets::scaffoldWidget()`](htmlwidgets::scaffoldWidget().html) do not run it prior to this function.
+Internally runs [`htmlwidgets::scaffoldWidget()`](#htmlwidgets::scaffoldwidget()) do not run it prior to this function.
 
 
 ## Value
 
-
- `TRUE` (invisibly) if successfully run.
+`TRUE` (invisibly) if successfully run.
 
 
 ## Examples
 
-```r 
- if(interactive()){
- # current directory
- wd <- getwd()
- 
- # create a mock up ambiorix project
- tmp <- tmp_package()
- 
- # move to package
- setwd(tmp)
- 
- # scaffold ambiorix
- scaffold_widget()
- 
- # clean up
- setwd(wd)
- tmp_delete(tmp)
- }
- 
- ``` 
+```r
+if(interactive()){
+# current directory
+wd <- getwd()
+
+# create a mock up ambiorix project
+tmp <- tmp_package()
+
+# move to package
+setwd(tmp)
+
+# scaffold ambiorix
+scaffold_widget()
+
+# clean up
+setwd(wd)
+tmp_delete(tmp)
+}
+```
+
 

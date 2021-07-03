@@ -1,9 +1,11 @@
-# `npm_fix`: Audit Fix
+# `npm_fix`
+
+Audit Fix
+
 
 ## Description
 
-
- Scan your project for vulnerabilities and automatically install
+Scan your project for vulnerabilities and automatically install
  any compatible updates to vulnerable dependencies.
 
 
@@ -16,7 +18,6 @@ npm_fix()
 
 ## Details
 
-
- Runs npm audit fix 
+Runs npm audit fix
 
 

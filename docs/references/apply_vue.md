@@ -1,9 +1,11 @@
-# `apply_vue`: Apply Vue
+# `apply_vue`
+
+Apply Vue
+
 
 ## Description
 
-
- Apply Vue to a project, adds the relevant (babel) loader, installs dependencies,
+Apply Vue to a project, adds the relevant (babel) loader, installs dependencies,
  and creates, or updates, or replaces the `srcjs/index.js` file.
 
 
@@ -18,12 +20,12 @@ apply_vue(use_cdn = TRUE)
 
 Argument      |Description
 ------------- |----------------
-```use_cdn```     |     Whether to use the CDN for `vue` (recommended). This means later importing the dependencies in the shiny UI using `vueCDN()` , this function will be created in a `R/vue_cdn.R` . The correct instructions are printed to the console by the application.
+`use_cdn`     |     Whether to use the CDN for `vue` (recommended). This means later importing the dependencies in the shiny UI using `vueCDN()` , this function will be created in a `R/vue_cdn.R` . The correct instructions are printed to the console by the application.
+
 
 ## Details
 
-
- After running this function and bundling the JavaScript remember to place
+After running this function and bundling the JavaScript remember to place
  div(id = "app"), tags$script(src = "www/index.js") at the bottom of your shiny UI.
 
 

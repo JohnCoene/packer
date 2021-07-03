@@ -1,9 +1,11 @@
-# `mockup`: Mock up
+# `mockup`
+
+Mock up
+
 
 ## Description
 
-
- Functions to mock up packages for tests
+Functions to mock up packages for tests
 
 
 ## Usage
@@ -21,5 +23,6 @@ tmp_delete(tmp)
 
 Argument      |Description
 ------------- |----------------
-```tmp```     |     A temp mock up project.
+`tmp`     |     A temp mock up project.
+
 

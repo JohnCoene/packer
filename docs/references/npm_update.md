@@ -1,9 +1,11 @@
-# `npm_update`: Npm Update
+# `npm_update`
+
+Npm Update
+
 
 ## Description
 
-
- Update npm dependencies.
+Update npm dependencies.
 
 
 ## Usage
