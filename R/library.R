@@ -16,7 +16,7 @@ make_library <- function(name, type = "umd"){
 	if(missing(name))
 		stop("Missing name", call. = FALSE)
 
-	common <- readLines("./inst/common/webpack.common.js")
+	common <- readLines("webpack.common.js")
 	common[grepl("\\[name\\]\\.js", common)] <- sprintf(
 		"    filename: '[name].js',\n    library: {name: '%s', type: '%s'},", 
 		name, type
