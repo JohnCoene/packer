@@ -1,5 +1,5 @@
 <!-- badges: start -->
-![Travis build status](https://img.shields.io/travis/com/JohnCoene/packer?style=flat-square) ![Coveralls test coverage](https://img.shields.io/coveralls/JohnCoene/packer?style=flat-square) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/JohnCoene/packer?label=latest&style=flat-square)
+[![R-CMD-check](https://github.com/JohnCoene/packer/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/packer/actions)
 <!-- badges: end -->
 
 # packer
