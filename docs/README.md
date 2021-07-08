@@ -32,12 +32,15 @@ The scaffolds are very much inspired by the same functionality from [htmlwidgets
 
 ## In the wild
 
+_Some real-world examples of packer usage, because 
+reading source code can help._
+
 There are a few public repositories that make use of packer
 see [Github](https://github.com/search?q=path%3Ainst%2Fpacker).
 
 The [waiter](https://github.com/JohnCoene/waiter) package and
 [g2r](https://github.com/devOpifex/g2r) are also built on top
- of packer.
+ of packer. There is also [tippy](https://github.com/JohnCoene/tippy).
 
 ### Related Work
 
