@@ -3,6 +3,11 @@
 #' Installs loaders and adds relevant configuration rules to `srcjs/config/loaders.json`.
 #' 
 #' @param test Test regular expression test which files should be transformed by the loader.
+#' @param import Whether to enable `import` statements for 
+#' `.css` files. If `FALSE` use `require`.
+#' @param modules Enables CSS modules and their config,
+#' a complex but powerful feature detailed 
+#' [here](https://webpack.js.org/loaders/css-loader/#modules)
 #' 
 #' @details This will let you import styles much like any other modules, e.g.: `import './styles.css'`.
 #' 
@@ -13,9 +18,17 @@
 #' 
 #' @name style_loaders
 #' @export
-use_loader_css <- function(test = "\\.css$"){
+use_loader_css <- function(test = "\\.css$", import = TRUE, modules = TRUE){
   assert_that(has_scaffold())
-  use_loader_rule(c("style-loader", "css-loader"), test = test)
+  use_loader_rule(
+    "css-loader", 
+    test = test, 
+    options = list(
+      import = TRUE,
+      modules = TRUE
+    ),
+    .name_use = "loader" # allows options
+  )
 }
 
 #' @rdname style_loaders
@@ -152,7 +165,7 @@ use_loader_eslint <- function(test = "\\.(js|jsx)$"){
 #' @details Reads the `srcsjs/config/loaders.json` and appends the rule.
 #' 
 #' @export 
-use_loader_rule <- function(packages, test, ..., use = as.list(packages)){
+use_loader_rule <- function(packages, test, ..., use = as.list(packages), .name_use = "use"){
   assert_that(has_scaffold())
   assert_that(not_missing(packages))
 
@@ -164,9 +177,14 @@ use_loader_rule <- function(packages, test, ..., use = as.list(packages)){
     use = use,
     ...
   )
+
+  # rename use to allow options
+  names(loader)[2] <- .name_use
+
+  # add the loader
   loader_add(loader)
   
-  # wrap up
+  # message
   loader_msg(packages)
 }
 

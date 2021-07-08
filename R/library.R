@@ -23,5 +23,7 @@ make_library <- function(name, type = "umd"){
 	)
 
 	writeLines(common, "webpack.common.js")
+
+	cli::cli_alert_info("Use `{name}.foo()` to call exported functions.")
 	invisible()
 }

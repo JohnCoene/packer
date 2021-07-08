@@ -18,6 +18,10 @@ test_that("Extension", {
   expect_message(use_loader_babel(use_eslint = TRUE))
   expect_message(bundle())
 
+  # make library 
+  expect_error(make_library())
+  expect_message(make_library("lib"))
+
   setwd(wd)
   delete_tmp_package(pkg)
 })

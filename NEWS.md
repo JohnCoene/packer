@@ -3,6 +3,9 @@
 - Ensure existing R files are not overwritten is already existing.
 - Added `make_library` to turn the project into a library 
 callable from outside the bundle.
+- Allow `@import` statements for CSS loader
+- Changed improved docs
+- Add `modules` and `import` arguments to CSS loader function.
 
 ## packer 0.0.6
 
