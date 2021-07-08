@@ -160,6 +160,8 @@ use_loader_eslint <- function(test = "\\.(js|jsx)$"){
 #' @inheritParams style_loaders
 #' @param packages NPM packages (loaders) to install.
 #' @param use Name of the loaders to use for `test`.
+#' @param .name_use Dependending on the webpack config 
+#' one might want to change the `use` to `loader` or `loaders`.
 #' @param ... Any other options to pass to the rule.
 #' 
 #' @details Reads the `srcsjs/config/loaders.json` and appends the rule.

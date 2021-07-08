@@ -4,7 +4,13 @@
 \alias{use_loader_rule}
 \title{Add a Loader Ruée}
 \usage{
-use_loader_rule(packages, test, ..., use = as.list(packages))
+use_loader_rule(
+  packages,
+  test,
+  ...,
+  use = as.list(packages),
+  .name_use = "use"
+)
 }
 \arguments{
 \item{packages}{NPM packages (loaders) to install.}
@@ -14,6 +20,9 @@ use_loader_rule(packages, test, ..., use = as.list(packages))
 \item{...}{Any other options to pass to the rule.}
 
 \item{use}{Name of the loaders to use for \code{test}.}
+
+\item{.name_use}{Dependending on the webpack config
+one might want to change the \code{use} to \code{loader} or \code{loaders}.}
 }
 \description{
 Adds a loader rule that is not yet implemened in packer.

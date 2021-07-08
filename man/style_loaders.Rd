@@ -13,7 +13,7 @@ use_loader_sass(test = "\\\\.s[ac]ss$/i")
 \arguments{
 \item{test}{Test regular expression test which files should be transformed by the loader.}
 
-\item{import}{Whether to enable \verb{@import} statements for
+\item{import}{Whether to enable \code{import} statements for
 \code{.css} files. If \code{FALSE} use \code{require}.}
 
 \item{modules}{Enables CSS modules and their config,
