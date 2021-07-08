@@ -26,6 +26,12 @@ You can read more about the advantages of using webpack with R in the book <a hr
 of chapters on the topic.
 </Note>
 
+## Why use packer?
+
+Packer presented at WhyR 2020.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c9AtMOoJgAM?start=3886" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Inspiration
 
 The scaffolds are very much inspired by the same functionality from [htmlwidgets](http://www.htmlwidgets.org/) `scaffoldWidget` function and [golem](http://golemverse.org/) `create_golem`.
