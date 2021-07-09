@@ -1,4 +1,4 @@
-# Library & Minification
+# Library and Minification
 
 By default webpack will minify and optimise the code a great deal.
 
