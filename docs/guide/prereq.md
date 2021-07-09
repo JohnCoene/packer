@@ -17,7 +17,7 @@ Only the <code>scaffold_rmd</code> is not rooted in a package and instead from a
 
 ## Npm
 
-Npm is Node's Package Manager and is, in a sense, Node's equivalent of CRAN, albeit much less strict. It contains a plethora of JavaScript packages waiting to be used with R pacakges, shiny apps, and plenty of other things. Npm is at its core very simple and packer provides convenience functions to interact with it from R.
+Npm is Node's Package Manager and is, in a sense, Node's equivalent of CRAN, albeit much less strict. It contains a plethora of JavaScript packages waiting to be used with R packages, shiny apps, and plenty of other things. Npm is at its core very simple and packer provides convenience functions to interact with it from R.
 
 ```r
 # install the sass package for development purposes.
