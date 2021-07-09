@@ -10,7 +10,7 @@ delete_tmp_package <- function(tmp){
 
 create_tmp_golem <- function(){
   tmp <- tempdir()
-  golem::create_golem(tmp)
+  golem::create_golem(tmp, open = FALSE)
   return(tmp)
 }
 
