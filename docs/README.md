@@ -44,7 +44,7 @@ _Some real-world examples of packer usage, because
 reading source code can help._
 
 There are a few public repositories that make use of packer
-see [Github](https://github.com/search?q=path%3Ainst%2Fpacker).
+see [Github](https://github.com/search?p=1&q=path%3Asrcjs%2Fconfig&type=Code).
 
 The [waiter](https://github.com/JohnCoene/waiter) package and
 [g2r](https://github.com/devOpifex/g2r) are also built on top
