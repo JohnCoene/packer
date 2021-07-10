@@ -30,7 +30,7 @@
 scaffold_output <- function(name, edit = interactive()){
   # checks
   assert_that(not_missing(name))
-  assert_that(has_npm())
+  assert_that(has_engine())
   assert_that(is_package())
   assert_that(is_name_valid(name))
 
@@ -41,7 +41,7 @@ scaffold_output <- function(name, edit = interactive()){
   open_msg("shiny output", name)
 
   # init npm
-  npm_init()
+  engine_init()
 
   # create base npm webpack files
   create_directory("srcjs/outputs", recurse = TRUE)
@@ -53,7 +53,7 @@ scaffold_output <- function(name, edit = interactive()){
   webpack_install()
 
   # edit package.json
-  npm_add_scripts()
+  engine_add_scripts()
 
   # create config file
   configure(

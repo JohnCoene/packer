@@ -33,7 +33,7 @@
 #' @export
 scaffold_widget <- function(name, edit = interactive()){
   # checks
-  assert_that(has_npm())
+  assert_that(has_engine())
   assert_that(is_package())
   assert_that(not_missing(name))
   assert_that(is_name_valid(name))
@@ -47,7 +47,7 @@ scaffold_widget <- function(name, edit = interactive()){
   create_directory("srcjs")
 
   # init npm
-  npm_init()
+  engine_init()
 
   # install dev webpack + cli
   webpack_install()
@@ -64,7 +64,7 @@ scaffold_widget <- function(name, edit = interactive()){
   widget_files(name)
 
   # edit package.json
-  npm_add_scripts()
+  engine_add_scripts()
 
   # ignore files and directories
   ignore_files()

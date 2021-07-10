@@ -1,11 +1,11 @@
 # `npm_install`
 
-Install and Uninstall Npm Packges
+Install and Uninstall Npm Packages
 
 
 ## Description
 
-Install and uninstall npm packges.
+Install and uninstall npm packages.
 
 
 ## Usage

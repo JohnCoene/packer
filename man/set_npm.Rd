@@ -2,7 +2,7 @@
 % Please edit documentation in R/npm.R
 \name{set_npm}
 \alias{set_npm}
-\title{Use npm}
+\title{Set npm path}
 \usage{
 set_npm(path = NULL)
 }
@@ -10,6 +10,8 @@ set_npm(path = NULL)
 \item{path}{Path to npm installation to use.}
 }
 \description{
-By default packer looks for the npm installation using the \code{which} command.
-This function lets you override that behaviour and force a specific npm installation.
+By default packer looks for the npm installation using
+the \code{which} (or \code{where}) command.
+This function lets you override that behaviour and
+force a specific npm installation.
 }

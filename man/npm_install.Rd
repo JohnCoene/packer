@@ -3,7 +3,7 @@
 \name{npm_install}
 \alias{npm_install}
 \alias{npm_uninstall}
-\title{Install and Uninstall Npm Packges}
+\title{Install and Uninstall Npm Packages}
 \usage{
 npm_install(..., scope = c("dev", "prod", "global"))
 
@@ -15,7 +15,7 @@ npm_uninstall(..., scope = c("dev", "prod", "global"))
 \item{scope}{Scope of installation or uninstallation, see scopes.}
 }
 \description{
-Install and uninstall npm packges.
+Install and uninstall npm packages.
 }
 \section{Scopes}{
 
