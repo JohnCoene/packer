@@ -34,7 +34,7 @@
 #' @export
 scaffold_rmd <- function(react = FALSE, vue = FALSE, edit = interactive()){
   # checks
-  assert_that(has_npm())
+  assert_that(has_engine())
   is_project()
   assert_that(!has_scaffold(), msg = "Only a single rmd scaffold is allowed")
   assert_that(!all(react, vue), msg = "Setup with either react or vue, not both")
@@ -42,13 +42,13 @@ scaffold_rmd <- function(react = FALSE, vue = FALSE, edit = interactive()){
   open_msg("rmd")
 
   # init npm
-  npm_init()
+  engine_init()
 
   # install dependencies
   webpack_install()
 
   # edit package.json
-  npm_add_scripts()
+  engine_add_scripts()
 
   # set up dir for golem
   # only create dir if vue or react

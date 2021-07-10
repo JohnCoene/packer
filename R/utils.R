@@ -29,7 +29,7 @@ ignore_files <- function(){
 # prints error and warnings from system2
 print_results <- function(results){
   if(length(results$warnings))
-    npm_console()
+    engine_console()
 }
 
 # get name of package
@@ -44,7 +44,7 @@ get_pkg_name <- function(){
 webpack_install <- function(){
   scaffolded <- has_scaffold()
   if(scaffolded) return()
-  npm_install("webpack", "webpack-cli", "webpack-merge", scope = "dev")
+  engine_install("webpack", "webpack-cli", "webpack-merge", scope = "dev")
 }
 
 # create directory

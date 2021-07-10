@@ -15,12 +15,12 @@ add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
-  npm_install("html-webpack-plugin", scope = "dev")
+  engine_install("html-webpack-plugin", scope = "dev")
   ext <- "html"
 
   # if pug install and change ext
   if(use_pug){
-    npm_install("pug", scope = "dev")
+    engine_install("pug", scope = "dev")
     use_loader_pug()
     ext <- "pug"
   }
@@ -68,7 +68,7 @@ add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
-  npm_install("clean-webpack-plugin", scope = "dev")
+  engine_install("clean-webpack-plugin", scope = "dev")
 
   # options
   options <- list(dry = FALSE, verbose = FALSE, clean = TRUE, protect = TRUE)
@@ -122,7 +122,7 @@ add_plugin_prettier <- function(){
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
-  npm_install("prettier", "prettier-webpack-plugin", scope = "dev")
+  engine_install("prettier", "prettier-webpack-plugin", scope = "dev")
 
   # read config
   config <- readLines("webpack.common.js")
@@ -150,7 +150,7 @@ add_plugin_eslint <- function(){
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
-  npm_install("eslint", "eslint-webpack-plugin", scope = "dev")
+  engine_install("eslint", "eslint-webpack-plugin", scope = "dev")
 
   # read config
   config <- readLines("webpack.common.js")

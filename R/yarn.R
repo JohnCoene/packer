@@ -1,0 +1,105 @@
+#' Yarn Global
+#' 
+#' Installs or manage yarn _globally_.
+#' 
+#' @section Functions:
+#' 
+#' - `engine_yarn_install`: Installs yarn globally.
+#' - `engine_yarn_set`: Set yarn function.
+#' 
+#' @name yarn_global
+#' @export 
+engine_yarn_install <- function(){
+  engine_set("npm")
+  on.exit({
+    engine_set("yarn")
+  })
+
+  engine_install("yarn", scope = "global") 
+}
+
+#' @rdname yarn_global
+#' @export 
+engine_yarn_set <- function(version = "latest"){
+  engine_run(
+    sprintf("set version %s", version)
+  )
+  usethis::use_build_ignore(".yarnrc")
+}
+
+#' Set yarn path
+#' 
+#' By default packer looks for the yarn installation using 
+#' the `which` (or `where`) command.
+#' This function lets you override that behaviour and 
+#' force a specific yarn installation.
+#' 
+#' @param path Path to yarn installation to use.
+#' 
+#' @export
+set_yarn <- function(path = NULL){
+  engine_path()(path)
+}
+
+#' Install and Uninstall yarn Packages
+#' 
+#' Install and uninstall yarn packages.
+#' 
+#' @param ... Packages to install or uninstall.
+#' @param scope Scope of installation or uninstallation, see scopes.
+#' 
+#' @section Scopes:
+#' 
+#' * `prod` - Add/remove packages for project with no flag
+#' * `dev` - Installs/Uninstalls dev packages for project with `--dev`
+#' 
+#' @name yarn_install
+#' @export 
+yarn_add <- function(..., scope = c("dev", "prod")){
+  engine_install(..., scope = scope)
+}
+
+#' @rdname yarn_install
+#' @export 
+yarn_remove <- function(..., scope = c("dev", "prod")){
+  engine_uninstall(..., scope = scope)
+}
+
+#' Yarn Output
+#' 
+#' Prints the output of the last command run, useful for debugging.
+#' 
+#' @export
+yarn_console <- function(){
+  engine_console()
+}
+
+#' Yarn Command
+#' 
+#' Convenience function to run `yarn` commands.
+#' 
+#' @param ... Passed to [system2()].
+#' 
+#' @export 
+yarn_run <- function(...){
+  engine_run(...)
+}
+
+#' Yarn Update
+#' 
+#' Update yarn dependencies.
+#' 
+#' @export
+yarn_update <- function(){
+  results <- engine_update()
+  invisible(results)
+}
+
+#' Yarn Outdated
+#' 
+#' Find outdated dependencies
+#' 
+#' @export
+yarn_outdated <- function(){
+  engine_outdated()
+}

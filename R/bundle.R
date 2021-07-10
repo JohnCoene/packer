@@ -22,7 +22,7 @@ bundle <- function(mode = c("production", "development", "none")){
   mode <- match.arg(mode)
   args <- c("run", mode)
 
-  results <- npm_run(args)
+  results <- engine_run(args)
 
   if(length(results$warnings) > 0)
     cli::cli_process_failed()
@@ -60,7 +60,7 @@ bundle_ <- function(mode = c("production", "development", "none")){
   mode <- match.arg(mode)
   args <- c("run", mode)
 
-  results <- npm_run(args)
+  results <- engine_run(args)
 
   if(length(results$warnings) > 0)
     cli::cli_process_failed()

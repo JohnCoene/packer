@@ -24,12 +24,12 @@ include_tests <- function(esm = TRUE){
   create_directory("testjs")
   template <- pkg_file("templates/mocha-test.js")
   fs::file_copy(template, "testjs/template.test.js")
-  npm_install("mocha", scope = "dev")
+  engine_install("mocha", scope = "dev")
   use_loader_mocha()
 
   req_esm <- ""
   if(esm){
-    npm_install("esm", scope = "dev")
+    engine_install("esm", scope = "dev")
     req_esm <- " --require esm"
   }
 
@@ -66,6 +66,6 @@ run_tests <- function(){
   assert_that(has_scaffold())
   assert_that(fs::dir_exists("testjs"), msg = "Tests are not setup, see `include_tests`")
 
-  npm <- npm_find()
-  system2(npm, "run test:mocha") # run tests
+  cmd <- engine_find()
+  system2(cmd, "run test:mocha") # run tests
 }

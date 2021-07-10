@@ -1,10 +1,13 @@
 # is npm installed and can it be found?
-has_npm <- function(){
-  length(npm_find()) > 0
+has_engine <- function(){
+  length(engine_find()) > 0
 }
 
-assertthat::on_failure(has_npm) <- function(call, env){
-  stop("Cannot find `npm`, are you sure it is installed?", call. = FALSE)
+assertthat::on_failure(has_engine) <- function(call, env){
+  stop(
+    sprintf("Cannot find engine `%s`, are you sure it is installed?", engine_get()), 
+    call. = FALSE
+  )
 }
 
 # check that argument is not missing

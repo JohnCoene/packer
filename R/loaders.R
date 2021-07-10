@@ -191,7 +191,7 @@ use_loader_rule <- function(packages, test, ..., use = as.list(packages), .name_
   assert_that(has_scaffold())
   assert_that(not_missing(packages))
 
-  npm_install(packages, scope = "dev")
+  engine_install(packages, scope = "dev")
 
   # message modifications
   loader <- list(

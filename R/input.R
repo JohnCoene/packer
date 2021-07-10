@@ -30,7 +30,7 @@
 scaffold_input <- function(name, edit = interactive()){
   # checks
   assert_that(not_missing(name))
-  assert_that(has_npm())
+  assert_that(has_engine())
   assert_that(is_package())
   assert_that(is_name_valid(name))
 
@@ -41,7 +41,7 @@ scaffold_input <- function(name, edit = interactive()){
   open_msg("shiny input", name)
 
   # init npm
-  npm_init()
+  engine_init()
 
   # create base npm webpack files
   create_directory("srcjs/inputs")
@@ -68,7 +68,7 @@ scaffold_input <- function(name, edit = interactive()){
   template_r_function(name, "input/R/input.R")
 
   # edit package.json
-  npm_add_scripts()
+  engine_add_scripts()
 
   # ignore files and directories
   ignore_files()
