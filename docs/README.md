@@ -9,7 +9,7 @@
 
 An opinionated framework for using JavaScript with R.
 
-Support for both npm and yarn, the
+Support for both npm and yarn, see the
 [documentation](https://packer.john-coene.com/#/guide/engines)
 and `set_engine`
 <Badge type="success">New</Badge>
