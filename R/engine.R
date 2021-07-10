@@ -25,7 +25,7 @@ engine_set <- function(engine = c("npm", "yarn")){
     )
   }
 
-	cli::cli_alert_info("Temporarily setting {.file PACKER_ENGINE} environment variable to {.var {engine}}")
+	cli::cli_alert_info("Temporarily setting {.var PACKER_ENGINE} environment variable to {.var {engine}}")
 	Sys.setenv(PACKER_ENGINE = engine)
 }
 
@@ -366,4 +366,16 @@ engine_outdated_cmd <- function(){
 engine_outdated <- function(){
   cmd <- engine_find()
   system2(cmd, engine_outdated_cmd())
+}
+
+#' Version
+#' 
+#' Get the version of the currently set engine.
+#' 
+#' @return The semver as a string.
+#' 
+#' @export
+engine_version <- function(){
+  version <- engine_run("--version")
+  version
 }
