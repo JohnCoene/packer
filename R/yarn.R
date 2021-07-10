@@ -2,6 +2,8 @@
 #' 
 #' Installs or manage yarn _globally_.
 #' 
+#' @param version Version to set yarn
+#' 
 #' @section Functions:
 #' 
 #' - `engine_yarn_install`: Installs yarn globally.
@@ -38,7 +40,7 @@ engine_yarn_set <- function(version = "latest"){
 #' 
 #' @export
 set_yarn <- function(path = NULL){
-  engine_path()(path)
+  engine_path(path)
 }
 
 #' Install and Uninstall yarn Packages
@@ -56,13 +58,22 @@ set_yarn <- function(path = NULL){
 #' @name yarn_install
 #' @export 
 yarn_add <- function(..., scope = c("dev", "prod")){
-  engine_install(..., scope = scope)
+  assert_that(is_yarn())
+  engine_install(..., scope = scope[1])
+}
+
+#' @name yarn_install
+#' @export 
+yarn_install <- function(){
+  assert_that(is_yarn())
+  engine_install()
 }
 
 #' @rdname yarn_install
 #' @export 
 yarn_remove <- function(..., scope = c("dev", "prod")){
-  engine_uninstall(..., scope = scope)
+  assert_that(is_yarn())
+  engine_uninstall(..., scope = scope[1])
 }
 
 #' Yarn Output
@@ -71,6 +82,7 @@ yarn_remove <- function(..., scope = c("dev", "prod")){
 #' 
 #' @export
 yarn_console <- function(){
+  assert_that(is_yarn())
   engine_console()
 }
 
@@ -82,6 +94,7 @@ yarn_console <- function(){
 #' 
 #' @export 
 yarn_run <- function(...){
+  assert_that(is_yarn())
   engine_run(...)
 }
 
@@ -91,6 +104,7 @@ yarn_run <- function(...){
 #' 
 #' @export
 yarn_update <- function(){
+  assert_that(is_yarn())
   results <- engine_update()
   invisible(results)
 }
@@ -101,5 +115,6 @@ yarn_update <- function(){
 #' 
 #' @export
 yarn_outdated <- function(){
+  assert_that(is_yarn())
   engine_outdated()
 }

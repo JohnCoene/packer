@@ -11,7 +11,7 @@ engine_set(engine = c("npm", "yarn"))
 engine_get()
 }
 \arguments{
-\item{engine}{The engine to use.}
+\item{engine}{The engine to use, npm or yarn.}
 }
 \description{
 Defines the engine to use with packer.

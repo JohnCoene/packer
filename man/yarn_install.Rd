@@ -8,6 +8,8 @@
 \usage{
 yarn_add(..., scope = c("dev", "prod"))
 
+yarn_install()
+
 yarn_remove(..., scope = c("dev", "prod"))
 }
 \arguments{

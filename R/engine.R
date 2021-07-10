@@ -12,13 +12,20 @@
 #' You can use the function `usethis::edit_r_environ`
 #' to do so.
 #' 
-#' @param engine The engine to use.
+#' @param engine The engine to use, npm or yarn.
 #' 
 #' @name engine
 #' @export 
 engine_set <- function(engine = c("npm", "yarn")){
 	engine <- match.arg(engine)
-	cli::cli_alert_info("Setting {.var PACKER_ENGINE} environment variable to {.var {engine}}")
+
+  if(engine == "yarn"){
+    cli::cli_alert_danger(
+      "Consider setting the environment variable ${.var PACKER_ENGINE} in your ${.file .Renviron} to make this permanent"
+    )
+  }
+
+	cli::cli_alert_info("Temporarily setting {.file PACKER_ENGINE} environment variable to {.var {engine}}")
 	Sys.setenv(PACKER_ENGINE = engine)
 }
 
@@ -56,6 +63,8 @@ engine_path <- function(path = NULL){
 #' Install and uninstall packages using defined engine.
 #' 
 #' @param ... Packages to install or uninstall.
+#' For `engine_install` if nothing is passed `scope` is
+#' ignored.
 #' @param scope Scope of installation or uninstallation, see scopes.
 #' 
 #' @section Scopes:
@@ -288,8 +297,10 @@ engine_init <- function(){
   
   engine_run(c("init", "-y"))
 
-  if(engine_get() == "yarn")
+  if(engine_get() == "yarn"){
     usethis::use_build_ignore("yarn.lock")
+    usethis::use_build_ignore(".yarn/")
+  }
 
   cli::cli_alert_success("Initialiased {.var {engine_get()}}")
 }

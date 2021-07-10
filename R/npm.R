@@ -28,12 +28,14 @@ set_npm <- function(path = NULL){
 #' @name npm_install
 #' @export 
 npm_install <- function(..., scope = c("dev", "prod", "global")){
+  assert_that(is_npm())
   engine_install(..., scope = scope)
 }
 
 #' @rdname npm_install
 #' @export 
 npm_uninstall <- function(..., scope = c("dev", "prod", "global")){
+  assert_that(is_npm())
   engine_uninstall(..., scope = scope)
 }
 
@@ -46,6 +48,7 @@ npm_uninstall <- function(..., scope = c("dev", "prod", "global")){
 #' 
 #' @export 
 npm_fix <- function(){
+  assert_that(is_npm())
   npm <- engine_find()
   system2(npm, "audit fix")
 }
@@ -56,6 +59,7 @@ npm_fix <- function(){
 #' 
 #' @export
 npm_console <- function(){
+  assert_that(is_npm())
   engine_console()
 }
 
@@ -68,6 +72,7 @@ npm_console <- function(){
 #' 
 #' @export 
 npm_run <- function(...){
+  assert_that(is_npm())
   engine_run(...)
 }
 
@@ -77,6 +82,7 @@ npm_run <- function(...){
 #' 
 #' @export
 npm_update <- function(){
+  assert_that(is_npm())
   results <- engine_update()
   invisible(results)
 }
@@ -87,5 +93,6 @@ npm_update <- function(){
 #' 
 #' @export
 npm_outdated <- function(){
+  assert_that(is_npm())
   engine_outdated()
 }

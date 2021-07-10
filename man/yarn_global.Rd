@@ -10,6 +10,9 @@ engine_yarn_install()
 
 engine_yarn_set(version = "latest")
 }
+\arguments{
+\item{version}{Version to set yarn}
+}
 \description{
 Installs or manage yarn \emph{globally}.
 }

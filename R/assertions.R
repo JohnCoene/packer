@@ -10,6 +10,29 @@ assertthat::on_failure(has_engine) <- function(call, env){
   )
 }
 
+# is npm installed and can it be found?
+is_yarn <- function(){
+  engine_get() == "yarn"
+}
+
+assertthat::on_failure(is_yarn) <- function(call, env){
+  stop(
+    "yarn is not your current engine, see `engine_set()`.", 
+    call. = FALSE
+  )
+}
+
+is_npm <- function(){
+  engine_get() == "npm"
+}
+
+assertthat::on_failure(is_npm) <- function(call, env){
+  stop(
+    "npm is not your current engine, see `engine_set()`.",
+    call. = FALSE
+  )
+}
+
 # check that argument is not missing
 not_missing <- function(x){
   !missing(x)
