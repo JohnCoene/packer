@@ -24,6 +24,7 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 - Include React in you shiny application
 - Bundle JavaScript files for golem
 - Use Vue in a shiny app
+- Scope CSS selectors
 - And so much more...
 
 ### Usage

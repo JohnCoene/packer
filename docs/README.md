@@ -20,6 +20,7 @@ Things you can do with packer:
 - Include React in you shiny application
 - Bundle JavaScript files for golem
 - Use Vue in a shiny app
+- Scope CSS selectors
 - And so much more...
 
 <Note>
