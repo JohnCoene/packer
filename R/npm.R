@@ -96,3 +96,15 @@ npm_outdated <- function(){
   assert_that(is_npm())
   engine_outdated()
 }
+
+#' Npm version
+#' 
+#' Get the version of npm.
+#' 
+#' @return The semver as a string.
+#' 
+#' @export
+yarn_version <- function(){
+  assert_that(is_yarn())
+  engine_version()
+}

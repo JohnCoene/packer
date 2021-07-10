@@ -374,7 +374,8 @@ engine_outdated <- function(){
 #' 
 #' @return The semver as a string.
 #' 
-#' @export
+#' @keywords internal
+#' @noRd
 engine_version <- function(){
   version <- engine_run("--version")
   version

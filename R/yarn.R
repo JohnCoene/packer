@@ -118,3 +118,15 @@ yarn_outdated <- function(){
   assert_that(is_yarn())
   engine_outdated()
 }
+
+#' Yarn version
+#' 
+#' Get the version of yarn.
+#' 
+#' @return The semver as a string.
+#' 
+#' @export
+yarn_version <- function(){
+  assert_that(is_yarn())
+  engine_version()
+}
