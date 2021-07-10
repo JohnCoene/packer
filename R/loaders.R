@@ -70,6 +70,24 @@ use_loader_pug <- function(test = "\\.pug$"){
   use_loader_rule("pug-loader", test = test)
 }
 
+#' Use Typescript Loader
+#' 
+#' Adds the loader for the pug templating engine.
+#' 
+#' @inheritParams style_loaders
+#' 
+#' @export 
+use_loader_ts <- function(test = "\\.tsx?$"){
+  assert_that(has_scaffold())
+  use_loader_rule(
+    c("typescript", "ts-loader"), 
+    test = test, 
+    use = "ts-loader",
+    exclude = "/node_modules/"
+  )
+  create_ts_config()
+}
+
 #' Use babel Loader
 #' 
 #' Adds the loader for babel comiler to the loader configuration file.
@@ -244,4 +262,21 @@ loader_add <- function(loader){
 #' @keywords internal
 loader_msg <- function(loaders){
   cli::cli_alert_success("Added loader rule for {.val {loaders}}\n")
+}
+
+create_ts_config <- function(){
+  config <- list(
+    compilerOptions = list(
+      outDir = "./dist/", 
+      noImplicitAny = TRUE, 
+      module = "es6", 
+      target = "es5", 
+      jsx = "react", 
+      allowJs = TRUE
+    )
+  )
+
+  jsonlite::write_json(config, "tsconfig.json")
+  cli::cli_alert_success("Writing {.file tsconfig.json}")
+  usethis::use_build_ignore("tsconfig.json")
 }
