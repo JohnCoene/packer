@@ -37,3 +37,9 @@ Set the environment variable <code>PACKER_ENGINE</code> to
 
 To set the environment variable you may use 
 `usethis::edit_r_environ()`.
+
+There are some difference to some of the functions, namely
+where one uses `npm_install` and `npm_uninstall`, one use
+`yarn_add` and `yarn_remove`. To install the dependencies
+already present in `package.json` use `npm_install` and 
+`yarn_install`.
