@@ -11,7 +11,13 @@ Adds a loader rule that is not yet implemened in packer.
 ## Usage
 
 ```r
-use_loader_rule(packages, test, ..., use = as.list(packages))
+use_loader_rule(
+  packages,
+  test,
+  ...,
+  use = as.list(packages),
+  .name_use = "use"
+)
 ```
 
 
@@ -23,6 +29,7 @@ Argument      |Description
 `test`     |     Test regular expression test which files should be transformed by the loader.
 `...`     |     Any other options to pass to the rule.
 `use`     |     Name of the loaders to use for `test` .
+`.name_use`     |     Dependending on the webpack config one might want to change the `use` to `loader` or `loaders` .
 
 
 ## Details

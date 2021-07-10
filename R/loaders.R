@@ -13,7 +13,8 @@
 #' 
 #' @section Packages:
 #' 
-#' * [use_loader_css()] - installs and imports `style-loader` and `css-loader` packages as dev.
+#' * [use_loader_css()] - installs and imports `css-loader` packages as dev.
+#' * [use_loader_style()] - installs and imports `style-loader` and `css-loader` packages as dev. This loader enabled CSS modules.
 #' * [use_loader_sass()] - installs and imports `style-loader`, `css-loader`, and `sass-loader` as dev.
 #' 
 #' @name style_loaders
@@ -36,6 +37,25 @@ use_loader_css <- function(test = "\\.css$", import = TRUE, modules = TRUE){
 use_loader_sass <- function(test = "\\.s[ac]ss$/i"){
   assert_that(has_scaffold())
   use_loader_rule(c("style-loader", "css-loader", "sass-loader"), test = test)
+}
+
+#' @rdname style_loaders
+#' @export
+use_loader_style <- function(test = "\\.css$", import = TRUE, modules = TRUE){
+  assert_that(has_scaffold())
+  use_loader_rule(
+    c("css-loader", "style-loader"), 
+    test = test, 
+    use = list(
+      "style-loader",
+      list(
+        loader = "css-loader",
+        options = list(
+          modules = TRUE
+        )
+      )
+    )
+  )
 }
 
 #' Use Pug Loader
