@@ -298,7 +298,7 @@ engine_init <- function(){
   
   engine_run(c("init", "-y"))
 
-  cli::cli_alert_success("Initialiased {.var {engine_get()}}")
+  cli::cli_alert_success("Initialiased {.file {engine_get()}}")
 }
 
 #' Package Script
