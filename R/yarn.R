@@ -146,26 +146,19 @@ yarn_version <- function(){
   engine_version()
 }
 
-#' Yarn cache
+#' Yarn cache clean
 #' 
-#' Get the version of yarn.
-#' 
-#' @param ... Arguments to pass to `yarn cache`.
+#' Clean the cache
 #' 
 #' @examples 
-#' \dontrun{yarn_cache("clean")}
+#' \dontrun{yarn_clean()}
 #' 
 #' @return The semver as a string.
 #' 
 #' @export
-yarn_cache <- function(...){
+yarn_clean <- function(){
   assert_that(is_yarn())
-  args <- c("cache", ...)
-
-  if(length(args) == 1)
-    stop("Must pass arguments", call. = FALSE)
-
-  output <- engine_run(args)
+  output <- engine_run("cache", "clean")
   cli::cli_li(output$result) 
   invisible(output$result)
 }

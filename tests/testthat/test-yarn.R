@@ -1,4 +1,3 @@
-
 source("../fns.R")
 
 skip_on_cran()
@@ -25,7 +24,12 @@ test_that("Yarn", {
   pkg <- create_tmp_golem()
   setwd(pkg)
   expect_output(scaffold_golem(edit = FALSE))
+	expect_message(engine_yarn_set())
+	expect_message(yarn_version())
 	expect_message(yarn_add("browserify"))
+	yarn_install()
+	yarn_upgrade()
+	yarn_remove("browserify")
 	expect_message(yarn_console())
   expect_message(bundle_prod())
 	expect_message(use_loader_style())
