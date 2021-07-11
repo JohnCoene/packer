@@ -268,18 +268,49 @@ loader_msg <- function(loaders){
 #' @keywords internal
 #' @noRd 
 create_ts_config <- function(){
+
+  if(file.exists("tsconfig.json")){
+    cli::cli_alert_info("{.file tsconfig.json} already exists")
+    return()
+  }
+
+  out <- tryCatch(
+    jsonlite::fromJSON("srcjs/config/output_path.json"),
+    error = "./inst/packer"
+  )
+  
+  replace_entry_point()
+
   config <- list(
     compilerOptions = list(
-      outDir = "./dist/", 
+      outDir = out[1], 
       noImplicitAny = TRUE, 
       module = "es6", 
-      target = "es5", 
-      jsx = "react", 
-      allowJs = TRUE
+      target = "es5"
     )
   )
 
-  jsonlite::write_json(config, "tsconfig.json")
+  jsonlite::write_json(config, "tsconfig.json", pretty = TRUE, auto_unbox = TRUE)
   cli::cli_alert_success("Writing {.file tsconfig.json}")
   usethis::use_build_ignore("tsconfig.json")
+}
+
+replace_entry_point <- function(){
+
+  infile <- tryCatch(
+    jsonlite::fromJSON("srcjs/config/entry_points.json"),
+    error = NULL
+  )
+
+  if(is.null(infile))
+    return()
+
+  nms <- names(infile)
+  infile <- gsub("\\.js", "\\.ts", infile)
+  names(infile) <- nms
+
+  infile <- as.list(infile)
+
+  jsonlite::write_json(infile, "srcjs/config/entry_points.json", pretty = TRUE, auto_unbox = TRUE)
+
 }

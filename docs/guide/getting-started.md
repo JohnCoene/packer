@@ -10,7 +10,6 @@ usethis::create_package("alerts")
 ```
 
 ```
-❯ Rscript -e "usethis::create_package('alerts')"                               
 ✔ Creating 'alerts/'
 ✔ Setting active project to '/Packages/alerts'
 ✔ Creating 'R/'

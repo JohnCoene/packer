@@ -21,9 +21,8 @@ At its core packer consists of functions to scaffold R packages powered by webpa
 
 - Use npm packages with htmlwidgets
 - Create your shiny UI with the pug templating engine
-- Include React in you shiny application
+- Include React/Vue in you shiny application
 - Bundle JavaScript files for golem
-- Use Vue in a shiny app
 - Scope CSS selectors
 - And so much more...
 

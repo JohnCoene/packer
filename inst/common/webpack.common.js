@@ -66,6 +66,9 @@ var options = {
   module: {
     rules: loaders
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   plugins: plugins
 };
 

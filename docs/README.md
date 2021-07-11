@@ -31,7 +31,7 @@ You can read more about the advantages of using webpack with R in the book <a hr
 of chapters on the topic.
 </Note>
 
-## Why use packer?
+### Why use packer?
 
 Packer (thanks to webpack) has numerous advantages:
 
@@ -43,13 +43,22 @@ Packer (thanks to webpack) has numerous advantages:
 
 _Packer presented at WhyR 2020._
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/c9AtMOoJgAM?start=3886" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/c9AtMOoJgAM?start=3886" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Inspiration
+### Companions
 
-The scaffolds are very much inspired by the same functionality from [htmlwidgets](http://www.htmlwidgets.org/) `scaffoldWidget` function and [golem](http://golemverse.org/) `create_golem`.
+Packer is a great companion to the following packages.
 
-## In the wild
+1. [shiny](https://shiny.rstudio.com/)
+2. [htmlwidgets](https://www.htmlwidgets.org/)
+3. [golem](https://golemverse.org/)
+4. [ambiorix](https://ambiorix.john-coene.com/)
+5. [rmarkdown](https://rmarkdown.rstudio.com/)
+
+Feel free to open an issue if you think packer should support
+another package or framework.
+
+### In the wild
 
 _Some real-world examples of packer usage, because 
 reading source code can help._
@@ -69,4 +78,9 @@ The [waiter](https://github.com/JohnCoene/waiter) package and
 
 If you enjoy packer you should explore [reactR](https://github.com/react-R/reactR) which does something very similar to packer to create React-powered widgets and inputs, as well as [vueR](https://github.com/vue-r/vueR) which brings Vue to R.
 
-Also see [parcel](https://parcel.john-coene.com/) to use parcel.js (instead of webpack) for JavaScript with R.
+Also see [parcel](https://parcel.john-coene.com/) to use parcel.js (instead of webpack) for JavaScript with R 
+(though the R package does have all the features of packer).
+
+### Inspiration
+
+The scaffolds are very much inspired by the same functionality from [htmlwidgets](http://www.htmlwidgets.org/) `scaffoldWidget` function and [golem](http://golemverse.org/) `create_golem`.
