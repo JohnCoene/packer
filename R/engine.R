@@ -298,11 +298,6 @@ engine_init <- function(){
   
   engine_run(c("init", "-y"))
 
-  if(engine_get() == "yarn"){
-    usethis::use_build_ignore("yarn.lock")
-    usethis::use_build_ignore(".yarn/")
-  }
-
   cli::cli_alert_success("Initialiased {.var {engine_get()}}")
 }
 

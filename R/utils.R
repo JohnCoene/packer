@@ -22,6 +22,12 @@ ignore_files <- function(){
   usethis::use_build_ignore("webpack.prod.js")
   usethis::use_build_ignore("webpack.common.js")
   usethis::use_git_ignore("node_modules")
+  
+  if(engine_get() == "yarn"){
+    usethis::use_build_ignore("yarn.lock")
+    usethis::use_build_ignore("yarn-error.log")
+    usethis::use_build_ignore(".yarn/")
+  }
 
   cat("\n")
 }
