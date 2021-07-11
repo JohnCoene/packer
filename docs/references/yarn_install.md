@@ -12,6 +12,7 @@ Install and uninstall yarn packages.
 
 ```r
 yarn_add(..., scope = c("dev", "prod"))
+yarn_install()
 yarn_remove(..., scope = c("dev", "prod"))
 ```
 
@@ -22,5 +23,12 @@ Argument      |Description
 ------------- |----------------
 `...`     |     Packages to install or uninstall.
 `scope`     |     Scope of installation or uninstallation, see scopes.
+
+
+## Examples
+
+```r
+yarn_add("browserify")
+```
 
 

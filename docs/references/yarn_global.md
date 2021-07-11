@@ -16,3 +16,17 @@ engine_yarn_set(version = "latest")
 ```
 
 
+## Arguments
+
+Argument      |Description
+------------- |----------------
+`version`     |     Version to set yarn
+
+
+## Examples
+
+```r
+engine_yarn_install()
+```
+
+

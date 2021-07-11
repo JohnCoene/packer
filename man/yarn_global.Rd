@@ -24,3 +24,7 @@ Installs or manage yarn \emph{globally}.
 }
 }
 
+\examples{
+\dontrun{engine_yarn_install()}
+
+}

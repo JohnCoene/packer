@@ -21,7 +21,7 @@ engine_get()
 
 Argument      |Description
 ------------- |----------------
-`engine`     |     The engine to use.
+`engine`     |     The engine to use, npm or yarn.
 
 
 ## Details

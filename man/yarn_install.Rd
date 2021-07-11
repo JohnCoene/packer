@@ -28,3 +28,7 @@ Install and uninstall yarn packages.
 }
 }
 
+\examples{
+\dontrun{yarn_add("browserify")}
+
+}

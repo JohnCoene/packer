@@ -9,10 +9,9 @@
 
 An opinionated framework for using JavaScript with R.
 
-Support for both npm and yarn, see the
+<Badge type="success">New</Badge>Support for both npm and yarn, see the
 [documentation](https://packer.john-coene.com/#/guide/engines)
 and `set_engine`
-<Badge type="success">New</Badge>
 
 ### About
 
@@ -22,9 +21,8 @@ Things you can do with packer:
 
 - Use npm packages with htmlwidgets
 - Create your shiny UI with the pug templating engine
-- Include React in you shiny application
+- Include React/Vue in you shiny application
 - Bundle JavaScript files for golem
-- Use Vue in a shiny app
 - Scope CSS selectors
 - And so much more...
 
@@ -35,7 +33,15 @@ of chapters on the topic.
 
 ## Why use packer?
 
-Packer presented at WhyR 2020.
+Packer (thanks to webpack) has numerous advantages:
+
+- [x] Minify JavaSrcipt and CSS files
+- [x] Easily update dependencies
+- [x] Catch errors at build time
+- [x] Modularise JavaScript code
+- [x] Plenty more
+
+_Packer presented at WhyR 2020._
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c9AtMOoJgAM?start=3886" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -50,6 +56,10 @@ reading source code can help._
 
 There are a few public repositories that make use of packer
 see [Github](https://github.com/search?p=1&q=path%3Asrcjs%2Fconfig&type=Code).
+
+[Julien Barnier](https://github.com/juba) has built the 
+[obsplot package](https://github.com/juba/obsplot) with the
+help of packer.
 
 The [waiter](https://github.com/JohnCoene/waiter) package and
 [g2r](https://github.com/devOpifex/g2r) are also built on top

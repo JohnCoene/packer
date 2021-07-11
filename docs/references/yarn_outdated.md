@@ -15,3 +15,10 @@ yarn_outdated()
 ```
 
 
+## Examples
+
+```r
+yarn_outdated()
+```
+
+

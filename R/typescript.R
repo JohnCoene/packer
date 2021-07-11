@@ -4,7 +4,8 @@
 #' 
 #' @note May not work with npm, yarn is advised.
 #' 
-#' @export 
+#' @keywords internal
+#' @noRd 
 get_shiny_types <- function(){
 	engine <- engine_get()
 
@@ -14,5 +15,5 @@ get_shiny_types <- function(){
 		)
 	}
 
-	engine_install("rstudio/shiny", scope = "dev")
+	engine_install("https://github.com/rstudio/shiny", scope = "dev")
 }

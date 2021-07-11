@@ -9,6 +9,7 @@ callable from outside the bundle.
 - Add `use_loader_style` to easily allow CSS modules. See the
 [documentation](https://packer.john-coene.com/#/guide/style)
 - Add support for yarn via `engine_*` functions.
+- Watch script now default to dev (not prod)
 
 ## packer 0.0.6
 

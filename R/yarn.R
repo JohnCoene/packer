@@ -9,6 +9,9 @@
 #' - `engine_yarn_install`: Installs yarn globally.
 #' - `engine_yarn_set`: Set yarn function.
 #' 
+#' @examples 
+#' \dontrun{engine_yarn_install()}
+#' 
 #' @name yarn_global
 #' @export 
 engine_yarn_install <- function(){
@@ -55,6 +58,9 @@ set_yarn <- function(path = NULL){
 #' * `prod` - Add/remove packages for project with no flag
 #' * `dev` - Installs/Uninstalls dev packages for project with `--dev`
 #' 
+#' @examples 
+#' \dontrun{yarn_add("browserify")}
+#' 
 #' @name yarn_install
 #' @export 
 yarn_add <- function(..., scope = c("dev", "prod")){
@@ -98,12 +104,15 @@ yarn_run <- function(...){
   engine_run(...)
 }
 
-#' Yarn Update
+#' Yarn Upgrade
 #' 
-#' Update yarn dependencies.
+#' Upgrade yarn dependencies.
+#' 
+#' @examples 
+#' \dontrun{yarn_upgrade()}
 #' 
 #' @export
-yarn_update <- function(){
+yarn_upgrade <- function(){
   assert_that(is_yarn())
   results <- engine_update()
   invisible(results)
@@ -112,6 +121,9 @@ yarn_update <- function(){
 #' Yarn Outdated
 #' 
 #' Find outdated dependencies
+#' 
+#' @examples 
+#' \dontrun{yarn_outdated()}
 #' 
 #' @export
 yarn_outdated <- function(){
@@ -123,10 +135,37 @@ yarn_outdated <- function(){
 #' 
 #' Get the version of yarn.
 #' 
+#' @examples 
+#' \dontrun{yarn_version()}
+#' 
 #' @return The semver as a string.
 #' 
 #' @export
 yarn_version <- function(){
   assert_that(is_yarn())
   engine_version()
+}
+
+#' Yarn cache
+#' 
+#' Get the version of yarn.
+#' 
+#' @param ... Arguments to pass to `yarn cache`.
+#' 
+#' @examples 
+#' \dontrun{yarn_cache("clean")}
+#' 
+#' @return The semver as a string.
+#' 
+#' @export
+yarn_cache <- function(...){
+  assert_that(is_yarn())
+  args <- c("cache", ...)
+
+  if(length(args) == 1)
+    stop("Must pass arguments", call. = FALSE)
+
+  output <- engine_run(args)
+  cli::cli_li(output$result) 
+  invisible(output$result)
 }
