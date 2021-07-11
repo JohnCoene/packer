@@ -19,11 +19,11 @@
 engine_set <- function(engine = c("npm", "yarn")){
 	engine <- match.arg(engine)
 
-	cli::cli_alert_info("Temporarily setting {.var PACKER_ENGINE} environment variable to {.var {engine}}")
+	cli::cli_alert_info("Temporarily setting {.envvar PACKER_ENGINE} environment variable to {.field {engine}}")
   
   if(engine == "yarn"){
     cli::cli_alert_danger(
-      "Consider setting the environment variable {.var PACKER_ENGINE} in your ${.file .Renviron} to make this permanent"
+      "Consider setting the environment variable {.envvar PACKER_ENGINE} in your ${.file .Renviron} to make this permanent"
     )
   }
 

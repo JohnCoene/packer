@@ -264,6 +264,9 @@ loader_msg <- function(loaders){
   cli::cli_alert_success("Added loader rule for {.val {loaders}}\n")
 }
 
+#' Basic TypeScript Config
+#' @keywords internal
+#' @noRd 
 create_ts_config <- function(){
   config <- list(
     compilerOptions = list(

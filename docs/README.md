@@ -69,4 +69,4 @@ The [waiter](https://github.com/JohnCoene/waiter) package and
 
 If you enjoy packer you should explore [reactR](https://github.com/react-R/reactR) which does something very similar to packer to create React-powered widgets and inputs, as well as [vueR](https://github.com/vue-r/vueR) which brings Vue to R.
 
-Also see [parcel](https://parcel.john-coene.com/) to use parce.js (instead of webpack) for JavaScript with R.
+Also see [parcel](https://parcel.john-coene.com/) to use parcel.js (instead of webpack) for JavaScript with R.
