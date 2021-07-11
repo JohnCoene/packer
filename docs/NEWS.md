@@ -1,15 +1,17 @@
-## packer 0.0.7.9000
+## packer 0.1.0.9000
 
 - Ensure existing R files are not overwritten is already existing.
 - Added `make_library` to turn the project into a library 
 callable from outside the bundle.
 - Allow `@import` statements for CSS loader
 - Changed improved docs
-- Add `modules` and `import` arguments to CSS loader function.
-- Add `use_loader_style` to easily allow CSS modules. See the
+- Added `modules` and `import` arguments to CSS loader function.
+- Added `use_loader_style` to easily allow CSS modules. See the
 [documentation](https://packer.john-coene.com/#/guide/style)
 - Add support for yarn via `engine_*` functions.
 - Watch script now default to dev (not prod)
+- Added `use_loader_ts` to allow using TypeScript.
+- Added `ts_get_types` and `ts_get_type`.
 
 ## packer 0.0.6
 
