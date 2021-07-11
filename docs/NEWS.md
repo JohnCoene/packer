@@ -8,10 +8,11 @@ callable from outside the bundle.
 - Added `modules` and `import` arguments to CSS loader function.
 - Added `use_loader_style` to easily allow CSS modules. See the
 [documentation](https://packer.john-coene.com/#/guide/style)
-- Add support for yarn via `engine_*` functions.
+- Add support for yarn via `engine_*` and `yarn_*` functions,
+see [documentation](https://packer.john-coene.com/#/guide/engines).
 - Watch script now default to dev (not prod)
-- Added `use_loader_ts` to allow using TypeScript.
-- Added `ts_get_types` and `ts_get_type`.
+- Added `use_loader_ts`, `ts_get_types`, and `ts_get_type`
+for TypeScript integration, see [documentation](https://packer.john-coene.com/#/guide/typescript).
 
 ## packer 0.0.6
 
