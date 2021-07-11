@@ -317,7 +317,7 @@ engine_add_scripts <- function(){
   package$scripts$none <- "webpack --config webpack.dev.js --mode=none"
   package$scripts$development <- "webpack --config webpack.dev.js"
   package$scripts$production <- "webpack --config webpack.prod.js"
-  package$scripts$watch <- "webpack --config webpack.config.js -d --watch"
+  package$scripts$watch <- "webpack --config webpack.dev.js -d --watch"
   save_json(package, "package.json")
   cli::cli_alert_success("Added {.file {engine_get()}} scripts")
 }
