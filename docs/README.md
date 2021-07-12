@@ -70,6 +70,8 @@ see [Github](https://github.com/search?p=1&q=path%3Asrcjs%2Fconfig&type=Code).
 [obsplot package](https://github.com/juba/obsplot) with the
 help of packer.
 
+[DreamRs](https://github.com/dreamRs) have used packer for the [bar](https://github.com/dreamRs/bar) package.
+
 The [waiter](https://github.com/JohnCoene/waiter) package and
 [g2r](https://github.com/devOpifex/g2r) are also built on top
  of packer. There is also [tippy](https://github.com/JohnCoene/tippy), and [sever](https://github.com/JohnCoene/sever).
