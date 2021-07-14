@@ -1,4 +1,4 @@
-## packer 0.1.0.9000
+## packer 0.1.0
 
 - Ensure existing R files are not overwritten is already existing.
 - Added `make_library` to turn the project into a library 
