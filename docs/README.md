@@ -74,7 +74,8 @@ help of packer.
 
 The [waiter](https://github.com/JohnCoene/waiter) package and
 [g2r](https://github.com/devOpifex/g2r) are also built on top
- of packer. There is also [tippy](https://github.com/JohnCoene/tippy), [sever](https://github.com/JohnCoene/sever), and
+ of packer. There is also [tippy](https://github.com/JohnCoene/tippy), [sever](https://github.com/JohnCoene/sever), 
+ [cicerone](https://github.com/JohnCoene/cicerone), and
  [marker](https://github.com/JohnCoene/marker).
 
 ### Related Work
