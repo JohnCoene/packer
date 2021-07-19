@@ -14,6 +14,8 @@ Defines the engine to use with packer.
 ```r
 engine_set(engine = c("npm", "yarn"))
 engine_get()
+engine_adapt()
+engine_which()
 ```
 
 

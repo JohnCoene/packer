@@ -16,7 +16,9 @@ set_npm <- function(path = NULL){
 #' 
 #' Install and uninstall npm packages.
 #' 
-#' @param ... Packages to install or uninstall.
+#' @param ... Packages to install or uninstall. If no packages
+#' are specified then this function install packages in 
+#' `package.json` (useful e.g.: after clone).
 #' @param scope Scope of installation or uninstallation, see scopes.
 #' 
 #' @section Scopes:

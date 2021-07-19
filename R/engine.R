@@ -12,6 +12,15 @@
 #' You can use the function `usethis::edit_r_environ`
 #' to do so.
 #' 
+#' @section Functions:
+#' 
+#' - `engine_set`: Define the engine to use for the project.
+#' - `engine_get`: Retrieve the default engine.
+#' - `engine_which`: Retrieve which engine the project is set
+#' to use-.
+#' - `engine_adapt`: Change the engine to match that of the
+#' poject.
+#' 
 #' @param engine The engine to use, npm or yarn.
 #' 
 #' @name engine
@@ -35,11 +44,72 @@ engine_set <- function(engine = c("npm", "yarn")){
 engine_get <- function(){
 	engine <- Sys.getenv("PACKER_ENGINE", "npm")
 
-	# wrong engine was defined => override
-	if(!engine %in% c("npm", "yarn"))
+	# invalid engine was defined => override
+	if(!engine %in% c("npm", "yarn")){
+    cli::cli_alert_warning(
+      "Invalid engine set (`{.strong {engine}}`), switching to {.strong npm}"
+    )
 		engine <- "npm"
+  }
+
+  project_engine <- engine_which()
+  if(!is.null(project_engine) && project_engine != engine){
+    cli::cli_alert_warning(
+      "Project uses the {.strong {project_engine}} engine"
+    )
+    cli::cli_alert_warning(
+      "Your current engine is set to {.strong {engine}}"
+    )
+    cli::cli_alert_info(
+      "Set the engine to {.strong {project_engine}} which {.var engine_set('{project_engine}')}"
+    )
+  } else {
+    cli::cli_alert_info("Current engine {.strong {engine}}")
+  }
 	
-	return(engine)
+	invisible(engine)
+}
+
+#' @rdname engine
+#' @export 
+engine_adapt <- function(){
+
+  # get engine of project 
+  engine <- engine_which()
+  
+  # compare set engine to default
+  # return specific message if those differs
+  global_default_engine <- Sys.getenv("PACKER_ENGINE")
+  if(!global_default_engine != "" && engine == global_default_engine){
+    cli::cli_alert_success(
+      "This project uses your default engine: {.strong {engine}}"
+    )
+    return(invisible())
+  }
+	
+  # force change the engine
+  Sys.setenv(PACKER_ENGINE = engine)
+
+  cli::cli_alert_warning(
+    "Setting engine to {.strong {engine}} to match project.
+    Use functions starting in {.var {engine}}, e.g.: {.fn {engine}_install}"
+  )
+}
+
+#' @rdname engine
+#' @export 
+engine_which <- function(){
+  # no need to go further
+  if(!file.exists("package.json")){
+    cli::cli_alert_danger("Not a packer project")
+    return(invisible())
+  }
+
+  engine <- "npm"
+  if(file.exists("yarn.lock"))
+    engine <- "yarn"
+
+  return(engine)
 }
 
 #' Set engine

@@ -50,7 +50,7 @@ set_yarn <- function(path = NULL){
 #' 
 #' Install and uninstall yarn packages.
 #' 
-#' @param ... Packages to install or uninstall.
+#' @param ... Packages to install or uninstall. 
 #' @param scope Scope of installation or uninstallation, see scopes.
 #' 
 #' @section Scopes:

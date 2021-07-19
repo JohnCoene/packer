@@ -10,7 +10,9 @@ npm_install(..., scope = c("dev", "prod", "global"))
 npm_uninstall(..., scope = c("dev", "prod", "global"))
 }
 \arguments{
-\item{...}{Packages to install or uninstall.}
+\item{...}{Packages to install or uninstall. If no packages
+are specified then this function install packages in
+\code{package.json} (useful e.g.: after clone).}
 
 \item{scope}{Scope of installation or uninstallation, see scopes.}
 }

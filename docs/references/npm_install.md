@@ -20,7 +20,7 @@ npm_uninstall(..., scope = c("dev", "prod", "global"))
 
 Argument      |Description
 ------------- |----------------
-`...`     |     Packages to install or uninstall.
+`...`     |     Packages to install or uninstall. If no packages are specified then this function install packages in `package.json` (useful e.g.: after clone).
 `scope`     |     Scope of installation or uninstallation, see scopes.
 
 

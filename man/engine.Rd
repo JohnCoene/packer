@@ -4,11 +4,17 @@
 \alias{engine}
 \alias{engine_set}
 \alias{engine_get}
+\alias{engine_adapt}
+\alias{engine_which}
 \title{Set Engine}
 \usage{
 engine_set(engine = c("npm", "yarn"))
 
 engine_get()
+
+engine_adapt()
+
+engine_which()
 }
 \arguments{
 \item{engine}{The engine to use, npm or yarn.}
@@ -27,3 +33,15 @@ of packer will use the defined engine.
 You can use the function \code{usethis::edit_r_environ}
 to do so.
 }
+\section{Functions}{
+
+\itemize{
+\item \code{engine_set}: Define the engine to use for the project.
+\item \code{engine_get}: Retrieve the default engine.
+\item \code{engine_which}: Retrieve which engine the project is set
+to use-.
+\item \code{engine_adapt}: Change the engine to match that of the
+poject.
+}
+}
+

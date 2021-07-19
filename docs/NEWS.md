@@ -1,3 +1,12 @@
+## packer 0.1.1.9000
+
+- Added `put_precommit_hook` to add a pre-commit git hook that 
+ebsure JavaScript files have been minified on commit.
+- Added `engine_adapt` to easily change engine dependending
+on the current project's engine.
+- Added `engine_which` to retrieve which engine the current 
+project is using.
+
 ## packer 0.1.0
 
 - Ensure existing R files are not overwritten is already existing.
