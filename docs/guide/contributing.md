@@ -11,7 +11,8 @@ cd something
 ```
 
 Once the repository cloned one needs to install the dependencies
-that the cloned project uses. This requires using matching the
+that the cloned project uses. This requires, along with many
+other things, requires matching the
 engine the project uses. There are two possible engines `npm`
 (default) or `yarn`. You should run `engine_adapt()` to
 make sure you use the correct engine.
@@ -20,6 +21,11 @@ make sure you use the correct engine.
 ! Setting engine to yarn to match project.
 Use functions starting in `yarn`, e.g.: `yarn_install()`
 ```
+
+<Note type = "tip">
+Remember to run <code>engine_adapt()</code> everytime you 
+reopen this project.
+</Note>
 
 Once you have set the correct engine you can install the
 dependencies the project uses.
