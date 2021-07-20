@@ -51,21 +51,6 @@ engine_get <- function(){
     )
 		engine <- "npm"
   }
-
-  project_engine <- engine_which()
-  if(!is.null(project_engine) && project_engine != engine){
-    cli::cli_alert_warning(
-      "Project uses the {.strong {project_engine}} engine"
-    )
-    cli::cli_alert_warning(
-      "Your current engine is set to {.strong {engine}}"
-    )
-    cli::cli_alert_info(
-      "Set the engine to {.strong {project_engine}} which {.var engine_set('{project_engine}')}"
-    )
-  } else {
-    cli::cli_alert_info("Current engine {.strong {engine}}")
-  }
 	
 	invisible(engine)
 }
