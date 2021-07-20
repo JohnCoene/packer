@@ -6,6 +6,9 @@ ebsure JavaScript files have been minified on commit.
 on the current project's engine.
 - Added `engine_which` to retrieve which engine the current 
 project is using.
+- Added `put_rprofile_adapt` to add `engine_adapt` to the
+`.Rprofile`.
+- Added `checks` to run basic checks on packer projects.
 
 ## packer 0.1.0
 
