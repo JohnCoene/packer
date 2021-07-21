@@ -55,3 +55,12 @@ Or get the development version from Github
 # install.packages("remotes")
 remotes::install_github("JohnCoene/packer")
 ```
+
+## Yarn
+
+By default packer will use npm, you can use yarn instead.
+There is far more on this in the [engine](/#/guide/engines) 
+documentation.
+
+If you want to use yarn you will need to have it installed.
+You can do so with `engine_yarn_install`.
