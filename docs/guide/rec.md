@@ -1,17 +1,23 @@
-# Recommendations
+# Recommended
 
 These are recommendations to make working with webpack and 
 packer slightly easier for yourself and others who may
 want to contribute to your project.
+
+<Note type="tip">
+You can run <code>put_recommended()</code> to use the two
+recommended checks below.
+</Note>
 
 ## Hook
 
 When developing you will want to use `packer::bundle_dev()` to
 include the sourcemap to have useful error messages.
 
-However, you may want to ensure that you do not push the 
-development bundle. You want to make sure that the JavaSript
-files you push to Github are optimisied and minified.
+However, you may want to ensure that you do not commit the 
+development bundle to your version control system. 
+You want to make sure that the JavaSript
+files you push to, say, Github, are optimisied and minified.
 
 You can run `packer::put_precommit_hook()`, this will add a 
 pre-commit hook that will make sure that the JavaScript files

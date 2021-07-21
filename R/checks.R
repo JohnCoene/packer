@@ -10,8 +10,10 @@
 #' 
 #' @export
 put_precommit_hook <- function(){
-	if(!dir.exists(".git"))
-		stop("Not using git", call. = FALSE)
+	if(!dir.exists(".git")){
+		cli::cli_alert_danger("Not using git")
+		return()
+	}
 	
 	file <- pkg_file("hooks/minified.sh")
 	script <- readLines(file)
@@ -63,6 +65,18 @@ put_rprofile_adapt <- function(){
 	content <- c(content, "packer::engine_adapt()")
 
 	writeLines(content, con = rprof)
+}
+
+#' Recommended Checks
+#' 
+#' Recommended checks for packer projects,
+#' runs [put_rprofile_adapt] and 
+#' [put_precommit_hook].
+#' 
+#' @export 
+put_recommended <- function(){
+	put_rprofile_adapt()
+	put_precommit_hook()
 }
 
 #' Checks
