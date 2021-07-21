@@ -76,8 +76,10 @@ engine_adapt <- function(){
   Sys.setenv(PACKER_ENGINE = engine)
 
   cli::cli_alert_warning(
-    "Setting engine to {.strong {engine}} to match project.
-    Use functions starting in {.var {engine}}, e.g.: {.fn {engine}_install}"
+    "Setting engine to {.strong {engine}} to match project."
+  )
+  cli::cli_alert_info(
+    "Use functions starting in {.var {engine}}, e.g.: {.fn {engine}_install}"
   )
 }
 
