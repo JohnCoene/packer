@@ -50,7 +50,7 @@ scaffold_widget <- function(name, edit = interactive()){
   engine_init()
 
   # install dev webpack + cli
-  webpack_install()
+  core_deps_install()
 
   # create config file
   configure(

@@ -50,7 +50,7 @@ scaffold_input <- function(name, edit = interactive()){
   create_directory("inst/packer", recurse = TRUE)
 
   # install dev webpack + cli
-  webpack_install()
+  core_deps_install()
 
   # create config file
   configure(

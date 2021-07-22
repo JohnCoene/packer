@@ -44,7 +44,7 @@ scaffold_ambiorix <- function(vue = FALSE, use_cdn = TRUE, edit = interactive())
   engine_init()
 
   # install dependencies
-  webpack_install()
+  core_deps_install()
 
   # edit package.json
   engine_add_scripts()

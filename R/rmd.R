@@ -45,7 +45,7 @@ scaffold_rmd <- function(react = FALSE, vue = FALSE, edit = interactive()){
   engine_init()
 
   # install dependencies
-  webpack_install()
+  core_deps_install()
 
   # edit package.json
   engine_add_scripts()

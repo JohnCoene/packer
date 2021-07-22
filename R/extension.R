@@ -49,7 +49,7 @@ scaffold_extension <- function(name, edit = interactive()){
   create_directory("inst/packer", recurse = TRUE)
 
   # install dependencies
-  webpack_install()
+  core_deps_install()
 
   # edit package.json
   engine_add_scripts()
