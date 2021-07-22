@@ -26,10 +26,10 @@ packer::bundle_prod()
 
 The production bundle removes comments, minifies the file, and
 more. Also, in more recent versions of packer,packer sets up
-terser to remove all `console` methods at the exception of `info`,
-`warn`, and `debug`. This is great to include messages in your
-development builds without having to manually delete them to 
-remove them from the production build: webpack takes care of that.
+[terser](https://terser.org/) to remove all `console` methods at
+the exception of `info`, `warn`, and `debug`. This is great to
+include messages in your development builds without having to manually delete them to remove them from the production build:
+webpack takes care of that.
 
 <Note>
 
