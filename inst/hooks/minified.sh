@@ -1,10 +1,13 @@
-LINES=$(wc -l <<PATH>>/*.js)
+FILES=$(ls <<PATH>>/*.js)
 
-for LINE in $LINES
+for FILE in $FILES
 do
-	if [ $LINE -gt 1 ]
-		then
-		echo "JavaScript files not minified, run packer::bundle_prod()"
-		exit 1
-	fi
+  LINES=$(wc -l $FILE)
+  read -ra LINE <<<"$LINES"
+  echo $LINE
+        if [ $LINE -gt 1 ]
+                then
+                echo "JavaScript files not minified, run packer::bundle_prod()"
+                exit 1
+        fi
 done
