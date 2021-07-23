@@ -21,6 +21,36 @@ put_precommit_hook <- function(){
 	usethis::use_git_hook("pre-commit", script)
 }
 
+#' Is minified
+#' 
+#' Checks whether files within a directory are minified.
+#' 
+#' @param dir Directory of files to check
+#' 
+#' @examples 
+#' \dontrun{is_minified("path/to/js-dir")}
+#' 
+#' @export 
+is_minified <- function(dir){
+	files <- list.files(dir, pattern = ".js$")
+
+	if(length(files) == 0)
+		return(invisible())
+	
+	full_paths <- file.path(dir, files)
+
+	locs <- sapply(full_paths, loc, quiet = TRUE)
+
+	for(i in 1:length(locs)){
+		if(locs[i] < 2)
+			next
+
+		cat(1, file = stdout())
+	}
+
+	cat(0, file = stdout())
+}
+
 #' Dynamic Path 
 #' 
 #' Dynamic path based on project
@@ -158,20 +188,19 @@ check_locs <- function(paths){
 	sapply(paths, loc)
 }
 
-loc <- function(path){
-	l <- length(
-		suppressWarnings(
-			readLines(path)
-		)
-	)
-	minified <- as.logical(l)
+loc <- function(path, quiet = FALSE){
+	l <- system2("wc", sprintf("-l %s", path), stdout = TRUE)
+	l <- as.integer(strsplit(l, " ")[[1]][1])
+	minified <- l < 4
 	text <- ifelse(minified, "minified", "not minified")
 
-	fn <- cli::cli_alert_success
-	if(!minified)
-		fn <- cli::cli_alert_warning
+	if(!quiet){
+		fn <- cli::cli_alert_success
+		if(!minified)
+			fn <- cli::cli_alert_warning
 
-	fn("{.file {path}} is {.strong {text}}")
+		fn("{.file {path}} is {.strong {text}}")
+	}
 
 	return(l)
 }
