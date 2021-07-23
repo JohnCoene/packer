@@ -21,7 +21,7 @@ put_precommit_hook <- function(){
 	usethis::use_git_hook("pre-commit", script)
 }
 
-#' Is minified
+#' Minified
 #' 
 #' Checks whether files within a directory are minified.
 #' 
@@ -31,7 +31,7 @@ put_precommit_hook <- function(){
 #' \dontrun{is_minified("path/to/js-dir")}
 #' 
 #' @export 
-is_minified <- function(dir){
+are_minified <- function(dir){
 	files <- list.files(dir, pattern = ".js$")
 
 	if(length(files) == 0)
