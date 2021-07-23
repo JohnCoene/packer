@@ -8,7 +8,7 @@ module.exports = merge(common, {
     minimizer: [new TerserPlugin({
       terserOptions: {
         compress: {
-          pure_funcs: ['console.info', 'console.debug', 'console.warn']
+          pure_funcs: ['console.info', 'console.debug', 'console.warn', 'console.error']
         },
       }
     })],
