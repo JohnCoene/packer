@@ -191,6 +191,48 @@ use_loader_eslint <- function(test = "\\.(js|jsx)$"){
   use_loader_rule("eslint-loader", test)
 }
 
+#' Use Svelte Loader
+#' 
+#' Add the loader svelte
+#' 
+#' @inheritParams style_loaders
+#' 
+#' @export 
+use_loader_svelte <- function(test = "\\.(html|svelte)$"){
+  assert_that(has_scaffold())
+  use_loader_rule(
+    c("svelte", "svelte-loader"), 
+    test, 
+    use = "svelte-loader"
+  )
+
+  # add rule
+  json_path <- "srcjs/config/loaders.json"
+  loaders <- jsonlite::read_json(json_path)
+
+  loader <- list(
+    test = "node_modules\/svelte\/.*\.mjs$",
+    resolve = list(
+      fullySpecified = FALSE
+    )
+  )
+
+  cli::cli_alert_info("Add the following to {.file webpack.common.js}")
+  cat(
+    "
+    resolve: {
+      alias: {
+        svelte: path.resolve('node_modules', 'svelte')
+      },
+      extensions: ['.mjs', '.js', '.svelte'],
+      mainFields: ['svelte', 'browser', 'module', 'main']
+    }\n"
+  )
+
+  loaders <- append(loaders, list(loader))
+  save_json(loaders, json_path)
+}
+
 #' Add a Loader Ruée
 #' 
 #' Adds a loader rule that is not yet implemened in packer.
