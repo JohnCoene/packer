@@ -211,7 +211,7 @@ use_loader_svelte <- function(test = "\\.(html|svelte)$"){
   loaders <- jsonlite::read_json(json_path)
 
   loader <- list(
-    test = "node_modules\/svelte\/.*\.mjs$",
+    test = "node_modules/svelte/.*\\.mjs$",
     resolve = list(
       fullySpecified = FALSE
     )
