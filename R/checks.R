@@ -92,7 +92,7 @@ put_rprofile_adapt <- function(){
 	}
 
 	content <- readLines(rprof)
-	content <- c(content, "packer::engine_adapt()")
+	content <- c(content, "if(requireNamespace('packer', quietly = TRUE)) packer::engine_adapt()")
 
 	writeLines(content, con = rprof)
 }
