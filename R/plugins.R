@@ -105,7 +105,7 @@ add_plugin_vue <- function(){
   if(!any(grepl("require('vue-loader/lib/plugin')", config)))
     config <- c("const VueLoaderPlugin = require('vue-loader/lib/plugin');", config)
 
-  config[grepl("^var plugins = \\[", config)] <- "var plugins = [\nnew VueLoaderPlugin()"
+  config[grepl("^var plugins = \\[", config)] <- "var plugins = [\nnew VueLoaderPlugin(),"
 
   writeLines(config, "webpack.common.js")
 
@@ -158,7 +158,7 @@ add_plugin_eslint <- function(){
   if(!any(grepl("require('eslint-webpack-plugin')", config)))
     config <- c("const ESLintPlugin = require('eslint-webpack-plugin');", config)
 
-  plugin <- "var plugins = [\n  new ESLintPlugin(),"
+  plugin <- "var plugins = [\nnew ESLintPlugin(),"
 
   config[grepl("^var plugins = \\[", config)] <- plugin
 
@@ -180,4 +180,40 @@ add_plugin_eslint <- function(){
   }
 
   cli::cli_alert_success("Added {.val eslint-webpack-plugin} to configuration file")
+}
+
+#' Progressive Web Applications
+#' 
+#' Add the `workbox-webpack-plugin` to the config files.
+#' 
+#' @export 
+add_plugin_workbox <- function(){
+
+  assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
+
+  # read config
+  config <- readLines("webpack.common.js")
+
+  if(!any(grepl("require('workbox-webpack-plugin')", config)))
+    config <- c("const WorkboxPlugin = require('workbox-webpack-plugin');", config)
+
+  config[grepl("^var plugins = \\[", config)] <- "var plugins = [\nnew WorkboxPlugin.GenerateSW({clientsClaim: true, skipWaiting: true,}),"
+
+  writeLines(config, "webpack.common.js")
+  engine_install("eslint", "workbox-webpack-plugin", scope = "dev")
+
+  cli::cli_alert_info("Add the following to your JavaScript (e.g.: {.file index.js})")
+  cat(
+    "
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/www/service-worker.js').then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    }\n"
+  )
+
 }
