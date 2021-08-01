@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import 'shiny';
 
-$(document).on("click", "button.#name#Binding", function(evt) {
+$(document).on("click", "button.#name#Binding", (evt) => {
   // evt.target is the button that was clicked
   var el = $(evt.target);
 
@@ -15,21 +15,21 @@ $(document).on("click", "button.#name#Binding", function(evt) {
 var #name#Binding = new Shiny.InputBinding();
 
 $.extend(#name#Binding, {
-  find: function(scope) {
+  find: (scope) => {
     return $(scope).find(".#name#Binding");
   },
-  getValue: function(el) {
+  getValue: (el) => {
     return parseInt($(el).text());
   },
-  setValue: function(el, value) {
+  setValue: (el, value) => {
     $(el).text(value);
   },
-  subscribe: function(el, callback) {
+  subscribe: (el, callback) => {
     $(el).on("change.#name#Binding", function(e) {
       callback();
     });
   },
-  unsubscribe: function(el) {
+  unsubscribe: (el) => {
     $(el).off(".#name#Binding");
   }
 });

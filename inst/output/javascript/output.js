@@ -4,13 +4,13 @@ import 'shiny';
 var #name#Binding = new Shiny.OutputBinding();
 
 $.extend(#name#Binding, {
-  find: function(scope) {
+  find: (scope) => {
     return $(scope).find(".#name#");
   },
-  getId: function(el){
+  getId: (el) => {
     return el.id;
   },
-  renderValue: function(el, data) {
+  renderValue: (el, data) => {
     $(el).html(data.html);
     $(el).css('color', data.color);
   }
