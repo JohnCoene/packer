@@ -9,8 +9,6 @@ project is using.
 - Added `put_rprofile_adapt` to add `engine_adapt` to the
 `.Rprofile`.
 - Added `checks` to run basic checks on packer projects.
-- Production build uses terser plugin by default for better
-customisation, e.g.: removing `console.log`.
 - Added `use_loader_svelte`.
 
 ## packer 0.1.0

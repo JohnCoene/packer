@@ -51,7 +51,6 @@ core_deps_install <- function(){
   scaffolded <- has_scaffold()
   if(scaffolded) return()
   engine_install("webpack", "webpack-cli", "webpack-merge", scope = "dev")
-  engine_install("terser-webpack-plugin", scope = "dev")
 }
 
 # create directory
