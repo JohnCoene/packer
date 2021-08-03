@@ -23,7 +23,7 @@ if you want to customise things further.
 
 Once this done, one can add documentation to the JavaScript code.
 
-```r
+```js
 /**
  * Adds one to a number
  * @param {number} x - A number.
