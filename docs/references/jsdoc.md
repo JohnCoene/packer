@@ -1,4 +1,4 @@
-# `add_plugin_jsdoc`
+# `jsdoc`
 
 Add Plugin jsdoc
 
@@ -14,6 +14,7 @@ Add the [jsdoc](https://github.com/jsdoc/jsdoc)
 
 ```r
 add_plugin_jsdoc(edit = interactive())
+add_jsdoc_tutorial(name, edit = interactive())
 ```
 
 
@@ -21,6 +22,7 @@ add_plugin_jsdoc(edit = interactive())
 
 Argument      |Description
 ------------- |----------------
-`edit`     |     Whether to edit the configuration file.
+`edit`     |     Whether to open relevent file.
+`name`     |     Name of tutorial
 
 

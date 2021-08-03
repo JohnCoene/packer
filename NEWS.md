@@ -12,7 +12,8 @@ project is using.
 - Added `use_loader_svelte`.
 - Added `add_plugin_workbox` for progressive web applications.
 - Added `add_plugin_jsdoc` for generating documentation from
-JavaScript code à la roxygen2.
+JavaScript code à la roxygen2, as well as `add_jsdoc_tutorial`
+to add vignettes-like documents.
 
 ## packer 0.1.0
 

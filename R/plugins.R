@@ -223,7 +223,10 @@ add_plugin_workbox <- function(){
 #' plugin to generate documentation from JavaScript code
 #' with tags similar to roxygen2.
 #' 
-#' @param edit Whether to edit the configuration file.
+#' @param name Name of tutorial
+#' @param edit Whether to open relevent file.
+#' 
+#' @name jsdoc
 #' 
 #' @export 
 add_plugin_jsdoc <- function(edit = interactive()){
@@ -259,6 +262,32 @@ add_plugin_jsdoc <- function(edit = interactive()){
   cli::cli_alert_info("Docs will be placed in {.file jsdoc}")
   usethis::use_build_ignore("jsdoc/")
 
+  # tutorials
+  cli::cli_alert_info("Created {.file tutorials}")
+  fs::dir_create("tutorials")
+  fs::file_create("tutorials/.gitkeep")
+  usethis::use_build_ignore("tutorials/")
+
   if(edit)
     fs::file_show(config_name)
+}
+
+#' @rdname jsdoc
+#' @export 
+add_jsdoc_tutorial <- function(name, edit = interactive()){
+  if(missing(name))
+    stop("Missing `name`", call. = FALSE)
+
+  if(!fs::file_exists("jsdoc.conf.json"))
+    cli::cli_alert_warning("Missing ${.file jsdoc.conf.json}, run {.fn add_plugin_jsdoc}")
+
+  fl <- sprintf("tutorials/%s.markdown", name)
+
+  writeLines(
+    sprintf("# %s\n", tools::toTitleCase(name)),
+    con = fl
+  )
+
+  if(edit)
+    fs::file_show(fl)
 }

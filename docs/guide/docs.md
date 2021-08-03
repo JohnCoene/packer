@@ -2,7 +2,9 @@
 
 Webpack itself doesn't enable documenting but certainly 
 facilitates it. Documenting JavaScript code should be 
-familiar to R programmers as very much resembles roxygen2.
+familiar to R programmers as it very much resembles roxygen2.
+
+## Code
 
 Within the JavaScript code we add special comments and tags,
 just as we do with roxygen2, many of the tags themselves also
@@ -38,3 +40,11 @@ changed in the config).
 The documentation produced is essentially equivalent to a 
 [pkgdown](https://github.com/r-lib/pkgdown/) website for 
 JavaScript code.
+
+## Tutorials
+
+You can also add tutorials, jsdoc's version of 'vignettes' with
+`add_jsdoc_tutorial('websocket')`.
+
+This creates a `.markdown` file, that can be used like any other 
+markdown.
