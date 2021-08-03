@@ -19,7 +19,6 @@ test_that("Extension", {
   expect_message(bundle())
 
   # make library 
-  expect_error(make_library())
   expect_message(make_library("lib"))
 
   setwd(wd)

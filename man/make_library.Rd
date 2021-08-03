@@ -4,10 +4,11 @@
 \alias{make_library}
 \title{Make Library}
 \usage{
-make_library(name, type = "umd")
+make_library(name = "[name]", type = "umd")
 }
 \arguments{
-\item{name}{Name of the library, see details.}
+\item{name}{Name of the library, default recommended,
+see details.}
 
 \item{type}{Type of the library.}
 }
@@ -20,4 +21,9 @@ The functions will be exported
 at the specified \code{name}, e.g.: if
 the name is \code{myLib} then functions can be
 called with \code{myLib.function();}.
+The default (\verb{[name]}) means the name of the exported
+library will be the same as the name of the scaffold.
+This is advised because otherwise, if one has multiple
+scaffold, an absolute will overwrite itself and only
+the last scaffold added will be a valid library.
 }

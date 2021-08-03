@@ -10,7 +10,7 @@ project is using.
 `.Rprofile`.
 - Added `checks` to run basic checks on packer projects.
 - Added `use_loader_svelte`.
-- Added `add_plugin_pwa` for progressive web applications.
+- Added `add_plugin_workbox` for progressive web applications.
 - Added `add_plugin_jsdoc` for generating documentation from
 JavaScript code à la roxygen2.
 
