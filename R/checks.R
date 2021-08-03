@@ -121,17 +121,22 @@ put_recommended <- function(){
 #' 
 #' @export 
 checks <- function(){
+	cli::cli_h1("Checks")
+
 	path <- hook_get_path()
 	files <- list.files(path, pattern = ".js$")
 	full_paths <- file.path(path, files)
 
 	# lines of code
+	cli::cli_h2("Minification")
 	locs <- check_locs(full_paths)
 
 	# has .Rprofile
+	cli::cli_h2(".Rprofile")
 	rprofile_check <- check_rprofile()
 
 	# has precommit hook
+	cli::cli_h2("Precommit hook")
 	precommit_check <- check_precommit()
 
 	invisible(
