@@ -257,7 +257,7 @@ add_plugin_jsdoc <- function(edit = interactive()){
 
   # output
   cli::cli_alert_info("Docs will be placed in {.file jsdoc}")
-  usethis::use_build_ignore("jsdoc")
+  usethis::use_build_ignore("jsdoc/")
 
   if(edit)
     fs::file_show(config_name)
