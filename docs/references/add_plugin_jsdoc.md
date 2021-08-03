@@ -13,7 +13,14 @@ Add the [jsdoc](https://github.com/jsdoc/jsdoc)
 ## Usage
 
 ```r
-add_plugin_jsdoc()
+add_plugin_jsdoc(edit = interactive())
 ```
+
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+`edit`     |     Whether to edit the configuration file.
 
 

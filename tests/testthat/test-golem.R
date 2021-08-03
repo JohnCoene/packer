@@ -15,6 +15,8 @@ test_that("Golem Bare", {
   expect_message(add_plugin_html(use_pug = TRUE))
   expect_message(add_plugin_prettier())
   expect_message(add_plugin_eslint())
+  expect_message(add_plugin_jsdoc(FALSE))
+  expect_message(add_plugin_pwa())
   setwd(wd)
   delete_tmp_package(pkg)
 })

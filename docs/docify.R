@@ -41,4 +41,4 @@ json <- purrr::map(files, function(x){
 
 json <- jsonlite::toJSON(json, pretty = FALSE, auto_unbox = TRUE)
 
-cat(json)
+cat(json, "\n")

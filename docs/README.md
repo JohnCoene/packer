@@ -33,12 +33,16 @@ of chapters on the topic.
 
 ### Why use packer?
 
-Packer (thanks to webpack) has numerous advantages:
+Packer (thanks to webpack) has numerous advantages.
+In essence, it's a bit like the difference between a set of 
+R scripts and an R package. An R package enables testing,
+documenting, structuring, and more.
 
 - [x] Minify JavaSrcipt and CSS files
 - [x] Easily update dependencies
 - [x] Catch errors at build time
 - [x] Modularise JavaScript code
+- [x] Document JavaScript code
 - [x] Plenty more
 
 _Packer presented at WhyR 2020._
