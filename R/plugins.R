@@ -240,7 +240,7 @@ add_plugin_jsdoc <- function(edit = interactive()){
   if(!any(grepl("require('jsdoc-webpack-plugin')", config)))
     config <- c("const JsDocPlugin = require('jsdoc-webpack-plugin');", config)
 
-  plugin <- "var plugins = [\n  new JsDocPlugin({conf: 'jsdoc.conf.json', preserveTmpFile: false, recursive: true}),"
+  plugin <- "var plugins = [\n  new JsDocPlugin({conf: 'jsdoc.conf.json', cwd: '.', preserveTmpFile: false, recursive: true}),"
 
   config[grepl("^var plugins = \\[", config)] <- plugin
 
