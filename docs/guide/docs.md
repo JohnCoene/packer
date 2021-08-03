@@ -4,6 +4,9 @@ Webpack itself doesn't enable documenting but certainly
 facilitates it. Documenting JavaScript code should be 
 familiar to R programmers as it very much resembles roxygen2.
 
+An example of the documentation produced for the 
+[waiter](https://waiter.john-coene.com/jsdoc/) package.
+
 ## Code
 
 Within the JavaScript code we add special comments and tags,
