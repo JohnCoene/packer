@@ -1,0 +1,10 @@
+{
+	"opts" : {
+		"destination": "./jsdoc"
+	},
+	"source": {
+		"include": "srcjs/",
+		"exclude": "/node_modules",
+		"includePattern": ".+\\.js(doc|x)?$"
+	}
+}

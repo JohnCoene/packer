@@ -215,5 +215,50 @@ add_plugin_workbox <- function(){
       });
     }\n"
   )
+}
 
+#' Add Plugin jsdoc
+#' 
+#' Add the [jsdoc](https://github.com/jsdoc/jsdoc) 
+#' plugin to generate documentation from JavaScript code
+#' with tags similar to roxygen2.
+#' 
+#' @param edit Whether to edit the configuration file.
+#' 
+#' @export 
+add_plugin_jsdoc <- function(edit = interactive()){
+
+  assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
+  assert_that(!fs::file_exists("jsdoc.conf.json"), msg = "Cannot find config file")
+
+  # install base
+  engine_install("jsdoc", "jsdoc-webpack-plugin", scope = "dev")
+
+  # read config
+  config <- readLines("webpack.common.js")
+
+  if(!any(grepl("require('jsdoc-webpack-plugin')", config)))
+    config <- c("const JsDocPlugin = require('jsdoc-webpack-plugin');", config)
+
+  plugin <- "var plugins = [\n  new JsDocPlugin({conf: 'jsdoc.conf.json', preserveTmpFile: false, recursive: true}),"
+
+  config[grepl("^var plugins = \\[", config)] <- plugin
+
+  writeLines(config, "webpack.common.js")
+
+  cli::cli_alert_success("Added {.val jsdoc-webpack-plugin} to configuration file")
+
+  # handle config file
+  config_name <- "jsdoc.conf.json"
+  cli::cli_alert_info("Created {.file {config_name}}")
+  template <- pkg_file("jsdoc/conf.json")
+  fs::file_copy(template, config_name)
+  usethis::use_build_ignore(config_name)
+
+  # output
+  cli::cli_alert_info("Docs will be placed in {.file jsdoc}")
+  usethis::use_build_ignore("jsdoc")
+
+  if(edit)
+    fs::file_show(config_name)
 }
