@@ -11,6 +11,8 @@
 #' this is passed to [apply_react()] or [apply_vue()] if `react` or 
 #' `vue` arguments are set to `TRUE` and ignored otherwise.
 #' 
+#' @importFrom cli cli_alert_info
+#' 
 #' @details Only one of `react` or `vue` can be set to `TRUE`.
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
@@ -56,6 +58,7 @@ scaffold_leprechaun <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit
   edit_files(edit, "srcjs/index.js")
 
   # wrap up
+  cli_alert_info("Run {.code leprechaun::plugin_packer()}")
   end_msg()
   
   invisible(TRUE)
