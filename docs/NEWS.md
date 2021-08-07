@@ -14,6 +14,8 @@ project is using.
 - Added `add_plugin_jsdoc` for generating documentation from
 JavaScript code à la roxygen2, as well as `add_jsdoc_tutorial`
 to add vignettes-like documents.
+- Added `scaffold_leprechaun` to scaffold an application for
+a leprechaun project.
 
 ## packer 0.1.0
 

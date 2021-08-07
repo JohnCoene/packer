@@ -53,7 +53,8 @@ Packer is a great companion to the following packages.
 2. [htmlwidgets](https://www.htmlwidgets.org/)
 3. [golem](https://golemverse.org/)
 4. [ambiorix](https://ambiorix.john-coene.com/)
-5. [rmarkdown](https://rmarkdown.rstudio.com/)
+5. [leprechaun](https://github.com/devOpifex/leprechaun)
+6. [rmarkdown](https://rmarkdown.rstudio.com/)
 
 Feel free to open an issue if you think packer should support
 another package or framework.

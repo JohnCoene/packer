@@ -133,3 +133,12 @@ is_ambiorix <- function(){
 assertthat::on_failure(is_ambiorix) <- function(call, env){
   stop("Not an ambiorix app, see `ambiorix.generator` package", call. = FALSE)
 }
+
+# check that it is a leprechaun package
+is_golem <- function(){
+  fs::file_exists(".leprechaun")
+}
+
+assertthat::on_failure(is_golem) <- function(call, env){
+  stop("Not a leprechaun app, see `leprechaun::scaffold_leprechaun`", call. = FALSE)
+}
