@@ -38,7 +38,7 @@ scaffold_leprechaun <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit
 
   # set up dir for leprechaun
   # only create dir if vue or react
-  golem_files(react, vue)
+  leprechaun_files(react, vue)
 
   # create config file
   configure(
