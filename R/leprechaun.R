@@ -58,8 +58,8 @@ scaffold_leprechaun <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit
   edit_files(edit, "srcjs/index.js")
 
   # wrap up
-  cli_alert_info("Run {.code leprechaun::plugin_packer()}")
   end_msg()
+  cli_alert_info("Run {.code leprechaun::plugin_packer()}")
   
   invisible(TRUE)
 }
