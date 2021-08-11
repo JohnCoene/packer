@@ -42,7 +42,7 @@ are_minified <- function(dir){
 	locs <- sapply(full_paths, loc, quiet = TRUE)
 
 	for(i in 1:length(locs)){
-		if(locs[i] < 2)
+		if(locs[i] < 100)
 			next
 
 		cat(1, file = stdout())
