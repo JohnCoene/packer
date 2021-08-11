@@ -91,8 +91,10 @@ put_rprofile_adapt <- function(){
 		fs::file_create(rprof)
 	}
 
+	rprof <- readLines(pkg_file("hooks/rprof.R"))
+
 	content <- readLines(rprof)
-	content <- c(content, "if(requireNamespace('packer', quietly = TRUE)) packer::engine_adapt()")
+	content <- c(content, rprof)
 
 	writeLines(content, con = rprof)
 }
