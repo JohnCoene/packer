@@ -1,4 +1,4 @@
-## packer 0.1.1.9000
+## packer 0.1.1
 
 - Added `put_precommit_hook` to add a pre-commit git hook that 
 ebsure JavaScript files have been minified on commit.
