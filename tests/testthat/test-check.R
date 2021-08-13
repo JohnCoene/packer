@@ -2,7 +2,7 @@ source("../fns.R")
 
 skip_on_cran()
 
-test_that("Leprechaun", {
+test_that("Checks", {
 
   # keep working directory
   wd <- getwd()
@@ -12,10 +12,13 @@ test_that("Leprechaun", {
   # test bare
   pkg <- create_tmp_package()
   setwd(pkg)
-  expect_error(scaffold_leprechaun(edit = FALSE))
-	file.create(".leprechaun")
   expect_output(scaffold_leprechaun(edit = FALSE))
-  expect_error(scaffold_leprechaun(edit = FALSE))
   setwd(wd)
-  delete_tmp_package(pkg)
+	on.exit({
+  	delete_tmp_package(pkg)
+	})
+
+	checks()
+	put_rprofile_adapt()
+	are_minified()
 })
