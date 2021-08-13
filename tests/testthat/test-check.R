@@ -1,6 +1,6 @@
 source("../fns.R")
 
-skip_on_cran()
+# skip_on_cran()
 
 test_that("Checks", {
 
@@ -14,12 +14,11 @@ test_that("Checks", {
   setwd(pkg)
   expect_output(scaffold_input("test", edit = FALSE))
   bundle_dev()
-  setwd(wd)
 	on.exit({
+    setwd(wd)
   	delete_tmp_package(pkg)
 	})
 
 	checks()
-	put_rprofile_adapt()
 	are_minified()
 })
