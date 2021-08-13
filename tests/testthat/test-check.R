@@ -20,5 +20,5 @@ test_that("Checks", {
 	})
 
 	checks()
-	are_minified()
+	expect_error(are_minified())
 })
