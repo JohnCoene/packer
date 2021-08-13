@@ -12,7 +12,8 @@ test_that("Checks", {
   # test bare
   pkg <- create_tmp_package()
   setwd(pkg)
-  expect_output(scaffold_leprechaun(edit = FALSE))
+  expect_output(scaffold_input("test", edit = FALSE))
+  bundle_dev()
   setwd(wd)
 	on.exit({
   	delete_tmp_package(pkg)
