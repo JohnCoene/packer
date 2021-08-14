@@ -173,24 +173,6 @@ use_loader_file <- function(test = "\\.(png|jpe?g|gif)$/i"){
   use_loader_rule("file-loader", test)
 }
 
-#' Use ESlint
-#' 
-#' Adds the [`eslint-loader`](https://github.com/webpack-contrib/eslint-loader) 
-#' to resolve files: `png`, `jpg`, `jpeg`, and `gif`.
-#' 
-#' @inheritParams style_loaders
-#' 
-#' @export 
-use_loader_eslint <- function(test = "\\.(js|jsx)$"){
-  assert_that(has_scaffold())
-  .Deprecated(
-    "add_plugin_eslint",
-    package = "packer",
-    "The loader will soon be deprecated, it is advised to use the plugin instead."
-  )
-  use_loader_rule("eslint-loader", test)
-}
-
 #' Use Svelte Loader
 #' 
 #' Add the loader svelte

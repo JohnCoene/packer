@@ -16,6 +16,7 @@ test_that("Leprechaun", {
 	file.create(".leprechaun")
   expect_output(scaffold_leprechaun(edit = FALSE))
   expect_error(scaffold_leprechaun(edit = FALSE))
+  expect_message(use_loader_svelte())
   setwd(wd)
   delete_tmp_package(pkg)
 })

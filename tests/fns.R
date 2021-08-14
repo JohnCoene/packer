@@ -3,7 +3,7 @@ create_tmp_package <- function(){
   # make sure it's empty
   files <- list.files(tmp)
   sapply(files, empty, dir = tmp)
-  usethis::create_package(tmp)
+  suppressMessages(usethis::create_package(tmp))
   return(tmp)
 }
 
@@ -18,19 +18,19 @@ delete_tmp_package <- function(tmp){
 
 create_tmp_golem <- function(){
   tmp <- tempdir()
-  golem::create_golem(tmp, open = FALSE)
+  suppressMessages(golem::create_golem(tmp, open = FALSE))
   return(tmp)
 }
 
 create_tmp_project <- function(){
   tmp <- tempdir()
-  usethis::create_project(tmp)
+  suppressMessages(usethis::create_project(tmp))
   return(tmp)
 }
 
 create_tmp_ambiorix <- function(){
   tmp <- tempdir()
-  usethis::create_project(tmp)
+  suppressMessages(usethis::create_project(tmp))
   dir.create(sprintf("%s/templates", tmp))
   dir.create(sprintf("%s/assets", tmp))
   file.create(sprintf("%s/app.R", tmp))

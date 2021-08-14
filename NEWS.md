@@ -16,6 +16,8 @@ JavaScript code à la roxygen2, as well as `add_jsdoc_tutorial`
 to add vignettes-like documents.
 - Added `scaffold_leprechaun` to scaffold an application for
 a leprechaun project.
+- Remove `use_loader_eslint`, previously deprecated, see
+`add_plugin_eslint`.
 
 ## packer 0.1.0
 

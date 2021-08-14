@@ -20,5 +20,8 @@ test_that("Checks", {
 	})
 
 	checks()
+  put_rprofile_adapt()
+  checks()
 	expect_error(are_minified())
+  set_npm("")
 })
