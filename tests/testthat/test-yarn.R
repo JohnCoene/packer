@@ -14,8 +14,12 @@ test_that("Yarn", {
 
 	# wrong engine
 	engine_set("npm")
+	expect_message(engine_adapt())
 	expect_error(yarn_add("sth"))
 	engine_set("yarn")
+	expect_message(engine_adapt())
+	expect_is(engine_which(), "character")
+	expect_error(yarn_remove())
 
   # keep working directory
   wd <- getwd()
@@ -34,6 +38,7 @@ test_that("Yarn", {
   expect_message(bundle_prod())
 	expect_message(use_loader_style())
   expect_message(add_plugin_eslint())
+	expect_invisible(engine_get())
 	yarn_outdated()
 	yarn_clean()
 	set_yarn("")

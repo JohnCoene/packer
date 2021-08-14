@@ -16,6 +16,7 @@ test_that("NPM", {
 	expect_message(npm_install())
 	npm_outdated()
   npm_fix()
+	expect_error(npm_uninstall())
 	expect_message(npm_update())
 	expect_message(npm_uninstall('browserify'))
   setwd(wd)
