@@ -16,7 +16,7 @@ test_that("Yarn", {
 	engine_set("npm")
 	expect_error(yarn_add("sth"))
 	engine_set("yarn")
-	expect_is(engine_which(), "character")
+	expect_null(engine_which())
 	expect_error(yarn_remove())
 
   # keep working directory
@@ -26,6 +26,7 @@ test_that("Yarn", {
   pkg <- create_tmp_golem()
   setwd(pkg)
   expect_output(scaffold_golem(edit = FALSE))
+	expect_is(engine_which(), "character")
 	expect_message(engine_yarn_set())
 	expect_message(yarn_version())
 	expect_message(yarn_add("browserify"))
