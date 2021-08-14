@@ -13,6 +13,7 @@ test_that("Widget", {
 
   expect_error(scaffold_widget())
   expect_output(scaffold_widget("writeH1", edit = FALSE))
+  expect_output(scaffold_widget("writeH2", edit = FALSE))
   expect_message(packer::bundle())
 
   setwd(wd)

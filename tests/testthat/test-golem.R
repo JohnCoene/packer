@@ -11,6 +11,7 @@ test_that("Golem Bare", {
   pkg <- create_tmp_golem()
   setwd(pkg)
   expect_output(scaffold_golem(edit = FALSE))
+  expect_error(scaffold_golem(edit = FALSE))
   expect_message(bundle_dev())
   expect_message(add_plugin_html(use_pug = TRUE))
   expect_message(add_plugin_prettier())
