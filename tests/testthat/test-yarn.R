@@ -14,10 +14,8 @@ test_that("Yarn", {
 
 	# wrong engine
 	engine_set("npm")
-	expect_message(engine_adapt())
 	expect_error(yarn_add("sth"))
 	engine_set("yarn")
-	expect_message(engine_adapt())
 	expect_is(engine_which(), "character")
 	expect_error(yarn_remove())
 

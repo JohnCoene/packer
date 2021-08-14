@@ -61,6 +61,10 @@ engine_adapt <- function(){
 
   # get engine of project 
   engine <- engine_which()
+
+  # this is not a packer project
+  if(is.null(engine))
+    return(invisible())
   
   # compare set engine to default
   # return specific message if those differs
