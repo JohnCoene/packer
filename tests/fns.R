@@ -18,7 +18,13 @@ delete_tmp_package <- function(tmp){
 
 create_tmp_golem <- function(){
   tmp <- tempdir()
-  suppressMessages(golem::create_golem(tmp, open = FALSE))
+  suppressMessages(
+    golem::create_golem(
+      tmp, 
+      open = FALSE,
+      check_name = FALSE
+    )
+  )
   return(tmp)
 }
 

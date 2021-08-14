@@ -61,7 +61,7 @@ test_that("Golem no CDN", {
   add_test_file('sth')
   expect_message(bundle())
   expect_message(npm_console())
-  expect_message(engine_run("production"))
+  expect_message(npm_run("production"))
   setwd(wd)
   delete_tmp_package(pkg)
 

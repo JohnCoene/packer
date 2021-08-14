@@ -19,7 +19,7 @@
 #' * [use_loader_style()] - installs and imports `style-loader` and `css-loader` packages as dev. This loader enabled CSS modules.
 #' * [use_loader_sass()] - installs and imports `style-loader`, `css-loader`, and `sass-loader` as dev.
 #' 
-#' @name use_style_loaders
+#' @name use_loader_style
 #' @export
 use_loader_css <- function(test = "\\.css$", import = TRUE, modules = TRUE){
   assert_that(has_scaffold())
@@ -34,14 +34,14 @@ use_loader_css <- function(test = "\\.css$", import = TRUE, modules = TRUE){
   )
 }
 
-#' @rdname use_style_loaders
+#' @rdname use_loader_style
 #' @export
 use_loader_sass <- function(test = "\\.s[ac]ss$/i"){
   assert_that(has_scaffold())
   use_loader_rule(c("style-loader", "css-loader", "sass-loader"), test = test)
 }
 
-#' @rdname use_style_loaders
+#' @rdname use_loader_style
 #' @export
 use_loader_style <- function(test = "\\.css$", import = TRUE, modules = TRUE){
   assert_that(has_scaffold())
@@ -64,7 +64,7 @@ use_loader_style <- function(test = "\\.css$", import = TRUE, modules = TRUE){
 #' 
 #' Adds the loader for the pug templating engine.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' 
 #' @export 
 use_loader_pug <- function(test = "\\.pug$"){
@@ -76,7 +76,7 @@ use_loader_pug <- function(test = "\\.pug$"){
 #' 
 #' Adds the loader for the pug templating engine.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' 
 #' @export 
 use_loader_ts <- function(test = "\\.tsx?$"){
@@ -94,7 +94,7 @@ use_loader_ts <- function(test = "\\.tsx?$"){
 #' 
 #' Adds the loader for babel comiler to the loader configuration file.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' @param use_eslint Whether to also add the ESlint loader.
 #' 
 #' @details The `use_elsint` argument is useful here as loaders have
@@ -116,7 +116,7 @@ use_loader_babel <- function(test = "\\.(js|jsx)$", use_eslint = FALSE){
 #' 
 #' Adds the Vue loader to the loader configuration file.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' 
 #' @details Every time a new version of Vue is released, a corresponding version of `vue-template-compiler` 
 #' is released together. The compiler's version must be in sync with the base Vue package so that `vue-loader`
@@ -137,7 +137,7 @@ use_loader_vue <- function(test = "\\.vue$"){
 #' 
 #' Adds the [`mocha-loader`](https://webpack.js.org/loaders/mocha-loader/) for tests.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' 
 #' @details Excludes `node_modules` by default.
 #' 
@@ -152,7 +152,7 @@ use_loader_mocha <- function(test = "\\.test\\.js$"){
 #' Adds the [`coffee-loader`](https://webpack.js.org/loaders/coffee-loader/) to use
 #' cofeescript.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' 
 #' @details Excludes `node_modules` by default.
 #' 
@@ -167,7 +167,7 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 #' Adds the [`file-loader`](https://webpack.js.org/loaders/file-loader/) 
 #' to resolve files: `png`, `jpg`, `jpeg`, and `gif`.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' 
 #' @export 
 use_loader_file <- function(test = "\\.(png|jpe?g|gif)$/i"){
@@ -179,7 +179,7 @@ use_loader_file <- function(test = "\\.(png|jpe?g|gif)$/i"){
 #' 
 #' Add the loader svelte
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' 
 #' @export 
 use_loader_svelte <- function(test = "\\.(html|svelte)$"){
@@ -221,7 +221,7 @@ use_loader_svelte <- function(test = "\\.(html|svelte)$"){
 #' 
 #' Adds a loader rule that is not yet implemened in packer.
 #' 
-#' @inheritParams use_style_loaders
+#' @inheritParams use_loader_style
 #' @param packages NPM packages (loaders) to install.
 #' @param use Name of the loaders to use for `test`.
 #' @param .name_use Dependending on the webpack config 

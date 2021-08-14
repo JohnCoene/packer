@@ -1,4 +1,4 @@
-# `use_style_loaders`
+# `use_loader_style`
 
 Use Styles Loader
 

@@ -21,5 +21,4 @@ test_that("Checks", {
 
   expect_message(checks())
 	expect_error(are_minified())
-  set_npm("")
 })
