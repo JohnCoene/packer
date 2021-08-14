@@ -1,11 +1,13 @@
-# `style_loaders`
+# `use_style_loaders`
 
-Use Styles
+Use Styles Loader
 
 
 ## Description
 
-Installs loaders and adds relevant configuration rules to `srcjs/config/loaders.json` .
+Installs loaders and adds relevant configuration rules
+ to `srcjs/config/loaders.json` , the function
+ `use_loader_style` is recommended .
 
 
 ## Usage

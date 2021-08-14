@@ -19,9 +19,7 @@ test_that("Checks", {
   	delete_tmp_package(pkg)
 	})
 
-	checks()
-  put_rprofile_adapt()
-  checks()
+  expect_message(checks())
 	expect_error(are_minified())
   set_npm("")
 })
