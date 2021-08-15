@@ -1,6 +1,6 @@
 source("../fns.R")
 
-skip_on_cran()
+# skip_on_cran()
 
 test_that("Input", {
 
@@ -20,6 +20,20 @@ test_that("Input", {
   expect_output(scaffold_input("increment_again", edit = FALSE))
   expect_message(bundle_dev())
   expect_message(use_loader_babel())
+  setwd(wd)
+  delete_tmp_package(pkg)
+})
+
+test_that("Input React", {
+
+  # keep working directory
+  wd <- getwd()
+
+  # test bare
+  pkg <- create_tmp_package()
+  setwd(pkg)
+  expect_output(scaffold_input("incremental", edit = FALSE))
+  expect_message(apply_react())
   setwd(wd)
   delete_tmp_package(pkg)
 })
