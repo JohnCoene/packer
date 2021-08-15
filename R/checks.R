@@ -93,13 +93,13 @@ put_rprofile_adapt <- function(){
 		fs::file_create(rprof)
 	
 	on.exit({
-		cli::cli_alert_success("Added call to {.file .Rprofile}")
+		cli::cli_alert_success("Added call to {.file {rprof}}")
 	})
 
-	rprof <- readLines(pkg_file("hooks/rprof.R"))
+	rprof_tmp <- readLines(pkg_file("hooks/rprof.R"))
 
-	content <- readLines(rprof)
-	content <- c(content, rprof)
+	content <- suppressMessages(readLines(rprof))
+	content <- c(content, rprof_tmp)
 
 	writeLines(content, con = rprof)
 }
@@ -158,10 +158,10 @@ checks <- function(){
 # Check precommit is in place
 check_precommit <- function(){
 	if(!fs::dir_exists(".git"))
-		return()
+		return(invisible())
 	
 	if(!fs::dir_exists(".git/hooks"))
-		return()
+		return(invisible())
 
 	has_check <- FALSE
 	if(fs::file_exists(".git/hooks/pre-commit")){

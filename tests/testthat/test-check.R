@@ -23,9 +23,14 @@ test_that("Checks", {
 	expect_error(are_minified())
   expect_message(bundle_dev())
 	are_minified("inst/packer")
-  expect_invisible(put_precommit_hook())
+  expect_message(put_precommit_hook())
 
   # git
-  system2("git", "init")
-  expect_invisible(put_precommit_hook())
+  usethis::use_git()
+  expect_message(put_precommit_hook())
+  expect_message(put_precommit_hook())
+
+  # rprofile
+  file.create(".Rprofile")
+  put_rprofile_adapt()
 })
