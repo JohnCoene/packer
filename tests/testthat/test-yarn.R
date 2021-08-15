@@ -38,6 +38,7 @@ test_that("Yarn", {
 	expect_message(use_loader_style())
   expect_message(add_plugin_eslint())
 	expect_invisible(engine_get())
+	expect_message(yarn_run("production"))
 	yarn_outdated()
 	yarn_clean()
 	set_yarn("")

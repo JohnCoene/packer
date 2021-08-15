@@ -14,6 +14,7 @@ test_that("Extension", {
   expect_error(scaffold_extension())
   expect_output(scaffold_extension("ext", edit = FALSE))
   expect_error(scaffold_extension("ext", edit = FALSE))
+  file.create("R/ext2.R")
   expect_output(scaffold_extension("ext2", edit = FALSE))
   expect_message(bundle())
   expect_message(use_loader_babel(use_eslint = TRUE))
