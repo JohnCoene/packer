@@ -4,7 +4,7 @@
 \alias{ease_lit}
 \title{Lit}
 \usage{
-ease_lit(ts = TRUE)
+ease_lit(ts = FALSE)
 }
 \arguments{
 \item{ts}{Whether to use TypeScript (recommended).}

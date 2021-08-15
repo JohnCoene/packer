@@ -74,3 +74,35 @@ test_that("Golem no CDN", {
   setwd(wd)
   delete_tmp_package(pkg)
 })
+
+test_that("Golem React", {
+
+  # keep working directory
+  wd <- getwd()
+
+  # test bare
+  pkg <- create_tmp_golem()
+  setwd(pkg)
+  on.exit({
+    setwd(wd)
+    delete_tmp_package(pkg)
+  })
+  expect_output(scaffold_golem(edit = FALSE))
+  expect_output(apply_react())
+})
+
+test_that("Golem Vue", {
+
+  # keep working directory
+  wd <- getwd()
+
+  # test bare
+  pkg <- create_tmp_golem()
+  setwd(pkg)
+  on.exit({
+    setwd(wd)
+    delete_tmp_package(pkg)
+  })
+  expect_output(scaffold_golem(edit = FALSE))
+  expect_output(apply_vue())
+})
