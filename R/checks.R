@@ -12,9 +12,11 @@
 put_precommit_hook <- function(){
 	if(!dir.exists(".git")){
 		cli::cli_alert_danger("Not using git")
-		return()
+		return(invisible())
 	}
-	
+	on.exit({
+		cli::cli_alert_success("Added pre-commit hook")
+	})
 	file <- pkg_file("hooks/minified.sh")
 	script <- readLines(file)
 	script <- hook_edit_path(script)
@@ -87,9 +89,12 @@ hook_edit_path <- function(script){
 #' @export 
 put_rprofile_adapt <- function(){
 	rprof <- ".Rprofile"
-	if(!fs::file_exists(rprof)){
+	if(!fs::file_exists(rprof))
 		fs::file_create(rprof)
-	}
+	
+	on.exit({
+		cli::cli_alert_success("Added call to {.file .Rprofile}")
+	})
 
 	rprof <- readLines(pkg_file("hooks/rprof.R"))
 

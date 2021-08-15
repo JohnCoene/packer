@@ -1,6 +1,6 @@
 source("../fns.R")
 
-skip_on_cran()
+#skip_on_cran()
 
 test_that("Checks", {
 
@@ -21,4 +21,11 @@ test_that("Checks", {
 
   expect_message(checks())
 	expect_error(are_minified())
+  expect_message(bundle_dev())
+	are_minified("inst/packer")
+  expect_invisible(put_precommit_hook())
+
+  # git
+  system2("git", "init")
+  expect_invisible(put_precommit_hook())
 })
