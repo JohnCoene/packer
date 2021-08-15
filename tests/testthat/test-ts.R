@@ -15,6 +15,7 @@ test_that("TypeScript", {
 	expect_message(ts_shiny_types())
 	expect_message(ts_get_type("jquery"))
 	expect_message(ts_get_types("@types/jquery"), version = "3.5.5")
+  expect_message(ease_lit(TRUE))
   setwd(wd)
   delete_tmp_package(pkg)
 })

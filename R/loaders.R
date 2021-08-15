@@ -321,6 +321,13 @@ create_ts_config <- function(){
   usethis::use_build_ignore("tsconfig.json")
 }
 
+#' Replace Entry Points
+#' 
+#' Replaces entry points from JavaScript to TypeScript:
+#' `.js` to `.ts`.
+#' 
+#' @noRd 
+#' @keywords internal
 replace_entry_point <- function(){
 
   infile <- tryCatch(

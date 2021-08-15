@@ -1,3 +1,7 @@
+## packer 0.1.2
+
+- Added `ease_lit` to use [Lit](https://lit.dev) in a project.
+
 ## packer 0.1.1
 
 - Added `put_precommit_hook` to add a pre-commit git hook that 
