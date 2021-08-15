@@ -228,7 +228,7 @@ use_loader_svelte <- function(test = "\\.(html|svelte)$"){
 #' one might want to change the `use` to `loader` or `loaders`.
 #' @param ... Any other options to pass to the rule.
 #' 
-#' @details Reads the `srcsjs/config/loaders.json` and appends the rule.
+#' @details Reads the `srcjs/config/loaders.json` and appends the rule.
 #' 
 #' @export 
 use_loader_rule <- function(packages, test, ..., use = as.list(packages), .name_use = "use"){

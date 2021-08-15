@@ -31,7 +31,7 @@ widget_files <- function(name){
   }
 
   # index
-  if(!fs::file_exists("srcs/index.js"))
+  if(!fs::file_exists("srcjs/index.js"))
     widget_create_index(name)
   else
     widget_update_index(name)

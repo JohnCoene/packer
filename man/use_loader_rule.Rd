@@ -28,5 +28,5 @@ one might want to change the \code{use} to \code{loader} or \code{loaders}.}
 Adds a loader rule that is not yet implemened in packer.
 }
 \details{
-Reads the \code{srcsjs/config/loaders.json} and appends the rule.
+Reads the \code{srcjs/config/loaders.json} and appends the rule.
 }
