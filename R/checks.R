@@ -135,7 +135,6 @@ checks <- function(){
 	full_paths <- file.path(path, files)
 
 	# lines of code
-	cli::cli_h2("Minification")
 	locs <- check_locs(full_paths)
 
 	# has .Rprofile
@@ -145,6 +144,9 @@ checks <- function(){
 	# has precommit hook
 	cli::cli_h2("Precommit hook")
 	precommit_check <- check_precommit()
+
+	# file size
+	check_file_size(full_paths)
 
 	invisible(
 		list(
@@ -197,7 +199,25 @@ check_rprofile <- function(){
 
 # check if files are minified
 check_locs <- function(paths){
+	if(length(paths) == 0)
+		return()
+	
+	cli::cli_h2("Minification")
 	sapply(paths, loc)
+}
+
+check_file_size <- function(paths){
+	if(length(paths) == 0)
+		return()
+	
+	cli::cli_h2("Files size")
+	sapply(paths, size)
+}
+
+size <- function(path){
+	sz <- system2("du", path, stdout = TRUE)
+	k <- strsplit(sz, "\\t")[[1]][1]
+	cli_alert_info("{.file {path}}: {.field {k}} Kb")
 }
 
 loc <- function(path, quiet = FALSE){

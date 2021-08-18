@@ -1,6 +1,7 @@
 ## packer 0.1.2
 
 - Added `ease_lit` to use [Lit](https://lit.dev) in a project.
+- `checks` also returns file size
 
 ## packer 0.1.1
 
