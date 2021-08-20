@@ -68,11 +68,8 @@ engine_adapt <- function(){
   
   # compare set engine to default
   # return specific message if those differs
-  global_default_engine <- Sys.getenv("PACKER_ENGINE")
-  if(!global_default_engine != "" && engine == global_default_engine){
-    cli::cli_alert_success(
-      "This project uses your default engine: {.strong {engine}}"
-    )
+  global_default_engine <- Sys.getenv("PACKER_ENGINE", "npm")
+  if(engine == global_default_engine){
     return(invisible())
   }
 	
