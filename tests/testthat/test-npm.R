@@ -11,7 +11,7 @@ test_that("NPM", {
   pkg <- create_tmp_golem()
   setwd(pkg)
   expect_output(scaffold_golem(edit = FALSE))
-  expect_message(engine_adapt())
+  engine_adapt()
   # no error
 	expect_message(npm_install('browserify'))
 	expect_message(npm_install())
