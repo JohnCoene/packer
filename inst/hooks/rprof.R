@@ -1,4 +1,5 @@
-if(requireNamespace('packer', quietly = TRUE)) 
+if(requireNamespace('packer', quietly = TRUE)){ 
 	packer::engine_adapt()
-else 
+} else {
 	warning("This package requires packer: `install.packages('packer')`")
+}
