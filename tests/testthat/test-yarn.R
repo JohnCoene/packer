@@ -25,6 +25,11 @@ test_that("Yarn", {
   # test bare
   pkg <- create_tmp_golem()
   setwd(pkg)
+	on.exit({
+		set_yarn("")
+		setwd(wd)
+		delete_tmp_package(pkg)
+	})
   expect_output(scaffold_golem(edit = FALSE))
 	expect_message(engine_yarn_set())
 	expect_is(engine_which(), "character")
@@ -41,7 +46,4 @@ test_that("Yarn", {
 	expect_invisible(engine_get())
 	yarn_outdated()
 	yarn_clean()
-	set_yarn("")
-  setwd(wd)
-  delete_tmp_package(pkg)
 })
