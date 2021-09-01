@@ -3,31 +3,45 @@
 \name{tests}
 \alias{tests}
 \alias{include_tests}
+\alias{include_tests_mocha}
+\alias{include_tests_peeky}
 \alias{add_test_file}
 \alias{run_tests}
 \title{Add Tests}
 \usage{
 include_tests(esm = TRUE)
 
+include_tests_mocha(esm = TRUE)
+
+include_tests_peeky()
+
 add_test_file(name)
 
-run_tests()
+run_tests(open = FALSE)
 }
 \arguments{
 \item{esm}{Whether to install \code{esm} and require it for tests (recommended).}
 
 \item{name}{Name of the test file to add, without extension.}
+
+\item{open}{Only valid for "peeky," this will open a development
+UI if \code{TRUE}.}
 }
 \description{
-Adds tests to a project.
+Adds tests to a project, currently supports mocha and peeky,
+see details for more.
 }
 \details{
-Uses \href{https://mochajs.org/}{mocha} and
+\code{include_tests_mocha} uses \href{https://mochajs.org/}{mocha} and
 \href{https://webpack.js.org/loaders/mocha-loader/}{mocha-webpack} and
 creates a directory called \code{testjs} where tests should be placed.
 The function \code{\link[=run_tests]{run_tests()}} will then uses mocha on all the files in
 the \code{testjs} directory. All tests should end with \code{.test.js}. Internally
 \code{\link[=include_tests]{include_tests()}} also runs \code{\link[=use_loader_mocha]{use_loader_mocha()}}.
+\code{include_tests_peeky} uses \href{https://github.com/Akryum/peeky}{peeky}
+it's very similar to mocha but also comes with a development UI
+that can be accessed when running tests by setting \code{open} to
+\code{TRUE}.
 
 Requiring \code{esm} (\code{esm = TRUE}) is recommended as it will allow using the latest
 ESM, e.g.: \code{import} in tests.

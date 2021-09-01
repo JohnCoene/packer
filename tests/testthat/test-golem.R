@@ -58,7 +58,7 @@ test_that("Golem no CDN", {
   expect_output(scaffold_golem(react = TRUE, use_cdn = FALSE, edit = FALSE))
   expect_error(add_test_file())
   expect_error(add_test_file('sth'))
-  expect_message(include_tests())
+  expect_message(include_tests_mocha())
   add_test_file('sth')
   expect_message(bundle())
   expect_message(npm_console())
