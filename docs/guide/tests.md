@@ -12,6 +12,12 @@ With a package and scaffold one can add tests with
 one of two frameworks, [mocha](https://mochajs.org/),
 and [peeky](https://github.com/Akryum/peeky).
 
+Both frameworks are similar but __exclusive,__ use
+one or the other. The main difference between the
+two is that peeky provides an UI report to visualise
+the tests. It's however relatively new, mocha is mature
+and well tested.
+
 ## Mocha
 
 First, setup initial support for tests using mocha.
@@ -68,10 +74,11 @@ Test
 
 ## Peeky
 
+First, setup initial support for tests using peeky.
 
-
-You can add tests by creating a file yourself or 
-use `packer::add_test_file()`
+```r
+packer::include_tests_peeky()
+```
 
 ```
 ✔ Created testjs directory
@@ -84,3 +91,25 @@ use `packer::add_test_file()`
 ✔ Added npm test script
 ℹ Use `run_tests` to run the tests
 ```
+
+This creates a template test file in `testjs/`.
+
+```js
+describe('Example test suite', () => {
+  test('must work', () => {
+    expect(42).toBe(42)
+  })
+})
+```
+
+Once done, tests can be run with `run_tests`, setting `open` 
+to `TRUE` opens the UI. 
+
+```r
+run_tests(open = TRUE)
+```
+
+![_media](../_media/peeky.png)
+
+You can add tests by creating a file yourself or 
+use `packer::add_test_file()`
