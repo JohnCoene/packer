@@ -56,7 +56,7 @@ include_tests_mocha <- function(esm = TRUE){
   package$scripts["test:mocha"] <- sprintf("mocha testjs%s", req_esm)
   save_json(package, "package.json")
   cli::cli_alert_success("Added npm test script")
-  cli::cli_alert_info("Use {.code {run_tests}} to run the tests")
+  cli::cli_alert_info("Use {.code run_tests} to run the tests")
 }
 
 #' @rdname tests

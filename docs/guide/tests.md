@@ -66,4 +66,21 @@ Test
 1 failing
 ```
 
-You can add tests by creating a file yourself or use `packer::add_test_file()`
+## Peeky
+
+
+
+You can add tests by creating a file yourself or 
+use `packer::add_test_file()`
+
+```
+✔ Created testjs directory
+✔ @peeky/cli installed with scope "dev"
+
+── Ignoring files ──
+
+✔ Adding '^testjs$' to '.Rbuildignore'
+✔ Adding 'testjs' to '.gitignore'
+✔ Added npm test script
+ℹ Use `run_tests` to run the tests
+```
