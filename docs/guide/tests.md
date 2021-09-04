@@ -8,10 +8,16 @@ usethis::create_package("display")
 packer::scaffold_output("display")
 ```
 
-With a package and scaffold one can add tests.
+With a package and scaffold one can add tests with
+one of two frameworks, [mocha](https://mochajs.org/),
+and [peeky](https://github.com/Akryum/peeky).
+
+## Mocha
+
+First, setup initial support for tests using mocha.
 
 ```r
-packer::include_tests()
+packer::include_tests_mocha()
 ```
 
 ```

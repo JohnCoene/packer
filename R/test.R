@@ -80,7 +80,7 @@ include_tests_peeky <- function(){
   package$scripts["test:peeky-open"] <- "peeky open"
   save_json(package, "package.json")
   cli::cli_alert_success("Added npm test script")
-  cli::cli_alert_info("Use {.code {run_tests}} to run the tests")
+  cli::cli_alert_info("Use {.code run_tests} to run the tests")
 }
 
 #' @name tests
