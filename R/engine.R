@@ -383,7 +383,7 @@ engine_add_scripts <- function(){
 #' @noRd 
 engine_update <- function(){
 
-  engine_update_msgs()
+  engine_update_msgs(parent.frame())
 
 	cmd <- engine_update_cmd()
   results <- engine_run(cmd)
@@ -393,13 +393,14 @@ engine_update <- function(){
   invisible(results)
 }
 
-engine_update_msgs <- function(){
+engine_update_msgs <- function(env = parent.frame()){
   
   if(engine_get() == "npm"){
     cli::cli_process_start(
       "Updating",
       "Updated",
-      "Failed to update"
+      "Failed to update",
+      .envir = env
     )
     return()
   }
@@ -407,7 +408,8 @@ engine_update_msgs <- function(){
   cli::cli_process_start(
     "Upgrading",
     "Upgraded",
-    "Failed to upgrade"
+    "Failed to upgrade",
+    .envir = env
   )
 }
 

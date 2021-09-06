@@ -4,6 +4,7 @@
 - Deprecate `include_tests` (see below)
 - `include_tests_mocha` supercedes `include_tests`
 - Add `include_tests_peeky`.
+- Updating packages prints correct messages.
 
 ## packer 0.1.1
 

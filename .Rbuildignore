@@ -7,3 +7,4 @@
 ^CRAN-RELEASE$
 FUNDING.yml
 ^codecov\.yml$
+^test\.R$
