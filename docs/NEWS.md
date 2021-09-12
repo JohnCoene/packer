@@ -1,7 +1,10 @@
 ## packer 0.1.2
 
 - Added `ease_lit` to use [Lit](https://lit.dev) in a project.
-- `checks` also returns file size
+- Deprecate `include_tests` (see below)
+- `include_tests_mocha` supercedes `include_tests`
+- Add `include_tests_peeky`.
+- Updating packages prints correct messages.
 
 ## packer 0.1.1
 

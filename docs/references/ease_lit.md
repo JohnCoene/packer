@@ -11,7 +11,7 @@ Use [Lit](https://lit.dev) in your project.
 ## Usage
 
 ```r
-ease_lit(ts = TRUE)
+ease_lit(ts = FALSE)
 ```
 
 

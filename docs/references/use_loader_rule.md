@@ -34,6 +34,6 @@ Argument      |Description
 
 ## Details
 
-Reads the `srcsjs/config/loaders.json` and appends the rule.
+Reads the `srcjs/config/loaders.json` and appends the rule.
 
 
