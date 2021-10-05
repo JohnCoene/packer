@@ -58,7 +58,8 @@ Packer is a great companion to the following packages.
 6. [rmarkdown](https://rmarkdown.rstudio.com/)
 
 Feel free to open an issue if you think packer should support
-another package or framework.
+another package or framework. If you just want a simpel support
+for webpack with R you can use the `scaffold_bare`.
 
 ### In the wild
 
