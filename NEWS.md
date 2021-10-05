@@ -5,6 +5,7 @@
 - `include_tests_mocha` supercedes `include_tests`
 - Add `include_tests_peeky`.
 - Updating packages prints correct messages.
+- Added `scaffold_bare` to create empty scaffolds with no code.
 
 ## packer 0.1.1
 

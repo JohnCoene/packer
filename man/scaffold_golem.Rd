@@ -44,7 +44,7 @@ tmp <- tmp_golem()
 # move to package
 setwd(tmp)
 
-# scaffold ambiorix
+# scaffold golem
 scaffold_golem()
 
 # clean up
