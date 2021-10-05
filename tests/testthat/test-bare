@@ -1,0 +1,19 @@
+source("../fns.R")
+
+skip_on_cran()
+
+test_that("Bare", {
+
+  # keep working directory
+  wd <- getwd()
+
+  # test bare
+  pkg <- create_tmp_package()
+  setwd(pkg)
+  on.exit({
+    setwd(wd)
+    delete_tmp_package(pkg)
+  })
+  expect_output(scaffold_bare(edit = FALSE))
+  expect_error(scaffold_bare(edit = FALSE))
+})
