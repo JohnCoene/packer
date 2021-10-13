@@ -23,7 +23,11 @@ apply_framework7 <- function(){
   )
   engine_install("framework7", scope = "prod")
   use_loader_framework7()
-  use_loader_style()
+  # Can't use use_loader_style (fails...)
+  use_loader_rule(
+    c("style-loader", "css-loader"),
+    test = "\\.css$"
+  )
   
   cli::cli_h2("Babel config file")
   babel_config("templates/framework7/_babelrc")
