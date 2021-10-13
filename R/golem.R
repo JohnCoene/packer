@@ -7,11 +7,14 @@
 #' and adapts the `srcjs/index.js` template for React.
 #' @param vue Whether to include Vue, internally runs [apply_vue()] and 
 #' adapts the `srcjs/index.js` template for Vue.
-#' @param use_cdn Whether to use the CDN for react or vue dependencies, 
-#' this is passed to [apply_react()] or [apply_vue()] if `react` or 
-#' `vue` arguments are set to `TRUE` and ignored otherwise.
+#' @param framework7 Whether to include Framework7, internally runs [apply_framework7()] 
+#' and adapts the `srcjs/index.js` template for Framework7.
+#' @param use_cdn Whether to use the CDN for react, vue or Framework7 dependencies, 
+#' this is passed to [apply_react()], [apply_vue()] or [apply_framework7()] if `react`, 
+#' `vue` or `framework7` arguments are set to `TRUE` and ignored otherwise.
 #' 
-#' @details Only one of `react` or `vue` can be set to `TRUE`.
+#' @details Only one of `react`, `vue` or `framework7` can be set to `TRUE`. `use_cdn` is 
+#' not supported for Framework7.
 #' 
 #' @return `TRUE` (invisibly) if successfully run.
 #' 
@@ -35,12 +38,16 @@
 #' }
 #' 
 #' @export
-scaffold_golem <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = interactive()){
+scaffold_golem <- function(react = FALSE, vue = FALSE, framework7 = FALSE, 
+                           use_cdn = TRUE, edit = interactive()){
   # checks
   assert_that(has_engine())
   assert_that(is_golem())
   assert_that(!has_scaffold(), msg = "Only a single golem scaffold is allowed")
-  assert_that(!all(react, vue), msg = "Setup with either react or vue, not both")
+  assert_that(
+    !all(react, vue, framework7), 
+    msg = "Setup with either react, vue or framework7."
+  )
 
   open_msg("golem")
 
@@ -68,8 +75,9 @@ scaffold_golem <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = in
   # ignore files and directories
   ignore_files()
 
-  if(react) apply_react(use_cdn)
-  if(vue) apply_vue(use_cdn)
+  if (react) apply_react(use_cdn)
+  if (vue) apply_vue(use_cdn)
+  if (framework7) apply_framework7()
 
   # edit
   edit_files(edit, "srcjs/index.js")
