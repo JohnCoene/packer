@@ -1,4 +1,4 @@
-import { VdpWidget, initializeVdpWidget } from './widget.f7.jsx';
+import { VdpWidget, initializeWidget } from './widget.f7.jsx';
 
 export default (props, { $f7 }) => {
   const title = 'Hello World';
