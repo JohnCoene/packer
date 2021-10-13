@@ -162,6 +162,22 @@ use_loader_coffee <- function(test = "\\.coffee$"){
   use_loader_rule("coffee-loader", test = test)
 }
 
+
+#' Use Framework7 Loader
+#' 
+#' Adds the [`Framework7`] loader (https://www.npmjs.com/package/framework7-loader).
+#' 
+#' @inheritParams use_loader_style
+#' 
+#' @details Excludes `node_modules` by default.
+#' 
+#' @export 
+use_loader_framework7 <- function(test = "\\.(f7).(html|js|jsx)$"){
+  assert_that(has_scaffold())
+  use_loader_babel()
+  use_loader_rule("framework-loader", test = test)
+}
+
 #' Use File Loader
 #' 
 #' Adds the [`file-loader`](https://webpack.js.org/loaders/file-loader/) 
