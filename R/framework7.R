@@ -27,7 +27,7 @@ apply_framework7 <- function(){
   cli::cli_h2("Template files")
   index <- pkg_file("templates/framework7/framework7.js")
   fs::file_copy(index, "srcjs/index.js")
-  fs::dir_copy("templates/framework7/components", "srcjs/components")
+  fs::dir_copy(pkg_file("templates/framework7/components"), "srcjs/components")
   cli::cli_alert_success("Added template elements")
   
   # only print if project is golem app
