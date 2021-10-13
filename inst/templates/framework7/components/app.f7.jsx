@@ -3,7 +3,7 @@ import { VdpWidget, initializeVdpWidget } from './widget.f7.jsx';
 export default (props, { $f7 }) => {
   const title = 'Hello World';
   
-  initializeVdpWidget($f7);
+  initializeWidget($f7);
   
   return () => (
     <div id="app">

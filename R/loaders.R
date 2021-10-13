@@ -174,7 +174,11 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 #' @export 
 use_loader_framework7 <- function(test = "\\.(f7).(html|js|jsx)$"){
   assert_that(has_scaffold())
-  use_loader_rule("framework7-loader", test = test)
+  use_loader_rule(
+    "framework7-loader", 
+    test = test,
+    use = list("babel-loader", "framework7-loader")
+  )
 }
 
 #' Use File Loader

@@ -12,13 +12,18 @@ apply_framework7 <- function(){
   assert_that(!fs::file_exists("srcjs/index.js"), msg = "`srcjs/index.js` already exists, delete or rename it")
   
   # loader
-  # Framework7 loader + babel ...
+  # Framework7 loader ...
   cli::cli_h2("Framework7 loader, plugin & dependency")
-  use_loader_babel()
-  engine_install("@babel/core", "@babel/preset-env", scope = "dev")
+  engine_install(
+    "babel-loader",
+    "@babel/core", 
+    "@babel/preset-env",
+    "@babel/preset-react",
+    scope = "dev"
+  )
   engine_install("framework7", scope = "prod")
   use_loader_framework7()
-  use_loader_css()
+  use_loader_style()
   
   cli::cli_h2("Babel config file")
   babel_config("templates/framework7/_babelrc")
