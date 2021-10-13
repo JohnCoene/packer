@@ -169,11 +169,17 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 #' 
 #' @inheritParams use_loader_style
 #' 
-#' @details Excludes `node_modules` by default.
+#' @details Excludes `node_modules` by default. If used outside `scaffold_golem`
+#' context, installs the babel-loader in the dev scope. 
 #' 
 #' @export 
 use_loader_framework7 <- function(test = "\\.(f7).(html|js|jsx)$"){
   assert_that(has_scaffold())
+  # If used outside scaffold_golem
+  # we have to install babel loader separately
+  if (!is_golem()) {
+    engine_install("babel-loader", scope = "dev")
+  }
   use_loader_rule(
     "framework7-loader", 
     test = test,

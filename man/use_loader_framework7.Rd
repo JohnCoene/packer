@@ -13,5 +13,6 @@ use_loader_framework7(test = "\\\\.(f7).(html|js|jsx)$")
 Adds the \code{\link{Framework7}} loader (https://www.npmjs.com/package/framework7-loader).
 }
 \details{
-Excludes \code{node_modules} by default.
+Excludes \code{node_modules} by default. If used outside \code{scaffold_golem}
+context, installs the babel-loader in the dev scope.
 }
