@@ -50,18 +50,7 @@ apply_framework7 <- function(){
     cli::cli_alert_warning("Replace/edit your app_server.R:")
     cli::cli_code(ui_code[["server"]])
   }
-  
-  # not sure this will work
-  #if(is_ambiorix()){
-  #  cli::cli_alert_warning("Remember the following")
-  #  cli::cli_ol()
-  #  cli::cli_li("Import framework7")
-  #  vue_ui_code_ambiorix()
-  #  cli::cli_li("Source the bundle in the template")
-  #  cli::cli_code('<script src="static/index.js"></script>')
-  #  cli::cli_li("Create app root in the template")
-  #  cli::cli_code('<div id="app"></div>')
-  #}
+
 }
 
 #' Dependencies for Framework7 in Golem
@@ -79,18 +68,4 @@ framework7_ui_code_golem <- function(){
   server <- format_function_code(file.path(path, "app_server.R"))
   
   list(ui = ui, resources = resources, server = server)
-}
-
-#' Dependencies for Framework7 in Ambiorix
-#' 
-#' Includes dependencies in a shiny application.
-#' 
-#' @noRd
-#' @keywords internal
-framework7_ui_code_ambiorix <- function(){
-  
-  cli::cli_code("import Framework7 from 'framework7'")
-  
-  invisible()
-  
 }
