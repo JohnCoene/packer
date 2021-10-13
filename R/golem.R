@@ -62,7 +62,7 @@ scaffold_golem <- function(react = FALSE, vue = FALSE, framework7 = FALSE,
 
   # set up dir for golem
   # only create dir if vue or react
-  golem_files(react, vue)
+  golem_files(react, vue, framework7)
 
   # create config file
   configure(
