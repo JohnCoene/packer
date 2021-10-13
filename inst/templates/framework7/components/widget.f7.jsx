@@ -1,8 +1,8 @@
-const Widget = (props, { $f7, $update}) => {
+const Widget = (props, { $f7, $update }) => {
   // Handle range change for ODE model computation
   const getRangeValue = (e) => {
     const range = $f7.range.get(e.target);
-    Shiny.setInputValue(range.el.id, range.value);
+    Shiny.setInputValue(range.el.id + '_value', range.value);
     $update();
   };
 
