@@ -11,7 +11,6 @@ use_loader_framework7(test = "\\\\.(f7).(html|js|jsx)$")
 }
 \description{
 Adds the \code{\link{Framework7}} loader (https://www.npmjs.com/package/framework7-loader).
-Also calls \code{use_loader_babel}.
 }
 \details{
 Excludes \code{node_modules} by default.

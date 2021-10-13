@@ -166,7 +166,6 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 #' Use Framework7 Loader
 #' 
 #' Adds the [`Framework7`] loader (https://www.npmjs.com/package/framework7-loader).
-#' Also calls `use_loader_babel`. 
 #' 
 #' @inheritParams use_loader_style
 #' 
@@ -175,7 +174,6 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 #' @export 
 use_loader_framework7 <- function(test = "\\.(f7).(html|js|jsx)$"){
   assert_that(has_scaffold())
-  use_loader_babel()
   use_loader_rule("framework-loader", test = test)
 }
 
