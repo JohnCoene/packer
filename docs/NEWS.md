@@ -9,6 +9,9 @@
 - Add `include_tests_peeky`.
 - Updating packages prints correct messages.
 - Added `scaffold_bare` to create empty scaffolds with no code.
+- Added option to scaffold golem applications with framework7
+[#13](https://github.com/JohnCoene/packer/pull/13)  + added
+respective loader.
 
 ## packer 0.1.1
 
