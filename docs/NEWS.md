@@ -1,3 +1,5 @@
+# Changelog
+
 ## packer 0.1.2
 
 - Few typo in documentation. 
