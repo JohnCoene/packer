@@ -165,7 +165,7 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 
 #' Use Framework7 Loader
 #' 
-#' Adds the [`Framework7`] loader (https://www.npmjs.com/package/framework7-loader).
+#' Adds the [Framework7 loader](https://www.npmjs.com/package/framework7-loader).
 #' 
 #' @inheritParams use_loader_style
 #' 
@@ -175,15 +175,16 @@ use_loader_coffee <- function(test = "\\.coffee$"){
 #' @export 
 use_loader_framework7 <- function(test = "\\.(f7).(html|js|jsx)$"){
   assert_that(has_scaffold())
-  # If used outside scaffold_golem
-  # we have to install babel loader separately
-  if (!is_golem()) {
-    engine_install("babel-loader", scope = "dev")
-  }
+  
+  engine_install("babel-loader", scope = "dev")
+  
   use_loader_rule(
     "framework7-loader", 
     test = test,
-    use = list("babel-loader", "framework7-loader")
+    use = list(
+      "babel-loader", 
+      "framework7-loader"
+    )
   )
 }
 

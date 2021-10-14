@@ -10,7 +10,7 @@ use_loader_framework7(test = "\\\\.(f7).(html|js|jsx)$")
 \item{test}{Test regular expression test which files should be transformed by the loader.}
 }
 \description{
-Adds the \code{\link{Framework7}} loader (https://www.npmjs.com/package/framework7-loader).
+Adds the \href{https://www.npmjs.com/package/framework7-loader}{Framework7 loader}.
 }
 \details{
 Excludes \code{node_modules} by default. If used outside \code{scaffold_golem}

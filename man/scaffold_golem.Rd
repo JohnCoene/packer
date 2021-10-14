@@ -43,7 +43,7 @@ if(interactive()){
 # current directory
 wd <- getwd()
 
-# create a mock up ambiorix project
+# create a mock up golem project
 tmp <- tmp_golem()
 
 # move to package

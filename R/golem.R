@@ -23,7 +23,7 @@
 #' # current directory
 #' wd <- getwd()
 #' 
-#' # create a mock up ambiorix project
+#' # create a mock up golem project
 #' tmp <- tmp_golem()
 #' 
 #' # move to package
@@ -38,8 +38,13 @@
 #' }
 #' 
 #' @export
-scaffold_golem <- function(react = FALSE, vue = FALSE, framework7 = FALSE, 
-                           use_cdn = TRUE, edit = interactive()){
+scaffold_golem <- function(
+  react = FALSE, 
+  vue = FALSE, 
+  framework7 = FALSE, 
+  use_cdn = TRUE, 
+  edit = interactive()
+){
   # checks
   assert_that(has_engine())
   assert_that(is_golem())
