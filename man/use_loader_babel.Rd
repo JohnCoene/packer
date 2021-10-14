@@ -12,7 +12,7 @@ use_loader_babel(test = "\\\\.(js|jsx)$", use_eslint = FALSE)
 \item{use_eslint}{Whether to also add the ESlint loader.}
 }
 \description{
-Adds the loader for babel comiler to the loader configuration file.
+Adds the loader for babel compiler to the loader configuration file.
 }
 \details{
 The \code{use_elsint} argument is useful here as loaders have

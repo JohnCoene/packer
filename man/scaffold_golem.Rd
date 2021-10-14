@@ -7,6 +7,7 @@
 scaffold_golem(
   react = FALSE,
   vue = FALSE,
+  framework7 = FALSE,
   use_cdn = TRUE,
   edit = interactive()
 )
@@ -18,9 +19,12 @@ and adapts the \code{srcjs/index.js} template for React.}
 \item{vue}{Whether to include Vue, internally runs \code{\link[=apply_vue]{apply_vue()}} and
 adapts the \code{srcjs/index.js} template for Vue.}
 
-\item{use_cdn}{Whether to use the CDN for react or vue dependencies,
-this is passed to \code{\link[=apply_react]{apply_react()}} or \code{\link[=apply_vue]{apply_vue()}} if \code{react} or
-\code{vue} arguments are set to \code{TRUE} and ignored otherwise.}
+\item{framework7}{Whether to include Framework7, internally runs \code{\link[=apply_framework7]{apply_framework7()}}
+and adapts the \code{srcjs/index.js} template for Framework7.}
+
+\item{use_cdn}{Whether to use the CDN for react, vue or Framework7 dependencies,
+this is passed to \code{\link[=apply_react]{apply_react()}}, \code{\link[=apply_vue]{apply_vue()}} or \code{\link[=apply_framework7]{apply_framework7()}} if \code{react},
+\code{vue} or \code{framework7} arguments are set to \code{TRUE} and ignored otherwise.}
 
 \item{edit}{Automatically open pertinent files.}
 }
@@ -31,14 +35,15 @@ this is passed to \code{\link[=apply_react]{apply_react()}} or \code{\link[=appl
 Creates the basic structure for golem app with JavaScript.
 }
 \details{
-Only one of \code{react} or \code{vue} can be set to \code{TRUE}.
+Only one of \code{react}, \code{vue} or \code{framework7} can be set to \code{TRUE}. \code{use_cdn} is
+not supported for Framework7.
 }
 \examples{
 if(interactive()){
 # current directory
 wd <- getwd()
 
-# create a mock up ambiorix project
+# create a mock up golem project
 tmp <- tmp_golem()
 
 # move to package

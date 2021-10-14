@@ -2,7 +2,7 @@
 % Please edit documentation in R/loaders.R
 \name{use_loader_rule}
 \alias{use_loader_rule}
-\title{Add a Loader Ruée}
+\title{Add a Loader rule}
 \usage{
 use_loader_rule(
   packages,
@@ -21,11 +21,11 @@ use_loader_rule(
 
 \item{use}{Name of the loaders to use for \code{test}.}
 
-\item{.name_use}{Dependending on the webpack config
+\item{.name_use}{Depending on the webpack config
 one might want to change the \code{use} to \code{loader} or \code{loaders}.}
 }
 \description{
-Adds a loader rule that is not yet implemened in packer.
+Adds a loader rule that is not yet implemented in packer.
 }
 \details{
 Reads the \code{srcjs/config/loaders.json} and appends the rule.

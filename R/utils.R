@@ -288,3 +288,9 @@ which_or_where <- function(){
 
   return("which")
 }
+
+#' @noRd 
+#' @keywords internal
+format_function_code <- function(con) {
+  paste0(readLines(con), collapse = "\n")
+}

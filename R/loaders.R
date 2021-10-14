@@ -92,7 +92,7 @@ use_loader_ts <- function(test = "\\.tsx?$"){
 
 #' Use babel Loader
 #' 
-#' Adds the loader for babel comiler to the loader configuration file.
+#' Adds the loader for babel compiler to the loader configuration file.
 #' 
 #' @inheritParams use_loader_style
 #' @param use_eslint Whether to also add the ESlint loader.
@@ -162,6 +162,32 @@ use_loader_coffee <- function(test = "\\.coffee$"){
   use_loader_rule("coffee-loader", test = test)
 }
 
+
+#' Use Framework7 Loader
+#' 
+#' Adds the [Framework7 loader](https://www.npmjs.com/package/framework7-loader).
+#' 
+#' @inheritParams use_loader_style
+#' 
+#' @details Excludes `node_modules` by default. If used outside `scaffold_golem`
+#' context, installs the babel-loader in the dev scope. 
+#' 
+#' @export 
+use_loader_framework7 <- function(test = "\\.(f7).(html|js|jsx)$"){
+  assert_that(has_scaffold())
+  
+  engine_install("babel-loader", scope = "dev")
+  
+  use_loader_rule(
+    "framework7-loader", 
+    test = test,
+    use = list(
+      "babel-loader", 
+      "framework7-loader"
+    )
+  )
+}
+
 #' Use File Loader
 #' 
 #' Adds the [`file-loader`](https://webpack.js.org/loaders/file-loader/) 
@@ -217,14 +243,14 @@ use_loader_svelte <- function(test = "\\.(html|svelte)$"){
   save_json(loaders, json_path)
 }
 
-#' Add a Loader Ruée
+#' Add a Loader rule
 #' 
-#' Adds a loader rule that is not yet implemened in packer.
+#' Adds a loader rule that is not yet implemented in packer.
 #' 
 #' @inheritParams use_loader_style
 #' @param packages NPM packages (loaders) to install.
 #' @param use Name of the loaders to use for `test`.
-#' @param .name_use Dependending on the webpack config 
+#' @param .name_use Depending on the webpack config 
 #' one might want to change the `use` to `loader` or `loaders`.
 #' @param ... Any other options to pass to the rule.
 #' 

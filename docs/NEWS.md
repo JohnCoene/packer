@@ -1,5 +1,8 @@
 ## packer 0.1.2
 
+- Few typo in documentation. 
+- New `framework7` parameter for `golem_scaffold` to create plug and play Framework7 powered Shiny app. 
+- New `use_loader_framework7` to support [Framework7](https://framework7.io/) projects.
 - Added `ease_lit` to use [Lit](https://lit.dev) in a project.
 - Deprecate `include_tests` (see below)
 - `include_tests_mocha` supercedes `include_tests`

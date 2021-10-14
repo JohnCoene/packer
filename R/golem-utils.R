@@ -7,10 +7,10 @@
 #' 
 #' @noRd 
 #' @keywords internal
-golem_files <- function(react = FALSE, vue = FALSE){
+golem_files <- function(react = FALSE, vue = FALSE, framework7 = FALSE){
   base <- pkg_file("golem/javascript")
 
-  if(any(react, vue))
+  if(any(react, vue, framework7))
     fs::dir_create("srcjs")
   else 
     fs::dir_copy(base, "srcjs")
