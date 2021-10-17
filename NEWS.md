@@ -12,6 +12,9 @@
 - Added option to scaffold golem applications with framework7
 [#13](https://github.com/JohnCoene/packer/pull/13)  + added
 respective loader.
+- Added `engine_check` to check whether npm and/or yarn is 
+currently and can be found: necessary to run anything with 
+packer.
 
 ## packer 0.1.1
 

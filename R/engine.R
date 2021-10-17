@@ -315,6 +315,40 @@ engine_find <- function(){
   path[1]
 }
 
+#' Engine Check
+#' 
+#' Check if the engine is correctly set up and 
+#' prints helpful messages if not.
+#' 
+#' @export 
+engine_check <- function(){
+  path <- engine_find()
+
+  if(is.na(path) || path == ""){
+    cli::cli_alert_danger("Could not find npm!")
+    cli::cli_text("\n")
+    cli::cli_alert("1 Are you sure you installed it?")
+    cli::cli_ul()
+    cli::cli_li("Manual install: {.url https://nodejs.org/en/download/}")
+    cli::cli_li("Package Managers: {.url https://nodejs.org/en/download/package-manager/}")
+    cli::cli_end()
+    cli::cli_text("\n")
+    cli::cli_alert("2 Are you sure it's in your {.var PATH}?")
+    cli::cli_text(
+      "If you have it installed but still see this: make sure ",
+      "your installation of node and npm is in your {.var PATH}. ",
+      "Otherwise you can manually set the path to your npm binary ",
+      "with {.fn engine_set}, e.g.: {.var engine_set('path/to/npm/bin')}"
+    )
+    return(invisible())
+  }
+
+  v <- engine_version()
+  cli::cli_alert_success("All good, using {.field {path}} version {.field {v}}")
+
+  invisible()
+}
+
 #' Engine Run
 #' 
 #' Convenience function to run commands
