@@ -343,8 +343,10 @@ engine_check <- function(){
     return(invisible())
   }
 
-  v <- engine_version()
-  cli::cli_alert_success("All good, using {.field {path}} version {.field {v}}")
+  v <- engine_version(verbose = FALSE)
+  cli::cli_alert_success(
+    "All good, using {.field {path}} version {.field {v}}"
+  )
 
   invisible()
 }
@@ -476,13 +478,18 @@ engine_outdated <- function(){
 #' 
 #' Get the version of the currently set engine.
 #' 
-#' @return The semver as a string.
+#' @param verbose Whether to print the version.
+#' 
+#' @return The semver as a string (invisibly).
 #' 
 #' @keywords internal
 #' @noRd
-engine_version <- function(){
+engine_version <- function(verbose = interactive()){
   output <- engine_run("--version")
   version <- output$result
-  cli::cli_alert(version) 
+
+  if(verbose)
+    cli::cli_alert(version)
+
   invisible(version)
 }

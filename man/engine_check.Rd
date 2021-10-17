@@ -7,5 +7,6 @@
 engine_check()
 }
 \description{
-Engine Check
+Check if the engine is correctly set up and
+prints helpful messages if not.
 }
