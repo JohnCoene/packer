@@ -47,8 +47,6 @@ apply_framework7 <- function(){
     cli::cli_code(ui_code[["ui"]])
     cli::cli_alert_warning("Replace/edit golem_add_external_resources:")
     cli::cli_code(ui_code[["resources"]])
-    cli::cli_alert_warning("Replace/edit your app_server.R:")
-    cli::cli_code(ui_code[["server"]])
   }
 
 }
@@ -65,7 +63,6 @@ framework7_ui_code_golem <- function(){
   resources <- format_function_code(
     file.path(path, "golem_add_external_resources.R")
   )
-  server <- format_function_code(file.path(path, "app_server.R"))
   
-  list(ui = ui, resources = resources, server = server)
+  list(ui = ui, resources = resources)
 }

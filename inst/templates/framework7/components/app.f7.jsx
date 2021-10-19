@@ -1,9 +1,5 @@
-import { Widget, initializeWidget } from './widget.f7.jsx';
-
 export default (props, { $f7 }) => {
   const title = 'Hello World';
-  
-  initializeWidget($f7);
   
   return () => (
     <div id="app">
@@ -22,7 +18,9 @@ export default (props, { $f7 }) => {
             </div>
           </div>
           <div class="page-content">
-            <Widget label="A label"/>
+            <div class="block strong">
+              Page Content
+            </div>
           </div>
         </div>
       </div>
