@@ -69,10 +69,7 @@ assertthat::on_failure(has_scaffold) <- function(call, env){
 
 # check that it is a golem package
 is_golem <- function(){
-  dev <- fs::dir_exists("dev")
-  config <- fs::file_exists("inst/golem-config.yml")
-
-  all(dev, config)
+  fs::file_exists("inst/golem-config.yml")
 }
 
 assertthat::on_failure(is_golem) <- function(call, env){

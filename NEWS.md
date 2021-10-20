@@ -15,6 +15,8 @@ respective loader.
 - Added `engine_check` to check whether npm and/or yarn is 
 currently and can be found: necessary to run anything with 
 packer.
+- Simplify check for packer, no longer requires `dev` directory
+to be present.
 
 ## packer 0.1.1
 
