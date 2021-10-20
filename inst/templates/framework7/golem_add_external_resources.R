@@ -31,11 +31,5 @@ golem_add_external_resources <- function(title){
       content = "#2196f3"
     ),
     tags$title(title)
-    #bundle_resources(
-    #  path = app_sys('app/www'),
-    #  app_title = 'vdpMod'
-    #)
-    # Add here other external resources
-    # for example, you can add shinyalert::useShinyalert() 
   )
 }
