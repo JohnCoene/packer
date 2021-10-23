@@ -5,7 +5,8 @@ Engine Check
 
 ## Description
 
-Engine Check
+Check if the engine is correctly set up and
+ prints helpful messages if not.
 
 
 ## Usage

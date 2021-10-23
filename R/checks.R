@@ -27,7 +27,7 @@ put_test <- function(){
 	test_file <- sprintf("%s/test-packer.R", test_dir)
 	writeLines(template, con = test_file)
 
-	cli::cli_alert_success("Create {.file test_file}")
+	cli::cli_alert_success("Create {.file {test_file}}")
 
 	invisible()
 }
