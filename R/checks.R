@@ -1,3 +1,37 @@
+#' Put a Test
+#' 
+#' Puts a testthat test to ensure the files are 
+#' optimised for prod.
+#' 
+#' @note This function adds packer to `Suggests`.
+#' 
+#' @export 
+put_test <- function(){
+  
+	assert_that(has_scaffold())
+	assert_that(is_project())
+	assert_that(is_installed("testthat"))
+
+  pkg <- get_pkg_name()
+
+	template_path <- system.file("hooks/test.R", package = "packer")
+	template_cnt <- readLines(template_path)
+	template <- gsub("#PKG#", pkg, template_cnt)
+
+	test_dir <- "./tests/testthat"
+	if(!dir.exists(test_dir))
+		usethis::use_testthat()
+
+	usethis::use_package("packer", type = "Suggests")
+
+	test_file <- sprintf("%s/test-packer.R", test_dir)
+	writeLines(template, con = test_file)
+
+	cli::cli_alert_success("Create {.file test_file}")
+
+	invisible()
+}
+
 #' Put Pre-Commit Hook
 #' 
 #' Add a pre-commit hook that runs at every commit
@@ -14,9 +48,11 @@ put_precommit_hook <- function(){
 		cli::cli_alert_danger("Not using git")
 		return(invisible())
 	}
+
 	on.exit({
 		cli::cli_alert_success("Added pre-commit hook")
 	})
+
 	file <- pkg_file("hooks/minified.sh")
 	script <- readLines(file)
 	script <- hook_edit_path(script)
@@ -32,12 +68,13 @@ put_precommit_hook <- function(){
 #' @examples 
 #' \dontrun{is_minified("path/to/js-dir")}
 #' 
-#' @export 
+#' @noRd
+#' @keywords internal
 are_minified <- function(dir){
 	files <- list.files(dir, pattern = ".js$")
 
 	if(length(files) == 0)
-		return(invisible())
+		cat(0, file = stdout())
 	
 	full_paths <- file.path(dir, files)
 
@@ -51,6 +88,28 @@ are_minified <- function(dir){
 	}
 
 	cat(0, file = stdout())
+}
+
+#' @noRd
+#' @keywords internal
+are_minified_r <- function(dir){
+	files <- list.files(dir, pattern = ".js$")
+
+	if(length(files) == 0)
+		return(TRUE)
+	
+	full_paths <- file.path(dir, files)
+
+	locs <- sapply(full_paths, loc, quiet = TRUE)
+
+	for(i in 1:length(locs)){
+		if(locs[i] < 10)
+			next
+
+		return(FALSE)
+	}
+
+	return(TRUE)
 }
 
 #' Dynamic Path 

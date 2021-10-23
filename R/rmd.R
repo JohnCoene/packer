@@ -35,7 +35,7 @@
 scaffold_rmd <- function(react = FALSE, vue = FALSE, edit = interactive()){
   # checks
   assert_that(has_engine())
-  is_project()
+  assert_that(is_project())
   assert_that(!has_scaffold(), msg = "Only a single rmd scaffold is allowed")
   assert_that(!all(react, vue), msg = "Setup with either react or vue, not both")
 

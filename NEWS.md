@@ -17,6 +17,8 @@ currently and can be found: necessary to run anything with
 packer.
 - Simplify check for packer, no longer requires `dev` directory
 to be present.
+- Added `put_test` to add a testthat check to ensure files are
+minified.
 
 ## packer 0.1.1
 

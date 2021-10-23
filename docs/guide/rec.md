@@ -40,6 +40,12 @@ use `put_rprofile_adapt()`.
 This will add `engine_adapt()` to the `.Rprofile` thereby making
 sure that everyone uses the same engine.
 
+## Test
+
+You can also add a [testthat](https://testthat.r-lib.org/) test
+to your package to ensure that the JavaScript files are minified
+with `packer::put_test()`.
+
 ## Checks
 
 You can always run `packer::checks` to see whether the above are
