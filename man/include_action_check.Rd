@@ -7,6 +7,6 @@
 include_action_check()
 }
 \description{
-Adds a Github Action to the package that will bundle
-the JavaScript for production on commit.
+Adds a Github Action to the package that will ensure
+JavaScript files have been bundled for production.
 }
