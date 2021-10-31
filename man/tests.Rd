@@ -2,15 +2,12 @@
 % Please edit documentation in R/test.R
 \name{tests}
 \alias{tests}
-\alias{include_tests}
 \alias{include_tests_mocha}
 \alias{include_tests_peeky}
 \alias{add_test_file}
 \alias{run_tests}
 \title{Add Tests}
 \usage{
-include_tests(esm = TRUE)
-
 include_tests_mocha(esm = TRUE)
 
 include_tests_peeky()

@@ -12,7 +12,6 @@ Adds tests to a project, currently supports mocha and peeky,
 ## Usage
 
 ```r
-include_tests(esm = TRUE)
 include_tests_mocha(esm = TRUE)
 include_tests_peeky()
 add_test_file(name)
