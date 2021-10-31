@@ -19,8 +19,8 @@ packer.
 to be present.
 - Added `put_test` to add a testthat check to ensure files are
 minified.
-- Added `include_action_bundle` to add a Github workflow that 
-bundles the JavaScript on push.
+- Added `include_action_check` to add a Github workflow that 
+checks that the files have been minified on commit.
 
 ## packer 0.1.1
 

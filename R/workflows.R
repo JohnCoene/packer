@@ -4,7 +4,8 @@
 #' the JavaScript for production on commit.
 #' 
 #' @export
-include_action_bundle <- function(){
-	file <- pkg_file("hooks/bundle.yml")
-	fs::file_copy(file, ".github/workflows/packer-bundle.yml")
+include_action_check <- function(){
+	file <- pkg_file("hooks/check.yml")
+	fs::dir_create(".github/workflows", recurse = TRUE)
+	fs::file_copy(file, ".github/workflows/packer-check.yml")
 }
