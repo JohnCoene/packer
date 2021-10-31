@@ -1,4 +1,4 @@
-# `include_action_bundle`
+# `include_action_check`
 
 Github Actions
 
@@ -12,7 +12,7 @@ Adds a Github Action to the package that will bundle
 ## Usage
 
 ```r
-include_action_bundle()
+include_action_check()
 ```
 
 
