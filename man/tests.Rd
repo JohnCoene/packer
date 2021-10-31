@@ -33,8 +33,7 @@ see details for more.
 \href{https://webpack.js.org/loaders/mocha-loader/}{mocha-webpack} and
 creates a directory called \code{testjs} where tests should be placed.
 The function \code{\link[=run_tests]{run_tests()}} will then uses mocha on all the files in
-the \code{testjs} directory. All tests should end with \code{.test.js}. Internally
-\code{\link[=include_tests]{include_tests()}} also runs \code{\link[=use_loader_mocha]{use_loader_mocha()}}.
+the \code{testjs} directory. All tests should end with \code{.test.js}.
 \code{include_tests_peeky} uses \href{https://github.com/Akryum/peeky}{peeky}
 it's very similar to mocha but also comes with a development UI
 that can be accessed when running tests by setting \code{open} to

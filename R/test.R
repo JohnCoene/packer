@@ -12,8 +12,7 @@
 #' [mocha-webpack](https://webpack.js.org/loaders/mocha-loader/) and
 #' creates a directory called `testjs` where tests should be placed.
 #' The function [run_tests()] will then uses mocha on all the files in
-#' the `testjs` directory. All tests should end with `.test.js`. Internally
-#' [include_tests()] also runs [use_loader_mocha()].
+#' the `testjs` directory. All tests should end with `.test.js`. 
 #' `include_tests_peeky` uses [peeky](https://github.com/Akryum/peeky)
 #' it's very similar to mocha but also comes with a development UI
 #' that can be accessed when running tests by setting `open` to
@@ -81,7 +80,7 @@ include_tests_peeky <- function(){
 add_test_file <- function(name){
   assert_that(not_missing(name))
   assert_that(has_scaffold())
-  assert_that(fs::dir_exists("testjs"), msg = "Tests are not setup, see `include_tests`")
+  assert_that(fs::dir_exists("testjs"), msg = "Tests are not setup, see `?include_tests`")
   
   package <- jsonlite::read_json("package.json")
   is_mocha <- any(grepl("mocha", names(package$scripts)))
@@ -103,7 +102,7 @@ add_test_file <- function(name){
 #' @export
 run_tests <- function(open = FALSE){
   assert_that(has_scaffold())
-  assert_that(fs::dir_exists("testjs"), msg = "Tests are not setup, see `include_tests`")
+  assert_that(fs::dir_exists("testjs"), msg = "Tests are not setup, see `?include_tests`")
 
   package <- jsonlite::read_json("package.json")
   is_mocha <- any(grepl("mocha", names(package$scripts)))
