@@ -1,5 +1,6 @@
 # Changelog
-## packer 0.1.2
+
+## packer 0.1.2.9000
 
 - Few typo in documentation. 
 - New `framework7` parameter for `golem_scaffold` to create plug and play Framework7 powered Shiny app. 
@@ -20,6 +21,8 @@ packer.
 to be present.
 - Added `put_test` to add a testthat check to ensure files are
 minified.
+- Added `include_action_bundle` to add a Github workflow that 
+bundles the JavaScript on push.
 
 ## packer 0.1.1
 

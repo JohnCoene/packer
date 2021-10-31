@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  packer_bundle:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@master
+
+      - name: Query dependencies
+        run: |
+          install.packages("remotes")
+          install.packages("packer")
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Install Dependencies
+        run: packer:::engine_install()
+        shell: Rscript {0}
+
+      - name: Build for production
+        run: packer::bundle("prod")
+        shell: Rscript {0}
+
+     - name: Commit
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -A
+          git commit -m 'packer production bundle'
+          git push
