@@ -24,13 +24,6 @@
 #' 
 #' @name tests
 #' @export
-include_tests <- function(esm = TRUE){
-  .Deprecated("include_tests_mocha", package = "packer")
-  include_tests_mocha(esm)
-}
-
-#' @rdname tests
-#' @export
 include_tests_mocha <- function(esm = TRUE){
   assert_that(has_scaffold())
   assert_that(!fs::dir_exists("testjs"), msg = "Unit tests already set up")

@@ -21,6 +21,7 @@ to be present.
 minified.
 - Added `include_action_check` to add a Github workflow that 
 checks that the files have been minified on commit.
+- Remove deprecated `include_tests`.
 
 ## packer 0.1.1
 

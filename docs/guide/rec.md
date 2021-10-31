@@ -40,6 +40,15 @@ use `put_rprofile_adapt()`.
 This will add `engine_adapt()` to the `.Rprofile` thereby making
 sure that everyone uses the same engine.
 
+## Github Actions
+
+You can add a github action to make sure that others (and yourself)
+that make pull requests have bundled the JavaScript files for 
+production. This can be included with 
+`packer::include_action_check()`.
+If the files are not minified the action fails, it succeeds
+otherwise.
+
 ## Test
 
 You can also add a [testthat](https://testthat.r-lib.org/) test
