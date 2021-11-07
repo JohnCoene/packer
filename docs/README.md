@@ -76,12 +76,14 @@ help of packer.
 
 [DreamRs](https://github.com/dreamRs) have used packer for the [bar](https://github.com/dreamRs/bar) package.
 
-The [waiter](https://github.com/JohnCoene/waiter) package and
-[g2r](https://github.com/devOpifex/g2r) are also built on top
- of packer. There is also [tippy](https://github.com/JohnCoene/tippy), [sever](https://github.com/JohnCoene/sever), 
- [cicerone](https://github.com/JohnCoene/cicerone), 
- [awn](https://github.com/JohnCoene/awn), and
- [marker](https://github.com/JohnCoene/marker).
+The [waiter](https://github.com/JohnCoene/waiter) package,
+[g2r](https://github.com/devOpifex/g2r),
+[firebase](https://github.com/JohnCoene/firebase) 
+are also built on top of packer. 
+There is also [tippy](https://github.com/JohnCoene/tippy), [sever](https://github.com/JohnCoene/sever), 
+[cicerone](https://github.com/JohnCoene/cicerone), 
+[awn](https://github.com/JohnCoene/awn), and
+[marker](https://github.com/JohnCoene/marker).
 
 ### Related Work
 
