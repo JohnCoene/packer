@@ -109,7 +109,14 @@ use_loader_babel <- function(test = "\\.(js|jsx)$", use_eslint = FALSE){
 
   pkgs <- c("babel-loader", "@babel/core")
   if(use_eslint) pkgs <- c(pkgs, "eslint-loader")
-  use_loader_rule(pkgs, test = test, exclude = "/node_modules/")
+  use_loader_rule(
+    pkgs, 
+    test = test, 
+    exclude = "/node_modules/",
+    use = list(
+      "babel-loader"
+    )
+  )
 }
 
 #' Use Vue Loader
