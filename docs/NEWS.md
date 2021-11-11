@@ -24,6 +24,7 @@ minified.
 - Added `include_action_check` to add a Github workflow that 
 checks that the files have been minified on commit.
 - Remove deprecated `include_tests`.
+- Fix use of React [#16](https://github.com/JohnCoene/packer/issues/16)
 
 ## packer 0.1.1
 

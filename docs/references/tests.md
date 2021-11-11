@@ -34,8 +34,7 @@ Argument      |Description
  [mocha-webpack](https://webpack.js.org/loaders/mocha-loader/) and
  creates a directory called `testjs` where tests should be placed.
  The function [`run_tests()`](#runtests()) will then uses mocha on all the files in
- the `testjs` directory. All tests should end with `.test.js` . Internally
- [`include_tests()`](#includetests()) also runs [`use_loader_mocha()`](#useloadermocha()) .
+ the `testjs` directory. All tests should end with `.test.js` .
  `include_tests_peeky` uses [peeky](https://github.com/Akryum/peeky) 
  it's very similar to mocha but also comes with a development UI
  that can be accessed when running tests by setting `open` to
