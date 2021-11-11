@@ -76,7 +76,7 @@ react_ui_code <- function(use_cdn = TRUE){
   if(use_cdn)
     cdn <- "reactCDN(),\n  "
 
-  code <- sprintf('tagList(\n  %sdiv(id = "app"),\n  tags$script(src = "www/index.js")\n)', cdn)
+  code <- sprintf('tagList(\n  golem_add_external_resources(),\n  %sdiv(id = "app"),\n  tags$script(src = "www/index.js")\n)', cdn)
 
   cli::cli_code(code)
 }
