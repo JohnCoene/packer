@@ -25,6 +25,8 @@ minified.
 checks that the files have been minified on commit.
 - Remove deprecated `include_tests`.
 - Fix use of React [#16](https://github.com/JohnCoene/packer/issues/16)
+- Fix widget externals configuration where wrong names were
+inserted.
 
 ## packer 0.1.1
 

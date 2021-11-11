@@ -57,7 +57,7 @@ scaffold_widget <- function(name, edit = interactive()){
     name = name, 
     entry_dir = "widgets/", 
     output_dir = "./inst/htmlwidgets", 
-    externals = list(widgets = "HTMLWidgets", "Shiny", "jQuery")
+    externals = list(widgets = "HTMLWidgets", shiny = "Shiny")
   )
 
   # copy original file
