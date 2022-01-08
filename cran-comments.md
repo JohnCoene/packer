@@ -1,9 +1,9 @@
 ## Test environments
 
-* local R installation, R 4.0.1
-* ubuntu 16.04 (on travis-ci), R 4.0.1
+* local R installation, R 4.0.2
+* ubuntu 16.04 (on travis-ci), R 4.0.2
 * win-builder (devel)
-* rhub, R 4.0.1
+* rhub, R 4.0.2
 
 ## R CMD check results
 
