@@ -76,6 +76,8 @@ help of packer.
 
 [DreamRs](https://github.com/dreamRs) have used packer for the [bar](https://github.com/dreamRs/bar) package.
 
+[Ewen](https://github.com/ewenme) has used packer for the [shinya11y](shinya11yhttps://github.com/ewenme/shinya11y) package.
+
 The [waiter](https://github.com/JohnCoene/waiter) package,
 [g2r](https://github.com/devOpifex/g2r),
 [firebase](https://github.com/JohnCoene/firebase) 
