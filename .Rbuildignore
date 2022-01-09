@@ -9,3 +9,4 @@ FUNDING.yml
 ^codecov\.yml$
 ^test\.R$
 ^CRAN-SUBMISSION$
+makefile

@@ -1,3 +1,7 @@
+## packer 0.1.2.9000
+
+- More robust check for appropriate engine in `engine_which`.
+
 ## packer 0.1.2
 
 - Few typo in documentation. 

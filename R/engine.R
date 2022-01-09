@@ -94,7 +94,7 @@ engine_which <- function(){
   }
 
   engine <- "npm"
-  if(file.exists("yarn.lock"))
+  if(file.exists("yarn.lock") || file.exists("yarn-error.log"))
     engine <- "yarn"
 
   return(engine)
