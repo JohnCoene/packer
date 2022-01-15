@@ -74,7 +74,9 @@ see [Github](https://github.com/search?p=1&q=path%3Asrcjs%2Fconfig&type=Code).
 [obsplot package](https://github.com/juba/obsplot) with the
 help of packer.
 
-[DreamRs](https://github.com/dreamRs) have used packer for the [bar](https://github.com/dreamRs/bar) package.
+[DreamRs](https://github.com/dreamRs) have used packer for the 
+[bar](https://github.com/dreamRs/bar) package as well as 
+[shinyvs](https://github.com/dreamRs/shinyvs).
 
 [Ewen](https://github.com/ewenme) has used packer for the [shinya11y](shinya11yhttps://github.com/ewenme/shinya11y) package.
 
