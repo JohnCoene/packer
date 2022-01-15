@@ -9,6 +9,21 @@ You can run <code>put_recommended()</code> to use the two
 recommended checks below.
 </Note>
 
+## Roclet
+
+There are two roclets to bundle the code when documenting the
+package, e.g.: with `devtools::document()`.
+You can pass manually every time you document or edit the 
+`DESCRIPTION` so it is picked up automatically.
+
+```
+Roxygen: list(markdown = TRUE, roclets = c("namespace", "collate", "rd", "packer::prod_roclet"))
+```
+
+Ideally you'd want to use `prod_roclet` as shown above 
+(so the code is optimised for prod), alternatively
+you can use the `dev_roclet`.
+
 ## Hook
 
 When developing you will want to use `packer::bundle_dev()` to

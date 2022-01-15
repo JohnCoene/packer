@@ -1,6 +1,7 @@
 ## packer 0.1.2.9000
 
 - More robust check for appropriate engine in `engine_which`.
+- Added roclets to bundle when documenting (prod & dev).
 
 ## packer 0.1.2
 

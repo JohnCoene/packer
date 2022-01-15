@@ -20,13 +20,14 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports:
     fs,
+    cli,
     usethis,
     jsonlite,
-    htmlwidgets,
-    cli,
-    assertthat,
+    roxygen2,
     rprojroot,
-    rstudioapi
+    rstudioapi,
+    assertthat,
+    htmlwidgets
 URL: https://github.com/JohnCoene/packer, https://packer.john-coene.com
 BugReports: https://github.com/JohnCoene/packer/issues
 Suggests: 
