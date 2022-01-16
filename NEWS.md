@@ -2,6 +2,7 @@
 
 - More robust check for appropriate engine in `engine_which`.
 - Added roclets to bundle when documenting (prod & dev).
+- Added support for tailwind with `use_tailwind`.
 
 ## packer 0.1.2
 

@@ -38,7 +38,10 @@ use_loader_css <- function(test = "\\.css$", import = TRUE, modules = TRUE){
 #' @export
 use_loader_sass <- function(test = "\\.s[ac]ss$/i"){
   assert_that(has_scaffold())
-  use_loader_rule(c("style-loader", "css-loader", "sass-loader"), test = test)
+  use_loader_rule(
+    c("style-loader", "css-loader", "sass-loader"), 
+    test = test
+  )
 }
 
 #' @rdname use_loader_style
