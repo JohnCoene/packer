@@ -11,7 +11,8 @@ An opinionated framework for using JavaScript with R.
 
 ### About
 
-Packer enforces good practice and provides convenience functions to make work with JavaScript not just easier but also scalable. Packer is a robust wrapper for [npm](https://www.npmjs.com/) and [webpack](https://webpack.js.org/) that enables modularising JavaScript code, leveraging npm packages, and much more.
+Packer enforces good practice and provides convenience functions to make work with JavaScript not just easier but also scalable. Packer is a robust wrapper for [npm](https://www.npmjs.com/),
+[yarn](https://yarnpkg.com/) and [webpack](https://webpack.js.org/) that enables modularising JavaScript code, leveraging npm packages, and much more.
 
 Things you can do with packer:
 
