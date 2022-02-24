@@ -5,6 +5,7 @@
 - More robust check for appropriate engine in `engine_which`.
 - Added roclets to bundle when documenting (prod & dev).
 - Added support for tailwind with `use_tailwind`.
+- Modified scaffold for ambiorix to support new version with package form.
 
 ## packer 0.1.2
 

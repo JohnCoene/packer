@@ -53,11 +53,15 @@ scaffold_ambiorix <- function(vue = FALSE, use_cdn = TRUE, edit = interactive())
   # only create dir if vue or react
   ambiorix_files(vue)
 
+  output_dir <- "./assets"
+  if(is_package())
+    output_dir <- "./inst/assets"
+
   # create config file
   configure(
     name = "index", 
     entry_dir = "", 
-    output_dir = "./assets", 
+    output_dir = output_dir, 
     externals = list(ambiorix = "Ambiorix")
   )
 

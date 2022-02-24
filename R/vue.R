@@ -29,14 +29,6 @@ apply_vue <- function(use_cdn = TRUE){
   vue_cdn_function(use_cdn)
   vue_alias()
 
-  # resolve vue compiler
-  # DOES NOT WORK AS STANDALONE JSON
-  #resolve: {
-  #  alias: {
-  #    'vue$': 'vue/dist/vue.esm.js'
-  #  }
-  #}
-
   cli::cli_h2("Babel config file")
   babel_config("templates/vue/_babelrc")
 
