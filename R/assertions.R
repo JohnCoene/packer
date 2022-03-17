@@ -153,6 +153,10 @@ proj_crit <- function() {
 # check that it is an ambiorix app
 is_ambiorix <- function(){
   app <- fs::file_exists("app.R")
+
+  if(!app)
+    return(FALSE)
+
   cnts <- readLines("app.R")
   amb <- grepl("build\\(\\)\\$start\\(\\)", cnts)
   amb <- any(amb)

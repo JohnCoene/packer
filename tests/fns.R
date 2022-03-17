@@ -34,3 +34,15 @@ create_tmp_project <- function(){
   return(tmp)
 }
 
+create_tmp_ambiorix <- function(){
+  tmp <- tempdir()
+  # make sure it's empty
+  files <- list.files(tmp)
+  sapply(files, empty, dir = tmp)
+  suppressMessages(usethis::create_package(tmp))
+  writeLines(
+    "build()$start()",
+    file.path(tmp, "app.R")
+  )
+  return(tmp)
+}
