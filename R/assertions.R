@@ -152,10 +152,12 @@ proj_crit <- function() {
 
 # check that it is an ambiorix app
 is_ambiorix <- function(){
-  dev <- fs::dir_exists("templates")
   app <- fs::file_exists("app.R")
+  cnts <- readLines("app.R")
+  amb <- grepl("build\\(\\)\\$start\\(\\)", cnts)
+  amb <- any(amb)
 
-  all(dev, app)
+  all(amb, app)
 }
 
 assertthat::on_failure(is_ambiorix) <- function(call, env){
