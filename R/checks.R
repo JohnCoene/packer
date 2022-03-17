@@ -123,7 +123,7 @@ hook_get_path <- function(){
 		return("inst/app/www")
 	
 	if(is_ambiorix())
-		return("assets")
+		return("inst/assets")
 
 	return("inst/packer")
 }
