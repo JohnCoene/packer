@@ -8,7 +8,7 @@ test_that("Ambiorix Bare", {
   wd <- getwd()
 
   # test bare
-  pkg <- create_tmp_ambiorix()
+  pkg <- create_tmp_package()
   setwd(pkg)
   on.exit({
     setwd(wd)
@@ -24,7 +24,7 @@ test_that("Ambiorix Vue", {
   wd <- getwd()
 
   # test bare
-  pkg <- create_tmp_ambiorix()
+  pkg <- create_tmp_package()
   setwd(pkg)
   on.exit({
     setwd(wd)

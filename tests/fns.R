@@ -34,12 +34,3 @@ create_tmp_project <- function(){
   return(tmp)
 }
 
-create_tmp_ambiorix <- function(){
-  tmp <- tempdir()
-  suppressMessages(usethis::create_project(tmp))
-  dir.create(sprintf("%s/templates", tmp))
-  dir.create(sprintf("%s/assets", tmp))
-  file.create(sprintf("%s/app.R", tmp))
-  return(tmp)
-}
-
