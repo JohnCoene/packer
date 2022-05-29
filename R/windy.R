@@ -1,8 +1,7 @@
-#' Bare
+#' Windy
 #' 
-#' Creates a bare scaffold for no specific use case, as
-#' opposed to other scaffolds. This scaffold does not 
-#' generate R code.
+#' Creates a scaffold for [windy](https://github.com/devOpifex/windy),
+#' it's a modified version of [scaffold_bare()].
 #' 
 #' @inheritParams scaffold_widget
 #' 
@@ -20,7 +19,7 @@
 #' setwd(tmp)
 #' 
 #' # scaffold bare
-#' scaffold_bare()
+#' scaffold_windy()
 #' 
 #' # clean up
 #' setwd(wd)
@@ -28,11 +27,10 @@
 #' }
 #' 
 #' @export
-scaffold_bare <- function(edit = interactive()){
+scaffold_windy <- function(edit = interactive()){
   # checks
   assert_that(has_engine())
   assert_that(is_package())
-  assert_that(!has_scaffold(), msg = "Only a single bare scaffold is allowed")
 
   open_msg("bare")
 
@@ -52,7 +50,7 @@ scaffold_bare <- function(edit = interactive()){
   configure(
     name = "index", 
     entry_dir = "", 
-    output_dir = "./inst", 
+    output_dir = "./inst/app/assets", 
     externals = list(shiny = "Shiny", jquery = "jQuery")
   )
 
