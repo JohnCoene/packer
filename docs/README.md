@@ -58,6 +58,7 @@ Packer is a great companion to the following packages.
 5. [leprechaun](https://github.com/devOpifex/leprechaun)
 6. [rmarkdown](https://rmarkdown.rstudio.com/)
 7. [framework7](https://framework7.io/)
+8. [windy](https://github.com/devOpifex/windy)
 
 Feel free to open an issue if you think packer should support
 another package or framework. If you just want a simpel support

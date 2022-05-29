@@ -1,19 +1,18 @@
-# `scaffold_bare`
+# `scaffold_windy`
 
-Bare
+Windy
 
 
 ## Description
 
-Creates a bare scaffold for no specific use case, as
- opposed to other scaffolds. This scaffold does not
- generate R code.
+Creates a scaffold for [windy](https://github.com/devOpifex/windy) ,
+ it's a modified version of [`scaffold_bare()`](#scaffoldbare()) .
 
 
 ## Usage
 
 ```r
-scaffold_bare(edit = interactive())
+scaffold_windy(edit = interactive())
 ```
 
 
@@ -43,7 +42,7 @@ tmp <- tmp_package()
 setwd(tmp)
 
 # scaffold bare
-scaffold_bare()
+scaffold_windy()
 
 # clean up
 setwd(wd)
