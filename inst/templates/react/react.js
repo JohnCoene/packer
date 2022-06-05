@@ -1,6 +1,7 @@
 const title = 'Shiny powered by React!';
- 
-ReactDOM.render(
-  <div>{title}</div>,
+
+createRoot(
   document.getElementById('app')
+).render(
+  <div>{title}</div>
 );

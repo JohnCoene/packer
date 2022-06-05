@@ -1,4 +1,5 @@
-ReactDOM.render(
-  <h1>Hello, packer!</h1>,
+createRoot(
   document.getElementById('app')
+).render(
+  <div>{title}</div>
 );

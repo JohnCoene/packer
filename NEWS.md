@@ -4,6 +4,7 @@
 - Added roclets to bundle when documenting (prod & dev).
 - Added support for tailwind with `use_tailwind`.
 - Modified scaffold for ambiorix to support new version with package form.
+- Updated the React template to use React 18.
 
 ## packer 0.1.2
 

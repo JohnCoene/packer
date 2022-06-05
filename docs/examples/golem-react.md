@@ -73,14 +73,25 @@ fluidPage(
 The scaffold created the following template in `srcjs/index.js`. 
 
 ```js
+// Added by apply_react
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+
+// Added by apply_react
+import 'shiny';
+
+Shiny.addCustomMessageHandler('ask-alert', (msg) => {
+  let response = prompt(msg);
+  Shiny.setInputValue('askResponse', response);
+});
+
 
 const title = 'Shiny powered by React!';
- 
-ReactDOM.render(
-  <div>{title}</div>,
+
+createRoot(
   document.getElementById('app')
+).render(
+  <div>{title}</div>
 );
 ```
 

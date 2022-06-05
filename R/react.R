@@ -31,8 +31,8 @@ apply_react <- function(use_cdn = TRUE){
 
   # template
   path <- pkg_file("templates/react/react.js")
-  template <- c("// Added by apply_react", "", readLines(path))
-  imports <- c("// Added by apply_react", "", "import React from 'react';", "import ReactDOM from 'react-dom';")
+  template <- c("// Added by apply_react", readLines(path))
+  imports <- c("// Added by apply_react", "import React from 'react';", "import { createRoot } from 'react-dom/client';")
   index_path <- "srcjs/index.js"
 
   # default index
