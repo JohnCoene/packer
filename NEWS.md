@@ -5,6 +5,7 @@
 - Added support for tailwind with `use_tailwind`.
 - Modified scaffold for ambiorix to support new version with package form.
 - Updated the React template to use React 18.
+- Fix `vueCDN` issue [#23](https://github.com/JohnCoene/packer/issues/23)
 
 ## packer 0.1.2
 

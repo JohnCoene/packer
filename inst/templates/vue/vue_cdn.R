@@ -11,7 +11,7 @@ vueCDN <- function(version = NULL){
   if(!is.null(version))
     version_string <- sprintf("@%d", version)
 
-  vue <- sprintf("https://cdn.jsdelivr.net/npm/vue", version_string)
+  vue <- sprintf("https://cdn.jsdelivr.net/npm/vue%s", version_string)
   shiny::singleton(
     shiny::tags$head(
       shiny::tags$script(src = vue, crossorigin = NA)
