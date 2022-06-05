@@ -57,9 +57,10 @@ tagList(
 
 Note the message indicating something needs to be added at the bottom of the shiny UI. This is because webpack will bundle the JavaScript in an `index.js` file and the template uses the `div` where `id="app"` as root. Also, by default packer does not setup webpack to bundle the `react` and `react-dom` dependencies, it instead makes use of the CDN by creating an R file `R/react_cdn.R` which contains a `reactCDN()` function meant to be placed in the shiny UI. This can be turned off with `use_cdn = FALSE` in `scaffold_golem`.
 
-```r {highlight:['4-8']}
+```r {highlight:['3,4-8']}
 # app_ui
 fluidPage(
+  golem_add_external_resources(),
   h1("reaction"),
   tagList(
     reactCDN(),
