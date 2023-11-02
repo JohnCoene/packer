@@ -114,14 +114,6 @@ open_msg <- function(what, name = "") {
 #' @noRd
 #' @keywords internal
 edit_files <- function(edit = FALSE, ...) {
-  if (is.null(edit)) {
-    edit <- Sys.getenv("PACKER_EDIT")
-  }
-
-  if (edit == "") {
-    edit <- FALSE
-  }
-
   if (!edit) {
     return()
   }
@@ -306,4 +298,33 @@ which_or_where <- function() {
 #' @keywords internal
 format_function_code <- function(con) {
   paste0(readLines(con), collapse = "\n")
+}
+
+#' Get Edit Mode
+#'
+#' Get edit value to handle `NULL` value.
+#'
+#' @param edit Current edit value.
+#'
+#' @keywords internal
+get_edit <- function(edit = NULL) {
+  if (is.logical(edit)) {
+    return(edit)
+  }
+
+  if (is.null(edit)) {
+    edit <- Sys.getenv("PACKER_EDIT")
+  }
+
+  if (edit == "") {
+    edit <- FALSE
+  }
+
+  edit <- as.logical(edit)
+
+  if (!is.logical(edit)) {
+    return(FALSE)
+  }
+
+  return(edit)
 }

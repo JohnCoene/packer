@@ -28,6 +28,8 @@
 #'
 #' @export
 scaffold_input <- function(name, edit = NULL) {
+  edit <- get_edit(edit)
+
   # checks
   assert_that(not_missing(name))
   assert_that(has_engine())

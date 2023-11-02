@@ -29,6 +29,8 @@
 #'
 #' @export
 scaffold_bare <- function(edit = NULL) {
+  edit <- get_edit(edit)
+
   # checks
   assert_that(has_engine())
   assert_that(is_package())

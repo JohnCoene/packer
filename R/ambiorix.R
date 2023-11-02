@@ -34,6 +34,8 @@
 #'
 #' @export
 scaffold_ambiorix <- function(vue = FALSE, use_cdn = TRUE, edit = NULL) {
+  edit <- get_edit(edit)
+
   # checks
   assert_that(has_engine())
   assert_that(is_ambiorix())
