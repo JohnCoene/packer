@@ -3,7 +3,6 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Leprechaun", {
-
   # keep working directory
   wd <- getwd()
 
@@ -13,7 +12,7 @@ test_that("Leprechaun", {
   pkg <- create_tmp_package()
   setwd(pkg)
   expect_error(scaffold_leprechaun(edit = FALSE))
-	file.create(".leprechaun")
+  file.create(".leprechaun")
   expect_error(scaffold_leprechaun(vue = TRUE, react = TRUE, edit = FALSE))
   expect_output(scaffold_leprechaun(edit = FALSE))
   expect_error(scaffold_leprechaun(edit = FALSE))
@@ -23,13 +22,12 @@ test_that("Leprechaun", {
 })
 
 test_that("Leprechaun Vue", {
-
   # keep working directory
   wd <- getwd()
 
   pkg <- create_tmp_package()
   setwd(pkg)
-	file.create(".leprechaun")
+  file.create(".leprechaun")
   expect_output(scaffold_leprechaun(vue = TRUE, edit = FALSE))
   setwd(wd)
   delete_tmp_package(pkg)

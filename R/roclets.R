@@ -1,61 +1,53 @@
 #' Roclet Prod
-#' 
+#'
 #' Roclet to run [bundle_prod] when documenting.
-#' 
+#'
 #' @import roxygen2
-#' 
-#' @export 
+#'
+#' @export
 prod_roclet <- function() {
-	roclet("prod")
+  roclet("prod")
 }
 
-#' @export 
-roclet_process.roclet_prod <- function(
-	x, 
-	blocks, 
-	env, 
-	base_path
-) {
-	invisible()
+#' @export
+roclet_process.roclet_prod <- function(x,
+                                       blocks,
+                                       env,
+                                       base_path) {
+  invisible()
 }
 
-#' @export 
-roclet_output.roclet_prod <- function(
-	x, 
-	results, 
-	base_path, 
-	...
-) {
-	bundle("production")
+#' @export
+roclet_output.roclet_prod <- function(x,
+                                      results,
+                                      base_path,
+                                      ...) {
+  bundle("production")
 }
 
 #' Roclet Dev
-#' 
+#'
 #' Roclet to run [bundle_dev] when documenting.
-#' 
+#'
 #' @import roxygen2
-#' 
-#' @export 
+#'
+#' @export
 dev_roclet <- function() {
-	roclet("dev")
+  roclet("dev")
 }
 
-#' @export 
-roclet_process.roclet_dev <- function(
-	x, 
-	blocks, 
-	env, 
-	base_path
-) {
-	invisible()
+#' @export
+roclet_process.roclet_dev <- function(x,
+                                      blocks,
+                                      env,
+                                      base_path) {
+  invisible()
 }
 
-#' @export 
-roclet_output.roclet_dev <- function(
-	x, 
-	results, 
-	base_path, 
-	...
-) {
-	bundle("development")
+#' @export
+roclet_output.roclet_dev <- function(x,
+                                     results,
+                                     base_path,
+                                     ...) {
+  bundle("development")
 }

@@ -3,11 +3,10 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Extension", {
-
   # keep working directory
   wd <- getwd()
 
-  # create package and 
+  # create package and
   pkg <- create_tmp_package()
   setwd(pkg)
   on.exit({
@@ -24,6 +23,6 @@ test_that("Extension", {
   expect_message(use_loader_babel(use_eslint = TRUE))
   expect_message(bundle())
 
-  # make library 
+  # make library
   expect_message(make_library("lib"))
 })

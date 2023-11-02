@@ -1,18 +1,17 @@
 #' Golem JavaScript Files
-#' 
+#'
 #' Creates the necessary `srcjs` directory and children JavaScript files.
 #' This is a simple copy of template files: no changes required.
-#' 
+#'
 #' @inheritParams scaffol_golem
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-rmd_files <- function(react = FALSE, vue = FALSE){
-
+rmd_files <- function(react = FALSE, vue = FALSE) {
   # define template to copy
   template_dir <- "javascript"
-  if(react) template_dir <- "react"
-  if(vue) template_dir <- "vue"
+  if (react) template_dir <- "react"
+  if (vue) template_dir <- "vue"
 
   # get full path to srcjs
   srcjs_path <- sprintf("rmd/%s/srcjs", template_dir)

@@ -1,17 +1,16 @@
 #' HTML Plugin
-#' 
-#' Add the [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/) to 
-#' the configuration to generate HTML with webpack, used in packer to generate the UI of 
+#'
+#' Add the [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/) to
+#' the configuration to generate HTML with webpack, used in packer to generate the UI of
 #' a golem app with webpack.
-#' 
+#'
 #' @param use_pug Set to `TRUE` to use the [pug engine](https://pugjs.org/).
 #' @param output_path Path to the generated html file, defaults to `../index.html` as
 #' is ideal for golem. Note that this path is relative to your output directory specified
 #' in your `webpack.common.js` file.
-#' 
+#'
 #' @export
-add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
-
+add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html") {
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
@@ -19,7 +18,7 @@ add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
   ext <- "html"
 
   # if pug install and change ext
-  if(use_pug){
+  if (use_pug) {
     engine_install("pug", scope = "dev")
     use_loader_pug()
     ext <- "pug"
@@ -35,8 +34,9 @@ add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
   # read config
   config <- readLines("webpack.common.js")
 
-  if(!any(grepl("require('html-webpack-plugin')", config)))
+  if (!any(grepl("require('html-webpack-plugin')", config))) {
     config <- c("const HtmlWebpackPlugin = require('html-webpack-plugin');", config)
+  }
 
   plugin <- sprintf("var plugins = [\n  new HtmlWebpackPlugin({filename: '%s', template: 'srcjs/index.%s'}),", output_path, ext)
 
@@ -47,24 +47,25 @@ add_plugin_html <- function(use_pug = FALSE, output_path = "../index.html"){
   pkg_name <- get_pkg_name()
   cmd <- sprintf('system.file("app/index.html", package = "%s")', pkg_name)
 
-  if(is_golem())
+  if (is_golem()) {
     cli::cli_alert_info("Use {.code shiny::htmlTemplate({ cmd })} as your shiny UI")
+  }
 }
 
 #' Clean Plugin
-#' 
-#' Add the [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) to 
+#'
+#' Add the [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) to
 #' clean the bundled files.
-#' 
+#'
 #' @param dry Whether to simulate the removal of files.
 #' @param verbose Write Logs to the console.
 #' @param clean Whether to automatically remove all unused webpack assets on rebuild.
 #' @param protect Whether to not allow removal of current webpack assets.
-#' 
+#'
 #' @export
-add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
-  protect = TRUE){
-
+add_plugin_clean <- function(
+    dry = FALSE, verbose = FALSE, clean = TRUE,
+    protect = TRUE) {
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
@@ -77,8 +78,9 @@ add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
   # read config
   config <- readLines("webpack.common.js")
 
-  if(!any(grepl("require('clean-webpack-plugin')", config)))
+  if (!any(grepl("require('clean-webpack-plugin')", config))) {
     config <- c("const CleanWebpackPlugin = require('clean-webpack-plugin');", config)
+  }
 
   plugin <- sprintf("var plugins = [\n  new CleanWebpackPlugin(%s),", options_json)
 
@@ -90,35 +92,33 @@ add_plugin_clean <- function(dry = FALSE, verbose = FALSE, clean = TRUE,
 }
 
 #' Vue Loader Plugin
-#' 
+#'
 #' Add the `clean-webpack-plugin` to the config files.
-#' 
+#'
 #' @noRd
 #' @keywords internal
-add_plugin_vue <- function(){
-
+add_plugin_vue <- function() {
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # read config
   config <- readLines("webpack.common.js")
 
-  if(!any(grepl("require('vue-loader/lib/plugin')", config)))
+  if (!any(grepl("require('vue-loader/lib/plugin')", config))) {
     config <- c("const VueLoaderPlugin = require('vue-loader/lib/plugin');", config)
+  }
 
   config[grepl("^var plugins = \\[", config)] <- "var plugins = [\nnew VueLoaderPlugin(),"
 
   writeLines(config, "webpack.common.js")
-
 }
 
 #' Prettier Plugin
-#' 
-#' Add the [prettier-webpack-plugin](https://www.npmjs.com/package/prettier-webpack-plugin) to 
+#'
+#' Add the [prettier-webpack-plugin](https://www.npmjs.com/package/prettier-webpack-plugin) to
 #' prettify the pre-bundled files.
-#' 
+#'
 #' @export
-add_plugin_prettier <- function(){
-
+add_plugin_prettier <- function() {
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
@@ -127,8 +127,9 @@ add_plugin_prettier <- function(){
   # read config
   config <- readLines("webpack.common.js")
 
-  if(!any(grepl("require('prettier-webpack-plugin')", config)))
+  if (!any(grepl("require('prettier-webpack-plugin')", config))) {
     config <- c("const PrettierPlugin = require('prettier-webpack-plugin');", config)
+  }
 
   plugin <- "var plugins = [\n  new PrettierPlugin(),"
 
@@ -140,13 +141,12 @@ add_plugin_prettier <- function(){
 }
 
 #' ESLint Plugin
-#' 
+#'
 #' Add the [eslint-webpack-plugin](https://www.npmjs.com/package/eslint-webpack-plugin)
 #' run ESLint on files.
-#' 
+#'
 #' @export
-add_plugin_eslint <- function(){
-
+add_plugin_eslint <- function() {
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # install base
@@ -155,8 +155,9 @@ add_plugin_eslint <- function(){
   # read config
   config <- readLines("webpack.common.js")
 
-  if(!any(grepl("require('eslint-webpack-plugin')", config)))
+  if (!any(grepl("require('eslint-webpack-plugin')", config))) {
     config <- c("const ESLintPlugin = require('eslint-webpack-plugin');", config)
+  }
 
   plugin <- "var plugins = [\nnew ESLintPlugin(),"
 
@@ -164,7 +165,7 @@ add_plugin_eslint <- function(){
 
   writeLines(config, "webpack.common.js")
 
-  if(!fs::file_exists(".eslintrc")){
+  if (!fs::file_exists(".eslintrc")) {
     opts <- list(
       parserOptions = list(
         sourceType = "module"
@@ -183,19 +184,19 @@ add_plugin_eslint <- function(){
 }
 
 #' Progressive Web Applications
-#' 
+#'
 #' Add the `workbox-webpack-plugin` to the config files.
-#' 
-#' @export 
-add_plugin_workbox <- function(){
-
+#'
+#' @export
+add_plugin_workbox <- function() {
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
 
   # read config
   config <- readLines("webpack.common.js")
 
-  if(!any(grepl("require('workbox-webpack-plugin')", config)))
+  if (!any(grepl("require('workbox-webpack-plugin')", config))) {
     config <- c("const WorkboxPlugin = require('workbox-webpack-plugin');", config)
+  }
 
   config[grepl("^var plugins = \\[", config)] <- "var plugins = [\nnew WorkboxPlugin.GenerateSW({clientsClaim: true, skipWaiting: true,}),"
 
@@ -218,19 +219,18 @@ add_plugin_workbox <- function(){
 }
 
 #' Add Plugin jsdoc
-#' 
-#' Add the [jsdoc](https://github.com/jsdoc/jsdoc) 
+#'
+#' Add the [jsdoc](https://github.com/jsdoc/jsdoc)
 #' plugin to generate documentation from JavaScript code
 #' with tags similar to roxygen2.
-#' 
+#'
 #' @param name Name of tutorial
 #' @param edit Whether to open relevent file.
-#' 
+#'
 #' @name jsdoc
-#' 
-#' @export 
-add_plugin_jsdoc <- function(edit = interactive()){
-
+#'
+#' @export
+add_plugin_jsdoc <- function(edit = interactive()) {
   assert_that(fs::file_exists("webpack.common.js"), msg = "Cannot find config file")
   assert_that(!fs::file_exists("jsdoc.conf.json"), msg = "Cannot find config file")
 
@@ -240,8 +240,9 @@ add_plugin_jsdoc <- function(edit = interactive()){
   # read config
   config <- readLines("webpack.common.js")
 
-  if(!any(grepl("require('jsdoc-webpack-plugin')", config)))
+  if (!any(grepl("require('jsdoc-webpack-plugin')", config))) {
     config <- c("const JsDocPlugin = require('jsdoc-webpack-plugin');", config)
+  }
 
   plugin <- "var plugins = [\n  new JsDocPlugin({conf: 'jsdoc.conf.json', cwd: '.', preserveTmpFile: false, recursive: true}),"
 
@@ -268,18 +269,21 @@ add_plugin_jsdoc <- function(edit = interactive()){
   fs::file_create("tutorials/.gitkeep")
   usethis::use_build_ignore("tutorials/")
 
-  if(edit)
+  if (edit) {
     fs::file_show(config_name)
+  }
 }
 
 #' @rdname jsdoc
-#' @export 
-add_jsdoc_tutorial <- function(name, edit = interactive()){
-  if(missing(name))
+#' @export
+add_jsdoc_tutorial <- function(name, edit = interactive()) {
+  if (missing(name)) {
     stop("Missing `name`", call. = FALSE)
+  }
 
-  if(!fs::file_exists("jsdoc.conf.json"))
+  if (!fs::file_exists("jsdoc.conf.json")) {
     cli::cli_alert_warning("Missing ${.file jsdoc.conf.json}, run {.fn add_plugin_jsdoc}")
+  }
 
   fl <- sprintf("tutorials/%s.markdown", name)
 
@@ -288,6 +292,7 @@ add_jsdoc_tutorial <- function(name, edit = interactive()){
     con = fl
   )
 
-  if(edit)
+  if (edit) {
     fs::file_show(fl)
+  }
 }

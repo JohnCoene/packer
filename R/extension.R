@@ -1,33 +1,33 @@
 #' Shiny Extension
-#' 
+#'
 #' Creates the basic structure for a shiny extension.
-#' 
+#'
 #' @param name Name of extension used to define file names and functions.
 #' @inheritParams scaffold_widget
-#' 
+#'
 #' @return `TRUE` (invisibly) if successfully run.
-#' 
-#' @examples 
-#' if(interactive()){
-#' # current directory
-#' wd <- getwd()
-#' 
-#' # create a mock up ambiorix project
-#' tmp <- tmp_package()
-#' 
-#' # move to package
-#' setwd(tmp)
-#' 
-#' # scaffold ambiorix
-#' scaffold_extension()
-#' 
-#' # clean up
-#' setwd(wd)
-#' tmp_delete(tmp)
+#'
+#' @examples
+#' if (interactive()) {
+#'   # current directory
+#'   wd <- getwd()
+#'
+#'   # create a mock up ambiorix project
+#'   tmp <- tmp_package()
+#'
+#'   # move to package
+#'   setwd(tmp)
+#'
+#'   # scaffold ambiorix
+#'   scaffold_extension()
+#'
+#'   # clean up
+#'   setwd(wd)
+#'   tmp_delete(tmp)
 #' }
-#' 
+#'
 #' @export
-scaffold_extension <- function(name, edit = interactive()){
+scaffold_extension <- function(name, edit = NULL) {
   # checks
   assert_that(has_engine())
   assert_that(is_package())
@@ -56,9 +56,9 @@ scaffold_extension <- function(name, edit = interactive()){
 
   # create config file
   configure(
-    name = name, 
-    entry_dir = "exts/", 
-    output_dir = "./inst/packer", 
+    name = name,
+    entry_dir = "exts/",
+    output_dir = "./inst/packer",
     externals = list(shiny = "Shiny", jquery = "jQuery")
   )
 
@@ -66,7 +66,7 @@ scaffold_extension <- function(name, edit = interactive()){
   template_js_module(name, "exts")
   creup_index(name, "exts")
 
-  # creating R files
+  #  creating R files
   ext_zzz_file(name)
   template_r_function(name, "extension/R/extension.R")
 

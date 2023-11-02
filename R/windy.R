@@ -1,33 +1,33 @@
 #' Windy
-#' 
+#'
 #' Creates a scaffold for [windy](https://github.com/devOpifex/windy),
 #' it's a modified version of [scaffold_bare()].
-#' 
+#'
 #' @inheritParams scaffold_widget
-#' 
+#'
 #' @return `TRUE` (invisibly) if successfully run.
-#' 
-#' @examples 
-#' if(interactive()){
-#' # current directory
-#' wd <- getwd()
-#' 
-#' # create a mock up ambiorix project
-#' tmp <- tmp_package()
-#' 
-#' # move to package
-#' setwd(tmp)
-#' 
-#' # scaffold bare
-#' scaffold_windy()
-#' 
-#' # clean up
-#' setwd(wd)
-#' tmp_delete(tmp)
+#'
+#' @examples
+#' if (interactive()) {
+#'   # current directory
+#'   wd <- getwd()
+#'
+#'   # create a mock up ambiorix project
+#'   tmp <- tmp_package()
+#'
+#'   # move to package
+#'   setwd(tmp)
+#'
+#'   # scaffold bare
+#'   scaffold_windy()
+#'
+#'   # clean up
+#'   setwd(wd)
+#'   tmp_delete(tmp)
 #' }
-#' 
+#'
 #' @export
-scaffold_windy <- function(edit = interactive()){
+scaffold_windy <- function(edit = NULL) {
   # checks
   assert_that(has_engine())
   assert_that(is_package())
@@ -48,9 +48,9 @@ scaffold_windy <- function(edit = interactive()){
 
   # create config file
   configure(
-    name = "index", 
-    entry_dir = "", 
-    output_dir = "./inst/app/assets", 
+    name = "index",
+    entry_dir = "",
+    output_dir = "./inst/app/assets",
     externals = list(shiny = "Shiny", jquery = "jQuery")
   )
 
@@ -62,6 +62,6 @@ scaffold_windy <- function(edit = interactive()){
 
   # wrap up
   end_msg()
-  
+
   invisible(TRUE)
 }

@@ -1,19 +1,19 @@
 #' Packge File
-#' 
+#'
 #' Get path to packge file.
-#' 
+#'
 #' @return Path to inst/ file
-#' 
+#'
 #' @noRd
 #' @keywords internal
-pkg_file <- function(file){
+pkg_file <- function(file) {
   system.file(file, package = "packer")
 }
 
 # ignore files
-ignore_files <- function(){
+ignore_files <- function() {
   cli::cli_h2("Adding files to {.file .gitignore} and {.file .Rbuildignore}")
-  
+
   usethis::use_build_ignore("srcjs")
   usethis::use_build_ignore("node_modules")
   usethis::use_build_ignore("package.json")
@@ -22,8 +22,8 @@ ignore_files <- function(){
   usethis::use_build_ignore("webpack.prod.js")
   usethis::use_build_ignore("webpack.common.js")
   usethis::use_git_ignore("node_modules")
-  
-  if(engine_get() == "yarn"){
+
+  if (engine_get() == "yarn") {
     usethis::use_build_ignore("yarn.lock")
     usethis::use_build_ignore("yarn-error.log")
     usethis::use_build_ignore(".yarn/")
@@ -33,13 +33,14 @@ ignore_files <- function(){
 }
 
 # prints error and warnings from system2
-print_results <- function(results){
-  if(length(results$warnings))
+print_results <- function(results) {
+  if (length(results$warnings)) {
     engine_console()
+  }
 }
 
 # get name of package
-get_pkg_name <- function(){
+get_pkg_name <- function() {
   desc <- readLines("DESCRIPTION")
   pkg <- desc[grepl("^Package:", desc)]
   pkg <- gsub("^Package: ", "", pkg)
@@ -47,17 +48,19 @@ get_pkg_name <- function(){
 }
 
 # install webpack as dev dependency
-core_deps_install <- function(){
+core_deps_install <- function() {
   scaffolded <- has_scaffold()
-  if(scaffolded) return()
+  if (scaffolded) {
+    return()
+  }
   engine_install("webpack", "webpack-cli", "webpack-merge", scope = "dev")
 }
 
 # create directory
-create_directory <- function(path, ...){
+create_directory <- function(path, ...) {
   exists <- fs::dir_exists(path)
 
-  if(exists){
+  if (exists) {
     cli::cli_alert_info("Directory {.file {path}} already exists")
     return()
   }
@@ -67,14 +70,14 @@ create_directory <- function(path, ...){
 }
 
 #' Use Packages
-#' 
+#'
 #' Wrapper for [usethis::use_package()] to add multiple packages.
-#' 
+#'
 #' @param ... Names of packages to add to Imports.
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-use_pkgs <- function(...){
+use_pkgs <- function(...) {
   cli::cli_h2("Adding packages to Imports")
   lapply(c(...), usethis::use_package)
   cat("\n")
@@ -82,65 +85,76 @@ use_pkgs <- function(...){
 }
 
 #' Messages
-#' 
+#'
 #' Simple wrappers for scaffold messages, on start and end.
-#' 
+#'
 #' @param what What is being scaffolded.
 #' @param name Name of scaffold.
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-end_msg <- function(){
+end_msg <- function() {
   cli::cli_h2("Scaffold built")
   cli::cli_alert_info("Run `bundle` to build the JavaScript files")
 }
 
-#' @noRd 
+#' @noRd
 #' @keywords internal
-open_msg <- function(what, name = ""){
+open_msg <- function(what, name = "") {
   lefty <- sprintf("Scaffolding %s", what)
   cat(cli::rule(left = lefty, right = name, line_col = "blue"), "\n")
 }
 
 #' Edit files
-#' 
+#'
 #' Opens relevant files in browser or RStudio if available.
-#' 
+#'
 #' @param edit Whether to open the files.
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-edit_files <- function(edit = FALSE, ...){
-  if(!edit) return()
+edit_files <- function(edit = FALSE, ...) {
+  if (is.null(edit)) {
+    edit <- Sys.getenv("PACKER_EDIT")
+  }
 
-  if(rstudioapi::isAvailable())
+  if (edit == "") {
+    edit <- FALSE
+  }
+
+  if (!edit) {
+    return()
+  }
+
+  if (rstudioapi::isAvailable()) {
     lapply(c(...), rstudioapi::navigateToFile)
-  else
+  } else {
     lapply(c(...), utils::file.edit)
+  }
 
   invisible()
 }
 
 #' Save JSON
-#' 
+#'
 #' `jsonlite` wrapper to unbox and pretty write.
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-save_json <- function(...){
+save_json <- function(...) {
   jsonlite::write_json(..., auto_unbox = TRUE, pretty = TRUE)
 }
 
 #' Handle babel config
-#' 
+#'
 #' Convenience to handle `.babelrc` files.
-#' 
+#'
 #' @param path Path to template `.babelrc` file.
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-babel_config <- function(path){
-  if(fs::file_exists(".babelrc")){
+babel_config <- function(path) {
+  if (fs::file_exists(".babelrc")) {
     cli::cli_alert_warning("{.file .babelrc} file already exists, add the following")
     print_babel_config(path)
     return()
@@ -154,30 +168,29 @@ babel_config <- function(path){
 
 #' @noRd
 #' @keywords internal
-print_babel_config <- function(path){
+print_babel_config <- function(path) {
   path <- pkg_file(path)
   content <- readLines(path)
   cli::cli_code(content)
 }
 
 #' Creates or Updates index.js File
-#' 
+#'
 #' Creates or updates the `index.js` file with import of new scaffod.
-#' 
+#'
 #' @param name Name of scaffold.
 #' @param dir Directory where to place files in `srcjs`.
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-creup_index <- function(name, dir = c("exts", "inputs", "outputs")){
-
+creup_index <- function(name, dir = c("exts", "inputs", "outputs")) {
   dir <- match.arg(dir)
   type <- dir2type(dir)
 
   # commons
   index <- sprintf("import './%s/%s.js';", dir, name)
 
-  if(fs::file_exists("srcjs/index.js")){
+  if (fs::file_exists("srcjs/index.js")) {
     existing <- readLines("srcjs/index.js")
     index <- c(index, existing)
     cli::cli_alert_success("Added {.val {type}} module import to {.file srcjs/index.js}")
@@ -189,11 +202,10 @@ creup_index <- function(name, dir = c("exts", "inputs", "outputs")){
   writeLines(index, "srcjs/index.js")
 }
 
-#' @noRd 
+#' @noRd
 #' @keywords internal
-dir2type <- function(dir){
-  switch(
-    dir,
+dir2type <- function(dir) {
+  switch(dir,
     exts = "extension",
     inputs = "input",
     outputs = "output"
@@ -201,13 +213,13 @@ dir2type <- function(dir){
 }
 
 #' Generates Template R file
-#' 
+#'
 #' @param name Name of scaffold.
 #' @param template_path Path to template R file.
-#' 
+#'
 #' @noRd
 #' @keywords internal
-template_r_function <- function(name, template_path){
+template_r_function <- function(name, template_path) {
   # get package name
   pkgname <- get_pkg_name()
 
@@ -220,7 +232,7 @@ template_r_function <- function(name, template_path){
 
   # save
   output_out <- sprintf("R/%s.R", name)
-  if(file.exists(output_out)){
+  if (file.exists(output_out)) {
     cli::cli_alert_warning(
       sprintf(
         "Could not create `%s`, already exists.",
@@ -229,19 +241,19 @@ template_r_function <- function(name, template_path){
     )
     output_out <- sprintf("R/%s-packer.R", name)
   }
-  writeLines(output, output_out) 
+  writeLines(output, output_out)
 
   cli::cli_alert_success("Created R file and function")
 }
 
 #' Generates Template R file
-#' 
+#'
 #' @param name Name of scaffold.
 #' @param template_path Path to template R file.
-#' 
+#'
 #' @noRd
 #' @keywords internal
-template_js_module <- function(name, output_dir = c("exts", "inputs", "outputs")){
+template_js_module <- function(name, output_dir = c("exts", "inputs", "outputs")) {
   pkgname <- get_pkg_name()
   output_dir <- match.arg(output_dir)
   type <- dir2type(output_dir)
@@ -265,31 +277,32 @@ template_js_module <- function(name, output_dir = c("exts", "inputs", "outputs")
 }
 
 #' OS Helpers
-#' 
+#'
 #' OS helpers for commands that differ based on the system.
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-get_os <- function(){
+get_os <- function() {
   unname(Sys.info()["sysname"])
 }
 
-#' @noRd 
+#' @noRd
 #' @keywords internal
-is_windows <- function(){
+is_windows <- function() {
   get_os() == "Windows"
 }
 
-#' @noRd 
+#' @noRd
 #' @keywords internal
-which_or_where <- function(){
-  if(is_windows())
+which_or_where <- function() {
+  if (is_windows()) {
     return("where")
+  }
 
   return("which")
 }
 
-#' @noRd 
+#' @noRd
 #' @keywords internal
 format_function_code <- function(con) {
   paste0(readLines(con), collapse = "\n")

@@ -1,11 +1,11 @@
 #' Use Tailwind
-#' 
+#'
 #' Creates PostCSS, and tailwindcss config files as well
 #' as adds the appropriate loaders and installs dependencies.
-#' 
+#'
 #' @param test Test regular expression test which files should be transformed by the loader.
-#' 
-#' @export 
+#'
+#' @export
 use_tailwind <- function(test = "\\.css$") {
   assert_that(has_scaffold())
 
@@ -46,9 +46,10 @@ use_tailwind <- function(test = "\\.css$") {
 
   # initial style.css
   css <- "style.css"
-  if(file.exists("srcjs/style.css"))
+  if (file.exists("srcjs/style.css")) {
     css <- "style2.css"
-  
+  }
+
   cli::cli_alert_success(
     "Creating {.file srcjs/{css}}"
   )

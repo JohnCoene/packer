@@ -3,7 +3,6 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Input", {
-
   # keep working directory
   wd <- getwd()
 
@@ -25,7 +24,6 @@ test_that("Input", {
 })
 
 test_that("Input React", {
-
   # keep working directory
   wd <- getwd()
 

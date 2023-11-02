@@ -1,37 +1,39 @@
 #' Scaffold Widget
-#' 
+#'
 #' Creates basic structure for a widget.
-#' 
+#'
 #' @param name Name of widget, also passed to [htmlwidgets::scaffoldWidget()].
-#' @param edit Automatically open pertinent files.
-#' 
+#' @param edit Automatically open pertinent files. Defaults to `NULL`, which looks
+#'  for the environment variable `PACKER_EDIT` and opens the files specified there.
+#'  Otherwise takes a boolean.
+#'
 #' @details Internally runs [htmlwidgets::scaffoldWidget()] do not run it prior to this function.
-#' 
+#'
 #' @return `TRUE` (invisibly) if successfully run.
-#' 
+#'
 #' @importFrom assertthat assert_that
-#' 
-#' @examples 
-#' if(interactive()){
-#' # current directory
-#' wd <- getwd()
-#' 
-#' # create a mock up ambiorix project
-#' tmp <- tmp_package()
-#' 
-#' # move to package
-#' setwd(tmp)
-#' 
-#' # scaffold ambiorix
-#' scaffold_widget()
-#' 
-#' # clean up
-#' setwd(wd)
-#' tmp_delete(tmp)
+#'
+#' @examples
+#' if (interactive()) {
+#'   # current directory
+#'   wd <- getwd()
+#'
+#'   # create a mock up ambiorix project
+#'   tmp <- tmp_package()
+#'
+#'   # move to package
+#'   setwd(tmp)
+#'
+#'   # scaffold ambiorix
+#'   scaffold_widget()
+#'
+#'   # clean up
+#'   setwd(wd)
+#'   tmp_delete(tmp)
 #' }
-#' 
+#'
 #' @export
-scaffold_widget <- function(name, edit = interactive()){
+scaffold_widget <- function(name, edit = NULL) {
   # checks
   assert_that(has_engine())
   assert_that(is_package())
@@ -54,9 +56,9 @@ scaffold_widget <- function(name, edit = interactive()){
 
   # create config file
   configure(
-    name = name, 
-    entry_dir = "widgets/", 
-    output_dir = "./inst/htmlwidgets", 
+    name = name,
+    entry_dir = "widgets/",
+    output_dir = "./inst/htmlwidgets",
     externals = list(widgets = "HTMLWidgets", shiny = "Shiny")
   )
 
@@ -70,7 +72,7 @@ scaffold_widget <- function(name, edit = interactive()){
   ignore_files()
 
   # open files
-  widget_edit(name, edit) 
+  widget_edit(name, edit)
 
   # use htmlwidgets
   use_pkgs("htmlwidgets")

@@ -1,20 +1,20 @@
 #' Apply React
-#' 
-#' Apply React to a project, adds the relevant (babel) loader, installs dependencies, 
+#'
+#' Apply React to a project, adds the relevant (babel) loader, installs dependencies,
 #' and creates, updates, or replaces the `srcjs/index.js` file.
-#' 
-#' @param use_cdn Whether to use the CDN for `react` and `react-dom` (recommended). 
+#'
+#' @param use_cdn Whether to use the CDN for `react` and `react-dom` (recommended).
 #' This means later importing the dependencies in the shiny UI using `reactCDN()`,
 #' this function will be created in a `R/react_cdn.R`.
 #' The correct instructions to do so are printed to the console by the function.
-#' 
+#'
 #' @details After running this function and bundling the JavaScript remember to place
 #' the code printed by the function in shiny UI. By default [apply_react()] does not
 #' bundle `react` and `react-dom` and thus requires using `reactCDN()` to import the
 #' dependencies in the shiny application: this function is created in a `R/react_cdn.R`.
-#' 
-#' @export 
-apply_react <- function(use_cdn = TRUE){
+#'
+#' @export
+apply_react <- function(use_cdn = TRUE) {
   assert_that(has_no_babel())
 
   # install deps
@@ -35,24 +35,22 @@ apply_react <- function(use_cdn = TRUE){
   imports <- c("// Added by apply_react", "import React from 'react';", "import { createRoot } from 'react-dom/client';")
   index_path <- "srcjs/index.js"
 
-  # default index
+  #  default index
   index <- c(imports, template)
-  
-  # create or update
-  if(fs::file_exists(index_path)){
 
+  # create or update
+  if (fs::file_exists(index_path)) {
     # if index.js = default golem replace
     current <- readLines(index_path)
     golem_index <- readLines(pkg_file("golem/javascript/index.js"))
 
     # otherwise update
-    if(!identical(current, golem_index)){
+    if (!identical(current, golem_index)) {
       index <- c(imports, current, template)
       cli::cli_alert_success("Updated {.file srcjs/index.js} with react template")
     } else {
       cli::cli_alert_success("Replaced {.file srcjs/index.js} with react template")
     }
-
   } else {
     cli::cli_alert_success("Created template {.file srcjs/index.js}")
   }
@@ -64,17 +62,18 @@ apply_react <- function(use_cdn = TRUE){
 }
 
 #' Dependencies for React
-#' 
+#'
 #' Includes dependencies in a shiny application.
-#' 
+#'
 #' @param version Version of React to use, if `NULL` uses the latest
-#' 
+#'
 #' @noRd
 #' @keywords internal
-react_ui_code <- function(use_cdn = TRUE){
+react_ui_code <- function(use_cdn = TRUE) {
   cdn <- ""
-  if(use_cdn)
+  if (use_cdn) {
     cdn <- "reactCDN(),\n  "
+  }
 
   code <- sprintf('tagList(\n  golem_add_external_resources(),\n  %sdiv(id = "app"),\n  tags$script(src = "www/index.js")\n)', cdn)
 
@@ -82,21 +81,22 @@ react_ui_code <- function(use_cdn = TRUE){
 }
 
 #' Creates Dependency File and Function
-#' 
+#'
 #' Creates `R/react_cdn.R` containing `ReactCDN` function if
 #' `use_cdn` is `TRUE`.
-#' 
+#'
 #' @inheritParams apply_react
-#' 
+#'
 #' @noRd
 #' @keywords internal
-react_cdn_function <- function(use_cdn = TRUE){
-  if(!use_cdn)
+react_cdn_function <- function(use_cdn = TRUE) {
+  if (!use_cdn) {
     return()
+  }
 
   exists <- fs::file_exists("R/react_cdn.R")
 
-  if(exists){
+  if (exists) {
     cli::cli_alert_danger("{.file R/react_cdn.R} already exists")
     return()
   }

@@ -1,18 +1,18 @@
 #' Apply Vue
-#' 
-#' Apply Vue to a project, adds the relevant (babel) loader, installs dependencies, 
+#'
+#' Apply Vue to a project, adds the relevant (babel) loader, installs dependencies,
 #' and creates, or updates, or replaces the `srcjs/index.js` file.
-#' 
-#' @param use_cdn Whether to use the CDN for `vue` (recommended). 
+#'
+#' @param use_cdn Whether to use the CDN for `vue` (recommended).
 #' This means later importing the dependencies in the shiny UI using `vueCDN()`,
 #' this function will be created in a `R/vue_cdn.R`.
 #' The correct instructions are printed to the console by the application.
-#' 
+#'
 #' @details After running this function and bundling the JavaScript remember to place
 #' `div(id = "app"), tags$script(src = "www/index.js")` at the bottom of your shiny UI.
-#' 
-#' @export 
-apply_vue <- function(use_cdn = TRUE){
+#'
+#' @export
+apply_vue <- function(use_cdn = TRUE) {
   assert_that(has_no_babel())
   assert_that(!fs::file_exists("srcjs/index.js"), msg = "`srcjs/index.js` already exists, delete or rename it")
 
@@ -43,12 +43,12 @@ apply_vue <- function(use_cdn = TRUE){
 
   # only print if project is golem app
   # otherwise Rmarkdown = no need
-  if(is_golem()){
+  if (is_golem()) {
     cli::cli_alert_warning("Place the following in your shiny ui:")
     vue_ui_code_golem()
   }
 
-  if(is_ambiorix()){
+  if (is_ambiorix()) {
     cli::cli_alert_warning("Remember the following")
     cli::cli_ol()
     cli::cli_li("Import vue")
@@ -61,17 +61,18 @@ apply_vue <- function(use_cdn = TRUE){
 }
 
 #' Dependencies for Vue in Golem
-#' 
+#'
 #' Includes dependencies in a shiny application.
-#' 
+#'
 #' @param use_cdn Whether it uses the CDN.
-#' 
+#'
 #' @noRd
 #' @keywords internal
-vue_ui_code_golem <- function(use_cdn = TRUE){
+vue_ui_code_golem <- function(use_cdn = TRUE) {
   cdn <- ""
-  if(use_cdn)
+  if (use_cdn) {
     cdn <- "vueCDN(),\n  "
+  }
 
   code <- sprintf('tagList(\n  %sdiv(id = "app"),\n  tags$script(src = "www/index.js")\n)', cdn)
 
@@ -79,44 +80,44 @@ vue_ui_code_golem <- function(use_cdn = TRUE){
 }
 
 #' Dependencies for Vue in Ambiorix
-#' 
+#'
 #' Includes dependencies in a shiny application.
-#' 
+#'
 #' @param use_cdn Whether it uses the CDN.
-#' 
+#'
 #' @noRd
 #' @keywords internal
-vue_ui_code_ambiorix <- function(use_cdn = TRUE){
-  
-  if(use_cdn){
+vue_ui_code_ambiorix <- function(use_cdn = TRUE) {
+  if (use_cdn) {
     cli::cli_code('<script src="https://cdn.jsdelivr.net/npm/vue"></script>')
   } else {
     cli::cli_code("import Vue from 'vue'")
   }
 
   invisible()
-  
 }
 
 #' Creates Dependency File and Function
-#' 
+#'
 #' Creates `R/react_cdn.R` containing `ReactCDN` function if
 #' `use_cdn` is `TRUE`.
-#' 
+#'
 #' @inheritParams apply_react
-#' 
+#'
 #' @noRd
 #' @keywords internal
-vue_cdn_function <- function(use_cdn = TRUE){
-  if(!use_cdn)
+vue_cdn_function <- function(use_cdn = TRUE) {
+  if (!use_cdn) {
     return()
+  }
 
-  if(is_ambiorix())
+  if (is_ambiorix()) {
     return()
+  }
 
   exists <- fs::file_exists("R/vue_cdn.R")
 
-  if(exists){
+  if (exists) {
     cli::cli_alert_danger("{.file R/vue_cdn.R} already exists")
     return()
   }
@@ -127,10 +128,10 @@ vue_cdn_function <- function(use_cdn = TRUE){
 }
 
 #' Resolve Alias
-#' 
+#'
 #' @noRd
 #' @keywords internal
-vue_alias <- function(){
+vue_alias <- function() {
   misc <- jsonlite::read_json("srcjs/config/misc.json")
   vue <- list(vue = "vue/dist/vue.esm.js")
   misc$resolve$alias <- append(misc$resolve$alias, vue)

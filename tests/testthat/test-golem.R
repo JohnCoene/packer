@@ -3,7 +3,6 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Golem Bare", {
-
   # keep working directory
   wd <- getwd()
 
@@ -26,7 +25,6 @@ test_that("Golem Bare", {
 })
 
 test_that("Golem CDN", {
-
   # keep working directory
   wd <- getwd()
 
@@ -50,7 +48,6 @@ test_that("Golem CDN", {
 })
 
 test_that("Golem no CDN", {
-
   # keep working directory
   wd <- getwd()
 
@@ -71,7 +68,7 @@ test_that("Golem no CDN", {
   expect_message(bundle())
   setwd(wd)
   delete_tmp_package(pkg)
-  
+
   # test framework7
   pkg <- create_tmp_golem()
   setwd(pkg)
@@ -82,7 +79,6 @@ test_that("Golem no CDN", {
 })
 
 test_that("Golem F7", {
-
   # keep working directory
   wd <- getwd()
 

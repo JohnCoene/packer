@@ -1,33 +1,33 @@
 #' Scaffold a Custom Input
-#' 
+#'
 #' Sets basic structure for a shiny input.
-#' 
+#'
 #' @param name Name of input, will define internal name binding and CSS class.
 #' @inheritParams scaffold_widget
-#' 
+#'
 #' @return `TRUE` (invisibly) if successfully run.
-#' 
-#' @examples 
-#' if(interactive()){
-#' # current directory
-#' wd <- getwd()
-#' 
-#' # create a mock up ambiorix project
-#' tmp <- tmp_package()
-#' 
-#' # move to package
-#' setwd(tmp)
-#' 
-#' # scaffold ambiorix
-#' scaffold_input()
-#' 
-#' # clean up
-#' setwd(wd)
-#' tmp_delete(tmp)
+#'
+#' @examples
+#' if (interactive()) {
+#'   # current directory
+#'   wd <- getwd()
+#'
+#'   # create a mock up ambiorix project
+#'   tmp <- tmp_package()
+#'
+#'   # move to package
+#'   setwd(tmp)
+#'
+#'   # scaffold ambiorix
+#'   scaffold_input()
+#'
+#'   # clean up
+#'   setwd(wd)
+#'   tmp_delete(tmp)
 #' }
-#' 
+#'
 #' @export
-scaffold_input <- function(name, edit = interactive()){
+scaffold_input <- function(name, edit = NULL) {
   # checks
   assert_that(not_missing(name))
   assert_that(has_engine())
@@ -54,9 +54,9 @@ scaffold_input <- function(name, edit = interactive()){
 
   # create config file
   configure(
-    name = name, 
-    entry_dir = "inputs/", 
-    output_dir = "./inst/packer", 
+    name = name,
+    entry_dir = "inputs/",
+    output_dir = "./inst/packer",
     externals = list(shiny = "Shiny", jquery = "jQuery")
   )
 
@@ -64,7 +64,7 @@ scaffold_input <- function(name, edit = interactive()){
   template_js_module(name, "inputs")
   creup_index(name, "inputs")
 
-  # creating R files
+  #  creating R files
   template_r_function(name, "input/R/input.R")
 
   # edit package.json

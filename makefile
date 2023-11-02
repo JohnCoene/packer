@@ -7,5 +7,8 @@ check: document
 document: site
 	Rscript -e "devtools::check()"
 
-site:
+site: styler
 	Rscript docs/docify.R
+
+styler:
+	Rscript -e "styler::style_pkg()"

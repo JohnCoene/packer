@@ -3,7 +3,6 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Ambiorix Bare", {
-
   # keep working directory
   wd <- getwd()
 
@@ -19,7 +18,6 @@ test_that("Ambiorix Bare", {
 })
 
 test_that("Ambiorix Vue", {
-
   # keep working directory
   wd <- getwd()
 

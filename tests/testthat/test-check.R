@@ -3,7 +3,6 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Checks", {
-
   # keep working directory
   wd <- getwd()
 
@@ -14,15 +13,15 @@ test_that("Checks", {
   setwd(pkg)
   expect_output(scaffold_input("test", edit = FALSE))
   bundle_dev()
-	on.exit({
+  on.exit({
     setwd(wd)
-  	delete_tmp_package(pkg)
-	})
+    delete_tmp_package(pkg)
+  })
 
   expect_message(checks())
-	expect_error(are_minified())
+  expect_error(are_minified())
   expect_message(bundle_dev())
-	are_minified("inst/packer")
+  are_minified("inst/packer")
   expect_message(put_precommit_hook())
 
   # git

@@ -3,11 +3,10 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Widget", {
-
   # keep working directory
   wd <- getwd()
 
-  # create package and 
+  # create package and
   pkg <- create_tmp_package()
   setwd(pkg)
   on.exit({

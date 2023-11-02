@@ -1,4 +1,4 @@
-create_tmp_package <- function(){
+create_tmp_package <- function() {
   tmp <- tempdir()
   # make sure it's empty
   files <- list.files(tmp)
@@ -7,20 +7,20 @@ create_tmp_package <- function(){
   return(tmp)
 }
 
-empty <- function(file, dir = tmp){
+empty <- function(file, dir = tmp) {
   path <- file.path(dir, file)
   unlink(file, recursive = TRUE, force = TRUE)
 }
 
-delete_tmp_package <- function(tmp){
+delete_tmp_package <- function(tmp) {
   unlink(tmp, recursive = TRUE, force = TRUE)
 }
 
-create_tmp_golem <- function(){
+create_tmp_golem <- function() {
   tmp <- tempdir()
   suppressMessages(
     golem::create_golem(
-      tmp, 
+      tmp,
       open = FALSE,
       check_name = FALSE
     )
@@ -28,13 +28,13 @@ create_tmp_golem <- function(){
   return(tmp)
 }
 
-create_tmp_project <- function(){
+create_tmp_project <- function() {
   tmp <- tempdir()
   suppressMessages(usethis::create_project(tmp))
   return(tmp)
 }
 
-create_tmp_ambiorix <- function(){
+create_tmp_ambiorix <- function() {
   tmp <- tempdir()
   # make sure it's empty
   files <- list.files(tmp)

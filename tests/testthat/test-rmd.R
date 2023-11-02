@@ -3,7 +3,6 @@ source("../fns.R")
 skip_on_cran()
 
 test_that("Rmd", {
-
   # keep working directory
   wd <- getwd()
 

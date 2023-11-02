@@ -1,24 +1,24 @@
 #' Leprechaun
-#' 
+#'
 #' Creates the basic structure for leprechaun app with JavaScript.
-#' 
+#'
 #' @inheritParams scaffold_widget
-#' @param react Whether to include React, internally runs [apply_react()] 
+#' @param react Whether to include React, internally runs [apply_react()]
 #' and adapts the `srcjs/index.js` template for React.
-#' @param vue Whether to include Vue, internally runs [apply_vue()] and 
+#' @param vue Whether to include Vue, internally runs [apply_vue()] and
 #' adapts the `srcjs/index.js` template for Vue.
-#' @param use_cdn Whether to use the CDN for react or vue dependencies, 
-#' this is passed to [apply_react()] or [apply_vue()] if `react` or 
+#' @param use_cdn Whether to use the CDN for react or vue dependencies,
+#' this is passed to [apply_react()] or [apply_vue()] if `react` or
 #' `vue` arguments are set to `TRUE` and ignored otherwise.
-#' 
+#'
 #' @importFrom cli cli_alert_info
-#' 
+#'
 #' @details Only one of `react` or `vue` can be set to `TRUE`.
-#' 
+#'
 #' @return `TRUE` (invisibly) if successfully run.
-#' 
+#'
 #' @export
-scaffold_leprechaun <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = interactive()){
+scaffold_leprechaun <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = NULL) {
   # checks
   assert_that(has_engine())
   assert_that(is_leprechaun())
@@ -42,17 +42,17 @@ scaffold_leprechaun <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit
 
   # create config file
   configure(
-    name = "index", 
-    entry_dir = "", 
-    output_dir = "./inst/assets", 
+    name = "index",
+    entry_dir = "",
+    output_dir = "./inst/assets",
     externals = list(shiny = "Shiny", jquery = "jQuery")
   )
 
   # ignore files and directories
   ignore_files()
 
-  if(react) apply_react(use_cdn)
-  if(vue) apply_vue(use_cdn)
+  if (react) apply_react(use_cdn)
+  if (vue) apply_vue(use_cdn)
 
   # edit
   edit_files(edit, "srcjs/index.js")
@@ -60,6 +60,6 @@ scaffold_leprechaun <- function(react = FALSE, vue = FALSE, use_cdn = TRUE, edit
   # wrap up
   end_msg()
   cli_alert_info("Run {.code leprechaun::use_packer()}")
-  
+
   invisible(TRUE)
 }
