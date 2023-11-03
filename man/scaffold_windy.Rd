@@ -4,10 +4,12 @@
 \alias{scaffold_windy}
 \title{Windy}
 \usage{
-scaffold_windy(edit = interactive())
+scaffold_windy(edit = NULL)
 }
 \arguments{
-\item{edit}{Automatically open pertinent files.}
+\item{edit}{Automatically open pertinent files. Defaults to \code{NULL}, which looks
+for the environment variable \code{PACKER_EDIT} and opens the files specified there.
+Otherwise takes a boolean.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.
@@ -17,22 +19,22 @@ Creates a scaffold for \href{https://github.com/devOpifex/windy}{windy},
 it's a modified version of \code{\link[=scaffold_bare]{scaffold_bare()}}.
 }
 \examples{
-if(interactive()){
-# current directory
-wd <- getwd()
+if (interactive()) {
+  # current directory
+  wd <- getwd()
 
-# create a mock up ambiorix project
-tmp <- tmp_package()
+  # create a mock up ambiorix project
+  tmp <- tmp_package()
 
-# move to package
-setwd(tmp)
+  # move to package
+  setwd(tmp)
 
-# scaffold bare
-scaffold_windy()
+  # scaffold bare
+  scaffold_windy()
 
-# clean up
-setwd(wd)
-tmp_delete(tmp)
+  # clean up
+  setwd(wd)
+  tmp_delete(tmp)
 }
 
 }

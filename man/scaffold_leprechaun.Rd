@@ -4,12 +4,7 @@
 \alias{scaffold_leprechaun}
 \title{Leprechaun}
 \usage{
-scaffold_leprechaun(
-  react = FALSE,
-  vue = FALSE,
-  use_cdn = TRUE,
-  edit = interactive()
-)
+scaffold_leprechaun(react = FALSE, vue = FALSE, use_cdn = TRUE, edit = NULL)
 }
 \arguments{
 \item{react}{Whether to include React, internally runs \code{\link[=apply_react]{apply_react()}}
@@ -22,7 +17,9 @@ adapts the \code{srcjs/index.js} template for Vue.}
 this is passed to \code{\link[=apply_react]{apply_react()}} or \code{\link[=apply_vue]{apply_vue()}} if \code{react} or
 \code{vue} arguments are set to \code{TRUE} and ignored otherwise.}
 
-\item{edit}{Automatically open pertinent files.}
+\item{edit}{Automatically open pertinent files. Defaults to \code{NULL}, which looks
+for the environment variable \code{PACKER_EDIT} and opens the files specified there.
+Otherwise takes a boolean.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.

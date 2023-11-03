@@ -13,6 +13,8 @@ The semver as a string.
 Clean the cache
 }
 \examples{
-\dontrun{yarn_clean()}
+\dontrun{
+yarn_clean()
+}
 
 }

@@ -10,6 +10,8 @@ yarn_upgrade()
 Upgrade yarn dependencies.
 }
 \examples{
-\dontrun{yarn_upgrade()}
+\dontrun{
+yarn_upgrade()
+}
 
 }

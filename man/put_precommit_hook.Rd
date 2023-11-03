@@ -14,6 +14,8 @@ to ensure that JavaScript files are minified.
 Will only work if using git.
 }
 \examples{
-\dontrun{put_precommit_hook()}
+\dontrun{
+put_precommit_hook()
+}
 
 }

@@ -10,6 +10,8 @@ yarn_outdated()
 Find outdated dependencies
 }
 \examples{
-\dontrun{yarn_outdated()}
+\dontrun{
+yarn_outdated()
+}
 
 }

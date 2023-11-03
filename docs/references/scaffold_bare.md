@@ -13,7 +13,7 @@ Creates a bare scaffold for no specific use case, as
 ## Usage
 
 ```r
-scaffold_bare(edit = interactive())
+scaffold_bare(edit = NULL)
 ```
 
 
@@ -21,7 +21,7 @@ scaffold_bare(edit = interactive())
 
 Argument      |Description
 ------------- |----------------
-`edit`     |     Automatically open pertinent files.
+`edit`     |     Automatically open pertinent files. Defaults to `NULL` , which looks for the environment variable `PACKER_EDIT` and opens the files specified there. Otherwise takes a boolean.
 
 
 ## Value
@@ -32,7 +32,7 @@ Argument      |Description
 ## Examples
 
 ```r
-if(interactive()){
+if (interactive()) {
 # current directory
 wd <- getwd()
 

@@ -16,7 +16,7 @@ scaffold_golem(
   vue = FALSE,
   framework7 = FALSE,
   use_cdn = TRUE,
-  edit = interactive()
+  edit = NULL
 )
 ```
 
@@ -29,7 +29,7 @@ Argument      |Description
 `vue`     |     Whether to include Vue, internally runs [`apply_vue()`](#applyvue()) and adapts the `srcjs/index.js` template for Vue.
 `framework7`     |     Whether to include Framework7, internally runs [`apply_framework7()`](#applyframework7())  and adapts the `srcjs/index.js` template for Framework7.
 `use_cdn`     |     Whether to use the CDN for react, vue or Framework7 dependencies, this is passed to [`apply_react()`](#applyreact()) , [`apply_vue()`](#applyvue()) or [`apply_framework7()`](#applyframework7()) if `react` , `vue` or `framework7` arguments are set to `TRUE` and ignored otherwise.
-`edit`     |     Automatically open pertinent files.
+`edit`     |     Automatically open pertinent files. Defaults to `NULL` , which looks for the environment variable `PACKER_EDIT` and opens the files specified there. Otherwise takes a boolean.
 
 
 ## Details
@@ -46,7 +46,7 @@ Only one of `react` , `vue` or `framework7` can be set to `TRUE` . `use_cdn` is
 ## Examples
 
 ```r
-if(interactive()){
+if (interactive()) {
 # current directory
 wd <- getwd()
 

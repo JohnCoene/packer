@@ -11,7 +11,7 @@ Creates the basic structure for a shiny extension.
 ## Usage
 
 ```r
-scaffold_extension(name, edit = interactive())
+scaffold_extension(name, edit = NULL)
 ```
 
 
@@ -20,7 +20,7 @@ scaffold_extension(name, edit = interactive())
 Argument      |Description
 ------------- |----------------
 `name`     |     Name of extension used to define file names and functions.
-`edit`     |     Automatically open pertinent files.
+`edit`     |     Automatically open pertinent files. Defaults to `NULL` , which looks for the environment variable `PACKER_EDIT` and opens the files specified there. Otherwise takes a boolean.
 
 
 ## Value
@@ -31,7 +31,7 @@ Argument      |Description
 ## Examples
 
 ```r
-if(interactive()){
+if (interactive()) {
 # current directory
 wd <- getwd()
 

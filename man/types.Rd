@@ -30,7 +30,11 @@ Install TypeScript types from npm.
 }
 
 \examples{
-\dontrun{ts_get_type("jquery")}
-\dontrun{ts_get_types("@types/jquery")}
+\dontrun{
+ts_get_type("jquery")
+}
+\dontrun{
+ts_get_types("@types/jquery")
+}
 
 }

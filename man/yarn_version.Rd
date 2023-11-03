@@ -19,6 +19,8 @@ Get the version of npm.
 Get the version of yarn.
 }
 \examples{
-\dontrun{yarn_version()}
+\dontrun{
+yarn_version()
+}
 
 }

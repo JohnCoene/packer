@@ -4,7 +4,7 @@
 \alias{scaffold_ambiorix}
 \title{Ambiorix}
 \usage{
-scaffold_ambiorix(vue = FALSE, use_cdn = TRUE, edit = interactive())
+scaffold_ambiorix(vue = FALSE, use_cdn = TRUE, edit = NULL)
 }
 \arguments{
 \item{vue}{Whether to include Vue, internally runs \code{\link[=apply_vue]{apply_vue()}} and
@@ -14,7 +14,9 @@ adapts the \code{srcjs/index.js} template for Vue.}
 this is passed to \code{\link[=apply_react]{apply_react()}} or \code{\link[=apply_vue]{apply_vue()}} if \code{react} or
 \code{vue} arguments are set to \code{TRUE} and ignored otherwise.}
 
-\item{edit}{Automatically open pertinent files.}
+\item{edit}{Automatically open pertinent files. Defaults to \code{NULL}, which looks
+for the environment variable \code{PACKER_EDIT} and opens the files specified there.
+Otherwise takes a boolean.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.
@@ -26,22 +28,22 @@ Creates the basic structure for an ambiorix application.
 Only one of \code{react} or \code{vue} can be set to \code{TRUE}.
 }
 \examples{
-if(interactive()){
-# current directory
-wd <- getwd()
+if (interactive()) {
+  # current directory
+  wd <- getwd()
 
-# create a mock up ambiorix project
-tmp <- tmp_ambiorix()
+  # create a mock up ambiorix project
+  tmp <- tmp_ambiorix()
 
-# move to package
-setwd(tmp)
+  # move to package
+  setwd(tmp)
 
-# scaffold ambiorix
-scaffold_ambiorix()
+  # scaffold ambiorix
+  scaffold_ambiorix()
 
-# clean up
-setwd(wd)
-tmp_delete(tmp)
+  # clean up
+  setwd(wd)
+  tmp_delete(tmp)
 }
 
 }

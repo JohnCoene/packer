@@ -11,7 +11,7 @@ Creates the basic structure for an ambiorix application.
 ## Usage
 
 ```r
-scaffold_ambiorix(vue = FALSE, use_cdn = TRUE, edit = interactive())
+scaffold_ambiorix(vue = FALSE, use_cdn = TRUE, edit = NULL)
 ```
 
 
@@ -21,7 +21,7 @@ Argument      |Description
 ------------- |----------------
 `vue`     |     Whether to include Vue, internally runs [`apply_vue()`](#applyvue()) and adapts the `srcjs/index.js` template for Vue.
 `use_cdn`     |     Whether to use the CDN for react or vue dependencies, this is passed to [`apply_react()`](#applyreact()) or [`apply_vue()`](#applyvue()) if `react` or `vue` arguments are set to `TRUE` and ignored otherwise.
-`edit`     |     Automatically open pertinent files.
+`edit`     |     Automatically open pertinent files. Defaults to `NULL` , which looks for the environment variable `PACKER_EDIT` and opens the files specified there. Otherwise takes a boolean.
 
 
 ## Details
@@ -37,7 +37,7 @@ Only one of `react` or `vue` can be set to `TRUE` .
 ## Examples
 
 ```r
-if(interactive()){
+if (interactive()) {
 # current directory
 wd <- getwd()
 

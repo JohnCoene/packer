@@ -4,12 +4,14 @@
 \alias{scaffold_extension}
 \title{Shiny Extension}
 \usage{
-scaffold_extension(name, edit = interactive())
+scaffold_extension(name, edit = NULL)
 }
 \arguments{
 \item{name}{Name of extension used to define file names and functions.}
 
-\item{edit}{Automatically open pertinent files.}
+\item{edit}{Automatically open pertinent files. Defaults to \code{NULL}, which looks
+for the environment variable \code{PACKER_EDIT} and opens the files specified there.
+Otherwise takes a boolean.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.
@@ -18,22 +20,22 @@ scaffold_extension(name, edit = interactive())
 Creates the basic structure for a shiny extension.
 }
 \examples{
-if(interactive()){
-# current directory
-wd <- getwd()
+if (interactive()) {
+  # current directory
+  wd <- getwd()
 
-# create a mock up ambiorix project
-tmp <- tmp_package()
+  # create a mock up ambiorix project
+  tmp <- tmp_package()
 
-# move to package
-setwd(tmp)
+  # move to package
+  setwd(tmp)
 
-# scaffold ambiorix
-scaffold_extension()
+  # scaffold ambiorix
+  scaffold_extension()
 
-# clean up
-setwd(wd)
-tmp_delete(tmp)
+  # clean up
+  setwd(wd)
+  tmp_delete(tmp)
 }
 
 }

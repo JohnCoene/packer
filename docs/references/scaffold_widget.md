@@ -11,7 +11,7 @@ Creates basic structure for a widget.
 ## Usage
 
 ```r
-scaffold_widget(name, edit = interactive())
+scaffold_widget(name, edit = NULL)
 ```
 
 
@@ -20,7 +20,7 @@ scaffold_widget(name, edit = interactive())
 Argument      |Description
 ------------- |----------------
 `name`     |     Name of widget, also passed to [`htmlwidgets::scaffoldWidget()`](#htmlwidgets::scaffoldwidget()) .
-`edit`     |     Automatically open pertinent files.
+`edit`     |     Automatically open pertinent files. Defaults to `NULL` , which looks for the environment variable `PACKER_EDIT` and opens the files specified there. Otherwise takes a boolean.
 
 
 ## Details
@@ -36,7 +36,7 @@ Internally runs [`htmlwidgets::scaffoldWidget()`](#htmlwidgets::scaffoldwidget()
 ## Examples
 
 ```r
-if(interactive()){
+if (interactive()) {
 # current directory
 wd <- getwd()
 

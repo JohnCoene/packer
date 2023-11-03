@@ -4,12 +4,14 @@
 \alias{scaffold_input}
 \title{Scaffold a Custom Input}
 \usage{
-scaffold_input(name, edit = interactive())
+scaffold_input(name, edit = NULL)
 }
 \arguments{
 \item{name}{Name of input, will define internal name binding and CSS class.}
 
-\item{edit}{Automatically open pertinent files.}
+\item{edit}{Automatically open pertinent files. Defaults to \code{NULL}, which looks
+for the environment variable \code{PACKER_EDIT} and opens the files specified there.
+Otherwise takes a boolean.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.
@@ -18,22 +20,22 @@ scaffold_input(name, edit = interactive())
 Sets basic structure for a shiny input.
 }
 \examples{
-if(interactive()){
-# current directory
-wd <- getwd()
+if (interactive()) {
+  # current directory
+  wd <- getwd()
 
-# create a mock up ambiorix project
-tmp <- tmp_package()
+  # create a mock up ambiorix project
+  tmp <- tmp_package()
 
-# move to package
-setwd(tmp)
+  # move to package
+  setwd(tmp)
 
-# scaffold ambiorix
-scaffold_input()
+  # scaffold ambiorix
+  scaffold_input()
 
-# clean up
-setwd(wd)
-tmp_delete(tmp)
+  # clean up
+  setwd(wd)
+  tmp_delete(tmp)
 }
 
 }

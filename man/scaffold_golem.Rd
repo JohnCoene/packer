@@ -9,7 +9,7 @@ scaffold_golem(
   vue = FALSE,
   framework7 = FALSE,
   use_cdn = TRUE,
-  edit = interactive()
+  edit = NULL
 )
 }
 \arguments{
@@ -26,7 +26,9 @@ and adapts the \code{srcjs/index.js} template for Framework7.}
 this is passed to \code{\link[=apply_react]{apply_react()}}, \code{\link[=apply_vue]{apply_vue()}} or \code{\link[=apply_framework7]{apply_framework7()}} if \code{react},
 \code{vue} or \code{framework7} arguments are set to \code{TRUE} and ignored otherwise.}
 
-\item{edit}{Automatically open pertinent files.}
+\item{edit}{Automatically open pertinent files. Defaults to \code{NULL}, which looks
+for the environment variable \code{PACKER_EDIT} and opens the files specified there.
+Otherwise takes a boolean.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.
@@ -39,22 +41,22 @@ Only one of \code{react}, \code{vue} or \code{framework7} can be set to \code{TR
 not supported for Framework7.
 }
 \examples{
-if(interactive()){
-# current directory
-wd <- getwd()
+if (interactive()) {
+  # current directory
+  wd <- getwd()
 
-# create a mock up golem project
-tmp <- tmp_golem()
+  # create a mock up golem project
+  tmp <- tmp_golem()
 
-# move to package
-setwd(tmp)
+  # move to package
+  setwd(tmp)
 
-# scaffold golem
-scaffold_golem()
+  # scaffold golem
+  scaffold_golem()
 
-# clean up
-setwd(wd)
-tmp_delete(tmp)
+  # clean up
+  setwd(wd)
+  tmp_delete(tmp)
 }
 
 }

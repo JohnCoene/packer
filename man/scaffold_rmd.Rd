@@ -4,7 +4,7 @@
 \alias{scaffold_rmd}
 \title{Golem}
 \usage{
-scaffold_rmd(react = FALSE, vue = FALSE, edit = interactive())
+scaffold_rmd(react = FALSE, vue = FALSE, edit = NULL)
 }
 \arguments{
 \item{react}{Whether to include React, internally runs \code{\link[=apply_react]{apply_react()}}
@@ -13,7 +13,9 @@ and adapts the \code{srcjs/index.js} template for React.}
 \item{vue}{Whether to include Vue, internally runs \code{\link[=apply_vue]{apply_vue()}} and
 adapts the \code{srcjs/index.js} template for Vue.}
 
-\item{edit}{Automatically open pertinent files.}
+\item{edit}{Automatically open pertinent files. Defaults to \code{NULL}, which looks
+for the environment variable \code{PACKER_EDIT} and opens the files specified there.
+Otherwise takes a boolean.}
 }
 \value{
 \code{TRUE} (invisibly) if successfully run.
@@ -25,22 +27,22 @@ Creates the basic structure for golem app with JavaScript.
 Only one of \code{react} or \code{vue} can be set to \code{TRUE}.
 }
 \examples{
-if(interactive()){
-# current directory
-wd <- getwd()
+if (interactive()) {
+  # current directory
+  wd <- getwd()
 
-# create a mock up ambiorix project
-tmp <- tmp_project()
+  # create a mock up ambiorix project
+  tmp <- tmp_project()
 
-# move to package
-setwd(tmp)
+  # move to package
+  setwd(tmp)
 
-# scaffold ambiorix
-scaffold_rmd()
+  # scaffold ambiorix
+  scaffold_rmd()
 
-# clean up
-setwd(wd)
-tmp_delete(tmp)
+  # clean up
+  setwd(wd)
+  tmp_delete(tmp)
 }
 
 }

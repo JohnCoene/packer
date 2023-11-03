@@ -85,7 +85,7 @@ for TypeScript integration, see [documentation](https://packer.john-coene.com/#/
 
 ## packer 0.0.5
 
-## Changes
+### Changes
 
 - Added `scaffold_rmd` to scaffold R markdown projects.
 - When a test for a specific loader exist the `use` is now appended to existing entry.
