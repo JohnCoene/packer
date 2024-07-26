@@ -14,7 +14,7 @@ Installs loaders and adds relevant configuration rules
 
 ```r
 use_loader_css(test = "\\.css$", import = TRUE, modules = TRUE)
-use_loader_sass(test = "\\.s[ac]ss$/i")
+use_loader_sass(test = "\\.s[ac]ss$")
 use_loader_style(test = "\\.css$", import = TRUE, modules = TRUE)
 ```
 
