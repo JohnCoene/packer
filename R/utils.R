@@ -114,9 +114,11 @@ open_msg <- function(what, name = "") {
 #' @noRd
 #' @keywords internal
 edit_files <- function(edit = FALSE, ...) {
-  if (!edit) {
+  if (length(edit) && !edit) {
     return()
   }
+
+  if (!length(edit)) return()
 
   if (rstudioapi::isAvailable()) {
     lapply(c(...), rstudioapi::navigateToFile)
