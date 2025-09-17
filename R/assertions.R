@@ -5,7 +5,10 @@ has_engine <- function() {
 
 assertthat::on_failure(has_engine) <- function(call, env) {
   stop(
-    sprintf("Cannot find engine `%s`, are you sure it is installed?", engine_get()),
+    sprintf(
+      "Cannot find engine `%s`, are you sure it is installed?",
+      engine_get()
+    ),
     call. = FALSE
   )
 }
@@ -64,7 +67,10 @@ has_scaffold <- function() {
 }
 
 assertthat::on_failure(has_scaffold) <- function(call, env) {
-  stop("No scaffold found, see the `scaffold_*` family of functions", call. = FALSE)
+  stop(
+    "No scaffold found, see the `scaffold_*` family of functions",
+    call. = FALSE
+  )
 }
 
 # check that it is a golem package
@@ -153,17 +159,7 @@ proj_crit <- function() {
 
 # check that it is an ambiorix app
 is_ambiorix <- function() {
-  app <- fs::file_exists("app.R")
-
-  if (!app) {
-    return(FALSE)
-  }
-
-  cnts <- readLines("app.R")
-  amb <- grepl("build\\(\\)\\$start\\(\\)", cnts)
-  amb <- any(amb)
-
-  all(amb, app)
+  fs::file_exists("app.R")
 }
 
 assertthat::on_failure(is_ambiorix) <- function(call, env) {
@@ -176,5 +172,8 @@ is_leprechaun <- function() {
 }
 
 assertthat::on_failure(is_leprechaun) <- function(call, env) {
-  stop("Not a leprechaun app, see `leprechaun::scaffold_leprechaun`", call. = FALSE)
+  stop(
+    "Not a leprechaun app, see `leprechaun::scaffold_leprechaun`",
+    call. = FALSE
+  )
 }
