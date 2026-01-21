@@ -18,7 +18,7 @@ Otherwise there is also an [installer](https://nodejs.org/en/download/).
 ### Ubuntu
 
 ```
-sudo apt install nodejs
+sudo apt install nodejs npm
 ```
 
 ### Windows
