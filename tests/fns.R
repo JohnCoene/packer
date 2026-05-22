@@ -1,3 +1,8 @@
+Sys.setenv(
+  NODE_DISABLE_COMPILE_CACHE = "1",
+  DISABLE_V8_COMPILE_CACHE = "1"
+)
+
 create_tmp_package <- function() {
   tmp <- tempdir()
   # make sure it's empty
@@ -22,7 +27,8 @@ create_tmp_golem <- function() {
     golem::create_golem(
       tmp,
       open = FALSE,
-      check_name = FALSE
+      check_name = FALSE,
+      overwrite = TRUE
     )
   )
   return(tmp)
