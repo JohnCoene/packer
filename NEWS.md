@@ -1,4 +1,8 @@
-## packer 0.1.2.9000
+## packer 0.1.3.9000
+
+- Fixed [NOTE](https://cran-archive.r-project.org/web/checks/2026/2026-03-21_check_results_packer.html) from CRAN regarding NEWS.md subsection titles and other notes related to temp files in testhat tests.
+
+## packer 0.1.3
 
 - More robust check for appropriate engine in `engine_which`.
 - Added roclets to bundle when documenting (prod & dev).
@@ -85,7 +89,7 @@ for TypeScript integration, see [documentation](https://packer.john-coene.com/#/
 
 ## packer 0.0.5
 
-### Changes
+Changes:
 
 - Added `scaffold_rmd` to scaffold R markdown projects.
 - When a test for a specific loader exist the `use` is now appended to existing entry.
@@ -95,7 +99,7 @@ for TypeScript integration, see [documentation](https://packer.john-coene.com/#/
 
 ## packer 0.0.3
 
-### Changes
+Changes:
 
 - Loaders `use_loader_*` now accept `test` argument.
 - Add `use_loader_rule` to allow adding loaders yet implemented.
@@ -103,19 +107,19 @@ for TypeScript integration, see [documentation](https://packer.john-coene.com/#/
 - Removed broken `use_loader_vue_style`, `apply_vue` now uses `use_loader_css` which works.
 - Added `output_path` argument to `add_plugin_html`.
 
-### Bug fixes
+Bug fixes:
 
 - Fixed import of external libraries (HTMLwidgets, Shiny, and jQuery).
 - Fixed name check on scaffolds, e.g.: `scaffold_input("no space allowed")` would not fail before.
 
-### Internals
+Internals:
 
 - Reworked internals of `use_loader_*` functions.
 - Refactored internals of `scaffold_input`, `scaffold_output`, and `scaffold_extension`.
 
 ## packer 0.0.2
 
-### Changes
+Changes:
 
 - Added `apply_react` adds the relevant (babel) loader, installs dependencies, and creates, or updates, or replaces the `srcjs/index.js` file.
 - Added `react` argument to `scaffold_golem` to include react in a golem scaffold, run `apply_react` under the hood.
